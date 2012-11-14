@@ -40,17 +40,11 @@ static struct light_state_t g_notification;
 static struct light_state_t g_battery;
 static int g_attention = 0;
 
-char const*const RED_LED_FILE
-        = "/sys/class/leds/red/brightness";
-
-char const*const GREEN_LED_FILE
-        = "/sys/class/leds/green/brightness";
-
-char const*const BLUE_LED_FILE
-        = "/sys/class/leds/blue/brightness";
-
-char const*const LCD_FILE
-        = "/sys/class/backlight/lcd-backlight/brightness";
+char const*const RED_LED_FILE = "/sys/class/leds/red/brightness";
+char const*const GREEN_LED_FILE = "/sys/class/leds/green/brightness";
+char const*const BLUE_LED_FILE = "/sys/class/leds/blue/brightness";
+char const*const LCD_FILE = "/sys/class/backlight/lcd-backlight/brightness";
+char const*const LED_BLINK = "/sys/class/leds/red/blink";
 
 /**
  * device methods
@@ -78,6 +72,26 @@ write_int(char const* path, int value)
     } else {
         if (already_warned == 0) {
             ALOGE("write_int failed to open %s\n", path);
+            already_warned = 1;
+        }
+        return -errno;
+    }
+}
+
+static int
+write_str(char const *path, const char* value)
+{
+    int fd;
+    static int already_warned = 0;
+
+    fd = open(path, O_RDWR);
+    if (fd >= 0) {
+        int amt = write(fd, value, strlen(value));
+        close(fd);
+        return amt == -1 ? -errno : 0;
+    } else {
+        if (already_warned == 0) {
+            ALOGE("write_str failed to open %s\n", path);
             already_warned = 1;
         }
         return -errno;
@@ -180,11 +194,14 @@ set_speaker_light_locked(struct light_device_t* dev,
     }
 
     if (blink) {
-        write_int(RED_LED_FILE, freq);
+        char blink[32];
+        snprintf(blink, sizeof(blink)-1, "%d %d", onMS, offMS);
+        write_str(LED_BLINK, blink);
     }
 
     return 0;
 }
+
 
 static void
 handle_speaker_battery_locked(struct light_device_t* dev)
