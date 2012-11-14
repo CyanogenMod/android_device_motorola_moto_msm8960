@@ -52,6 +52,16 @@ PRODUCT_PACKAGES += \
     arec \
     alsaucm_test
 
+#motorola
+PRODUCT_PACKAGES += \
+	aplogd \
+	modemlog \
+	batt_health \
+	charge_only_mode \
+	graphicsd \
+	mot_boot_mode \
+	recover_userdata
+
 #misc
 PRODUCT_PACKAGES += \
     lights.msm8960 \
