@@ -233,6 +233,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     media.stagefright.enable-scan=true \
     mmp.enable.3g2=true \
     af.resampler.quality=255 \
+    ro.opengles.version=131072 \
     mpq.audio.decode=true
 
 #cne
