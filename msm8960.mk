@@ -64,6 +64,7 @@ PRODUCT_PACKAGES += \
 
 #misc
 PRODUCT_PACKAGES += \
+    conn_init \
     lights.msm8960 \
     Torch \
     Stk
