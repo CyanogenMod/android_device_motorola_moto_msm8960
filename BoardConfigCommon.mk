@@ -91,3 +91,5 @@ ADDITIONAL_DEFAULT_PROPERTIES += ro.allow.mock.location=1
 
 # Number of supplementary service groups allowed by init
 TARGET_NR_SVC_SUPP_GIDS := 28
+TARGET_BOOTANIMATION_PRELOAD := true
+TARGET_BOOTANIMATION_TEXTURE_CACHE := false
