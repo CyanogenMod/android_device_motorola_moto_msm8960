@@ -64,7 +64,7 @@ PRODUCT_PACKAGES += \
 
 #misc
 PRODUCT_PACKAGES += \
-    conn_init \
+	WCNSS_qcom_wlan_nv.bin \
     lights.msm8960 \
     Torch \
     Stk
