@@ -225,7 +225,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Media
 PRODUCT_PROPERTY_OVERRIDES += \
-    lpa.decode=true \
+    lpa.decode=false \
     lpa.use-stagefright=true \
     media.stagefright.enable-player=true \
     media.stagefright.enable-http=true \
