@@ -45,7 +45,6 @@ PRODUCT_PACKAGES += \
     audio_policy.msm8960 \
     audio.primary.msm8960 \
     libalsa-intf \
-    snd_soc_msm_2x \
     libaudioutils \
     aplay \
     amix \
