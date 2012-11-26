@@ -87,9 +87,6 @@ BOARD_NEEDS_MEMORYHEAPPMEM := true
 #lights
 TARGET_PROVIDES_LIBLIGHTS := true
 
-ADDITIONAL_DEFAULT_PROPERTIES += ro.secure=0
-ADDITIONAL_DEFAULT_PROPERTIES += ro.allow.mock.location=1
-
 # Number of supplementary service groups allowed by init
 TARGET_NR_SVC_SUPP_GIDS := 28
 TARGET_BOOTANIMATION_PRELOAD := true

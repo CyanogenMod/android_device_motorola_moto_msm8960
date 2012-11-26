@@ -257,14 +257,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     wifi.interface=wlan0 \
     wifi.supplicant_scan_interval=30
 
-#debug
-PRODUCT_PROPERTY_OVERRIDES +=persist.sys.root_access=3 \
-        ro.debuggable=1 \
-        ro.secure=0 \
-        persist.service.adb.enable=1 \
-        property:sys.usb.config=adb \
-
-
 # Init scripts
 #TODO
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
