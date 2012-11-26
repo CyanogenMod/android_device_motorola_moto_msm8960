@@ -70,6 +70,7 @@ BOARD_EGL_CFG := $(LOCAL_PATH)/config/egl.cfg
 
 # Bluetooth
 BOARD_HAVE_BLUETOOTH := true
+TARGET_CUSTOM_BLUEDROID := ../../../$(LOCAL_PATH)/modules/bluetooth/bluetooth.c
 
 # NFC
 BOARD_HAVE_NFC := true
