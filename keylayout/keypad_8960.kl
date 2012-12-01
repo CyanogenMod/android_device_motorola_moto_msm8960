@@ -98,8 +98,10 @@ key 108   DPAD_DOWN         WAKE_DROPPED
 key 106   DPAD_RIGHT        WAKE_DROPPED
 
 # Volume keys
-key 115   VOLUME_UP         WAKE_DROPPED
-key 114   VOLUME_DOWN       WAKE_DROPPED
+# BEGIN Motorola, drmn68, 09/05/2012, IKJBREL1-5278
+key 115   VOLUME_UP
+key 114   VOLUME_DOWN
+# END IKJBREL1-5278
 
 # Numeric keypad
 key 522   STAR              WAKE_DROPPED
@@ -114,4 +116,3 @@ key 142   HOME              WAKE_DROPPED
 # Camera Keys
 key 766   FOCUS
 key 528   CAMERA
-key 212   CAMERA
