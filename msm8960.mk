@@ -166,10 +166,6 @@ PRODUCT_COPY_FILES += \
 # We have enough storage space to hold precise GC data
 PRODUCT_TAGS += dalvik.gc.type-precise
 
-# EGL config
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/config/egl.cfg:system/lib/egl/egl.cfg
-
 # QCOM Display
 PRODUCT_PACKAGES += \
     libgenlock \
