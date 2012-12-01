@@ -65,6 +65,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
 	WCNSS_qcom_wlan_nv.bin \
     lights.msm8960 \
+	tcpdump \
     Torch \
     Stk
 
