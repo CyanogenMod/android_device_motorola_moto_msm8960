@@ -258,7 +258,7 @@ void aplogd_move_logs(STORAGE_T old_storage,STORAGE_T new_storage)
                 snprintf(dst, MAX_PATH_LEN, "%s/%s", g_output_path[new_storage], output_filename[i]);
                 if((sfd=open(src, O_RDONLY |O_NONBLOCK ))<0)
                         continue;
-                if((dfd=open(dst, O_WRONLY |O_NONBLOCK |O_APPEND | O_CREAT))<0)
+                if((dfd=open(dst, O_WRONLY |O_NONBLOCK |O_APPEND | O_CREAT, 0755))<0)
                         continue;
                 while((ret = read(sfd,buf,4095))>0){
 			if(ret>4095)ret=4095;
