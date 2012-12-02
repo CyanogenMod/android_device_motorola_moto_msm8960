@@ -89,7 +89,7 @@ BOARD_CAMERA_USE_MM_HEAP := true
 BOARD_NEEDS_MEMORYHEAPPMEM := true
 
 #lights
-TARGET_PROVIDES_LIBLIGHTS := true
+TARGET_PROVIDES_LIBLIGHT := true
 
 # Number of supplementary service groups allowed by init
 TARGET_NR_SVC_SUPP_GIDS := 28
