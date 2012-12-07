@@ -46,6 +46,7 @@ PRODUCT_PACKAGES += \
     audio.usb.default \
     audio_policy.msm8960 \
     audio.primary.msm8960 \
+    alsa.msm8960 \
     libalsa-intf \
     libaudioutils \
     aplay \
