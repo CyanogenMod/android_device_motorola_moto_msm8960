@@ -191,11 +191,11 @@ PRODUCT_PACKAGES += \
     libOmxCore \
     libstagefrighthw \
     libOmxVdec \
-    libOmxVenc \
     libOmxAacEnc \
     libOmxAmrEnc \
     libOmxEvrcEnc \
     libOmxQcelp13Enc
+    #libOmxVenc \
 
 # Filesystem management tools
 PRODUCT_PACKAGES += \
