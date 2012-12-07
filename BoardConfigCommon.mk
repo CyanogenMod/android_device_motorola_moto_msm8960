@@ -91,6 +91,9 @@ BOARD_NEEDS_MEMORYHEAPPMEM := true
 #lights
 TARGET_PROVIDES_LIBLIGHT := true
 
+#use old ion
+BOARD_HAVE_OLD_ION_API := true
+
 # Number of supplementary service groups allowed by init
 TARGET_NR_SVC_SUPP_GIDS := 28
 TARGET_BOOTANIMATION_PRELOAD := true
