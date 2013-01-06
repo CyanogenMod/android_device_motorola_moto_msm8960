@@ -203,6 +203,10 @@ PRODUCT_PACKAGES += \
     e2fsck \
     setup_fs
 
+#wifi
+PRODUCT_PACKAGES += \
+	libnetcmdiface
+
 # QC Perf
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.extension_library=/system/lib/libqc-opt.so
