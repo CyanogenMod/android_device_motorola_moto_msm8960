@@ -112,6 +112,7 @@ else
 endif
 PRODUCT_COPY_FILES += $(NFCEE_ACCESS_PATH):system/etc/nfcee_access.xml
 PRODUCT_PACKAGES += \
+	nfc.msm8960 \
     libnfc \
     libnfc_jni \
     Nfc \
