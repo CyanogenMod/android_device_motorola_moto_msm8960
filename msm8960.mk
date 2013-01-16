@@ -83,7 +83,6 @@ PRODUCT_PACKAGES += qrngd
 
 #bluetooth
 PRODUCT_PACKAGES += \
-            libbt-vendor \
             hciconfig \
             hcitool
 

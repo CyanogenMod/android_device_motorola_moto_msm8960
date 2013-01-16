@@ -72,9 +72,10 @@ TARGET_USES_ION := true
 
 # Bluetooth
 BOARD_HAVE_BLUETOOTH := true
-TARGET_CUSTOM_BLUEDROID := ../../../$(LOCAL_PATH)/modules/bluetooth/bluetooth.c
 BOARD_BLUEDROID_VENDOR_CONF := $(LOCAL_PATH)/modules/bluetooth/vnd_moto.txt
-BOARD_HAVE_BLUETOOTH_BCM:=true
+BOARD_BLUETOOTH_USES_HCIATTACH_PROPERTY := true
+BOARD_HAVE_BLUETOOTH_QCOM := true
+BLUETOOTH_HCI_USE_MCT := true
 
 # NFC
 BOARD_HAVE_NFC := true
