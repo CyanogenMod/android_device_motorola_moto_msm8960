@@ -52,6 +52,7 @@ BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_qcwcn
 WIFI_DRIVER_MODULE_PATH := "/system/lib/modules/wlan.ko"
 WIFI_DRIVER_MODULE_NAME := "wlan"
 BOARD_WLAN_DEVICE := qcwcn
+BOARD_NO_APSME_ATTR:=true
 
 # Enable WEBGL in WebKit
 ENABLE_WEBGL := true
