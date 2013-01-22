@@ -30,8 +30,6 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml \
     frameworks/native/data/etc/android.hardware.sensor.accelerometer.xml:system/etc/permissions/android.hardware.sensor.accelerometer.xml \
     frameworks/native/data/etc/android.hardware.sensor.compass.xml:system/etc/permissions/android.hardware.sensor.compass.xml \
-    frameworks/base/nfc-extras/com.android.nfc_extras.xml:system/etc/permissions/com.android.nfc_extras.xml \
-    frameworks/native/data/etc/android.hardware.nfc.xml:system/etc/permissions/android.hardware.nfc.xml \
     frameworks/native/data/etc/com.nxp.mifare.xml:system/etc/permissions/com.nxp.mifare.xml \
     frameworks/native/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml \
     frameworks/native/data/etc/android.hardware.telephony.cdma.xml:system/etc/permissions/android.hardware.telephony.cdma.xml \
@@ -102,6 +100,7 @@ PRODUCT_PACKAGES += \
 	libgps.utils \
 	gps.msm8960
 
+ifeq ($(BOARD_HAVE_NFC),true)
 # NFC Support
 # NFCEE access control
 ifeq ($(TARGET_BUILD_VARIANT),user)
@@ -109,7 +108,9 @@ ifeq ($(TARGET_BUILD_VARIANT),user)
 else
     NFCEE_ACCESS_PATH := $(LOCAL_PATH)/config/nfcee_access_debug.xml
 endif
-PRODUCT_COPY_FILES += $(NFCEE_ACCESS_PATH):system/etc/nfcee_access.xml
+PRODUCT_COPY_FILES += $(NFCEE_ACCESS_PATH):system/etc/nfcee_access.xml \
+    frameworks/base/nfc-extras/com.android.nfc_extras.xml:system/etc/permissions/com.android.nfc_extras.xml \
+    frameworks/native/data/etc/android.hardware.nfc.xml:system/etc/permissions/android.hardware.nfc.xml \
 PRODUCT_PACKAGES += \
 	nfc.msm8960 \
     libnfc \
@@ -117,6 +118,7 @@ PRODUCT_PACKAGES += \
     Nfc \
     Tag \
     com.android.nfc_extras
+endif
 
 # Misc
 PRODUCT_PACKAGES += \
