@@ -98,6 +98,9 @@ TARGET_QCOM_AUDIO_VARIANT:=caf
 #lights
 TARGET_PROVIDES_LIBLIGHT := true
 
+# Power
+TARGET_PROVIDES_POWERHAL := true
+
 #use old ion
 BOARD_HAVE_OLD_ION_API := true
 
