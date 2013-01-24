@@ -74,7 +74,8 @@ PRODUCT_PACKAGES += \
     lights.msm8960 \
 	tcpdump \
     Torch \
-    Stk
+    Stk \
+    libxml2
 
 # Charger
 PRODUCT_PACKAGES += charger charger_res_images
