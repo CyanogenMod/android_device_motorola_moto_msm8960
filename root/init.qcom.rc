@@ -288,7 +288,7 @@ service netmgrd /system/bin/netmgrd
     class main
     disabled
 
-service sensors /system/bin/logwrapper /system/bin/sensorsqcomwrapper.sh
+service sensors /system/bin/sensorsqcomwrapper.sh
     class late_start
     user root
     group root
