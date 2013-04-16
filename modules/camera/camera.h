@@ -1139,6 +1139,18 @@ typedef enum {
   CAMERA_WB_MAX_PLUS_1
 } config3a_wb_t;
 
+/* Enum Type for different ISO Mode supported */
+typedef enum {
+  CAMERA_ISO_AUTO = 0,
+  CAMERA_ISO_DEBLUR,
+  CAMERA_ISO_100,
+  CAMERA_ISO_200,
+  CAMERA_ISO_400,
+  CAMERA_ISO_800,
+  CAMERA_ISO_1600,
+  CAMERA_ISO_MAX
+} camera_iso_mode_type;
+
 typedef enum {
   LED_MODE_OFF,
   LED_MODE_AUTO,
