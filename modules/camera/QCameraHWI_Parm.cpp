@@ -2771,8 +2771,6 @@ status_t QCameraHardwareInterface::setFaceDetection(const char *str)
             mFaceDetectOn = value;
             mMetaDataWaitLock.unlock();
             mParameters.set(CameraParameters::KEY_FACE_DETECTION, str);
-            native_set_parms(MM_CAMERA_PARM_FD, sizeof(int), (void *)&value);
-            mParameters.set(CameraParameters::KEY_FACE_DETECTION, str);
             return NO_ERROR;
         }
     }
