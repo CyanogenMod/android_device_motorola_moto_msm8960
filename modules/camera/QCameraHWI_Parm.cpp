@@ -144,7 +144,7 @@ static camera_size_type jpeg_thumbnail_sizes[]  = {
 };
 
 static camera_size_type default_preview_sizes[] = {
-  { 1920, 1088}, //1080p
+  { 1920, 1080}, //1080p
   { 1280, 720}, // 720P, reserved
   { 960, 720}, // for panorama
 //  { 960, 544},
@@ -162,7 +162,7 @@ static camera_size_type default_preview_sizes[] = {
 };
 
 static camera_size_type supported_video_sizes[] = {
-  { 1920, 1088},// 1080p
+  { 1920, 1080},// 1080p
   { 1280, 720}, // 720p
   { 960, 720},  // for panorama
   { 800, 480},  // WVGA
@@ -194,7 +194,7 @@ static camera_size_type default_picture_sizes[] = {
   { 2992, 1680},
   { 2592, 1456},
   { 2048, 1536}, // 3MP QXGA
-  { 1920, 1088}, //HD1080
+  { 1920, 1080}, //HD1080
   { 1600, 1200}, // 2MP UXGA
   { 1280, 768}, //WXGA
   { 1280, 720}, //HD720
