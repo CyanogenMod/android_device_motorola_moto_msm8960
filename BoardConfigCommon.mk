@@ -14,7 +14,7 @@
 
 LOCAL_PATH := device/motorola/msm8960-common
 
-BOARD_VENDOR := motorola
+BOARD_VENDOR := motorola-msm8960
 
 # Platform
 TARGET_BOARD_PLATFORM := msm8960
