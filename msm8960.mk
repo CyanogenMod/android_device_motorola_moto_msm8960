@@ -171,6 +171,19 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/keychars/kbd_us_intl.kcm:system/usr/keychars/kbd_us_intl.kcm \
     $(LOCAL_PATH)/keychars/usb_keyboard_102_en_us.kcm:system/usr/keychars/usb_keyboard_102_en_us.kcm
 
+#scripts
+PRODUCT_COPY_FILES += \
+	$(LOCAL_PATH)/scripts/init.goldfish.sh:system/etc/init.goldfish.sh \
+	$(LOCAL_PATH)/scripts/init.qcom.bt.sh:system/etc/init.qcom.bt.sh \
+	$(LOCAL_PATH)/scripts/init.qcom.coex.sh:system/etc/init.qcom.coex.sh \
+	$(LOCAL_PATH)/scripts/init.qcom.fm.sh:system/etc/init.qcom.fm.sh \
+	$(LOCAL_PATH)/scripts/init.qcom.mdm_links.sh:system/etc/init.qcom.mdm_links.sh \
+	$(LOCAL_PATH)/scripts/init.qcom.modem_links.sh:system/etc/init.qcom.modem_links.sh \
+	$(LOCAL_PATH)/scripts/init.qcom.post_boot.sh:system/etc/init.qcom.post_boot.sh \
+	$(LOCAL_PATH)/scripts/qcamerasrvwrapper.sh:system/bin/qcamerasrvwrapper.sh \
+	$(LOCAL_PATH)/scripts/sensorsqcomwrapper.sh:system/bin/sensorsqcomwrapper.sh \
+	$(LOCAL_PATH)/scripts/mount_pds.sh:system/bin/mount_pds.sh
+
 # We have enough storage space to hold precise GC data
 PRODUCT_TAGS += dalvik.gc.type-precise
 
@@ -265,6 +278,4 @@ PRODUCT_PROPERTY_OVERRIDES += \
     wifi.interface=wlan0 \
     wifi.supplicant_scan_interval=30
 
-# Init scripts
-#TODO
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
