@@ -34,8 +34,7 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.nfc.xml:system/etc/permissions/android.hardware.nfc.xml \
     frameworks/native/data/etc/com.nxp.mifare.xml:system/etc/permissions/com.nxp.mifare.xml \
     frameworks/native/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml \
-    frameworks/native/data/etc/android.hardware.telephony.cdma.xml:system/etc/permissions/android.hardware.telephony.cdma.xml \
-    packages/wallpapers/LivePicker/android.software.live_wallpaper.xml:system/etc/permissions/android.software.live_wallpaper.xml
+    frameworks/native/data/etc/android.hardware.telephony.cdma.xml:system/etc/permissions/android.hardware.telephony.cdma.xml
 
 ## overlays
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
@@ -112,7 +111,9 @@ ifeq ($(TARGET_BUILD_VARIANT),user)
 else
     NFCEE_ACCESS_PATH := $(LOCAL_PATH)/config/nfcee_access_debug.xml
 endif
+
 PRODUCT_COPY_FILES += $(NFCEE_ACCESS_PATH):system/etc/nfcee_access.xml
+
 PRODUCT_PACKAGES += \
 	nfc.msm8960 \
     libnfc \
@@ -132,58 +133,43 @@ PRODUCT_PACKAGES += \
     MagicSmokeWallpapers \
     HoloSpiralWallpaper \
     VisualizationWallpapers \
-    librs_jni \
+    librs_jni
 
 # keylayouts
 PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/keylayout/atmel_mxt_ts.kl:system/usr/keylayout/atmel_mxt_ts.kl \
-	$(LOCAL_PATH)/keylayout/AVRCP.kl:system/usr/keylayout/AVRCP.kl \
 	$(LOCAL_PATH)/keylayout/Button_Jack.kl:system/usr/keylayout/Button_Jack.kl \
 	$(LOCAL_PATH)/keylayout/cyttsp-i2c.kl:system/usr/keylayout/cyttsp-i2c.kl \
-	$(LOCAL_PATH)/keylayout/Generic.kl:system/usr/keylayout/Generic.kl \
 	$(LOCAL_PATH)/keylayout/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl \
 	$(LOCAL_PATH)/keylayout/keypad_8960.kl:system/usr/keylayout/keypad_8960.kl \
 	$(LOCAL_PATH)/keylayout/keypad_8960_liquid.kl:system/usr/keylayout/keypad_8960_liquid.kl \
 	$(LOCAL_PATH)/keylayout/philips_remote_ir.kl:system/usr/keylayout/philips_remote_ir.kl \
-	$(LOCAL_PATH)/keylayout/qwerty.kl:system/usr/keylayout/qwerty.kl \
 	$(LOCAL_PATH)/keylayout/samsung_remote_ir.kl:system/usr/keylayout/samsung_remote_ir.kl \
-	$(LOCAL_PATH)/keylayout/ue_rf4ce_remote.kl:system/usr/keylayout/ue_rf4ce_remote.kl \
-	$(LOCAL_PATH)/keylayout/Vendor_045e_Product_028e.kl:system/usr/keylayout/Vendor_045e_Product_028e.kl \
-	$(LOCAL_PATH)/keylayout/Vendor_046d_Product_c216.kl:system/usr/keylayout/Vendor_046d_Product_c216.kl \
-	$(LOCAL_PATH)/keylayout/Vendor_046d_Product_c294.kl:system/usr/keylayout/Vendor_046d_Product_c294.kl \
-	$(LOCAL_PATH)/keylayout/Vendor_046d_Product_c299.kl:system/usr/keylayout/Vendor_046d_Product_c299.kl \
-	$(LOCAL_PATH)/keylayout/Vendor_046d_Product_c532.kl:system/usr/keylayout/Vendor_046d_Product_c532.kl \
-	$(LOCAL_PATH)/keylayout/Vendor_054c_Product_0268.kl:system/usr/keylayout/Vendor_054c_Product_0268.kl \
-	$(LOCAL_PATH)/keylayout/Vendor_05ac_Product_0239.kl:system/usr/keylayout/Vendor_05ac_Product_0239.kl \
-	$(LOCAL_PATH)/keylayout/Vendor_22b8_Product_093d.kl:system/usr/keylayout/Vendor_22b8_Product_093d.kl \
+	$(LOCAL_PATH)/keylayout/ue_rf4ce_remote.kl:system/usr/keylayout/ue_rf4ce_remote.kl
 
 # Keychars
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/keychars/kbd_se_basic.kcm:system/usr/keychars/kbd_se_basic.kcm \
-    $(LOCAL_PATH)/keychars/kbd_br_abnt2.kcm:system/usr/keychars/kbd_br_abnt2.kcm \
-    $(LOCAL_PATH)/keychars/kbd_dk_basic.kcm:system/usr/keychars/kbd_dk_basic.kcm \
-    $(LOCAL_PATH)/keychars/kbd_ar_basic.kcm:system/usr/keychars/kbd_ar_basic.kcm \
-    $(LOCAL_PATH)/keychars/kbd_fr_basic.kcm:system/usr/keychars/kbd_fr_basic.kcm \
-    $(LOCAL_PATH)/keychars/kbd_ru_basic.kcm:system/usr/keychars/kbd_ru_basic.kcm \
-    $(LOCAL_PATH)/keychars/qwerty2.kcm:system/usr/keychars/qwerty2.kcm \
-    $(LOCAL_PATH)/keychars/Generic.kcm:system/usr/keychars/Generic.kcm \
-    $(LOCAL_PATH)/keychars/kbd_us_basic.kcm:system/usr/keychars/kbd_us_basic.kcm \
-    $(LOCAL_PATH)/keychars/kbd_de_basic.kcm:system/usr/keychars/kbd_de_basic.kcm \
-    $(LOCAL_PATH)/keychars/Virtual.kcm:system/usr/keychars/Virtual.kcm \
-    $(LOCAL_PATH)/keychars/kbd_fi_basic.kcm:system/usr/keychars/kbd_fi_basic.kcm \
-    $(LOCAL_PATH)/keychars/kbd_no_basic.kcm:system/usr/keychars/kbd_no_basic.kcm \
-    $(LOCAL_PATH)/keychars/kbd_latam_basic.kcm:system/usr/keychars/kbd_latam_basic.kcm \
-    $(LOCAL_PATH)/keychars/usb_keyboard_102_en_us.kcm:system/usr/keychars/usb_keyboard_102_en_us.kcm \
-    $(LOCAL_PATH)/keychars/kbd_gr_basic.kcm:system/usr/keychars/kbd_gr_basic.kcm \
-    $(LOCAL_PATH)/keychars/qwerty.kcm:system/usr/keychars/qwerty.kcm \
-    $(LOCAL_PATH)/keychars/kbd_gb_basic.kcm:system/usr/keychars/kbd_gb_basic.kcm \
-    $(LOCAL_PATH)/keychars/kbd_us_intl.kcm:system/usr/keychars/kbd_us_intl.kcm \
     $(LOCAL_PATH)/keychars/evfwd.kcm:system/usr/keychars/evfwd.kcm \
-    $(LOCAL_PATH)/keychars/kbd_pl_basic.kcm:system/usr/keychars/kbd_pl_basic.kcm \
-    $(LOCAL_PATH)/keychars/kbd_it_basic.kcm:system/usr/keychars/kbd_it_basic.kcm \
+    $(LOCAL_PATH)/keychars/kbd_ar_basic.kcm:system/usr/keychars/kbd_ar_basic.kcm \
+    $(LOCAL_PATH)/keychars/kbd_br_abnt2.kcm:system/usr/keychars/kbd_br_abnt2.kcm \
+    $(LOCAL_PATH)/keychars/kbd_ca_fr.kcm:system/usr/keychars/kbd_ca_fr.kcm \
+    $(LOCAL_PATH)/keychars/kbd_de_basic.kcm:system/usr/keychars/kbd_de_basic.kcm \
+    $(LOCAL_PATH)/keychars/kbd_dk_basic.kcm:system/usr/keychars/kbd_dk_basic.kcm \
     $(LOCAL_PATH)/keychars/kbd_es_basic.kcm:system/usr/keychars/kbd_es_basic.kcm \
+    $(LOCAL_PATH)/keychars/kbd_fi_basic.kcm:system/usr/keychars/kbd_fi_basic.kcm \
+    $(LOCAL_PATH)/keychars/kbd_fr_basic.kcm:system/usr/keychars/kbd_fr_basic.kcm \
+    $(LOCAL_PATH)/keychars/kbd_gb_basic.kcm:system/usr/keychars/kbd_gb_basic.kcm \
+    $(LOCAL_PATH)/keychars/kbd_gr_basic.kcm:system/usr/keychars/kbd_gr_basic.kcm \
     $(LOCAL_PATH)/keychars/kbd_il_basic.kcm:system/usr/keychars/kbd_il_basic.kcm \
-    $(LOCAL_PATH)/keychars/kbd_ca_fr.kcm:system/usr/keychars/kbd_ca_fr.kcm
+    $(LOCAL_PATH)/keychars/kbd_it_basic.kcm:system/usr/keychars/kbd_it_basic.kcm \
+    $(LOCAL_PATH)/keychars/kbd_latam_basic.kcm:system/usr/keychars/kbd_latam_basic.kcm \
+    $(LOCAL_PATH)/keychars/kbd_no_basic.kcm:system/usr/keychars/kbd_no_basic.kcm \
+    $(LOCAL_PATH)/keychars/kbd_pl_basic.kcm:system/usr/keychars/kbd_pl_basic.kcm \
+    $(LOCAL_PATH)/keychars/kbd_ru_basic.kcm:system/usr/keychars/kbd_ru_basic.kcm \
+    $(LOCAL_PATH)/keychars/kbd_se_basic.kcm:system/usr/keychars/kbd_se_basic.kcm \
+    $(LOCAL_PATH)/keychars/kbd_us_basic.kcm:system/usr/keychars/kbd_us_basic.kcm \
+    $(LOCAL_PATH)/keychars/kbd_us_intl.kcm:system/usr/keychars/kbd_us_intl.kcm \
+    $(LOCAL_PATH)/keychars/usb_keyboard_102_en_us.kcm:system/usr/keychars/usb_keyboard_102_en_us.kcm
 
 # We have enough storage space to hold precise GC data
 PRODUCT_TAGS += dalvik.gc.type-precise
