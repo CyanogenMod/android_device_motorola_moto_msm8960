@@ -171,6 +171,20 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/keychars/kbd_us_intl.kcm:system/usr/keychars/kbd_us_intl.kcm \
     $(LOCAL_PATH)/keychars/usb_keyboard_102_en_us.kcm:system/usr/keychars/usb_keyboard_102_en_us.kcm
 
+#init
+PRODUCT_COPY_FILES += \
+	$(LOCAL_PATH)/root/fstab.qcom:root/fstab.qcom \
+	$(LOCAL_PATH)/root/init.mmi.usb.rc:root/init.mmi.usb.rc \
+	$(LOCAL_PATH)/root/init.mmi.usb.sh:root/init.mmi.usb.sh \
+	$(LOCAL_PATH)/root/init.msm.rc:root/init.msm.rc \
+	$(LOCAL_PATH)/root/init.qcom.class_core.sh:root/init.qcom.class_core.sh \
+	$(LOCAL_PATH)/root/init.qcom.class_main.sh:root/init.qcom.class_main.sh \
+	$(LOCAL_PATH)/root/init.qcom.rc:root/init.qcom.rc \
+	$(LOCAL_PATH)/root/init.qcom.sh:root/init.qcom.sh \
+	$(LOCAL_PATH)/root/init.target.rc:root/init.target.rc \
+	$(LOCAL_PATH)/root/ueventd.qcom.rc:root/ueventd.qcom.rc
+
+
 #scripts
 PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/scripts/init.goldfish.sh:system/etc/init.goldfish.sh \
