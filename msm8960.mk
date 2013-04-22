@@ -187,6 +187,21 @@ PRODUCT_COPY_FILES += \
 # We have enough storage space to hold precise GC data
 PRODUCT_TAGS += dalvik.gc.type-precise
 
+# EGL config
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/config/egl.cfg:system/lib/egl/egl.cfg
+
+# QCOM Display
+PRODUCT_PROPERTY_OVERRIDES += \
+	debug.egl.hw=1 \
+	debug.sf.hw=1 \
+	debug.gr.numframebuffers=3 \
+	persist.sys.ui.hw=true \
+	debug.composition.type=c2d \
+	debug.egl.recordable.rgba8888=1 \
+	debug.enabletr=0 \
+	ro.hwui.text_cache_width=2048
+
 # QCOM Display
 PRODUCT_PACKAGES += \
     libgenlock \
