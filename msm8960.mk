@@ -302,6 +302,41 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.cne.rat.acq.retry.tout=0 \
     persist.cne.nsrm.mode=false
 
+#misc
+PRODUCT_PROPERTY_OVERRIDES += \
+	persist.fuse_sdcard=true \
+	ro.usb.mtp_usbnet=0x2e32 \
+	ro.usb.mtp_usbnet_adb=0x2e33 \
+	ro.usb.cdrom=0x2e20 \
+	ro.usb.ms=0x2e21 \
+	ro.usb.ms_adb=0x2e22 \
+	ro.usb.ptp=0x2e30 \
+	ro.usb.ptp_adb=0x2e31 \
+	ro.hdmi.enable=true \
+	ro.product.model.exif=RAZR_HD
+
+#wifi
+PRODUCT_PROPERTY_OVERRIDES += \
+	persist.sys.qc.sub.rstrtlvl=3 \
+	persist.sys.qc.sub.rdump.on=1 \
+	persist.sys.qc.sub.rdump.max=20
+
+# Radio and Telephony
+PRODUCT_PROPERTY_OVERRIDES += \
+	rild.libpath=/system/lib/libril-qc-qmi-1.so \
+	ril.subscription.types=NV,RUIM \
+	keyguard.no_require_sim=true \
+	ro.use_data_netmgrd=true \
+	ro.ril.transmitpower=true \
+	persist.radio.apm_sim_not_pwdn=1 \
+	persist.radio.call_type=1 \
+	persist.audio.fluence.mode=endfire \
+	persist.audio.vr.enable=false \
+	ro.qc.sdk.audio.fluencetype=fluence \
+	persist.audio.handset.mic=digital \
+	ro.config.vc_call_vol_steps=7 \
+	persist.timed.enable=true
+
 # Wifi
 PRODUCT_PROPERTY_OVERRIDES += \
     wifi.interface=wlan0 \
