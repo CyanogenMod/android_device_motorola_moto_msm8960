@@ -205,6 +205,20 @@ PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/scripts/sensorsqcomwrapper.sh:system/bin/sensorsqcomwrapper.sh \
 	$(LOCAL_PATH)/scripts/mount_pds.sh:system/bin/mount_pds.sh
 
+#media
+PRODUCT_COPY_FILES += \
+	$(LOCAL_PATH)/config/audio_policy.conf:system/etc/audio_policy.conf \
+	$(LOCAL_PATH)/config/media_profiles.xml:system/etc/media_profiles.xml \
+	$(LOCAL_PATH)/config/media_codecs.xml:system/etc/media_codecs.xml
+
+#audio
+PRODUCT_COPY_FILES += \
+	$(LOCAL_PATH)/config/snd_soc_msm_2x:system/etc/snd_soc_msm/snd_soc_msm_2x
+
+#config
+PRODUCT_COPY_FILES += \
+	$(LOCAL_PATH)/config/vold.fstab:system/etc/vold.fstab
+
 # We have enough storage space to hold precise GC data
 PRODUCT_TAGS += dalvik.gc.type-precise
 
