@@ -175,7 +175,6 @@ PRODUCT_COPY_FILES += \
 
 #scripts
 PRODUCT_COPY_FILES += \
-	$(LOCAL_PATH)/scripts/init.goldfish.sh:system/etc/init.goldfish.sh \
 	$(LOCAL_PATH)/scripts/init.qcom.bt.sh:system/etc/init.qcom.bt.sh \
 	$(LOCAL_PATH)/scripts/init.qcom.coex.sh:system/etc/init.qcom.coex.sh \
 	$(LOCAL_PATH)/scripts/init.qcom.fm.sh:system/etc/init.qcom.fm.sh \
