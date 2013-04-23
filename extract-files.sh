@@ -13,7 +13,7 @@ export VENDORDEVICEDIR
 BASE=../../../vendor/$VENDOR/$VENDORDEVICEDIR/proprietary
 rm -rf $BASE/*
 rm -rf $BASE/../packages 2> /dev/null
-for FILE in `cat ../vanquish-common/proprietary-files.txt | grep -v ^# | cut -f1 -d '#' | grep -v ^$`; do
+for FILE in `cat ..msm8960-common/proprietary-files.txt | grep -v ^# | cut -f1 -d '#' | grep -v ^$`; do
     DIR=`dirname $FILE`
     if [ ! -d $BASE/$DIR ]; then
         mkdir -p $BASE/$DIR
@@ -46,4 +46,4 @@ done
 rmdir ${BASE}/app 2> /dev/null
 
 
-../vanquish-common/setup-makefiles.sh
+../msm8960-common/setup-makefiles.sh
