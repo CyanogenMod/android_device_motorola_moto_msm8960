@@ -71,11 +71,16 @@ PRODUCT_PACKAGES += \
 #misc
 PRODUCT_PACKAGES += \
 	WCNSS_qcom_wlan_nv.bin \
-    lights.msm8960 \
 	tcpdump \
     Torch \
     Stk \
     libxml2
+
+ifeq ($(TARGET_USES_MOTOROLA_COMMON_LIBLIGHT),true)
+TARGET_PROVIDES_LIBLIGHT := true
+PRODUCT_PACKAGES += \
+	lights.msm8960
+endif
 
 # Charger
 PRODUCT_PACKAGES += charger charger_res_images
