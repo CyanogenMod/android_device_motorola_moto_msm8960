@@ -84,12 +84,6 @@
                   autodetected from the Configuration. -->
     <bool name="config_showNavigationBar">true</bool>
 
-    <!-- Default interface to monitor data use -->
-    <string name="config_datause_iface">rmnet0</string>
-
-
-
-
     <!-- Minimum screen brightness allowed by the power manager. -->
     <integer name="config_screenBrightnessDim">5</integer>
 
