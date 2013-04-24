@@ -73,7 +73,6 @@ PRODUCT_PACKAGES += \
 	WCNSS_qcom_wlan_nv.bin \
 	tcpdump \
     Torch \
-    Stk \
     libxml2
 
 ifeq ($(TARGET_USES_MOTOROLA_COMMON_LIBLIGHT),true)
