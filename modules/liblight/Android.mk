@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-ifeq ($(TARGET_USES_MOTOROLA_COMMON_LIBLIGHT),true)
+ifeq ($(TARGET_USES_MOTOROLA_MSM8960_COMMON_LIBLIGHT),true)
 LOCAL_PATH:= $(call my-dir)
 # HAL module implemenation stored in
 # hw/<COPYPIX_HARDWARE_MODULE_ID>.<ro.board.platform>.so

@@ -55,7 +55,7 @@ PRODUCT_PACKAGES += \
     arec \
     alsaucm_test
 
-#motorola
+# Motorola
 PRODUCT_PACKAGES += \
 	aplogd \
 	modemlog \
@@ -68,28 +68,25 @@ PRODUCT_PACKAGES += \
 	libxt_native.so \
 	wiperiface
 
-#misc
+# Misc
 PRODUCT_PACKAGES += \
 	WCNSS_qcom_wlan_nv.bin \
 	tcpdump \
     Torch \
     libxml2
 
-ifeq ($(TARGET_USES_MOTOROLA_COMMON_LIBLIGHT),true)
-TARGET_PROVIDES_LIBLIGHT := true
-PRODUCT_PACKAGES += \
-	lights.msm8960
-endif
+# Lights
+PRODUCT_PACKAGES += lights.msm8960
 
-ifeq ($(TARGET_USES_MOTOROLA_COMMON_IDC),true)
+ifeq ($(TARGET_USES_MOTOROLA_MSM8960_COMMON_IDC),true)
 -include $(LOCAL_PATH)/idc/idc.mk
 endif
 
-ifeq ($(TARGET_USES_MOTOROLA_COMMON_KEYCHARS),true)
+ifeq ($(TARGET_USES_MOTOROLA_MSM8960_COMMON_KEYCHARS),true)
 -include $(LOCAL_PATH)/keychars/keychars.mk
 endif
 
-ifeq ($(TARGET_USES_MOTOROLA_COMMON_KEYLAYOUT),true)
+ifeq ($(TARGET_USES_MOTOROLA_MSM8960_COMMON_KEYLAYOUT),true)
 -include $(LOCAL_PATH)/keylayout/keylayout.mk
 endif
 
