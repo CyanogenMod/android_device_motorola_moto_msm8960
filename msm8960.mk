@@ -78,17 +78,9 @@ PRODUCT_PACKAGES += \
 # Lights
 PRODUCT_PACKAGES += lights.msm8960
 
-ifeq ($(TARGET_USES_MOTOROLA_MSM8960_COMMON_IDC),true)
 -include $(LOCAL_PATH)/idc/idc.mk
-endif
-
-ifeq ($(TARGET_USES_MOTOROLA_MSM8960_COMMON_KEYCHARS),true)
 -include $(LOCAL_PATH)/keychars/keychars.mk
-endif
-
-ifeq ($(TARGET_USES_MOTOROLA_MSM8960_COMMON_KEYLAYOUT),true)
 -include $(LOCAL_PATH)/keylayout/keylayout.mk
-endif
 
 # Charger
 PRODUCT_PACKAGES += charger charger_res_images

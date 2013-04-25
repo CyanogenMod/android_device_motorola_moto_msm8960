@@ -1,4 +1,5 @@
-# Keychars
+ifeq ($(TARGET_USES_MOTOROLA_MSM8960_COMMON_KEYCHARS),true)
+LOCAL_PATH := device/motorola/msm8960-common
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/keychars/evfwd.kcm:system/usr/keychars/evfwd.kcm \
     $(LOCAL_PATH)/keychars/kbd_ar_basic.kcm:system/usr/keychars/kbd_ar_basic.kcm \
@@ -21,3 +22,4 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/keychars/kbd_us_basic.kcm:system/usr/keychars/kbd_us_basic.kcm \
     $(LOCAL_PATH)/keychars/kbd_us_intl.kcm:system/usr/keychars/kbd_us_intl.kcm \
     $(LOCAL_PATH)/keychars/usb_keyboard_102_en_us.kcm:system/usr/keychars/usb_keyboard_102_en_us.kcm
+endif
