@@ -28,7 +28,6 @@
 #
 
 import init.mmi.usb.rc
-import init.safestrap.rc
 
 #start camera server as daemon
 service qcamerasvr /system/bin/logwrapper /system/bin/qcamerasrvwrapper.sh
@@ -493,10 +492,10 @@ on property:tcmd.ctrl_adb=0
     setprop persist.factory.allow_adb 0
 
 on property:persist.sys.qc.sub.rdump.on=*
-    write /sys/module/subsystem_restart/parameters/enable_ramdumps $persist.sys.qc.sub.rdump.on
+    write /sys/module/subsystem_restart/parameters/enable_ramdumps ${persist.sys.qc.sub.rdump.on}
 
 on property:persist.sys.qc.sub.rstrtlvl=*
-    write /sys/module/subsystem_restart/parameters/restart_level $persist.sys.qc.sub.rstrtlvl
+    write /sys/module/subsystem_restart/parameters/restart_level ${persist.sys.qc.sub.rstrtlvl}
 
 service wdtest /system/bin/insmod /system/lib/modules/msm_watchdog_test_module.ko
     group system mot_tcmd
@@ -727,9 +726,5 @@ service p2p_supplicant /system/bin/logwrapper /system/bin/wpa_supplicant \
     oneshot
 
 service location_mq /system/bin/logwrapper /system/bin/location-mq
-    class late_start
-    user root
-
-service xtwifi_inet_agent /system/bin/logwrapper /system/bin/xtwifi-inet-agent
     class late_start
     user root
