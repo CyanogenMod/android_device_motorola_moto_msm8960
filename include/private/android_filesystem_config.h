@@ -62,6 +62,7 @@
 #define AID_DRMRPC        1026  /* group for drm rpc */
 #define AID_NFC           1027  /* nfc subsystem */
 #define AID_SDCARD_R      1028  /* external storage read access */
+#define AID_FM_RADIO      1029  /* FM radio */
 #define AID_SMARTCARD     1128  /* smart card subsystem */
 
 #define AID_SHELL         2000  /* adb and debug shell user */
@@ -81,8 +82,6 @@
 #define AID_QCOM_ONCRPC   3009  /* can read/write /dev/oncrpc files */
 #define AID_QCOM_DIAG     3010  /* can read/write /dev/diag */
 
-#if defined(MOTOROLA_UIDS)
-#define AID_MOT_OSH       5000  /* OSH */
 #define AID_MOT_ACCY      9000  /* access to accessory */
 #define AID_MOT_PWRIC     9001  /* power IC */
 #define AID_MOT_USB       9002  /* mot usb */
@@ -95,8 +94,7 @@
 #define AID_MOT_WHISPER   9009  /* Whisper Protocol access */
 #define AID_MOT_CAIF      9010  /* can create CAIF sockets */
 #define AID_MOT_DLNA      9011  /* DLNA native */
-#define AID_MOT_ATVC      9012
-#endif // MOTOROLA_UIDS
+#define AID_MOT_ATVC      9012 /* mot_atvc - This is for use of the ATVC service ONLY */
 
 #define AID_MISC          9998  /* access to misc storage */
 #define AID_NOBODY        9999
@@ -160,22 +158,20 @@ static const struct android_id_info android_ids[] = {
     { "net_bw_acct", AID_NET_BW_ACCT, },
     { "qcom_oncrpc", AID_QCOM_ONCRPC, },
     { "qcom_diag", AID_QCOM_DIAG, },
-#if defined(MOTOROLA_UIDS)
-    { "mot_osh",   AID_MOT_OSH, },
-    { "mot_accy",  AID_MOT_ACCY, },
-    { "mot_pwric", AID_MOT_PWRIC, },
-    { "mot_usb",   AID_MOT_USB, },
-    { "mot_drm",   AID_MOT_DRM, },
-    { "mot_tcmd",  AID_MOT_TCMD, },
-    { "mot_sec_rtc",   AID_MOT_SEC_RTC, },
-    { "mot_tombstone", AID_MOT_TOMBSTONE, },
-    { "mot_tpapi",     AID_MOT_TPAPI, },
-    { "mot_secclkd",   AID_MOT_SECCLKD, },
-    { "mot_whisper",   AID_MOT_WHISPER, },
-    { "mot_caif",  AID_MOT_CAIF, },
-    { "mot_dlna",  AID_MOT_DLNA, },
-    { "mot_atvc",  AID_MOT_ATVC, },
-#endif
+    { "fm_radio",  AID_FM_RADIO, },
+    { "mot_accy",	AID_MOT_ACCY, },
+    { "mot_pwric",	AID_MOT_PWRIC, },
+    { "mot_usb",	AID_MOT_USB, },
+    { "mot_drm",	AID_MOT_DRM, },
+    { "mot_tcmd",	AID_MOT_TCMD, },
+    { "mot_sec_rtc",	AID_MOT_SEC_RTC, },
+    { "mot_tombstone",	AID_MOT_TOMBSTONE, },
+    { "mot_tpapi",	AID_MOT_TPAPI, },
+    { "mot_secclkd",	AID_MOT_SECCLKD, },
+    { "mot_whisper",	AID_MOT_WHISPER, },
+    { "mot_caif",	AID_MOT_CAIF, },
+    { "mot_dlna",	AID_MOT_DLNA, },
+    { "mot_atvc",	AID_MOT_ATVC, },
     { "misc",      AID_MISC, },
     { "nobody",    AID_NOBODY, },
 };
