@@ -1,4 +1,3 @@
-ifeq ($(TARGET_USES_MOTOROLA_MSM8960_COMMON_KEYLAYOUT),true)
 LOCAL_PATH := device/motorola/msm8960-common
 PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/keylayout/atmel_mxt_ts.kl:system/usr/keylayout/atmel_mxt_ts.kl \
@@ -10,4 +9,3 @@ PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/keylayout/philips_remote_ir.kl:system/usr/keylayout/philips_remote_ir.kl \
 	$(LOCAL_PATH)/keylayout/samsung_remote_ir.kl:system/usr/keylayout/samsung_remote_ir.kl \
 	$(LOCAL_PATH)/keylayout/ue_rf4ce_remote.kl:system/usr/keylayout/ue_rf4ce_remote.kl
-endif

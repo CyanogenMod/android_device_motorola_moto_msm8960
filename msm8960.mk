@@ -75,10 +75,6 @@ PRODUCT_PACKAGES += \
 # Lights
 PRODUCT_PACKAGES += lights.msm8960
 
--include $(LOCAL_PATH)/idc/idc.mk
--include $(LOCAL_PATH)/keychars/keychars.mk
--include $(LOCAL_PATH)/keylayout/keylayout.mk
-
 # Charger
 PRODUCT_PACKAGES += charger charger_res_images
 
