@@ -276,8 +276,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	ro.usb.ms_adb=0x2e22 \
 	ro.usb.ptp=0x2e30 \
 	ro.usb.ptp_adb=0x2e31 \
-	ro.hdmi.enable=true \
-	ro.product.model.exif=RAZR_HD
+	ro.hdmi.enable=true
 
 #wifi
 PRODUCT_PROPERTY_OVERRIDES += \
