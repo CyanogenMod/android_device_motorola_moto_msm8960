@@ -588,9 +588,9 @@ bool QCameraHardwareInterface::useOverlay(void)
 #endif
 
 bool QCameraHardwareInterface::isPreviewRunning() {
-    ALOGI("isPreviewRunning: E");
+    //ALOGI("isPreviewRunning: E");
     bool ret = false;
-    ALOGI("isPreviewRunning: camera state:%d", mCameraState);
+    //ALOGI("isPreviewRunning: camera state:%d", mCameraState);
 
     if((mCameraState == CAMERA_STATE_PREVIEW) ||
        (mCameraState == CAMERA_STATE_PREVIEW_START_CMD_SENT) ||
@@ -807,7 +807,7 @@ void QCameraHardwareInterface::processCtrlEvent(mm_camera_ctrl_event_t *event, a
 void  QCameraHardwareInterface::processStatsEvent(
   mm_camera_stats_event_t *event, app_notify_cb_t *app_cb)
 {
-    ALOGI("processStatsEvent: E");
+    //ALOGI("processStatsEvent: E");
     if (!isPreviewRunning( )) {
         ALOGE("preview is not running");
         return;
@@ -816,8 +816,8 @@ void  QCameraHardwareInterface::processStatsEvent(
     switch (event->event_id) {
         case MM_CAMERA_STATS_EVT_HISTO:
         {
-            ALOGE("HAL process Histo: mMsgEnabled=0x%x, mStatsOn=%d, mSendData=%d, mDataCb=%p ",
-            (mMsgEnabled & CAMERA_MSG_STATS_DATA), mStatsOn, mSendData, mDataCb);
+            //ALOGE("HAL process Histo: mMsgEnabled=0x%x, mStatsOn=%d, mSendData=%d, mDataCb=%p ",
+            //(mMsgEnabled & CAMERA_MSG_STATS_DATA), mStatsOn, mSendData, mDataCb);
             int msgEnabled = mMsgEnabled;
             camera_preview_histogram_info* hist_info =
                 (camera_preview_histogram_info*) event->e.stats_histo.histo_info;
@@ -866,7 +866,7 @@ void  QCameraHardwareInterface::processInfoEvent(
 void  QCameraHardwareInterface::processEvent(mm_camera_event_t *event)
 {
     app_notify_cb_t app_cb;
-    ALOGE("processEvent: type :%d E",event->event_type);
+    //ALOGE("processEvent: type :%d E",event->event_type);
     if(mPreviewState == QCAMERA_HAL_PREVIEW_STOPPED){
 	ALOGE("Stop recording issued. Return from process Event");
         return;
@@ -889,7 +889,7 @@ void  QCameraHardwareInterface::processEvent(mm_camera_event_t *event)
         default:
             break;
     }
-    ALOGE(" App_cb Notify %p, datacb=%p", app_cb.notifyCb, app_cb.dataCb);
+    //ALOGE(" App_cb Notify %p, datacb=%p", app_cb.notifyCb, app_cb.dataCb);
     if (app_cb.notifyCb) {
       app_cb.notifyCb(app_cb.argm_notify.msg_type,
         app_cb.argm_notify.ext1, app_cb.argm_notify.ext2,
@@ -900,7 +900,7 @@ void  QCameraHardwareInterface::processEvent(mm_camera_event_t *event)
         app_cb.argm_data_cb.data, app_cb.argm_data_cb.index,
         app_cb.argm_data_cb.metadata, app_cb.argm_data_cb.cookie);
     }
-    ALOGI("processEvent: X");
+    //ALOGI("processEvent: X");
     return;
 }
 
