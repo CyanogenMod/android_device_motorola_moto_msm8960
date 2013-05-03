@@ -20,3 +20,8 @@ PRODUCT_PACKAGES += \
     Nfc \
     Tag \
     com.android.nfc_extras
+
+# Properties
+PRODUCT_PROPERTY_OVERRIDES += \
+    debug.nfc.fw_download=true \
+    debug.nfc.se=true
