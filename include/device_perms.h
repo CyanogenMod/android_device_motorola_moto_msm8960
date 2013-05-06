@@ -20,7 +20,7 @@
 #define PROPERTY_PERMS_APPEND \
     { "persist.audio.",   AID_SYSTEM,   0 }, \
     { "tcmd.",            AID_MOT_TCMD, AID_MOT_WHISPER }, \
-    { "hw.whisper.",      AID_MOT_WHISPER, 0 }, \
+    { "hw.whisper",      AID_MOT_WHISPER, 0 }, \
     { "sys.media.",       AID_RADIO, 0 }, \
     { "persist.atvc.",     AID_SYSTEM, 0 },
 
