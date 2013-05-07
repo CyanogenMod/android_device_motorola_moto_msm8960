@@ -61,7 +61,6 @@ PRODUCT_PACKAGES += \
 	charge_only_mode \
 	graphicsd \
 	mot_boot_mode \
-	recover_userdata \
 	libxt_native.so
 
 # Misc
