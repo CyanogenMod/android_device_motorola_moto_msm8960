@@ -89,6 +89,9 @@ TARGET_USES_C2D_COMPOSITION := true
 TARGET_USES_ION := true
 BOARD_EGL_CFG := $(LOCAL_PATH)/config/egl.cfg
 
+# Telephony
+BOARD_RIL_CLASS := ../../../device/motorola/msm8960-common/ril/MotorolaQualcommRIL.java
+
 # Bluetooth
 BOARD_HAVE_BLUETOOTH := true
 BOARD_BLUEDROID_VENDOR_CONF := $(LOCAL_PATH)/modules/bluetooth/vnd_moto.txt
