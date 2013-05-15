@@ -25,13 +25,6 @@
 # external SDCard
 dev_mount sdcard /storage/sdcard1 auto /devices/platform/msm_sdcc.3/mmc_host
 
-# flash drive connection through hub connected to USB
-dev_mount usbdisk_1.1.1 /storage/usbdisk_1.1.1 auto /devices/platform/msm_hsusb_host/usb1/1-1/1-1:1.1
-dev_mount usbdisk_1.0  /storage/usbdisk_1.0 auto /devices/platform/msm_hsusb_host/usb1/1-1/1-1.0
-dev_mount usbdisk_1.1  /storage/usbdisk_1.1 auto /devices/platform/msm_hsusb_host/usb1/1-1/1-1.1
-dev_mount usbdisk_1.2  /storage/usbdisk_1.2 auto /devices/platform/msm_hsusb_host/usb1/1-1/1-1.2
-dev_mount usbdisk_1.3  /storage/usbdisk_1.3 auto /devices/platform/msm_hsusb_host/usb1/1-1/1-1.3
-dev_mount usbdisk_1.4  /storage/usbdisk_1.4 auto /devices/platform/msm_hsusb_host/usb1/1-1/1-1.4
-dev_mount usbdisk_1.5  /storage/usbdisk_1.5 auto /devices/platform/msm_hsusb_host/usb1/1-1/1-1.5
-dev_mount usbdisk_1.6  /storage/usbdisk_1.6 auto /devices/platform/msm_hsusb_host/usb1/1-1/1-1.6
-dev_mount usbdisk_1.7  /storage/usbdisk_1.7 auto /devices/platform/msm_hsusb_host/usb1/1-1/1-1.7
+# flash drive connection through OTG cable
+dev_mount usbdisk /storage/usbdisk auto /devices/platform/msm_hsusb_host
+

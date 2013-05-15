@@ -36,8 +36,9 @@
 -->
 
 <StorageList xmlns:android="http://schemas.android.com/apk/res/android">
-    <storage
+    <storage android:mountPoint="/storage/sdcard0"
         android:storageDescription="@string/storage_internal"
+        android:primary="true"
         android:emulated="true"
         android:mtpReserve="100" />
 
@@ -48,31 +49,7 @@
         android:allowMassStorage="true" />
 
     <!-- external USB drive -->
-    <storage android:mountPoint="/storage/usbdisk_1.1.1"
-        android:storageDescription="@string/storage_usb"
-        android:removable="true" />
-    <storage android:mountPoint="/storage/usbdisk_1.0"
-        android:storageDescription="@string/storage_usb"
-        android:removable="true" />
-    <storage android:mountPoint="/storage/usbdisk_1.1"
-        android:storageDescription="@string/storage_usb"
-        android:removable="true" />
-    <storage android:mountPoint="/storage/usbdisk_1.2"
-        android:storageDescription="@string/storage_usb"
-        android:removable="true" />
-    <storage android:mountPoint="/storage/usbdisk_1.3"
-        android:storageDescription="@string/storage_usb"
-        android:removable="true" />
-    <storage android:mountPoint="/storage/usbdisk_1.4"
-        android:storageDescription="@string/storage_usb"
-        android:removable="true" />
-    <storage android:mountPoint="/storage/usbdisk_1.5"
-        android:storageDescription="@string/storage_usb"
-        android:removable="true" />
-    <storage android:mountPoint="/storage/usbdisk_1.6"
-        android:storageDescription="@string/storage_usb"
-        android:removable="true" />
-    <storage android:mountPoint="/storage/usbdisk_1.7"
+    <storage android:mountPoint="/storage/usbdisk"
         android:storageDescription="@string/storage_usb"
         android:removable="true" />
 </StorageList>

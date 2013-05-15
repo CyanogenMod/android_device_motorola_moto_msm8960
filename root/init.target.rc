@@ -45,6 +45,7 @@ on init
    mkdir /storage 0550 system sdcard_r
    mkdir /storage/emulated 0555 root root
    mkdir /storage/sdcard1 0000 system system
+   mkdir /storage/usbdisk 0755 system system
 
    export EXTERNAL_STORAGE /storage/emulated/legacy
    export SECONDARY_STORAGE /storage/sdcard1
@@ -58,19 +59,8 @@ on init
    symlink /mnt/shell/emulated/0 /storage/emulated/legacy
    symlink /storage/sdcard1 /extSdCard
    symlink /storage/sdcard1 /mnt/extSdCard
-   symlink /storage/usbdisk0 /usbdisk0
-   symlink /storage/usbdisk0 /mnt/usbdisk0
-
-# Mount Points for External Storage Devices
-    mkdir /storage/usbdisk_1.1.1 0755 system system
-    mkdir /storage/usbdisk_1.0 0755 system system
-    mkdir /storage/usbdisk_1.1 0755 system system
-    mkdir /storage/usbdisk_1.2 0755 system system
-    mkdir /storage/usbdisk_1.3 0755 system system
-    mkdir /storage/usbdisk_1.4 0755 system system
-    mkdir /storage/usbdisk_1.5 0755 system system
-    mkdir /storage/usbdisk_1.6 0755 system system
-    mkdir /storage/usbdisk_1.7 0755 system system
+   symlink /storage/usbdisk /usbdisk
+   symlink /storage/usbdisk /mnt/usbdisk
 
 # Mount Points for remote storage devices
     mkdir /storage/rfs0 0755 system system
