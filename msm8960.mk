@@ -46,6 +46,7 @@ PRODUCT_PACKAGES += \
     audio.r_submix.default \
     alsa.msm8960 \
     libalsa-intf \
+    libaudio-resampler \
     libaudioutils \
     aplay \
     amix \
