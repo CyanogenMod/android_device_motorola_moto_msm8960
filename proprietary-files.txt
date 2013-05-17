@@ -1,7 +1,6 @@
 #bins
 bin/ap_gain.bin
 bin/ap_gain_mmul.bin
-bin/ATFWD-daemon
 bin/batch
 bin/bridgemgrd
 bin/btnvtool

@@ -22,16 +22,6 @@ MAKEFILE=../../../$OUTDIR/$VENDORDEVICEDIR-vendor-blobs.mk
 
 LOCAL_PATH := vendor/$VENDOR/$VENDORDEVICEDIR
 
-# Prebuilt libraries that are needed to build open-source libraries
-#PRODUCT_COPY_FILES := \\
-#    $OUTDIR/proprietary/lib/libMali.so:obj/lib/libMali.so \\
-#    $OUTDIR/proprietary/lib/libUMP.so:obj/lib/libUMP.so \\
-
-#\$(shell mkdir -p out/target/product/zatab/obj/SHARED_LIBRARIES/libMali_intermediates)
-#\$(shell mkdir -p out/target/product/zatab/obj/SHARED_LIBRARIES/libUMP_intermediates)
-#\$(shell touch out/target/product/zatab/obj/SHARED_LIBRARIES/libMali_intermediates/export_includes)
-#\$(shell touch out/target/product/zatab/obj/SHARED_LIBRARIES/libUMP_intermediates/export_includes)
-
 -include device/${VENDOR}/${DEVICE}/prebuilt.mk
 
 EOF
