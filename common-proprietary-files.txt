@@ -90,7 +90,6 @@ lib/libidl.so
 lib/libimage-jpeg-enc-omx-comp.so
 lib/libimage-omx-common.so
 lib/libimssettings.so
-lib/libllvm-a3xx.so
 lib/libmm-abl-oem.so
 lib/libmm-abl.so
 lib/libmm-audio-resampler.so
