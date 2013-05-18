@@ -86,7 +86,6 @@ lib/libFileMux.so
 lib/libfrsdk.so
 lib/libgemini.so
 lib/libgps.so
-lib/libloc_api_v02.so
 lib/libidl.so
 lib/libimage-jpeg-enc-omx-comp.so
 lib/libimage-omx-common.so
@@ -235,3 +234,6 @@ lib/libOpenCL.so
 lib/libOpenVG.so
 lib/libsc-a2xx.so
 lib/libsc-a3xx.so
+
+# GPS (Available on Nexus 4)
+lib/libloc_api_v02.so
