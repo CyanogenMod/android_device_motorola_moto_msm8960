@@ -69,7 +69,6 @@ lib/libaudioalsa.so
 lib/libbabysit.so
 lib/libbson.so
 lib/libbt-aptx-4.0.4.so
-lib/libcaps.so
 lib/libcneapiclient.so
 lib/libcneqmiutils.so
 lib/libcneutils.so
@@ -117,8 +116,6 @@ lib/libOmxEvrcDec.so
 lib/libOmxQcelp13Dec.so
 lib/libOmxWmaDec.so
 lib/libopenssl-smime.so
-lib/libpanorama_jni.so
-lib/libpanorama.so
 lib/libqc-opt.so
 lib/libqdi.so
 lib/libqdp.so
@@ -181,21 +178,6 @@ lib/libsensor1.so
 lib/libsensorhub_jni.so
 lib/libsensor_reg.so
 
-#camera
-bin/mm-qcamera-daemon
-lib/libmmcamera_faceproc.so
-lib/libmmcamera_frameproc.so
-lib/libmmcamera_statsproc30.so
-lib/liboemcamera.so
-lib/libtcmdcameraservice.so
-lib/libchromatix_ov8820_default_video.so
-lib/libchromatix_ov8820_hfr_60fps.so
-lib/libchromatix_ov8820_preview.so
-lib/libchromatix_ov8820_video_hd.so
-lib/libchromatix_ov8820_zsl.so
-lib/libchromatix_s5k4e1_default_video.so
-lib/libchromatix_s5k4e1_preview.so
-
 ##drm
 vendor/lib/drm/libdrmwvmplugin.so
 vendor/lib/libwvdrm_L1.so
@@ -211,3 +193,17 @@ etc/firmware/vidc.b03
 etc/firmware/vidcfw.elf
 etc/firmware/vidc.mdt
 
+#camera (Must be from ICS ota, last two are not in JB ota at all)
+bin/mm-qcamera-daemon
+lib/libmmcamera_faceproc.so
+lib/libmmcamera_frameproc.so
+lib/libmmcamera_statsproc30.so
+lib/liboemcamera.so
+lib/libtcmdcameraservice.so
+lib/libchromatix_ov8820_default_video.so
+lib/libchromatix_ov8820_hfr_60fps.so
+lib/libchromatix_ov8820_preview.so
+lib/libchromatix_ov8820_video_hd.so
+lib/libchromatix_ov8820_zsl.so
+lib/libchromatix_s5k4e1_default_video.so
+lib/libchromatix_s5k4e1_preview.so
