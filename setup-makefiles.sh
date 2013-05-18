@@ -42,13 +42,13 @@ for FILE in `cat ../${DEVICE}/proprietary-files.txt | grep -v ^# | cut -f1 -d '#
 done
 
 LINEEND=" \\"
-COUNT=`cat ../msm8960-common/proprietary-files.txt | grep -v ^# | cut -f1 -d '#' | grep -ve '^$\|^app' | wc -l | awk {'print $1'}`
+COUNT=`cat ../msm8960-common/common-proprietary-files.txt | grep -v ^# | cut -f1 -d '#' | grep -ve '^$\|^app' | wc -l | awk {'print $1'}`
 if [ $COUNT -gt 0 ]; then
 cat << EOF >> $MAKEFILE
 PRODUCT_COPY_FILES += \\
 EOF
 fi
-for FILE in `cat ../msm8960-common/proprietary-files.txt | grep -v ^# | cut -f1 -d '#' | grep -ve '^$\|^app'`; do
+for FILE in `cat ../msm8960-common/common-proprietary-files.txt | grep -v ^# | cut -f1 -d '#' | grep -ve '^$\|^app'`; do
     COUNT=`expr $COUNT - 1`
     if [ $COUNT = "0" ]; then
         LINEEND=""
