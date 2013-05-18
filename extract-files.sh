@@ -23,10 +23,6 @@ for FILE in `cat ../msm8960-common/proprietary-files.txt | grep -v ^# | cut -f1 
     else
         cp -p "$COPY_FROM/$FILE" $BASE/$FILE
     fi
-    if [ "X$DIR" == "Xapp" ]; then
-        mkdir -p ${BASE}/../packages
-        mv $BASE/$FILE ${BASE}/../packages/
-    fi
 done
 for FILE in `cat ../${DEVICE}/proprietary-files.txt | grep -v ^# | cut -f1 -d '#' | grep -v ^$`; do
     DIR=`dirname $FILE`
@@ -38,11 +34,11 @@ for FILE in `cat ../${DEVICE}/proprietary-files.txt | grep -v ^# | cut -f1 -d '#
     else
         cp -p "$COPY_FROM/$FILE" $BASE/$FILE
     fi
-    if [ "X$DIR" == "Xapp" ]; then
-        mkdir -p ${BASE}/../packages
-        mv $BASE/$FILE ${BASE}/../packages/
-    fi
 done
+    if [ -d $BASE/app ]; then
+        mkdir -p ${BASE}/../packages
+        mv $BASE/app/* ${BASE}/../packages/
+    fi
 rmdir ${BASE}/app 2> /dev/null
 
 
