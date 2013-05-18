@@ -120,6 +120,8 @@ LOCAL_PATH:= \$(call my-dir)
 
 EOF
 
+echo "ifeq (\$(TARGET_DEVICE),$DEVICE)" >> ../../../${OUTDIR}/packages/Android.mk
+
 for APK in `ls ../../../${OUTDIR}/packages/*apk`; do
     apkname=`basename $APK`
     modulename=`echo $apkname|sed -e 's/\.apk$//gi'`
@@ -133,6 +135,9 @@ LOCAL_MODULE_CLASS := APPS
 LOCAL_MODULE_SUFFIX := \$(COMMON_ANDROID_PACKAGE_SUFFIX)
 include \$(BUILD_PREBUILT)
 EOF
+
+echo "endif" >> ../../../${OUTDIR}/packages/Android.mk
+
     echo "PRODUCT_PACKAGES += $modulename" >> ../../../$OUTDIR/$VENDORDEVICEDIR-vendor.mk
 done
 fi
