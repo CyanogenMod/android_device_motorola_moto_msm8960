@@ -151,11 +151,6 @@ on post-fs-data
 # Set core max size (2G)
    setrlimit 4 2147483648 2147483648
 
-# Setup 160M zram device for swap space
-   write /sys/block/zram0/disksize 167772160
-   exec /system/bin/motobox mkswap /dev/block/zram0
-   exec /system/bin/motobox swapon /dev/block/zram0
-
    # Permissions for battery health daemon
    chown mot_pwric mot_pwric /sys/module/pm8921_bms/parameters/last_real_fcc_batt_temp
    chown mot_pwric mot_pwric /sys/module/pm8921_bms/parameters/last_real_fcc_mah
