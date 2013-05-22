@@ -61,11 +61,9 @@ lib/hw/sensors.msm8960.so
 lib/hw/sensors.oem.so
 
 #libs
-lib/libacdbloader.so
 lib/libAKM.so
 lib/libapnjni.so
 lib/libaudcal.so
-lib/libaudioalsa.so
 lib/libbabysit.so
 lib/libbson.so
 lib/libbt-aptx-4.0.4.so
@@ -92,7 +90,6 @@ lib/libimage-omx-common.so
 lib/libimssettings.so
 lib/libmm-abl-oem.so
 lib/libmm-abl.so
-lib/libmm-audio-resampler.so
 lib/libmm-color-convertor.so
 lib/libmmjpeg.so
 lib/libmmmpod.so
@@ -191,20 +188,35 @@ etc/firmware/vidc.b03
 etc/firmware/vidcfw.elf
 etc/firmware/vidc.mdt
 
-#camera (Must be from ICS ota, last two are not in JB ota at all)
+#camera
 bin/mm-qcamera-daemon
+bin/v4l2-qcamera-app
 lib/libmmcamera_faceproc.so
 lib/libmmcamera_frameproc.so
 lib/libmmcamera_statsproc30.so
 lib/liboemcamera.so
 lib/libtcmdcameraservice.so
+lib/libchromatix_imx074_default_video.s
+lib/libchromatix_imx074_preview.so
+lib/libchromatix_imx074_video_hd.so
+lib/libchromatix_imx074_zsl.so
+lib/libchromatix_imx091_default_video.so
+lib/libchromatix_imx091_preview.so
+lib/libchromatix_imx091_video_hd.so
+lib/libchromatix_ov2720_default_video.so
+lib/libchromatix_ov2720_preview.so
 lib/libchromatix_ov8820_default_video.so
 lib/libchromatix_ov8820_hfr_60fps.so
 lib/libchromatix_ov8820_preview.so
 lib/libchromatix_ov8820_video_hd.so
 lib/libchromatix_ov8820_zsl.so
-lib/libchromatix_s5k4e1_default_video.so
-lib/libchromatix_s5k4e1_preview.so
+lib/libchromatix_s5k3l1yx_default_video.so
+lib/libchromatix_s5k3l1yx_hfr_120fps.so
+lib/libchromatix_s5k3l1yx_hfr_60fps.so
+lib/libchromatix_s5k3l1yx_hfr_90fps.so
+lib/libchromatix_s5k3l1yx_preview.so
+lib/libchromatix_s5k3l1yx_video_hd.so
+lib/libchromatix_s5k3l1yx_zsl.so
 
 # Adreno GPU (Available at QDevNet)
 bin/gpu_dcvsd
@@ -236,3 +248,6 @@ lib/libsc-a3xx.so
 
 # GPS (Available on Nexus 4)
 lib/libloc_api_v02.so
+
+# ION audio support (Available on Nexus 4)
+lib/libacdbloader.so
