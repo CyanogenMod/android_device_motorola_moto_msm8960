@@ -482,12 +482,6 @@ on property:persist.sys.qc.sub.rdump.on=*
 on property:persist.sys.qc.sub.rstrtlvl=*
     write /sys/module/subsystem_restart/parameters/restart_level ${persist.sys.qc.sub.rstrtlvl}
 
-on property:persist.sys.gprs_bufsize_hack=1
-    setprop net.tcp.buffersize.gprs    16384,32768,65536,4096,16384,32768
-
-on property:persist.sys.gprs_bufsize_hack=0
-    setprop net.tcp.buffersize.gprs    4096,8192,12288,4096,8192,12288
-
 service wdtest /system/bin/insmod /system/lib/modules/msm_watchdog_test_module.ko
     group system mot_tcmd
     oneshot
