@@ -299,8 +299,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	persist.audio.vr.enable=false \
 	ro.qc.sdk.audio.fluencetype=fluence \
 	persist.audio.handset.mic=digital \
-	ro.config.vc_call_vol_steps=7 \
-	persist.timed.enable=true
+	ro.config.vc_call_vol_steps=7
 
 # Wifi
 PRODUCT_PROPERTY_OVERRIDES += \
