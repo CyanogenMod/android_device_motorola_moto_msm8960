@@ -106,10 +106,8 @@ lib/libnativedrm1.so
 lib/libnative_renderer.so
 lib/libnetmgr.so
 lib/libNimsWrap.so
-lib/libOmxAacDec.so
 lib/libOmxEvrcDec.so
 lib/libOmxQcelp13Dec.so
-lib/libOmxWmaDec.so
 lib/libopenssl-smime.so
 lib/libqc-opt.so
 lib/libqdi.so
