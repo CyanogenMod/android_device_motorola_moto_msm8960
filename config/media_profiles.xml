@@ -98,7 +98,7 @@
             <Audio codec="amrnb"
                    bitRate="12200"
                    sampleRate="8000"
-                   channels="2" />
+                   channels="1" />
         </EncoderProfile>
 
         <EncoderProfile quality="cif" fileFormat="mp4" duration="30">
@@ -109,8 +109,8 @@
                    frameRate="30" />
             <Audio codec="aac"
                    bitRate="96000"
-                   sampleRate="48000"
-                   channels="2" />
+                   sampleRate="8000"
+                   channels="1" />
         </EncoderProfile>
 
         <EncoderProfile quality="480p" fileFormat="mp4" duration="30">
@@ -121,8 +121,8 @@
                    frameRate="30" />
             <Audio codec="aac"
                    bitRate="96000"
-                   sampleRate="48000"
-                   channels="2" />
+                   sampleRate="8000"
+                   channels="1" />
         </EncoderProfile>
 
         <EncoderProfile quality="720p" fileFormat="mp4" duration="30">
@@ -133,8 +133,8 @@
                    frameRate="30" />
             <Audio codec="aac"
                    bitRate="96000"
-                   sampleRate="48000"
-                   channels="2" />
+                   sampleRate="8000"
+                   channels="1" />
         </EncoderProfile>
 
         <EncoderProfile quality="1080p" fileFormat="mp4" duration="30">
@@ -145,8 +145,8 @@
                    frameRate="30" />
             <Audio codec="aac"
                    bitRate="96000"
-                   sampleRate="48000"
-                   channels="2" />
+                   sampleRate="8000"
+                   channels="1" />
         </EncoderProfile>
 
         <EncoderProfile quality="timelapseqcif" fileFormat="mp4" duration="30">
@@ -159,7 +159,7 @@
             <Audio codec="amrnb"
                    bitRate="12200"
                    sampleRate="8000"
-                   channels="2" />
+                   channels="1" />
         </EncoderProfile>
 
         <EncoderProfile quality="timelapsecif" fileFormat="mp4" duration="30">
@@ -171,8 +171,8 @@
             <!-- audio setting is ignored -->
             <Audio codec="aac"
                    bitRate="96000"
-                   sampleRate="48000"
-                   channels="2" />
+                   sampleRate="8000"
+                   channels="1" />
         </EncoderProfile>
 
         <EncoderProfile quality="timelapse480p" fileFormat="mp4" duration="30">
@@ -184,8 +184,8 @@
             <!-- audio setting is ignored -->
             <Audio codec="aac"
                    bitRate="96000"
-                   sampleRate="48000"
-                   channels="2" />
+                   sampleRate="8000"
+                   channels="1" />
         </EncoderProfile>
 
         <EncoderProfile quality="timelapse720p" fileFormat="mp4" duration="30">
@@ -197,8 +197,8 @@
             <!-- audio setting is ignored -->
             <Audio codec="aac"
                    bitRate="96000"
-                   sampleRate="48000"
-                   channels="2" />
+                   sampleRate="8000"
+                   channels="1" />
         </EncoderProfile>
 
         <EncoderProfile quality="timelapse1080p" fileFormat="mp4" duration="30">
@@ -210,8 +210,8 @@
             <!-- audio setting is ignored -->
             <Audio codec="aac"
                    bitRate="96000"
-                   sampleRate="48000"
-                   channels="2" />
+                   sampleRate="8000"
+                   channels="1" />
         </EncoderProfile>
 
         <ImageEncoding quality="95" />
@@ -232,7 +232,7 @@
             <Audio codec="amrnb"
                    bitRate="12200"
                    sampleRate="8000"
-                   channels="2" />
+                   channels="1" />
         </EncoderProfile>
 
         <EncoderProfile quality="cif" fileFormat="mp4" duration="30">
@@ -243,8 +243,8 @@
                    frameRate="30" />
             <Audio codec="aac"
                    bitRate="96000"
-                   sampleRate="48000"
-                   channels="2" />
+                   sampleRate="8000"
+                   channels="1" />
         </EncoderProfile>
 
         <EncoderProfile quality="480p" fileFormat="mp4" duration="30">
@@ -255,8 +255,8 @@
                    frameRate="30" />
             <Audio codec="aac"
                    bitRate="96000"
-                   sampleRate="48000"
-                   channels="2" />
+                   sampleRate="8000"
+                   channels="1" />
         </EncoderProfile>
 
         <EncoderProfile quality="720p" fileFormat="mp4" duration="30">
@@ -267,8 +267,8 @@
                    frameRate="30" />
             <Audio codec="aac"
                    bitRate="96000"
-                   sampleRate="48000"
-                   channels="2" />
+                   sampleRate="8000"
+                   channels="1" />
         </EncoderProfile>
 
         <EncoderProfile quality="timelapseqcif" fileFormat="mp4" duration="30">
@@ -281,7 +281,7 @@
             <Audio codec="amrnb"
                    bitRate="12200"
                    sampleRate="8000"
-                   channels="2" />
+                   channels="1" />
         </EncoderProfile>
 
         <EncoderProfile quality="timelapsecif" fileFormat="mp4" duration="30">
@@ -293,8 +293,8 @@
             <!-- audio setting is ignored -->
             <Audio codec="aac"
                    bitRate="96000"
-                   sampleRate="48000"
-                   channels="2" />
+                   sampleRate="8000"
+                   channels="1" />
         </EncoderProfile>
 
         <EncoderProfile quality="timelapse480p" fileFormat="mp4" duration="30">
@@ -306,8 +306,8 @@
             <!-- audio setting is ignored -->
             <Audio codec="aac"
                    bitRate="96000"
-                   sampleRate="48000"
-                   channels="2" />
+                   sampleRate="8000"
+                   channels="1" />
         </EncoderProfile>
 
         <EncoderProfile quality="timelapse720p" fileFormat="mp4" duration="30">
@@ -319,8 +319,8 @@
             <!-- audio setting is ignored -->
             <Audio codec="aac"
                    bitRate="96000"
-                   sampleRate="48000"
-                   channels="2" />
+                   sampleRate="8000"
+                   channels="1" />
         </EncoderProfile>
 
         <ImageEncoding quality="95" />
