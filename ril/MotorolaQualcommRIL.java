@@ -40,7 +40,7 @@ public class MotorolaQualcommRIL extends RIL implements CommandsInterface {
         mQANElements = 5; // fifth element is network generation - 2G/3G/(4G?)
     }
 
-protected void
+    protected void
     processSolicited (Parcel p) {
         int serial, error;
         boolean found = false;
@@ -257,8 +257,8 @@ protected void
     responseDataRegistrationState(Parcel p) {
         String response[] = (String [])responseStrings(p);
 
-        if (SystemProperties.get("persist.sys.report_gprs_as_edge", "0").equals("1")
-                && response[3].equals("1")) {
+        if (response[3].equals("1") &&
+                SystemProperties.get("persist.sys.report_gprs_as_edge", "0").equals("1")) {
             response[3] = "2";
         }
 
