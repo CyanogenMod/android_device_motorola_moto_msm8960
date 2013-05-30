@@ -4,5 +4,7 @@
 <resources>
     <!-- Use ZSL mode -->
     <bool name="enableZSL">false</bool>
+    <!-- Send video-size parameter to HAL before recording -->
+    <bool name="needsEarlyVideoSize">true</bool>
 </resources>
 
