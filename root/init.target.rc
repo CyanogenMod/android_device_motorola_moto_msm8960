@@ -130,8 +130,9 @@ on post-fs
     exec /system/bin/logwrapper /system/etc/init.qcom.mdm_links.sh
     mount ext4 /dev/block/platform/msm_sdcc.1/by-name/system /system ro remount
 
-# Set default maximum of 1.5 on cpu0 (peformance settings will change this if set by user)
+# Set default maximum of 1.5 GHz (peformance settings will change this if set by user)
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq 1512000
+    write /sys/devices/system/cpu/cpu1/cpufreq/scaling_max_freq 1512000
 
 on post-fs-data
     copy /proc/apanic_app_threads /data/dontpanic/apanic_app_threads
