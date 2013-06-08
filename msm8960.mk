@@ -295,10 +295,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	ro.ril.transmitpower=true \
 	persist.radio.apm_sim_not_pwdn=1 \
 	persist.radio.call_type=1 \
-	persist.audio.fluence.mode=endfire \
-	persist.audio.vr.enable=false \
-	ro.qc.sdk.audio.fluencetype=fluence \
-	persist.audio.handset.mic=digital \
 	ro.config.vc_call_vol_steps=7
 
 # Wifi
