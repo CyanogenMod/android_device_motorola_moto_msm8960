@@ -102,9 +102,6 @@ on early-boot
     # Need to launch qseecomd before enc_mgt_tool
     start qseecomd
 
-    # Need to launch enc_mgt_tool to create device key and signature for vold to set up sd card
-    start enc_tool
-
 on fs
     mount_all /fstab.qcom
 
@@ -597,12 +594,6 @@ service stop_fd  /system/bin/sh /system/bin/am broadcast -a  com.motorola.fastdo
     group system
     oneshot
 
-# Define the enc_mgt_tool as a service here instead of using exec commands
-service enc_tool /system/bin/enc_mgt_tool
-    disabled
-    user root
-    oneshot
-
 #Trigger FastDormancy service start when network type is changed to UMTS
 on property:gsm.network.type="UMTS:3"
     start start_fd
@@ -658,20 +649,6 @@ on property:tcmd.whisper=3
 
 on property:tcmd.whisper=4
     start whisperd
-
-# start the enc_mgt_tool to set the keysig when decrypted userdata partition is mounted
-on property:vold.decrypt=trigger_restart_framework
-    start enc_tool
-
-# Check available storage space to execute device encryption or decryption
-on property:sys.mot.encrypt.test=1
-    exec /system/bin/enc_mgt_tool --test
-    setprop sys.mot.encrypt.test ""
-
-# Handle device encryption key protection request
-on property:sys.mot.encrypt.pass.prot=1
-    exec /system/bin/enc_mgt_tool --password_prot
-    setprop sys.mot.encrypt.pass.prot ""
 
 # VMware MVP Hypervisor daemon
 service mvpd /system/bin/mvpd -F
