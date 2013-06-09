@@ -1,5 +1,5 @@
 #!/system/bin/sh
-# Copyright (c) 2011, Code Aurora Forum. All rights reserved.
+# Copyright (c) 2011-2012, Code Aurora Forum. All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions are
@@ -38,7 +38,7 @@ cd /firmware/image
 # Get the list of files in /firmware/image
 # for which sym links have to be created
 
-fwfiles=`ls modem* q6* wcnss* dsps* tzapps*`
+fwfiles=`ls modem* q6* wcnss* dsps* tzapps* gss*`
 modem_fwfiles=`ls modem_fw.mdt`
 
 # Check if the links with similar names
@@ -162,6 +162,15 @@ case $linksNeeded in
             log -p w -t PIL 8960 device but no tzapps image found;;
       esac
 
+      case `ls gss.mdt 2>/dev/null` in
+         gss.mdt)
+            for imgfile in gss*; do
+               ln -s /firmware/image/$imgfile /system/etc/firmware/$imgfile 2>/dev/null
+            done
+            break;;
+         *)
+            log -p w -t No gss image found;;
+      esac
       break;;
 
    *)

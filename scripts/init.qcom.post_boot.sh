@@ -69,14 +69,6 @@ case "$target" in
 	 echo 1 > /sys/module/pm_8x60/modes/cpu1/power_collapse/idle_enabled
 	 echo 1 > /sys/module/pm_8x60/modes/cpu0/standalone_power_collapse/idle_enabled
 	 echo 1 > /sys/module/pm_8x60/modes/cpu1/standalone_power_collapse/idle_enabled
-	 echo 1 > /sys/module/pm_8660/modes/cpu0/power_collapse/suspend_enabled
-	 echo 1 > /sys/module/pm_8660/modes/cpu1/power_collapse/suspend_enabled
-	 echo 1 > /sys/module/pm_8660/modes/cpu0/standalone_power_collapse/suspend_enabled
-	 echo 1 > /sys/module/pm_8660/modes/cpu1/standalone_power_collapse/suspend_enabled
-	 echo 1 > /sys/module/pm_8660/modes/cpu0/power_collapse/idle_enabled
-	 echo 1 > /sys/module/pm_8660/modes/cpu1/power_collapse/idle_enabled
-	 echo 1 > /sys/module/pm_8660/modes/cpu0/standalone_power_collapse/idle_enabled
-	 echo 1 > /sys/module/pm_8660/modes/cpu1/standalone_power_collapse/idle_enabled
 	 echo "ondemand" > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
 	 echo "ondemand" > /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor
 	 echo 50000 > /sys/devices/system/cpu/cpufreq/ondemand/sampling_rate
@@ -85,7 +77,6 @@ case "$target" in
 	 echo 4 > /sys/devices/system/cpu/cpufreq/ondemand/sampling_down_factor
 	 echo 384000 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
 	 echo 384000 > /sys/devices/system/cpu/cpu1/cpufreq/scaling_min_freq
-	 chown system /sys/devices/system/cpu/cpufreq/ondemand/io_is_busy
 	 chown system /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
 	 chown system /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
 	 chown system /sys/devices/system/cpu/cpu1/cpufreq/scaling_max_freq
@@ -99,43 +90,88 @@ esac
 
 case "$target" in
     "msm8960")
-     echo 1 > /sys/module/rpm_resources/enable_low_power/L2_cache
-     echo 1 > /sys/module/rpm_resources/enable_low_power/pxo
-     echo 1 > /sys/module/rpm_resources/enable_low_power/vdd_dig
-     echo 1 > /sys/module/rpm_resources/enable_low_power/vdd_mem
-     echo 0 > /sys/module/pm_8x60/modes/cpu0/standalone_power_collapse/suspend_enabled
-     echo 0 > /sys/module/pm_8x60/modes/cpu1/standalone_power_collapse/suspend_enabled
-     echo 0 > /sys/module/pm_8x60/modes/cpu0/standalone_power_collapse/idle_enabled
-     echo 0 > /sys/module/pm_8x60/modes/cpu1/standalone_power_collapse/idle_enabled
-     echo 1 > /sys/module/pm_8x60/modes/cpu0/power_collapse/suspend_enabled
-     echo 1 > /sys/module/pm_8x60/modes/cpu1/power_collapse/suspend_enabled
-     echo 1 > /sys/module/pm_8x60/modes/cpu0/power_collapse/idle_enabled
-     echo 1 > /sys/module/pm_8x60/modes/cpu1/power_collapse/idle_enabled
-     echo 1 > /sys/module/msm_show_resume_irq/parameters/debug_mask
-     echo "ondemand" > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
-     echo "ondemand" > /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor
-     echo 90 > /sys/devices/system/cpu/cpufreq/ondemand/up_threshold
-     echo 50000 > /sys/devices/system/cpu/cpufreq/ondemand/sampling_rate
-     echo 1 > /sys/devices/system/cpu/cpufreq/ondemand/io_is_busy
-     echo 4 > /sys/devices/system/cpu/cpufreq/ondemand/sampling_down_factor
-     echo 1026000 > /sys/devices/system/cpu/cpufreq/ondemand/refresh_speed
-     echo 10 > /sys/devices/system/cpu/cpufreq/ondemand/down_differential
-     echo 384000 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
-     echo 384000 > /sys/devices/system/cpu/cpu1/cpufreq/scaling_min_freq
-     chown system /sys/devices/system/cpu/cpufreq/ondemand/io_is_busy
-     chown system /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
-     chown system /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
-     chown system /sys/devices/system/cpu/cpu1/cpufreq/scaling_max_freq
-     chown system /sys/devices/system/cpu/cpu1/cpufreq/scaling_min_freq
-     chown root.system /sys/devices/system/cpu/mfreq
-     chmod 220 /sys/devices/system/cpu/mfreq
-     chown root.system /sys/devices/system/cpu/cpu1/online
-     chmod 664 /sys/devices/system/cpu/cpu1/online
-        ;;
+         echo 1 > /sys/module/rpm_resources/enable_low_power/L2_cache
+         echo 1 > /sys/module/rpm_resources/enable_low_power/pxo
+         echo 1 > /sys/module/rpm_resources/enable_low_power/vdd_dig
+         echo 1 > /sys/module/rpm_resources/enable_low_power/vdd_mem
+         echo 1 > /sys/module/pm_8x60/modes/cpu0/power_collapse/suspend_enabled
+         echo 1 > /sys/module/pm_8x60/modes/cpu1/power_collapse/suspend_enabled
+         echo 1 > /sys/module/pm_8x60/modes/cpu2/power_collapse/suspend_enabled
+         echo 1 > /sys/module/pm_8x60/modes/cpu3/power_collapse/suspend_enabled
+         echo 1 > /sys/module/pm_8x60/modes/cpu0/standalone_power_collapse/suspend_enabled
+         echo 1 > /sys/module/pm_8x60/modes/cpu1/standalone_power_collapse/suspend_enabled
+         echo 1 > /sys/module/pm_8x60/modes/cpu2/standalone_power_collapse/suspend_enabled
+         echo 1 > /sys/module/pm_8x60/modes/cpu3/standalone_power_collapse/suspend_enabled
+         echo 1 > /sys/module/pm_8x60/modes/cpu0/standalone_power_collapse/idle_enabled
+         echo 1 > /sys/module/pm_8x60/modes/cpu1/standalone_power_collapse/idle_enabled
+         echo 1 > /sys/module/pm_8x60/modes/cpu2/standalone_power_collapse/idle_enabled
+         echo 1 > /sys/module/pm_8x60/modes/cpu3/standalone_power_collapse/idle_enabled
+         echo 1 > /sys/module/pm_8x60/modes/cpu0/power_collapse/idle_enabled
+         echo 1 > /sys/module/msm_show_resume_irq/parameters/debug_mask
+         echo "interactive" > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
+         echo "interactive" > /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor
+         echo "interactive" > /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor
+         echo "interactive" > /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor
+         echo 384000 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
+         echo 384000 > /sys/devices/system/cpu/cpu1/cpufreq/scaling_min_freq
+         echo 384000 > /sys/devices/system/cpu/cpu2/cpufreq/scaling_min_freq
+         echo 384000 > /sys/devices/system/cpu/cpu3/cpufreq/scaling_min_freq
+         chown system /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
+         chown system /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
+         chown system /sys/devices/system/cpu/cpu1/cpufreq/scaling_max_freq
+         chown system /sys/devices/system/cpu/cpu1/cpufreq/scaling_min_freq
+         chown system /sys/devices/system/cpu/cpu2/cpufreq/scaling_max_freq
+         chown system /sys/devices/system/cpu/cpu2/cpufreq/scaling_min_freq
+         chown system /sys/devices/system/cpu/cpu3/cpufreq/scaling_max_freq
+         chown system /sys/devices/system/cpu/cpu3/cpufreq/scaling_min_freq
+         chown root.system /sys/devices/system/cpu/mfreq
+         chmod 220 /sys/devices/system/cpu/mfreq
+         chown root.system /sys/devices/system/cpu/cpu1/online
+         chown root.system /sys/devices/system/cpu/cpu2/online
+         chown root.system /sys/devices/system/cpu/cpu3/online
+         chmod 664 /sys/devices/system/cpu/cpu1/online
+         chmod 664 /sys/devices/system/cpu/cpu2/online
+         chmod 664 /sys/devices/system/cpu/cpu3/online
+         start qosmgrd
+         soc_id=`cat /sys/devices/system/soc/soc0/id`
+         case "$soc_id" in
+             "130")
+                 echo 230 > /sys/class/gpio/export
+                 echo 228 > /sys/class/gpio/export
+                 echo 229 > /sys/class/gpio/export
+                 echo "in" > /sys/class/gpio/gpio230/direction
+                 echo "rising" > /sys/class/gpio/gpio230/edge
+                 echo "in" > /sys/class/gpio/gpio228/direction
+                 echo "rising" > /sys/class/gpio/gpio228/edge
+                 echo "in" > /sys/class/gpio/gpio229/direction
+                 echo "rising" > /sys/class/gpio/gpio229/edge
+                 echo 253 > /sys/class/gpio/export
+                 echo 254 > /sys/class/gpio/export
+                 echo 257 > /sys/class/gpio/export
+                 echo 258 > /sys/class/gpio/export
+                 echo 259 > /sys/class/gpio/export
+                 echo "out" > /sys/class/gpio/gpio253/direction
+                 echo "out" > /sys/class/gpio/gpio254/direction
+                 echo "out" > /sys/class/gpio/gpio257/direction
+                 echo "out" > /sys/class/gpio/gpio258/direction
+                 echo "out" > /sys/class/gpio/gpio259/direction
+                 chown media /sys/class/gpio/gpio253/value
+                 chown media /sys/class/gpio/gpio254/value
+                 chown media /sys/class/gpio/gpio257/value
+                 chown media /sys/class/gpio/gpio258/value
+                 chown media /sys/class/gpio/gpio259/value
+                 chown media /sys/class/gpio/gpio253/direction
+                 chown media /sys/class/gpio/gpio254/direction
+                 chown media /sys/class/gpio/gpio257/direction
+                 chown media /sys/class/gpio/gpio258/direction
+                 chown media /sys/class/gpio/gpio259/direction
+                 ;;
+         esac
+         ;;
 esac
 
 case "$target" in
-    "msm7627_ffa" | "msm7627_surf" | "msm7627a" | "msm7627_6x")
+    "msm7627_ffa" | "msm7627_surf" | "msm7627_6x")
         echo 25000 > /sys/devices/system/cpu/cpufreq/ondemand/sampling_rate
         ;;
 esac
@@ -152,11 +188,9 @@ case "$target" in
     ;;
 esac
 
-chown system /sys/devices/system/cpu/cpufreq/ondemand/sampling_rate
-
-emmc_boot=`getprop ro.emmc`
+emmc_boot=`getprop ro.boot.emmc`
 case "$emmc_boot"
-    in "1")
+    in "true")
         chown system /sys/devices/platform/rs300000a7.65536/force_sync
         chown system /sys/devices/platform/rs300000a7.65536/sync_sts
         chown system /sys/devices/platform/rs300100a7.65536/force_sync
@@ -164,15 +198,56 @@ case "$emmc_boot"
     ;;
 esac
 
+case "$target" in
+    "msm8960" | "msm8660" | "msm7630_surf")
+        echo 10 > /sys/devices/platform/msm_sdcc.3/idle_timeout
+        ;;
+    "msm7627a")
+        echo 10 > /sys/devices/platform/msm_sdcc.1/idle_timeout
+        ;;
+esac
+
 # Post-setup services
 case "$target" in
     "msm8660" | "msm8960")
         start mpdecision
     ;;
-esac
-
-case "$target" in
-    "msm8660")
-        start thermald
+    "msm7627a")
+        soc_id=`cat /sys/devices/system/soc/soc0/id`
+        case "$soc_id" in
+            "127" | "128" | "129")
+                start mpdecision
+        ;;
+        esac
     ;;
 esac
+
+# Enable Power modes and set the CPU Freq Sampling rates
+case "$target" in
+     "msm7627a")
+	echo 1 > /sys/module/pm2/modes/cpu0/standalone_power_collapse/idle_enabled
+	echo 1 > /sys/module/pm2/modes/cpu1/standalone_power_collapse/idle_enabled
+	echo 1 > /sys/module/pm2/modes/cpu0/standalone_power_collapse/suspend_enabled
+	echo 1 > /sys/module/pm2/modes/cpu1/standalone_power_collapse/suspend_enabled
+	#SuspendPC:
+	echo 1 > /sys/module/pm2/modes/cpu0/power_collapse/suspend_enabled
+	#IdlePC:
+	echo 1 > /sys/module/pm2/modes/cpu0/power_collapse/idle_enabled
+	echo 25000 > /sys/devices/system/cpu/cpufreq/ondemand/sampling_rate
+    ;;
+esac
+
+# Change adj level and min_free_kbytes setting for lowmemory killer to kick in
+case "$target" in
+     "msm7627a")
+	echo 0,1,2,4,9,12 > /sys/module/lowmemorykiller/parameters/adj
+	echo 5120 > /proc/sys/vm/min_free_kbytes
+     ;;
+esac
+
+# Install AdrenoTest.apk if not already installed
+if [ -f /data/prebuilt/AdrenoTest.apk ]; then
+    if [ ! -d /data/data/com.qualcomm.adrenotest ]; then
+        pm install /data/prebuilt/AdrenoTest.apk
+    fi
+fi
