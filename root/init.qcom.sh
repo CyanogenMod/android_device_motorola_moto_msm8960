@@ -83,15 +83,6 @@ case "$baseband" in
         start bridgemgrd
 esac
 
-# BEGIN Motorola, hwqc67, 8/31/2012, IKJBREL1-3753
-#case "$target" in
-#        "msm8960")
-#        start location_mq
-#        start xtwifi_inet
-#        start xtwifi_client
-#esac
-# END IKJBREL1-3753
-
 case "$target" in
     "msm7630_surf" | "msm7630_1x" | "msm7630_fusion")
         value=`cat /sys/devices/system/soc/soc0/hw_platform`
