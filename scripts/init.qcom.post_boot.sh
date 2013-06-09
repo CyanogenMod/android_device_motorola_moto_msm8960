@@ -132,7 +132,6 @@ case "$target" in
          chmod 664 /sys/devices/system/cpu/cpu1/online
          chmod 664 /sys/devices/system/cpu/cpu2/online
          chmod 664 /sys/devices/system/cpu/cpu3/online
-         start qosmgrd
          soc_id=`cat /sys/devices/system/soc/soc0/id`
          case "$soc_id" in
              "130")
