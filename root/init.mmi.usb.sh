@@ -36,6 +36,36 @@ usb_action=`getprop usb.mmi-usb-sh.action`
 echo "mmi-usb-sh: action = \"$usb_action\""
 sys_usb_config=`getprop sys.usb.config`
 
+tcmd_ctrl_adb ()
+{
+    ctrl_adb=`getprop tcmd.ctrl_adb`
+    echo "mmi-usb-sh: tcmd.ctrl_adb = $ctrl_adb"
+    case "$ctrl_adb" in
+        "0")
+            if [[ "$sys_usb_config" == *adb* ]]
+            then
+                # *** ALWAYS expecting adb at the end ***
+                new_usb_config=${sys_usb_config/,adb/}
+                echo "mmi-usb-sh: disabling adb ($new_usb_config)"
+                setprop sys.usb.config $new_usb_config
+                setprop persist.factory.allow_adb 0
+            fi
+        ;;
+        "1")
+            if [[ "$sys_usb_config" != *adb* ]]
+            then
+                # *** ALWAYS expecting adb at the end ***
+                new_usb_config="$sys_usb_config,adb"
+                echo "mmi-usb-sh: enabling adb ($new_usb_config)"
+                setprop sys.usb.config $new_usb_config
+                setprop persist.factory.allow_adb 1
+            fi
+        ;;
+    esac
+
+    exit 0
+}
+
 tcmd_ctrl_diag ()
 {
     ctrl_diag=`getprop tcmd.ctrl_diag`
@@ -65,6 +95,9 @@ tcmd_ctrl_diag ()
 
 case "$usb_action" in
     "")
+    ;;
+    "tcmd.ctrl_adb")
+        tcmd_ctrl_adb
     ;;
     "tcmd.ctrl_diag")
         case "$sys_usb_config" in
@@ -111,7 +144,6 @@ esac
 #
 # Allow USB enumeration with default PID/VID
 #
-echo 1  > /sys/class/android_usb/f_mass_storage/lun/nofua
 usb_config=`getprop persist.sys.usb.config`
 bootmode=`getprop ro.bootmode`
 buildtype=`getprop ro.build.type`
@@ -120,7 +152,15 @@ case "$bootmode" in
         setprop persist.sys.usb.config diag,serial_smd,serial_tty,rmnet,usbnet,adb
     ;;
     "factory" )
-        setprop persist.sys.usb.config usbnet
+        allow_adb=`getprop persist.factory.allow_adb`
+        case "$allow_adb" in
+            "1")
+                setprop persist.sys.usb.config usbnet,adb
+            ;;
+            *)
+                setprop persist.sys.usb.config usbnet
+            ;;
+        esac
     ;;
     "qcom" )
         setprop persist.sys.usb.config diag,serial_smd,serial_tty,rmnet_bam,mass_storage,adb

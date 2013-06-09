@@ -41,10 +41,10 @@ case "$baseband" in
 esac
 
 case "$baseband" in
-    "msm" | "csfb" | "svlte2a" | "mdm"| "unknown")
+    "msm" | "csfb" | "svlte2a" | "mdm" | "sglte" | "unknown")
     start qmuxd
     case "$baseband" in
-        "svlte2a" | "csfb")
+        "svlte2a" | "csfb" | "sglte")
         start qmiproxy
     esac
     case "$multirild" in
@@ -58,4 +58,65 @@ case "$baseband" in
         "true")
         start netmgrd
     esac
+esac
+
+#
+# enable bluetooth profiles dynamically
+#
+case $baseband in
+  "apq")
+      setprop ro.qualcomm.bluetooth.opp true
+      setprop ro.qualcomm.bluetooth.hfp false
+      setprop ro.qualcomm.bluetooth.hsp false
+      setprop ro.qualcomm.bluetooth.pbap true
+      setprop ro.qualcomm.bluetooth.ftp true
+      setprop ro.qualcomm.bluetooth.map true
+      setprop ro.qualcomm.bluetooth.nap false
+      setprop ro.qualcomm.bluetooth.sap false
+      setprop ro.qualcomm.bluetooth.dun false
+      ;;
+  "mdm" | "svlte2a" | "svlte1" | "csfb")
+      setprop ro.qualcomm.bluetooth.opp true
+      setprop ro.qualcomm.bluetooth.hfp true
+      setprop ro.qualcomm.bluetooth.hsp true
+      setprop ro.qualcomm.bluetooth.pbap true
+      setprop ro.qualcomm.bluetooth.ftp true
+      setprop ro.qualcomm.bluetooth.map true
+      setprop ro.qualcomm.bluetooth.nap true
+      setprop ro.qualcomm.bluetooth.sap true
+      setprop ro.qualcomm.bluetooth.dun false
+      ;;
+  "msm")
+      setprop ro.qualcomm.bluetooth.opp true
+      setprop ro.qualcomm.bluetooth.hfp true
+      setprop ro.qualcomm.bluetooth.hsp true
+      setprop ro.qualcomm.bluetooth.pbap true
+      setprop ro.qualcomm.bluetooth.ftp true
+      setprop ro.qualcomm.bluetooth.map true
+      setprop ro.qualcomm.bluetooth.nap true
+      setprop ro.qualcomm.bluetooth.sap true
+      setprop ro.qualcomm.bluetooth.dun true
+      ;;
+  "mpq")
+      setprop ro.qualcomm.bluetooth.opp false
+      setprop ro.qualcomm.bluetooth.hfp false
+      setprop ro.qualcomm.bluetooth.hsp false
+      setprop ro.qualcomm.bluetooth.pbap false
+      setprop ro.qualcomm.bluetooth.ftp false
+      setprop ro.qualcomm.bluetooth.map false
+      setprop ro.qualcomm.bluetooth.nap false
+      setprop ro.qualcomm.bluetooth.sap false
+      setprop ro.qualcomm.bluetooth.dun false
+      ;;
+  *)
+      setprop ro.qualcomm.bluetooth.opp true
+      setprop ro.qualcomm.bluetooth.hfp true
+      setprop ro.qualcomm.bluetooth.hsp true
+      setprop ro.qualcomm.bluetooth.pbap true
+      setprop ro.qualcomm.bluetooth.ftp true
+      setprop ro.qualcomm.bluetooth.map true
+      setprop ro.qualcomm.bluetooth.nap true
+      setprop ro.qualcomm.bluetooth.sap true
+      setprop ro.qualcomm.bluetooth.dun true
+      ;;
 esac

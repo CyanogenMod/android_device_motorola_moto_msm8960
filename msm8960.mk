@@ -129,16 +129,18 @@ PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/root/init.msm.rc:root/init.msm.rc \
 	$(LOCAL_PATH)/root/init.qcom.class_core.sh:root/init.qcom.class_core.sh \
 	$(LOCAL_PATH)/root/init.qcom.class_main.sh:root/init.qcom.class_main.sh \
+	$(LOCAL_PATH)/root/init.qcom.early_boot.sh:root/init.qcom.early_boot.sh \
 	$(LOCAL_PATH)/root/init.qcom.rc:root/init.qcom.rc \
 	$(LOCAL_PATH)/root/init.qcom.sh:root/init.qcom.sh \
+	$(LOCAL_PATH)/root/init.qcom.syspart_fixup.sh:root/init.qcom.syspart_fixup.sh \
 	$(LOCAL_PATH)/root/init.target.rc:root/init.target.rc \
 	$(LOCAL_PATH)/root/ueventd.qcom.rc:root/ueventd.qcom.rc
-
 
 #scripts
 PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/scripts/init.qcom.bt.sh:system/etc/init.qcom.bt.sh \
 	$(LOCAL_PATH)/scripts/init.qcom.coex.sh:system/etc/init.qcom.coex.sh \
+	$(LOCAL_PATH)/scripts/init.qcom.efs.sync.sh:system/etc/init.qcom.efs.sync.sh \
 	$(LOCAL_PATH)/scripts/init.qcom.fm.sh:system/etc/init.qcom.fm.sh \
 	$(LOCAL_PATH)/scripts/init.qcom.mdm_links.sh:system/etc/init.qcom.mdm_links.sh \
 	$(LOCAL_PATH)/scripts/init.qcom.modem_links.sh:system/etc/init.qcom.modem_links.sh \
@@ -268,11 +270,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 #misc
 PRODUCT_PROPERTY_OVERRIDES += \
 	persist.fuse_sdcard=true \
-	ro.usb.mtp_usbnet=0x2e32 \
-	ro.usb.mtp_usbnet_adb=0x2e33 \
-	ro.usb.cdrom=0x2e20 \
-	ro.usb.ms=0x2e21 \
-	ro.usb.ms_adb=0x2e22 \
+	ro.usb.mtp=0x2e32 \
+	ro.usb.mtp_adb=0x2e33 \
 	ro.usb.ptp=0x2e30 \
 	ro.usb.ptp_adb=0x2e31 \
 	ro.hdmi.enable=true

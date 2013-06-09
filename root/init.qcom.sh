@@ -101,6 +101,7 @@ case "$target" in
         ;;
     "msm8960")
         start_sensors
+        esac
 
         platformvalue=`cat /sys/devices/system/soc/soc0/hw_platform`
         case "$platformvalue" in
