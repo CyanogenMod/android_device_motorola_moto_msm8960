@@ -252,21 +252,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.opengles.version=131072 \
     mpq.audio.decode=true
 
-#cne
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.cne.UseCne=vendor \
-    persist.cne.UseSwim=false \
-    persist.cne.bat.range.low.med=30 \
-    persist.cne.bat.range.med.high=60 \
-    persist.cne.loc.policy.op=/system/etc/OperatorPolicy.xml \
-    persist.cne.loc.policy.user=/system/etc/UserPolicy.xml \
-    persist.cne.bwbased.rat.sel=false \
-    persist.cne.snsr.based.rat.mgt=false \
-    persist.cne.bat.based.rat.mgt=false \
-    persist.cne.rat.acq.time.out=30000 \
-    persist.cne.rat.acq.retry.tout=0 \
-    persist.cne.nsrm.mode=false
-
 #misc
 PRODUCT_PROPERTY_OVERRIDES += \
 	persist.fuse_sdcard=true \
