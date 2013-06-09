@@ -219,11 +219,11 @@ on boot
    chmod 0664 /sys/class/backlight/lcd-backlight/device/pwm
    chown system system /sys/class/backlight/lcd-backlight/device/pwm
 
-   # Change the ownership of touch screen files for tcmd
+   # Change the ownership of touch screen files
    chown root input /sys/bus/i2c/drivers/melfas-ts/3-0048/irq_enabled
    chown root input /sys/bus/i2c/drivers/melfas-ts/3-0048/hw_irqstat
-   chown root mot_tcmd /sys/bus/i2c/drivers/cyttsp3-i2c/3-003b/drv_irq
-   chown root mot_tcmd /sys/bus/i2c/drivers/atmxt-i2c/3-004a/drv_irq
+   chown root system /sys/bus/i2c/drivers/cyttsp3-i2c/3-003b/drv_irq
+   chown root system /sys/bus/i2c/drivers/atmxt-i2c/3-004a/drv_irq
 
    # Change whisper permissions
    chmod 0660  /sys/devices/platform/emu_det/WHISPER_UART_TX_GPIO/value
@@ -269,7 +269,7 @@ on boot
    chmod 0660 /sys/devices/virtual/misc/pn544/pn544_control_dev
 
    # Create 12m directory that TCMD can write to
-    mkdir /data/local/12m 0755 mot_tcmd shell
+    mkdir /data/local/12m 0755 system shell
 
 # create the necessary data dirs for tpapi with proper permission
     mkdir /dev/tpapi 02770 mot_tpapi mot_tpapi
@@ -346,10 +346,10 @@ on post-fs-data
    mkdir /data/misc/ril/bp-dumps 0750 radio log
 
    # Setup correct permissions for /pds/public
-    mkdir /pds/public/atvc 0775 mot_tcmd shell
+    mkdir /pds/public/atvc 0775 system shell
     chmod 0775 /pds/public/atvc
-    mkdir /data/local/dbvc 0750 mot_tcmd shell
-    mkdir /data/local/atvc 0775 mot_tcmd shell
+    mkdir /data/local/dbvc 0750 system shell
+    mkdir /data/local/atvc 0775 system shell
 
    mkdir /data/tombstones 0771 system system
    mkdir /tombstones/modem 0771 system system
@@ -494,50 +494,6 @@ service ftmipcd /system/bin/ftmipcd
 
 on property:ro.bootmode=factory
     start ftmipcd
-
-    # Power up to suspend
-on property:tcmd.suspend=1
-    stop surfaceflinger
-    stop zygote
-    stop sensors
-    write /sys/kernel/factory_gsbi12_mode/install 1
-    setprop debug.sf.nobootanimation 1
-
-# Normal to suspend
-on property:tcmd.suspend=2
-    stop surfaceflinger
-    stop zygote
-    stop sensors
-    write /sys/kernel/factory_gsbi12_mode/install 1
-    setprop debug.sf.nobootanimation 1
-
-# Utag tcmd support
-on property:tcmd.utag=1
-    insmod /system/lib/modules/config.ko
-    chown root mot_tcmd /dev/block/platform/msm_sdcc.1/by-name/utags
-    chmod 0664 /dev/block/platform/msm_sdcc.1/by-name/utags
-
-on property:tcmd.whisper=3
-    stop whisperd
-
-on property:tcmd.whisper=4
-    start whisperd
-
-service tcmd /system/bin/tcmd
-    class core
-    group mot_tcmd radio mot_pwric input system log camera graphics mot_accy sdcard_r sdcard_rw audio inet bluetooth wifi compass net_bt_admin mot_tombstone mot_tpapi mount net_raw net_admin mot_whisper media shell mot_usb nfc fm_radio qcom_diag
-    socket local_tcmd stream 0660 mot_tcmd mot_tcmd
-    socket batch_socket stream 0600 mot_tcmd mot_tcmd
-    oneshot
-
-service tcmdhelp /system/bin/tcmdhelp
-    class main
-    socket tcmdhelp stream 0600 mot_tcmd mot_tcmd
-    oneshot
-    disabled
-
-on property:tcmd.start_tcmdhelp=1
-    start tcmdhelp
 
 service graphicsd /system/bin/logwrapper /system/bin/graphicsd
     class main
