@@ -243,13 +243,6 @@ service hciattach /system/bin/sh /system/etc/init.qcom.bt.sh
     disabled
     oneshot
 
-service bt-dun /system/bin/dun-server /dev/smd7 /dev/rfcomm0
-    class late_start
-    user bluetooth
-    group bluetooth net_bt_admin inet
-    disabled
-    oneshot
-
 service bridgemgrd /system/bin/bridgemgrd
     class late_start
     user radio
@@ -264,7 +257,7 @@ service port-bridge /system/bin/port-bridge /dev/smd0 /dev/ttyGS0
 
 on property:ro.baseband="msm"
     # Enable BT-DUN only for all msms
-    setprop ro.qualcomm.bluetooth.dun true
+    setprop ro.qualcomm.bluetooth.dun false
 
 service qmiproxy /system/bin/qmiproxy
     class main
