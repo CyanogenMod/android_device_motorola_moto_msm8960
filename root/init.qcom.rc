@@ -167,11 +167,6 @@ on post-fs-data
     rm /data/system/wpa_supplicant
     #symlink /data/misc/wifi/wpa_supplicant /data/system/wpa_supplicant
 
-    # GPS team does not plan to use the wiperiface service
-    # Create directories for wiper services
-    # mkdir /data/wpstiles/ 0755 shell
-    # mkdir /data/wiper 0755 location qcom_oncrpc
-
     #Create directories for gpsone_daemon services
     mkdir /data/misc/gpsone_d 0770 system system
 
@@ -349,12 +344,6 @@ service iprenew_bnep0 /system/bin/dhcpcd -n
     class late_start
     disabled
     oneshot
-
-# GPS team does not plan to use the wiperiface service
-#service wiperiface /system/bin/wiperiface
-#    user location
-#    group qcom_oncrpc
-#    oneshot
 
 service gpsone_daemon /system/bin/gpsone_daemon
     class late_start

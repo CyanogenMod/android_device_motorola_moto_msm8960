@@ -62,9 +62,7 @@ PRODUCT_PACKAGES += \
 	graphicsd \
 	mot_boot_mode \
 	recover_userdata \
-	libwiperjni.so \
-	libxt_native.so \
-	wiperiface
+	libxt_native.so
 
 # Misc
 PRODUCT_PACKAGES += \
