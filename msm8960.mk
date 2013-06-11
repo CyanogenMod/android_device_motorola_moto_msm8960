@@ -172,10 +172,8 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PROPERTY_OVERRIDES += \
 	debug.egl.hw=1 \
 	debug.sf.hw=1 \
-	debug.gr.numframebuffers=3 \
 	persist.sys.ui.hw=true \
-	debug.composition.type=c2d \
-	debug.egl.recordable.rgba8888=1 \
+	debug.composition.type=dyn \
 	debug.enabletr=0 \
 	ro.hwui.text_cache_width=2048
 
