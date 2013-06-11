@@ -13,7 +13,9 @@ export VENDORDEVICEDIR
 BASE=../../../vendor/$VENDOR/$VENDORDEVICEDIR/proprietary
 rm -rf $BASE/*
 rm -rf $BASE/../packages 2> /dev/null
-for FILE in `cat ../msm8960-common/common-proprietary-files.txt | grep -v ^# | cut -f1 -d '#' | grep -v ^$`; do
+
+for FILE in `egrep -v '(^#|^$)' ../$DEVICE/device-proprietary-files.txt`; do
+  echo "Extracting /system/$FILE ..."
     DIR=`dirname $FILE`
     if [ ! -d $BASE/$DIR ]; then
         mkdir -p $BASE/$DIR
@@ -24,7 +26,9 @@ for FILE in `cat ../msm8960-common/common-proprietary-files.txt | grep -v ^# | c
         cp -p "$COPY_FROM/$FILE" $BASE/$FILE
     fi
 done
-for FILE in `cat ../${DEVICE}/device-proprietary-files.txt | grep -v ^# | cut -f1 -d '#' | grep -v ^$`; do
+
+for FILE in `egrep -v '(^#|^$)' ../msm8960-common/proprietary-files.txt`; do
+  echo "Extracting /system/$FILE ..."
     DIR=`dirname $FILE`
     if [ ! -d $BASE/$DIR ]; then
         mkdir -p $BASE/$DIR
@@ -35,11 +39,26 @@ for FILE in `cat ../${DEVICE}/device-proprietary-files.txt | grep -v ^# | cut -f
         cp -p "$COPY_FROM/$FILE" $BASE/$FILE
     fi
 done
+
     if [ -d $BASE/app ]; then
         mkdir -p ${BASE}/../packages
         mv $BASE/app/* ${BASE}/../packages/
     fi
 rmdir ${BASE}/app 2> /dev/null
 
+BASE=../../../vendor/$VENDOR/msm8960-common/proprietary
+rm -rf $BASE/*
+for FILE in `egrep -v '(^#|^$)' ../msm8960-common/common-proprietary-files.txt`; do
+  echo "Extracting /system/$FILE ..."
+    DIR=`dirname $FILE`
+    if [ ! -d $BASE/$DIR ]; then
+        mkdir -p $BASE/$DIR
+    fi
+    if [ "$COPY_FROM" = "" ]; then
+        adb pull /system/$FILE $BASE/$FILE
+    else
+        cp -p "$COPY_FROM/$FILE" $BASE/$FILE
+    fi
+done
 
 ../msm8960-common/setup-makefiles.sh

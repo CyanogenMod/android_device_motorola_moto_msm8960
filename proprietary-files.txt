@@ -1,0 +1,4 @@
+# put anything that cannot be in msm8960-common
+# Radio
+lib/libqmiservices.so
+lib/libril-qc-qmi-1.so
