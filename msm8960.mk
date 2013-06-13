@@ -68,6 +68,7 @@ PRODUCT_PACKAGES += \
 	WCNSS_qcom_wlan_nv.bin \
 	tcpdump \
     Torch \
+    DevicePerformanceSettingsHelper \
     libxml2
 
 # Lights
