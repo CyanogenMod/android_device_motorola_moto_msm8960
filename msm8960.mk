@@ -177,7 +177,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	persist.sys.ui.hw=true \
 	debug.composition.type=dyn \
 	persist.hwc.mdpcomp.enable=true \
-	debug.mdpcomp.maxlayer=2 \
 	debug.mdpcomp.logs=0 \
 	debug.enabletr=0 \
 	ro.hwui.text_cache_width=2048
