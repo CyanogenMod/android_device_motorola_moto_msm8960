@@ -91,6 +91,7 @@ PRODUCT_COPY_FILES += $(LOCAL_PATH)/modules/bluetooth/bt_vendor.conf:system/etc/
 PRODUCT_PACKAGES += \
     copybit.msm8960 \
     gralloc.msm8960 \
+    camera.msm8960 \
     hwcomposer.msm8960 \
     power.msm8960
 
