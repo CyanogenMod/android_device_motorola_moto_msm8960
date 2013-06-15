@@ -257,7 +257,7 @@ public class MotorolaQualcommRIL extends RIL implements CommandsInterface {
     responseDataRegistrationState(Parcel p) {
         String response[] = (String [])responseStrings(p);
 
-        if (response[3].equals("1") &&
+        if ("1".equals(response[3]) &&
                 SystemProperties.get("persist.sys.report_gprs_as_edge", "0").equals("1")) {
             response[3] = "2";
         }
