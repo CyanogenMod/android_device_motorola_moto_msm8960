@@ -168,3 +168,4 @@ vendor/lib/libWVStreamControlAPI_L1.so
 # Available on jf (Samsung Galaxy S4) (have seperate make file)
 #lib/libc2d2_z180.so
 #lib/libC2D2.so
+#lib/libExtendedExtractor.so
