@@ -133,13 +133,13 @@ vendor/lib/libwvdrm_L1.so
 vendor/lib/libwvm.so
 vendor/lib/libWVStreamControlAPI_L1.so
 
-# ION audio support (Available on Nexus 4) (have seperate make file)
+# ION audio support Available on mako (Nexus 4) (have seperate make file)
 #lib/libacdbloader.so
 
-# GPS (Available on Nexus 4) (have seperate make file)
+# GPS Available on mako (Nexus 4) (have seperate make file)
 #lib/libloc_api_v02.so
 
-## Adreno GPU (Available at QDevNet) (have seperate make file)
+## Adreno GPU Available at QDevNet (have seperate make file)
 #bin/gpu_dcvsd
 #etc/firmware/a225p5_pm4.fw
 #etc/firmware/a225_pfp.fw
@@ -157,8 +157,6 @@ vendor/lib/libWVStreamControlAPI_L1.so
 #lib/egl/libplayback_adreno200.so
 #lib/egl/libq3dtools_adreno200.so
 #lib/libc2d2_a3xx.so
-#lib/libc2d2_z180.so
-#lib/libC2D2.so
 #lib/libgsl.so
 #lib/libllvm-a3xx.so
 #lib/libllvm-arm.so
@@ -166,3 +164,7 @@ vendor/lib/libWVStreamControlAPI_L1.so
 #lib/libOpenVG.so
 #lib/libsc-a2xx.so
 #lib/libsc-a3xx.so
+
+# Available on jf (Samsung Galaxy S4) (have seperate make file)
+#lib/libc2d2_z180.so
+#lib/libC2D2.so
