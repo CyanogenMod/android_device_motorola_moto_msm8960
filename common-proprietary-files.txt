@@ -29,7 +29,6 @@ etc/firmware/vidc.b01
 etc/firmware/vidc.b02
 etc/firmware/vidc.b03
 etc/firmware/vidc.mdt
-etc/firmware/vidc_1080p.fw
 etc/firmware/vidcfw.elf
 
 #configs
@@ -166,6 +165,7 @@ vendor/lib/libWVStreamControlAPI_L1.so
 #lib/libsc-a3xx.so
 
 # Available on jf (Samsung Galaxy S4) (have seperate make file)
+#etc/firmware/vidc_1080p.fw
 #lib/libc2d2_z180.so
 #lib/libC2D2.so
 #lib/libExtendedExtractor.so
