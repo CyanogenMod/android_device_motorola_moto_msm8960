@@ -1,5 +1,5 @@
 #!/system/bin/sh
-# Copyright (c) 2012, Code Aurora Forum. All rights reserved.
+# Copyright (c) 2012-2013, The Linux Foundation. All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions are met:
@@ -8,7 +8,7 @@
 #     * Redistributions in binary form must reproduce the above copyright
 #       notice, this list of conditions and the following disclaimer in the
 #       documentation and/or other materials provided with the distribution.
-#     * Neither the name of Code Aurora nor
+#     * Neither the name of The Linux Foundation nor
 #       the names of its contributors may be used to endorse or promote
 #       products derived from this software without specific prior written
 #       permission.
@@ -27,16 +27,15 @@
 #
 
 export PATH=/system/bin
-target=`getprop ro.board.platform`
 
 # Set platform variables
 soc_hwplatform=`cat /sys/devices/system/soc/soc0/hw_platform` 2> /dev/null
 soc_hwid=`cat /sys/devices/system/soc/soc0/id` 2> /dev/null
 soc_hwver=`cat /sys/devices/system/soc/soc0/platform_version` 2> /dev/null
 
-log -t BOOT -p i "MSM target '$target', SoC '$soc_hwplatform', HwID '$soc_hwid', SoC ver '$soc_hwver'"
+log -t BOOT -p i "MSM target '$1', SoC '$soc_hwplatform', HwID '$soc_hwid', SoC ver '$soc_hwver'"
 
-case "$target" in
+case "$1" in
     "msm7630_surf" | "msm7630_1x" | "msm7630_fusion")
         case "$soc_hwplatform" in
             "FFA" | "SVLTE_FFA")
@@ -80,6 +79,9 @@ case "$target" in
                 ;;
             *)
                 case "$soc_hwid" in
+                    "142") #8x30 QRD
+                        setprop ro.sf.lcd_density 320
+                        ;;
                     "109")
                         setprop ro.sf.lcd_density 160
                         ;;
@@ -90,14 +92,27 @@ case "$target" in
             ;;
         esac
 
-        #Set up composition type based on the target
+        #Set up MSM-specific configuration
         case "$soc_hwid" in
-            109| 116 | 117 | 118 | 120 | 121| 130)
-                #APQ8064, MSM8930, MSM8630, MSM8230,
-                # MSM8627, MSM8227, MPQ8064
-                setprop debug.composition.type gpu
+            87)
+                #8960
+                setprop debug.composition.type dyn
+                ;;
+            153 | 154 | 155 | 156 | 157 | 138 | 179 | 180 | 181)
+                #8064 V2 PRIME | 8930AB | 8630AB | 8230AB | 8030AB | 8960AB | 8130/AA/AB
+                setprop debug.composition.type c2d
                 ;;
             *)
+                ;;
+        esac
+
+        case "$soc_hwid" in
+            87 | 116 | 117 | 118 | 119 | 138 | 142 | 143 | 144 | 154 | 155 | 156 | 157 | 179 | 180 | 181)
+                #Disable subsystem restart for 8x30 and 8960
+                setprop persist.sys.ssr.restart_level 1
+                ;;
+            *)
+                ;;
         esac
         ;;
 esac
@@ -127,3 +142,8 @@ do
     esac
     fb_cnt=$(( $fb_cnt + 1))
 done
+
+# Set date to a time after 2008
+# This is a workaround for Zygote to preload time related classes properly
+date -s 20090102.130000
+

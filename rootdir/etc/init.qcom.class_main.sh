@@ -1,5 +1,5 @@
 #!/system/bin/sh
-# Copyright (c) 2009-2010, Code Aurora Forum. All rights reserved.
+# Copyright (c) 2012, The Linux Foundation. All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions are met:
@@ -8,7 +8,7 @@
 #     * Redistributions in binary form must reproduce the above copyright
 #       notice, this list of conditions and the following disclaimer in the
 #       documentation and/or other materials provided with the distribution.
-#     * Neither the name of Code Aurora nor
+#     * Neither the name of The Linux Foundation nor
 #       the names of its contributors may be used to endorse or promote
 #       products derived from this software without specific prior written
 #       permission.
@@ -24,75 +24,45 @@
 # WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
 # OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+#
 
-LOG_TAG="qcom-bt-wlan-coex"
-LOG_NAME="${0}:"
+#
+# start ril-daemon only for targets on which radio is present
+#
+baseband=`getprop ro.baseband`
+multirild=`getprop ro.multi.rild`
+dsds=`getprop persist.dsds.enabled`
+netmgr=`getprop ro.use_data_netmgrd`
 
-coex_pid=""
-
-loge ()
-{
-  /system/bin/log -t $LOG_TAG -p e "$LOG_NAME $@"
-}
-
-logi ()
-{
-  /system/bin/log -t $LOG_TAG -p i "$LOG_NAME $@"
-}
-
-failed ()
-{
-  loge "$1: exit code $2"
-  exit $2
-}
-
-start_coex ()
-{
-  # Must have -o turned on to avoid daemon (otherwise we cannot get pid)
-  /system/bin/btwlancoex -o $opt_flags &
-  coex_pid=$!
-  logi "start_coex: pid = $coex_pid"
-}
-
-kill_coex ()
-{
-  logi "kill_coex: pid = $coex_pid"
-  kill -TERM $coex_pid
-  # this shell doesn't exit now -- wait returns for normal exit
-}
-
-# mimic coex options parsing -- maybe a waste of effort
-USAGE="${0} [-o] [-c] [-r] [-i] [-h]"
-
-while getopts "ocrih" f
-do
-  case $f in
-  o | c | r | i | h)  opt_flags="$opt_flags -$f" ;;
-  \?)     echo $USAGE; exit 1;;
-  esac
-done
-
-# init does SIGTERM on ctl.stop for service
-trap "kill_coex" TERM INT
-
-#Selectively start coex module
-target=`getprop ro.board.platform`
-
-case "$target" in
-    "msm8960")
-    logi "btwlancoex/abtfilt is not needed"
-    ;;
-    *)
-    # Build settings may not produce the coex executable
-    if ls /system/bin/btwlancoex | ls /system/bin/abtfilt
-    then
-        start_coex
-        wait $coex_pid
-        logi "Coex stopped"
-    else
-        logi "btwlancoex/abtfilt not available"
-    fi
-    ;;
+case "$baseband" in
+    "apq")
+    setprop ro.radio.noril yes
+    stop ril-daemon
 esac
 
-exit 0
+case "$baseband" in
+    "msm" | "csfb" | "svlte2a" | "mdm" | "sglte" | "sglte2" | "dsda2" | "unknown")
+    start qmuxd
+    case "$baseband" in
+        "svlte2a" | "csfb" | "sglte" | "sglte2")
+        start qmiproxy
+        ;;
+        "dsda2")
+          setprop ro.multi.rild true
+          setprop persist.multisim.config dsda
+          stop ril-daemon
+          start ril-daemon
+          start ril-daemon1
+    esac
+    case "$multirild" in
+        "true")
+         case "$dsds" in
+             "true")
+             start ril-daemon1
+         esac
+    esac
+    case "$netmgr" in
+        "true")
+        start netmgrd
+    esac
+esac

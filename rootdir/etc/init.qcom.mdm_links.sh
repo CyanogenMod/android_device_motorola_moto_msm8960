@@ -1,5 +1,5 @@
 #!/system/bin/sh
-# Copyright (c) 2012, Code Aurora Forum. All rights reserved.
+# Copyright (c) 2011, The Linux Foundation. All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions are
@@ -10,7 +10,7 @@
 #       copyright notice, this list of conditions and the following
 #       disclaimer in the documentation and/or other materials provided
 #       with the distribution.
-#     * Neither the name of Code Aurora Forum, Inc. nor the names of its
+#     * Neither the name of The Linux Foundation nor the names of its
 #       contributors may be used to endorse or promote products derived
 #       from this software without specific prior written permission.
 #
@@ -28,7 +28,26 @@
 #
 #
 
-PATH=/system/bin:$PATH
+# No path is set up at this point so we have to do it here.
+PATH=/sbin:/system/sbin:/system/bin:/system/xbin
 export PATH
-cat /sys/devices/platform/rs300000a7.65536/force_sync
-cat /sys/devices/platform/rs300100a7.65536/force_sync
+
+MDM_IMAGES=/firmware/image
+cd $MDM_IMAGES
+ln -s $MDM_IMAGES/apps.mbn /system/etc/firmware/apps.mbn 2>/dev/null
+ln -s $MDM_IMAGES/dsp1.mbn /system/etc/firmware/dsp1.mbn 2>/dev/null
+ln -s $MDM_IMAGES/dsp2.mbn /system/etc/firmware/dsp2.mbn 2>/dev/null
+ln -s $MDM_IMAGES/dsp3.mbn /system/etc/firmware/dsp3.mbn 2>/dev/null
+ln -s $MDM_IMAGES/rpm.mbn  /system/etc/firmware/rpm.mbn  2>/dev/null
+ln -s $MDM_IMAGES/sbl1.mbn /system/etc/firmware/sbl1.mbn 2>/dev/null
+ln -s $MDM_IMAGES/sbl2.mbn /system/etc/firmware/sbl2.mbn 2>/dev/null
+ln -s $MDM_IMAGES/efs1.mbn /system/etc/firmware/efs1.mbn 2>/dev/null
+ln -s $MDM_IMAGES/efs2.mbn /system/etc/firmware/efs2.mbn 2>/dev/null
+ln -s $MDM_IMAGES/efs3.mbn /system/etc/firmware/efs3.mbn 2>/dev/null
+ln -s $MDM_IMAGES/acdb.mbn /system/etc/firmware/acdb.mbn 2>/dev/null
+ln -s $MDM_IMAGES/mdm_acdb.img /system/etc/firmware/mdm_acdb.img 2>/dev/null
+
+
+cd /
+
+
