@@ -131,6 +131,7 @@ PRODUCT_PACKAGES += \
 
 # Init scripts
 PRODUCT_PACKAGES += \
+    init.mmi.usb.sh \
     init.qcom.class_core.sh \
     init.qcom.class_main.sh \
     init.qcom.coex.sh \
