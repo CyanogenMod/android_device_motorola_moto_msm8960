@@ -48,7 +48,6 @@ lib/libbabysit.so
 lib/libconfigdb.so
 lib/libcsd-client.so
 lib/libdiag.so
-lib/libDivxDrm.so
 lib/libdrmdiag.so
 lib/libdrmfs.so
 lib/libdrmtime.so
@@ -66,8 +65,6 @@ lib/libimage-omx-common.so
 lib/libmm-color-convertor.so
 lib/libmmjpeg.so
 lib/libmmmpod.so
-lib/libmmosal.so
-lib/libmmparser.so
 lib/libmmrtpencoder.so
 lib/libmmstereo.so
 lib/libmmstillomx.so
@@ -168,4 +165,7 @@ vendor/lib/libWVStreamControlAPI_L1.so
 #etc/firmware/vidc_1080p.fw
 #lib/libc2d2_z180.so
 #lib/libC2D2.so
+#lib/libdivxdrm.so
 #lib/libExtendedExtractor.so
+#lib/libmmosal.so
+#lib/libmmparser.so
