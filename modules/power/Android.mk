@@ -13,7 +13,7 @@
 # limitations under the License.
 
 ifeq ($(TARGET_PROVIDES_POWERHAL),true)
-ifeq ($(BOARD_VENDOR),motorola)
+ifeq ($(BOARD_VENDOR),motorola-msm8960)
 ifeq ($(TARGET_BOARD_PLATFORM),msm8960)
 LOCAL_PATH := $(call my-dir)
 
