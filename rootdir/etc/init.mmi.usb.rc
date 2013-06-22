@@ -36,9 +36,9 @@ on boot
     write /sys/class/android_usb/android0/f_mass_storage/product ${ro.product.model}
     mkdir /dev/bus 0755 root root
     mkdir /dev/bus/usb 0755 root root
-    setprop usb.mtp.pid 0x710F
-    setprop usb.mtp.cdrom 1
-    setprop usb.mtp.config mass_storage
+    setprop usb.mtp.pid ${ro.usb.mtp}
+    setprop usb.mtp.cdrom 0
+    setprop usb.mtp.config mtp,usbnet
 
 service mmi-usb-sh /system/bin/sh /init.mmi.usb.sh
     class core
@@ -105,7 +105,6 @@ on property:sys.usb.config=mtp
     write /sys/class/android_usb/android0/functions ${usb.mtp.config}
     write /sys/class/android_usb/android0/enable 1
     setprop sys.usb.state ${sys.usb.config}
-    setprop sys.mot.usb.action none
 
 on property:sys.usb.config=mtp,adb
     write /sys/class/android_usb/android0/enable 0
