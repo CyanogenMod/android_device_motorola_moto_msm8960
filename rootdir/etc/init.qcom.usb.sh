@@ -83,57 +83,43 @@ esac
 #
 # Allow USB enumeration with default PID/VID
 #
-baseband=`getprop ro.baseband`
 echo 1  > /sys/class/android_usb/f_mass_storage/lun/nofua
 usb_config=`getprop persist.sys.usb.config`
-case "$usb_config" in
-    "" | "adb") #USB persist config not set, select default configuration
-        case $target in
-            "msm8960" | "msm8974")
-                case "$baseband" in
-                    "mdm")
-                         setprop persist.sys.usb.config diag,diag_mdm,serial_hsic,serial_tty,rmnet_hsic,mass_storage,adb
-                    ;;
-                    "sglte")
-                         setprop persist.sys.usb.config diag,diag_qsc,serial_smd,serial_tty,serial_hsuart,rmnet_hsuart,mass_storage,adb
-                    ;;
-                    "dsda" | "sglte2")
-                         setprop persist.sys.usb.config diag,diag_mdm,diag_qsc,serial_hsic,serial_hsuart,rmnet_hsic,rmnet_hsuart,mass_storage,adb
-                    ;;
-                    "dsda2")
-                         setprop persist.sys.usb.config diag,diag_mdm,diag_mdm2,serial_hsic,serial_hsusb,rmnet_hsic,rmnet_hsusb,mass_storage,adb
-                    ;;
-                    *)
-                         setprop persist.sys.usb.config diag,serial_smd,serial_tty,rmnet_bam,mass_storage,adb
-                    ;;
-                esac
+bootmode=`getprop ro.bootmode`
+buildtype=`getprop ro.build.type`
+case "$bootmode" in
+    "bp-tools" )
+        setprop persist.sys.usb.config diag,serial_smd,serial_tty,rmnet,usbnet,adb
+    ;;
+    "factory" )
+        setprop persist.sys.usb.config usbnet
+    ;;
+    "qcom" )
+        setprop persist.sys.usb.config diag,serial_smd,serial_tty,rmnet_bam,mass_storage,adb
+    ;;
+    * )
+        case "$usb_config" in
+            "ptp,adb" | "mtp,adb" | "mass_storage,adb" | "ptp" | "mtp" | "mass_storage" )
             ;;
-            "msm7627a")
-                setprop persist.sys.usb.config diag,serial_smd,serial_tty,rmnet_smd,mass_storage,adb
-            ;;
-            * )
-                case "$baseband" in
-                    "svlte2a")
-                         setprop persist.sys.usb.config diag,diag_mdm,serial_sdio,serial_smd,rmnet_smd_sdio,mass_storage,adb
+            *)
+                case "$buildtype" in
+                    "user" )
+                        setprop persist.sys.usb.config mtp
                     ;;
-                    "csfb")
-                         setprop persist.sys.usb.config diag,diag_mdm,serial_sdio,serial_tty,rmnet_sdio,mass_storage,adb
-                    ;;
-                    *)
-                         setprop persist.sys.usb.config diag,serial_tty,serial_tty,rmnet_smd,mass_storage,adb
+                    * )
+                        setprop persist.sys.usb.config mtp,adb
                     ;;
                 esac
             ;;
         esac
     ;;
-    * ) ;; #USB persist config exists, do nothing
 esac
 
 #
 # Add support for exposing lun0 as cdrom in mass-storage
 #
 target=`getprop ro.product.device`
-cdromname="/system/etc/cdrom_install.iso"
+cdromname="/dev/block/platform/msm_sdcc.1/by-name/cdrom"
 cdromenable=`getprop persist.service.cdrom.enable`
 case "$target" in
         "msm7627a")
