@@ -25,8 +25,8 @@
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 
-# use init.mmi.usb.rc
-# import init.qcom.usb.rc
+import init.qcom.usb.rc
+# import init.target.rc
 
 on init
     # Set permissions for persist partition
@@ -181,9 +181,6 @@ on boot
 
 # import cne init file
 on post-fs
-# Service not used
-#    exec export_rc /persist/init.cne.rc
-
 # msm specific files that need to be created on /data
 on post-fs-data
     # we will remap this as /mnt/sdcard with the sdcard fuse tool
@@ -347,7 +344,7 @@ on property:ro.use_data_netmgrd=false
 # Adjust socket buffer to enlarge TCP receive window for high bandwidth
 # but only if ro.data.large_tcp_window_size property is set.
 on property:ro.data.large_tcp_window_size=true
-    write /proc/sys/net/ipv4/tcp_adv_win_scale  1
+    write /proc/sys/net/ipv4/tcp_adv_win_scale  2
 
 service btwlancoex /system/bin/sh /system/etc/init.qcom.coex.sh
     class late_start
@@ -480,7 +477,6 @@ on property:persist.data.ds_fmc_app.mode=1
 
 service ims_regmanager /system/bin/exe-ims-regmanagerprocessnative
     class late_start
-    user system
     group qcom_oncrpc net_bt_admin inet radio wifi
     disabled
 
@@ -489,7 +485,7 @@ on property:persist.ims.regmanager.mode=1
 
 on property:ro.data.large_tcp_window_size=true
     # Adjust socket buffer to enlarge TCP receive window for high bandwidth (e.g. DO-RevB)
-    write /proc/sys/net/ipv4/tcp_adv_win_scale  1
+    write /proc/sys/net/ipv4/tcp_adv_win_scale  2
 
 service ril-daemon1 /system/bin/rild -c 1
     class main
@@ -519,9 +515,3 @@ on property:persist.sys.ssr.restart_level=1
     write /sys/module/subsystem_restart/parameters/restart_level 1
 on property:persist.sys.ssr.restart_level=3
     write /sys/module/subsystem_restart/parameters/restart_level 3
-
-# Restart adbd so it can run as root
-on property:service.adb.root=1
-    write /sys/class/android_usb/android0/enable 0
-    restart adbd
-    write /sys/class/android_usb/android0/enable 1

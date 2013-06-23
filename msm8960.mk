@@ -123,15 +123,13 @@ PRODUCT_COPY_FILES += \
 # Ramdisk
 PRODUCT_PACKAGES += \
     fstab.qcom \
-    init.mmi.usb.rc \
-    init.msm.rc \
     init.qcom.rc \
+    init.qcom.usb.rc \
     init.target.rc \
     ueventd.qcom.rc
 
 # Init scripts
 PRODUCT_PACKAGES += \
-    init.mmi.usb.sh \
     init.qcom.class_core.sh \
     init.qcom.class_main.sh \
     init.qcom.coex.sh \
@@ -143,6 +141,7 @@ PRODUCT_PACKAGES += \
     init.qcom.post_boot.sh \
     init.qcom.sh \
     init.qcom.syspart_fixup.sh \
+    init.qcom.usb.sh \
     init.crda.sh
 
 # Scripts

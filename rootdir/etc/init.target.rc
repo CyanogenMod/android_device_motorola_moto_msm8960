@@ -26,7 +26,6 @@
 # IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 #
-import init.mmi.usb.rc
 
 on early-init
     mkdir /firmware 0771 system system
@@ -320,23 +319,24 @@ on boot
 
 #   Define TCP buffer sizes for various networks
 #   ReadMin, ReadInitial, ReadMax, WriteMin, WriteInitial, WriteMax,
-    setprop net.tcp.buffersize.default 131072,262144,524288,4096,16384,131072
+    setprop net.tcp.buffersize.default 131072,262144,655360,4096,16384,147456
     setprop net.tcp.buffersize.wifi    131072,262144,3461120,4096,221184,3461120
-    setprop net.tcp.buffersize.umts    131072,262144,524288,4096,16384,131072
+    setprop net.tcp.buffersize.umts    131072,262144,726016,4096,16384,199680
     setprop net.tcp.buffersize.hspa    131072,262144,1220608,4096,16384,1220608
     setprop net.tcp.buffersize.hsupa   131072,262144,1220608,4096,16384,1220608
     setprop net.tcp.buffersize.hsdpa   131072,262144,1220608,4096,16384,1220608
     setprop net.tcp.buffersize.hspap   131072,262144,1572864,4096,16384,1572864
     setprop net.tcp.buffersize.edge    16384,32768,65536,4096,16384,32768
     setprop net.tcp.buffersize.gprs    4096,8192,12288,4096,8192,12288
-    setprop net.tcp.buffersize.lte     524288,1048576,4194304,262144,524288,1048576
+    setprop net.tcp.buffersize.lte     524288,1048576,4194304,262144,524288,2097152
+    setprop net.tcp.buffersize.cdma    4096,12288,24576,4096,12288,24576
     setprop net.tcp.buffersize.evdo    131072,262144,524288,4096,16384,262144
     setprop net.tcp.buffersize.evdo_b  131072,262144,704512,4096,16384,262144
-    
+
 # Assign TCP buffer thresholds to be ceiling value of technology maximums
 # Increased technology maximums should be reflected here.
     write /proc/sys/net/core/rmem_max  4194304
-    write /proc/sys/net/core/wmem_max  3461120
+    write /proc/sys/net/core/wmem_max  4194304
 # NFC settings
     setprop ro.nfc.port "I2C"
 
@@ -363,12 +363,6 @@ service qcamerasvr /system/bin/logwrapper /system/bin/qcamerasrvwrapper.sh
     class late_start
     user media
     group system camera inet input graphics
-
-#start camera server as daemon
-#service qcamerasvr /system/bin/mm-qcamera-daemon
-#        class core
-#        user camera
-#        group camera system inet input graphics
 
 service thermald /system/bin/thermald
    class main
@@ -554,3 +548,9 @@ on property:gsm.network.type="eHRPD"
 
 on property:gsm.network.type="LTE"
     start stop_fd
+
+# Restart adbd so it can run as root
+on property:service.adb.root=1
+    write /sys/class/android_usb/android0/enable 0
+    restart adbd
+    write /sys/class/android_usb/android0/enable 1
