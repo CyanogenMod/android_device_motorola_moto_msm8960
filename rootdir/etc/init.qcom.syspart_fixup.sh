@@ -75,6 +75,7 @@ if [ -f /system/etc/init.qcom.sensor.sh ]; then
   /system/bin/sh /system/etc/init.qcom.sensor.sh
 fi
 
+setprop qcom.audio.init complete
 
 touch /system/etc/boot_fixup
 
