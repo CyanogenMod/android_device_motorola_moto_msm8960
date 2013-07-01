@@ -62,7 +62,6 @@ on early-boot
     exec /system/bin/sh /init.qcom.syspart_fixup.sh ${ro.board.platform} ${ro.serialno}
 
 on boot
-    exec system/bin/btnvtool -O
     chown bluetooth bluetooth /sys/module/bluetooth_power/parameters/power
     chown bluetooth bluetooth /sys/class/rfkill/rfkill0/type
     chown bluetooth bluetooth /sys/class/rfkill/rfkill0/state
@@ -293,7 +292,7 @@ service rmt_storage /system/bin/rmt_storage
 on property:ro.boot.emmc=true
     start rmt_storage
 
-service config_bluetooth /system/bin/sh /system/etc/init.qcom.bt.sh "onboot"
+service config_bluetooth /system/bin/sh /system/etc/init.qcom.bt.sh
     class core
     user root
     oneshot

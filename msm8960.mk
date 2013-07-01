@@ -130,6 +130,8 @@ PRODUCT_PACKAGES += \
 
 # Init scripts
 PRODUCT_PACKAGES += \
+    init.crda.sh \
+    init.qcom.bt.sh \
     init.qcom.class_core.sh \
     init.qcom.class_main.sh \
     init.qcom.coex.sh \
@@ -141,8 +143,7 @@ PRODUCT_PACKAGES += \
     init.qcom.post_boot.sh \
     init.qcom.sh \
     init.qcom.syspart_fixup.sh \
-    init.qcom.usb.sh \
-    init.crda.sh
+    init.qcom.usb.sh
 
 # Scripts
 PRODUCT_COPY_FILES += \
