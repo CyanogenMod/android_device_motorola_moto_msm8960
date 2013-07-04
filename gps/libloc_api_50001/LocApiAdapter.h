@@ -141,6 +141,9 @@ public:
     // All below functions are to be defined by adapter specific modules:
     // RPC, QMI, etc.  The default implementation is empty.
     inline virtual enum loc_api_adapter_err
+        setEngineLock(unsigned int locked)
+    {LOC_LOGW("%s: default implementation invoked", __func__); return LOC_API_ADAPTER_ERR_SUCCESS;}
+    inline virtual enum loc_api_adapter_err
         reinit()
     {LOC_LOGW("%s: default implementation invoked", __func__); return LOC_API_ADAPTER_ERR_SUCCESS;}
     inline virtual enum loc_api_adapter_err
