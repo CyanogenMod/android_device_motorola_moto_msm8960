@@ -96,9 +96,6 @@ PRODUCT_PACKAGES += \
 
 # GPS
 PRODUCT_PACKAGES += \
-    libloc_adapter \
-    libloc_eng \
-    libgps.utils \
     gps.msm8960
 
 # Misc
@@ -150,6 +147,10 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/scripts/mount_pds.sh:system/bin/mount_pds.sh \
     $(LOCAL_PATH)/scripts/qcamerasrvwrapper.sh:system/bin/qcamerasrvwrapper.sh \
     $(LOCAL_PATH)/scripts/sensorsqcomwrapper.sh:system/bin/sensorsqcomwrapper.sh \
+
+# GPS configuration
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/gps/gps.conf:system/etc/gps.conf
 
 # Audio configuration
 PRODUCT_COPY_FILES += \
