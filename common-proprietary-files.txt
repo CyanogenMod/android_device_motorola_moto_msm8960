@@ -123,6 +123,9 @@ lib/libchromatix_s5k3l1yx_preview.so
 lib/libchromatix_s5k3l1yx_video_hd.so
 lib/libchromatix_s5k3l1yx_zsl.so
 
+# GPS
+lib/libloc_api_v02.so
+
 ##drm
 vendor/lib/drm/libdrmwvmplugin.so
 vendor/lib/libwvdrm_L1.so
@@ -131,9 +134,6 @@ vendor/lib/libWVStreamControlAPI_L1.so
 
 # ION audio support Available on mako (Nexus 4) (have seperate make file)
 #lib/libacdbloader.so
-
-# GPS Available on mako (Nexus 4) (have seperate make file)
-#lib/libloc_api_v02.so
 
 ## Adreno GPU Available at QDevNet (have seperate make file)
 #bin/gpu_dcvsd
