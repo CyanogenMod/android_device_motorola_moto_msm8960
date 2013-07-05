@@ -36,7 +36,7 @@ etc/wifi/hostapd_default.conf
 etc/thermald.conf
 
 #HAL
-lib/hw/camera.msm8960.so
+lib/hw/camera.msm8960.so:lib/hw/vendor-camera.msm8960.so
 lib/hw/sensorhub.msm8960.so
 lib/hw/sensors.msm8960.so
 lib/hw/sensors.oem.so

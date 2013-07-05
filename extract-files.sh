@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 if [ $# -eq 1 ]; then
     COPY_FROM=$1
@@ -15,28 +15,62 @@ rm -rf $BASE/*
 rm -rf $BASE/../packages 2> /dev/null
 
 for FILE in `egrep -v '(^#|^$)' ../$DEVICE/device-proprietary-files.txt`; do
-  echo "Extracting /system/$FILE ..."
+    echo "Extracting /system/$FILE ..."
+    OLDIFS=$IFS IFS=":" PARSING_ARRAY=($FILE) IFS=$OLDIFS
+    FILE=${PARSING_ARRAY[0]}
+    DEST=${PARSING_ARRAY[1]}
+    if [ -z $DEST ]
+    then
+        DEST=$FILE
+    fi
     DIR=`dirname $FILE`
     if [ ! -d $BASE/$DIR ]; then
         mkdir -p $BASE/$DIR
     fi
     if [ "$COPY_FROM" = "" ]; then
-        adb pull /system/$FILE $BASE/$FILE
+        adb pull /system/$FILE $BASE/$DEST
+        # if file dot not exist try destination
+        if [ "$?" != "0" ]
+          then
+          adb pull /system/$DEST $BASE/$DEST
+        fi
     else
-        cp -p "$COPY_FROM/$FILE" $BASE/$FILE
+        cp $COPY_FROM/$FILE $BASE/$DEST
+        # if file does not exist try destination
+        if [ "$?" != "0" ]
+            then
+            cp $COPY_FROM/$DEST $BASE/$DEST
+        fi
     fi
 done
 
 for FILE in `egrep -v '(^#|^$)' ../msm8960-common/proprietary-files.txt`; do
-  echo "Extracting /system/$FILE ..."
+    echo "Extracting /system/$FILE ..."
+    OLDIFS=$IFS IFS=":" PARSING_ARRAY=($FILE) IFS=$OLDIFS
+    FILE=${PARSING_ARRAY[0]}
+    DEST=${PARSING_ARRAY[1]}
+    if [ -z $DEST ]
+    then
+        DEST=$FILE
+    fi
     DIR=`dirname $FILE`
     if [ ! -d $BASE/$DIR ]; then
         mkdir -p $BASE/$DIR
     fi
     if [ "$COPY_FROM" = "" ]; then
-        adb pull /system/$FILE $BASE/$FILE
+        adb pull /system/$FILE $BASE/$DEST
+        # if file dot not exist try destination
+        if [ "$?" != "0" ]
+          then
+          adb pull /system/$DEST $BASE/$DEST
+        fi
     else
-        cp -p "$COPY_FROM/$FILE" $BASE/$FILE
+        cp $COPY_FROM/$FILE $BASE/$DEST
+        # if file does not exist try destination
+        if [ "$?" != "0" ]
+            then
+            cp $COPY_FROM/$DEST $BASE/$DEST
+        fi
     fi
 done
 
@@ -49,15 +83,32 @@ rmdir ${BASE}/app 2> /dev/null
 BASE=../../../vendor/$VENDOR/msm8960-common/proprietary
 rm -rf $BASE/*
 for FILE in `egrep -v '(^#|^$)' ../msm8960-common/common-proprietary-files.txt`; do
-  echo "Extracting /system/$FILE ..."
+    echo "Extracting /system/$FILE ..."
+    OLDIFS=$IFS IFS=":" PARSING_ARRAY=($FILE) IFS=$OLDIFS
+    FILE=${PARSING_ARRAY[0]}
+    DEST=${PARSING_ARRAY[1]}
+    if [ -z $DEST ]
+    then
+        DEST=$FILE
+    fi
     DIR=`dirname $FILE`
     if [ ! -d $BASE/$DIR ]; then
         mkdir -p $BASE/$DIR
     fi
     if [ "$COPY_FROM" = "" ]; then
-        adb pull /system/$FILE $BASE/$FILE
+        adb pull /system/$FILE $BASE/$DEST
+        # if file dot not exist try destination
+        if [ "$?" != "0" ]
+          then
+          adb pull /system/$DEST $BASE/$DEST
+        fi
     else
-        cp -p "$COPY_FROM/$FILE" $BASE/$FILE
+        cp $COPY_FROM/$FILE $BASE/$DEST
+        # if file does not exist try destination
+        if [ "$?" != "0" ]
+            then
+            cp $COPY_FROM/$DEST $BASE/$DEST
+        fi
     fi
 done
 
