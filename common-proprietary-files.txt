@@ -62,6 +62,7 @@ lib/libgps.so
 lib/libidl.so
 lib/libimage-jpeg-enc-omx-comp.so
 lib/libimage-omx-common.so
+lib/libloc_api_v02.so
 lib/libmm-color-convertor.so
 lib/libmmjpeg.so
 lib/libmmmpod.so
@@ -122,9 +123,6 @@ lib/libchromatix_s5k3l1yx_hfr_90fps.so
 lib/libchromatix_s5k3l1yx_preview.so
 lib/libchromatix_s5k3l1yx_video_hd.so
 lib/libchromatix_s5k3l1yx_zsl.so
-
-# GPS
-lib/libloc_api_v02.so
 
 ##drm
 vendor/lib/drm/libdrmwvmplugin.so
