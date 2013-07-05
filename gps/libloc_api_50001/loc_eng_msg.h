@@ -834,6 +834,16 @@ struct ulp_msg_report_quipc_position : public loc_eng_msg {
     }
 };
 
+struct loc_eng_msg_engine_lock : public loc_eng_msg {
+    const unsigned int engine_lock;
+    inline loc_eng_msg_engine_lock(void* instance, unsigned int engine_lock) :
+        loc_eng_msg(instance, LOC_ENG_MSG_ENGINE_LOCK),
+    engine_lock(engine_lock)
+    {
+        LOC_LOGV("engine_lock: %d", engine_lock);
+    }
+};
+
 void loc_eng_msg_sender(void* loc_eng_data_p, void* msg);
 int loc_eng_msgget(int * p_req_msgq);
 int loc_eng_msgremove(int req_msgq);

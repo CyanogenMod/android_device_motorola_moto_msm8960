@@ -122,6 +122,9 @@ enum loc_eng_msg_ids_t {
     // Message is sent by Android framework (GpsLocationProvider)
     // to inject the raw command
     ULP_MSG_INJECT_RAW_COMMAND,
+
+    LOC_ENG_MSG_ENGINE_LOCK,
+
 };
 
 #ifdef __cplusplus

@@ -211,6 +211,7 @@ static void loc_eng_process_conn_request(loc_eng_data_s_type &loc_eng_data,
 static void loc_eng_agps_close_status(loc_eng_data_s_type &loc_eng_data, int is_succ);
 static void loc_eng_handle_engine_down(loc_eng_data_s_type &loc_eng_data) ;
 static void loc_eng_handle_engine_up(loc_eng_data_s_type &loc_eng_data) ;
+static int loc_eng_set_engine_lock(loc_eng_data_s_type &loc_eng_data, unsigned int engine_lock);
 
 static char extra_data[100];
 /*********************************************************************
@@ -276,6 +277,12 @@ int loc_eng_init(loc_eng_data_s_type &loc_eng_data, LocCallbacks* callbacks,
         return NULL;
     }
 
+    if (NULL != loc_eng_data.context) {
+        // Current loc_eng_cleanup keeps context initialized,
+        // so must enable here too.
+        loc_eng_set_engine_lock(loc_eng_data, 1);
+    }
+
     STATE_CHECK((NULL == loc_eng_data.context),
                 "instance already initialized", return 0);
 
@@ -317,13 +324,17 @@ int loc_eng_init(loc_eng_data_s_type &loc_eng_data, LocCallbacks* callbacks,
         LOC_LOGD("loc_eng_init created client, id = %p\n", loc_eng_data.client_handle);
 
         // call reinit to send initialization messages
-       int tries = 30;
-       while (tries > 0 &&
-              LOC_API_ADAPTER_ERR_SUCCESS != (ret_val = loc_eng_reinit(loc_eng_data))) {
-           tries--;
-           LOC_LOGD("loc_eng_init client open failed, %d more tries", tries);
-           sleep(1);
-       }
+        int tries = 30;
+        while (tries > 0 &&
+                LOC_API_ADAPTER_ERR_SUCCESS != (ret_val = loc_eng_reinit(loc_eng_data))) {
+            tries--;
+            LOC_LOGD("loc_eng_init client open failed, %d more tries", tries);
+            sleep(1);
+        }
+
+        if (LOC_API_ADAPTER_ERR_SUCCESS == ret_val) {
+            loc_eng_set_engine_lock(loc_eng_data, 1);
+        }
     }
 
     EXIT_LOG(%d, ret_val);
@@ -436,6 +447,8 @@ void loc_eng_cleanup(loc_eng_data_s_type &loc_eng_data)
         LOC_LOGD("loc_eng_cleanup: fix not stopped. stop it now.");
         loc_eng_stop(loc_eng_data);
     }
+
+    loc_eng_set_engine_lock(loc_eng_data, 0);
 
 #if 0 // can't afford to actually clean up, for many reason.
 
@@ -1787,6 +1800,13 @@ static void loc_eng_deferred_action_thread(void* arg)
             }
         break;
 
+        case LOC_ENG_MSG_ENGINE_LOCK:
+        {
+            loc_eng_msg_engine_lock *engineLockMsg = (loc_eng_msg_engine_lock*)msg;
+            loc_eng_data_p->client_handle->setEngineLock(engineLockMsg->engine_lock);
+        }
+        break;
+
         default:
             LOC_LOGE("unsupported msgid = %d\n", msg->msgid);
             break;
@@ -2105,3 +2125,31 @@ int loc_eng_read_config(void)
     return 0;
 }
 
+/*===========================================================================
+FUNCTION loc_eng_set_engine_lock
+
+DESCRIPTION
+    Sets the engine lock (1. GPS on, 0. GPS off).
+
+DEPENDENCIES
+    None
+
+RETURN VALUE
+    0: success
+
+SIDE EFFECTS
+    N/A
+
+===========================================================================*/
+static int loc_eng_set_engine_lock(loc_eng_data_s_type &loc_eng_data,
+            unsigned int engine_lock)
+{
+    ENTRY_LOG();
+    INIT_CHECK(loc_eng_data.context, return -1);
+    loc_eng_msg_engine_lock *msg(
+            new loc_eng_msg_engine_lock(&loc_eng_data, engine_lock));
+    msg_q_snd((void*)((LocEngContext*)(loc_eng_data.context))->deferred_q,
+            msg, loc_eng_free_msg);
+    EXIT_LOG(%d, 0);
+    return 0;
+}
