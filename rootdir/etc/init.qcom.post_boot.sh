@@ -348,3 +348,7 @@ esac
 insmod /system/lib/modules/adsprpc.ko
 chown system.system /dev/adsprpc-smd
 chmod 666 /dev/adsprpc-smd
+
+# Remove old dhcp leases to prevent "Obtaining IP Address" loop
+rm -f /data/misc/dhcp/*
+
