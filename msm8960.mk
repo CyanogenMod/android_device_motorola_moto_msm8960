@@ -256,8 +256,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.usb.mtp_adb=0x2e33 \
     ro.usb.ptp=0x2e30 \
     ro.usb.ptp_adb=0x2e31 \
-    ro.hdmi.enable=true \
-    lockscreen.rot_override=true
+    ro.hdmi.enable=true
 
 #wifi
 PRODUCT_PROPERTY_OVERRIDES += \
