@@ -43,9 +43,12 @@ LOCAL_C_INCLUDES := \
 	$(TOP)/frameworks/av/media/libstagefright/rtsp                  \
 	$(TOP)/device/motorola/msm8960-common/modules/media/mm-core/inc \
 
+ifeq ($(PLATFORM_SDK_VERSION), 18)
+  LOCAL_CFLAGS += -DANDROID_JB_MR2
+endif
+
 LOCAL_MODULE:= libdashplayer
 
 LOCAL_MODULE_TAGS := eng
 
 include $(BUILD_SHARED_LIBRARY)
-
