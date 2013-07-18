@@ -151,7 +151,7 @@ PRODUCT_COPY_FILES += \
 
 # GPS configuration
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/gps/gps.conf:system/etc/gps.conf
+    $(LOCAL_PATH)/config/gps.conf:system/etc/gps.conf
 
 # Audio configuration
 PRODUCT_COPY_FILES += \
