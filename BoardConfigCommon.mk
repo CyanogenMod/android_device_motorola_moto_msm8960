@@ -113,7 +113,7 @@ TARGET_USES_ION := true
 BOARD_EGL_CFG := $(LOCAL_PATH)/config/egl.cfg
 
 # Telephony
-BOARD_RIL_CLASS := ../../../device/motorola/msm8960-common/ril/MotorolaQualcommRIL.java
+BOARD_RIL_CLASS := ../../../$(LOCAL_PATH)/modules/ril/MotorolaQualcommRIL.java
 
 # Bluetooth
 BOARD_HAVE_BLUETOOTH := true
