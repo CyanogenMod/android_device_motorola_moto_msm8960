@@ -36,9 +36,11 @@ start_sensors()
     mkdir -p /data/system/sensors
     touch /data/system/sensors/settings
     chmod 775 /data/system/sensors
+    restorecon /data/system/sensors/settings
     chmod 664 /data/system/sensors/settings
 
     mkdir -p /data/misc/sensors
+    restorecon /data/misc/sensors
     chmod 775 /data/misc/sensors
 
     if [ ! -s /data/system/sensors/settings ]; then
