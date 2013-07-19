@@ -63,7 +63,10 @@
 #define AID_NFC           1027  /* nfc subsystem */
 #define AID_SDCARD_R      1028  /* external storage read access */
 #define AID_FM_RADIO      1029  /* FM radio */
-#define AID_SMARTCARD     1128  /* smart card subsystem */
+#define AID_SMARTCARD     1130  /* smart card subsystem */
+#define AID_AUDIT         1031  /* audit daemon */
+
+#define AID_THEMEMAN      1300  /* theme manager */
 
 #define AID_SHELL         2000  /* adb and debug shell user */
 #define AID_CACHE         2001  /* cache access */
@@ -174,6 +177,8 @@ static const struct android_id_info android_ids[] = {
     { "mot_atvc",	AID_MOT_ATVC, },
     { "misc",      AID_MISC, },
     { "nobody",    AID_NOBODY, },
+    { "theme_man", AID_THEMEMAN },
+    { "audit",      AID_AUDIT, },
 };
 
 #define android_id_count \
