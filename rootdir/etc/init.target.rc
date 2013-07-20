@@ -118,6 +118,7 @@ on property:ro.modem.no_wdog_chk=1
 on fs
     mount_all /fstab.qcom
     restorecon /persist
+    restorecon /persist/.bt_nv.bin
     restorecon /persist/WCNSS_qcom_wlan_nv.bin
     restorecon /persist/drm/widevine
     restorecon /persist/drm/widevine/5dsokxEEDXgQhkN50bp-Z2K5InM_

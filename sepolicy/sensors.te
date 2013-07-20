@@ -26,3 +26,5 @@ allow sensors power_control_device:chr_file { write open append };
 
 # XXX label with own type?
 allow sensors sysfs:file { open append read write getattr };
+
+allow sensors system_data_file:file { write open };

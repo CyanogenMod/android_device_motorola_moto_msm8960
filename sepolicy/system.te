@@ -17,3 +17,9 @@ allow system mpdecision:unix_stream_socket sendto;
 allow system mpdecision_socket:dir search;
 
 allow system sysfs:file { read open write };
+allow system adbd_socket:sock_file write;
+allow system_app cache_file:file { write lock open setattr };
+allow system sdcard_internal:dir search;
+allow system sdcard_internal:file { read open };
+allow system init_shell:binder call;
+allow system su:binder call;

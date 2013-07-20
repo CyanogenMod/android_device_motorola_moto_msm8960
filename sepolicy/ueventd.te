@@ -2,3 +2,5 @@
 allow ueventd { radio_efs_file wifi_data_file }:file r_file_perms;
 allow ueventd { radio_efs_file wifi_data_file }:dir search;
 allow ueventd { radio_efs_file wifi_data_file }:file getattr;
+allow ueventd persist_file:dir search;
+allow ueventd persist_wifi_file:file { read getattr open };

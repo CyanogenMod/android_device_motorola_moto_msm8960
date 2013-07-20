@@ -1,0 +1,8 @@
+allow dnsmasq self:capability net_admin;
+allow dnsmasq self:udp_socket { read write ioctl create bind };
+allow dnsmasq node:udp_socket node_bind;
+allow dnsmasq port:udp_socket name_bind;
+allow dnsmasq self:capability { net_raw dac_override };
+allow dnsmasq self:netlink_route_socket { write read getattr nlmsg_read };
+allow dnsmasq self:rawip_socket { write read create setopt };
+allow dnsmasq self:udp_socket setopt;

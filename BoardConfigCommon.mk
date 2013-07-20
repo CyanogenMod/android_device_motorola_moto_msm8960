@@ -171,6 +171,7 @@ BOARD_SEPOLICY_DIRS += \
 	device/motorola/msm8960-common/sepolicy
 
 BOARD_SEPOLICY_UNION += \
+	adbd.te \
 	file_contexts \
 	property_contexts \
 	te_macros \
@@ -180,17 +181,22 @@ BOARD_SEPOLICY_UNION += \
 	conn_init.te \
 	device.te \
 	dhcp.te \
+	dnsmasq.te \
 	domain.te \
 	drmserver.te \
 	file.te \
+	hostapd.te \
 	init.te \
 	libqc-opt.te \
 	mediaserver.te \
 	mpdecision.te \
+	netd.te \
 	netmgrd.te \
+	nfc.te \
 	property.te \
 	qcom.te \
 	qmux.te \
+	radio.te \
 	rild.te \
 	rmt.te \
 	sensors.te \
@@ -199,5 +205,7 @@ BOARD_SEPOLICY_UNION += \
 	tee.te \
 	thermald.te \
 	ueventd.te \
-	wpa_supplicant.te
+	vold.te \
+	wpa_supplicant.te \
+	zygote.te
 endif

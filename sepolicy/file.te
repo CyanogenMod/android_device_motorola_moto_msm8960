@@ -11,5 +11,6 @@ type radio_efs_file, fs_type;
 
 # Persist firmware types
 type persist_file, file_type;
+type persist_bluetooth_file, file_type;
 type persist_drm_file, file_type;
 type persist_wifi_file, file_type;
