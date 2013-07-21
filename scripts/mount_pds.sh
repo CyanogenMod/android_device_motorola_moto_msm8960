@@ -11,4 +11,5 @@ fi
 #mount the fake pds
 /system/xbin/losetup /dev/block/loop0 /cache/pds-CM10.img
 /system/xbin/busybox mount -o rw /dev/block/loop0 /pds
+restorecon -R /pds
 echo "Mounted PDS"

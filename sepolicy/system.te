@@ -16,6 +16,7 @@ unix_socket_send(system, mpdecision, mpdecision)
 allow system mpdecision:unix_stream_socket sendto;
 allow system mpdecision_socket:dir search;
 
+allow system self:capability sys_module;
 allow system sysfs:file { read open write };
 allow system adbd_socket:sock_file write;
 allow system_app cache_file:file { write lock open setattr };
