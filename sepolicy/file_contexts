@@ -14,6 +14,7 @@
 # MSM camera related
 /dev/video.*                   u:object_r:camera_device:s0
 /dev/msm_camera(/.*)?          u:object_r:camera_device:s0
+/dev/msm_camera/video_msm      u:object_r:camera_device:s0
 
 # Media interface
 /dev/media.*                   u:object_r:video_device:s0
