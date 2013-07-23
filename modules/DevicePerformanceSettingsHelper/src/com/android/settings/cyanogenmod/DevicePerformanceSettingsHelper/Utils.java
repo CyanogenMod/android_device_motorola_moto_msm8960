@@ -73,7 +73,6 @@ public class Utils {
                 Thread.sleep(1000);
             } catch(Exception e) {
             }
-            out.writeBytes("killall -9 thermald\n");
             out.writeBytes("start thermald\n");
         } catch (Exception e) {
             String Error = "Error restarting thermald. Exception: ";
