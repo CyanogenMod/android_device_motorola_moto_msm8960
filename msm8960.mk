@@ -251,6 +251,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     lpa.decode=false \
     tunnel.decode=true \
     tunnel.audiovideo.decode=true \
+    qcom.hw.aac.encoder=true \
     af.resampler.quality=255 \
     ro.opengles.version=131072
 
