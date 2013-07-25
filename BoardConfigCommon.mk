@@ -79,9 +79,7 @@ BOARD_HAS_LARGE_FILESYSTEM := true
 # Inline kernel building
 TARGET_KERNEL_SOURCE := kernel/motorola/msm8960-common
 TARGET_KERNEL_CONFIG := msm8960_mmi_defconfig
-ifeq ($(HAVE_SELINUX),true)
 TARGET_KERNEL_SELINUX_CONFIG := msm8960_mmi_selinux_defconfig
-endif
 BOARD_KERNEL_CMDLINE := console=/dev/null androidboot.hardware=qcom user_debug=31 loglevel=1 zcache
 BOARD_KERNEL_BASE := 0x80200000
 BOARD_KERNEL_PAGESIZE := 2048
@@ -166,7 +164,6 @@ RECOVERY_SDCARD_ON_DATA := true
 TARGET_RECOVERY_INITRC := $(LOCAL_PATH)/init.recovery.rc
 
 # SELinux
-ifeq ($(HAVE_SELINUX),true)
 BOARD_SEPOLICY_DIRS += \
 	device/motorola/msm8960-common/sepolicy
 
@@ -208,4 +205,3 @@ BOARD_SEPOLICY_UNION += \
 	vold.te \
 	wpa_supplicant.te \
 	zygote.te
-endif
