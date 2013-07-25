@@ -163,10 +163,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/config/media_profiles.xml:system/etc/media_profiles.xml \
     $(LOCAL_PATH)/config/media_codecs.xml:system/etc/media_codecs.xml
 
-# Vold configuration
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/config/vold.fstab:system/etc/vold.fstab
-
 # We have enough storage space to hold precise GC data
 PRODUCT_TAGS += dalvik.gc.type-precise
 
