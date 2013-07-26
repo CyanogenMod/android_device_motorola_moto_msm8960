@@ -13,7 +13,7 @@ LOCAL_SRC_FILES:= \
         sys.c \
         logger.c
 
-LOCAL_STATIC_LIBRARIES := libcutils
+LOCAL_STATIC_LIBRARIES := libcutils liblog
 
 LOCAL_MODULE_TAGS:= optional
 LOCAL_MODULE:= batt_health
