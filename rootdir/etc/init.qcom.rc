@@ -396,6 +396,16 @@ service iprenew_usbeth0 /system/bin/dhcpcd -nBK
     disabled
     oneshot
 
+service dhcpcd_bt-pan /system/bin/dhcpcd -BKLG
+    class late_start
+    disabled
+    oneshot
+
+service iprenew_bt-pan /system/bin/dhcpcd -n
+    class late_start
+    disabled
+    oneshot
+
 service iprenew_wlan0 /system/bin/logwrapper /system/bin/dhcpcd -n
     class late_start
     disabled
