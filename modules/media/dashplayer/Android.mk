@@ -32,16 +32,16 @@ LOCAL_STATIC_LIBRARIES :=       \
     libstagefright_rtsp         \
 
 LOCAL_C_INCLUDES := \
-    $(TOP)/frameworks/av/media/libstagefright/timedtext           \
-	$(TOP)/frameworks/native/include/media/hardware               \
-	$(TOP)/frameworks/native/include/media/openmax                \
-	$(TOP)/frameworks/av/media/libstagefright/httplive            \
-	$(TOP)/frameworks/av/media/libmediaplayerservice/nuplayer     \
-	$(TOP)/frameworks/av/media/libmediaplayerservice              \
-	$(TOP)/frameworks/av/media/libstagefright/include             \
-	$(TOP)/frameworks/av/media/libstagefright/mpeg2ts             \
-	$(TOP)/frameworks/av/media/libstagefright/rtsp                \
-	$(TOP)/hardware/qcom/media/mm-core/inc                        \
+	$(TOP)/frameworks/av/media/libstagefright/timedtext             \
+	$(TOP)/frameworks/native/include/media/hardware                 \
+	$(TOP)/frameworks/native/include/media/openmax                  \
+	$(TOP)/frameworks/av/media/libstagefright/httplive              \
+	$(TOP)/frameworks/av/media/libmediaplayerservice/nuplayer       \
+	$(TOP)/frameworks/av/media/libmediaplayerservice                \
+	$(TOP)/frameworks/av/media/libstagefright/include               \
+	$(TOP)/frameworks/av/media/libstagefright/mpeg2ts               \
+	$(TOP)/frameworks/av/media/libstagefright/rtsp                  \
+	$(TOP)/device/motorola/msm8960-common/modules/media/mm-core/inc \
 
 LOCAL_MODULE:= libdashplayer
 

@@ -60,13 +60,13 @@ libmm-venc-inc      += bionic/libstdc++/include
 libmm-venc-inc      += $(LOCAL_PATH)/inc
 libmm-venc-inc      += $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr/include
 libmm-venc-inc      += $(OMX_VIDEO_PATH)/vidc/common/inc
-libmm-venc-inc      += hardware/qcom/media/mm-core/inc
-libmm-venc-inc      += hardware/qcom/media/libstagefrighthw
-libmm-venc-inc      += hardware/qcom/$(DISPLAY)/libgralloc
+libmm-venc-inc      += $(QCOM_PATH)/media/mm-core/inc
+libmm-venc-inc      += $(QCOM_PATH)/media/libstagefrighthw
+libmm-venc-inc      += $(QCOM_PATH)/$(DISPLAY)/libgralloc
 libmm-venc-inc      += frameworks/native/include/media/hardware
 libmm-venc-inc      += frameworks/native/include/media/openmax
-libmm-venc-inc      += hardware/qcom/media/libc2dcolorconvert
-libmm-venc-inc      += hardware/qcom/$(DISPLAY)/libcopybit
+libmm-venc-inc      += $(QCOM_PATH)/media/libc2dcolorconvert
+libmm-venc-inc      += $(QCOM_PATH)/$(DISPLAY)/libcopybit
 libmm-venc-inc      += frameworks/av/include/media/stagefright
 
 
@@ -98,6 +98,7 @@ include $(BUILD_SHARED_LIBRARY)
 # -----------------------------------------------------------------------------
 
 include $(CLEAR_VARS)
+QCOM_PATH:= $(TOP)/device/motorola/msm8960-common/modules
 
 ifeq ($(TARGET_QCOM_DISPLAY_VARIANT),moto)
 DISPLAY := display-caf
@@ -109,8 +110,8 @@ mm-venc-test720p-inc            := $(TARGET_OUT_HEADERS)/mm-core
 mm-venc-test720p-inc            += $(LOCAL_PATH)/inc
 mm-venc-test720p-inc            += $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr/include
 mm-venc-test720p-inc            += $(OMX_VIDEO_PATH)/vidc/common/inc
-mm-venc-test720p-inc            += hardware/qcom/media/mm-core/inc
-mm-venc-test720p-inc            += hardware/qcom/$(DISPLAY)/libgralloc
+mm-venc-test720p-inc            += $(QCOM_PATH)/media/mm-core/inc
+mm-venc-test720p-inc            += $(QCOM_PATH)/$(DISPLAY)/libgralloc
 
 LOCAL_MODULE                    := mm-venc-omx-test720p
 LOCAL_MODULE_TAGS               := debug
@@ -132,6 +133,7 @@ include $(BUILD_EXECUTABLE)
 # -----------------------------------------------------------------------------
 
 include $(CLEAR_VARS)
+QCOM_PATH:= $(TOP)/device/motorola/msm8960-common/modules
 
 venc-test-inc                   += $(LOCAL_PATH)/inc
 venc-test-inc                   += $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr/include
@@ -139,7 +141,7 @@ venc-test-inc                   += $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr/in
 LOCAL_MODULE                    := mm-video-encdrv-test
 LOCAL_MODULE_TAGS               := debug
 LOCAL_C_INCLUDES                := $(venc-test-inc)
-LOCAL_C_INCLUDES                += hardware/qcom/media/mm-core/inc
+LOCAL_C_INCLUDES                += $(QCOM_PATH)/media/mm-core/inc
 LOCAL_ADDITIONAL_DEPENDENCIES   := $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr
 LOCAL_PRELINK_MODULE            := false
 

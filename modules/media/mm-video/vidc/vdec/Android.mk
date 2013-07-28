@@ -53,6 +53,7 @@ libOmxVdec-def += -DUSE_ION
 
 include $(CLEAR_VARS)
 LOCAL_PATH:= $(ROOT_DIR)
+QCOM_PATH:= $(TOP)/device/motorola/msm8960-common/modules
 
 ifeq ($(TARGET_QCOM_DISPLAY_VARIANT),moto)
 DISPLAY := display-caf
@@ -69,18 +70,19 @@ libmm-vdec-inc          := bionic/libc/include
 libmm-vdec-inc          += bionic/libstdc++/include
 libmm-vdec-inc          += $(LOCAL_PATH)/inc 
 libmm-vdec-inc          += $(OMX_VIDEO_PATH)/vidc/common/inc
-libmm-vdec-inc          += hardware/qcom/media/mm-core/inc
+libmm-vdec-inc          += $(QCOM_PATH)/media/mm-core/inc
 libmm-vdec-inc          += $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr/include
 #DRM include - Interface which loads the DRM library
 libmm-vdec-inc	        += $(OMX_VIDEO_PATH)/DivxDrmDecrypt/inc
-libmm-vdec-inc          += hardware/qcom/$(DISPLAY)/libgralloc
+libmm-vdec-inc          += $(QCOM_PATH)/$(DISPLAY)/libgralloc
+libmm-vdec-inc          += $(QCOM_PATH)/$(DISPLAY)/libgenlock
 libmm-vdec-inc          += frameworks/native/include/media/openmax
 libmm-vdec-inc          += frameworks/native/include/media/hardware
-libmm-vdec-inc          += hardware/qcom/media/libc2dcolorconvert
-libmm-vdec-inc          += hardware/qcom/$(DISPLAY)/libcopybit
+libmm-vdec-inc          += $(QCOM_PATH)/media/libc2dcolorconvert
+libmm-vdec-inc          += $(QCOM_PATH)/$(DISPLAY)/libcopybit
 libmm-vdec-inc          += frameworks/av/include/media/stagefright
-libmm-vdec-inc          += hardware/qcom/$(DISPLAY)/libqservice
-libmm-vdec-inc          += hardware/qcom/$(DISPLAY)/libqdutils
+libmm-vdec-inc          += $(QCOM_PATH)/$(DISPLAY)/libqservice
+libmm-vdec-inc          += $(QCOM_PATH)/$(DISPLAY)/libqdutils
 libmm-vdec-inc          += frameworks/av/media/libmediaplayerservice
 libmm-vdec-inc          += frameworks/native/include/binder
 
@@ -112,8 +114,9 @@ include $(BUILD_SHARED_LIBRARY)
 # 			Make the apps-test (mm-vdec-omx-test)
 # ---------------------------------------------------------------------------------
 include $(CLEAR_VARS)
+QCOM_PATH:= $(TOP)/device/motorola/msm8960-common/modules
 
-mm-vdec-test-inc    := hardware/qcom/media/mm-core/inc
+mm-vdec-test-inc    := $(QCOM_PATH)/media/mm-core/inc
 mm-vdec-test-inc    += $(LOCAL_PATH)/inc
 mm-vdec-test-inc    += $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr/include
 
@@ -137,7 +140,7 @@ include $(BUILD_EXECUTABLE)
 # ---------------------------------------------------------------------------------
 include $(CLEAR_VARS)
 
-mm-vdec-drv-test-inc    := hardware/qcom/media/mm-core/inc
+mm-vdec-drv-test-inc    := $(QCOM_PATH)/media/mm-core/inc
 mm-vdec-drv-test-inc    += $(LOCAL_PATH)/inc
 mm-vdec-drv-test-inc    += $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr/include
 

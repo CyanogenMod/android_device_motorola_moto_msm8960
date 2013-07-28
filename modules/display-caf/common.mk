@@ -1,11 +1,14 @@
+QCOM_PATH:= $(TOP)/device/motorola/msm8960-common/modules
+
 #Common headers
-common_includes := hardware/qcom/display-caf/libgralloc
-common_includes += hardware/qcom/display-caf/liboverlay
-common_includes += hardware/qcom/display-caf/libcopybit
-common_includes += hardware/qcom/display-caf/libqdutils
-common_includes += hardware/qcom/display-caf/libhwcomposer
-common_includes += hardware/qcom/display-caf/libexternal
-common_includes += hardware/qcom/display-caf/libqservice
+common_includes := $(QCOM_PATH)/display-caf/libgralloc
+common_includes += $(QCOM_PATH)/display-caf/libgenlock
+common_includes += $(QCOM_PATH)/display-caf/liboverlay
+common_includes += $(QCOM_PATH)/display-caf/libcopybit
+common_includes += $(QCOM_PATH)/display-caf/libqdutils
+common_includes += $(QCOM_PATH)/display-caf/libhwcomposer
+common_includes += $(QCOM_PATH)/display-caf/libexternal
+common_includes += $(QCOM_PATH)/display-caf/libqservice
 
 ifeq ($(TARGET_USES_POST_PROCESSING),true)
     common_flags     += -DUSES_POST_PROCESSING
