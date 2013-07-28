@@ -14,8 +14,11 @@ LOCAL_SRC_FILES := \
 LOCAL_C_INCLUDES := \
     $(TOP)/frameworks/av/include/media/stagefright \
     $(TOP)/frameworks/native/include/media/openmax \
-    $(TOP)/device/motorola/msm8960-common/modules/$(DISPLAY)/libcopybit \
-    $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr/include
+    $(TOP)/device/motorola/msm8960-common/modules/$(DISPLAY)/libcopybit
+
+LOCAL_COPY_HEADERS_TO   := linux
+
+LOCAL_COPY_HEADERS      := ../../../../../../kernel/motorola/msm8960-common/include/linux/msm_kgsl.h
 
 LOCAL_SHARED_LIBRARIES := liblog libdl
 
