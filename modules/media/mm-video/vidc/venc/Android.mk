@@ -45,7 +45,7 @@ libmm-venc-def += -D_ANDROID_ICS_
 
 include $(CLEAR_VARS)
 
-ifeq ($(TARGET_QCOM_DISPLAY_VARIANT),caf)
+ifeq ($(TARGET_QCOM_DISPLAY_VARIANT),moto)
 DISPLAY := display-caf
 else
 DISPLAY := display
@@ -99,7 +99,7 @@ include $(BUILD_SHARED_LIBRARY)
 
 include $(CLEAR_VARS)
 
-ifeq ($(TARGET_QCOM_DISPLAY_VARIANT),caf)
+ifeq ($(TARGET_QCOM_DISPLAY_VARIANT),moto)
 DISPLAY := display-caf
 else
 DISPLAY := display

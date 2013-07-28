@@ -54,7 +54,7 @@ libOmxVdec-def += -DUSE_ION
 include $(CLEAR_VARS)
 LOCAL_PATH:= $(ROOT_DIR)
 
-ifeq ($(TARGET_QCOM_DISPLAY_VARIANT),caf)
+ifeq ($(TARGET_QCOM_DISPLAY_VARIANT),moto)
 DISPLAY := display-caf
 libOmxVdec-def += -DDISPLAYCAF
 else

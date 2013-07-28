@@ -2,7 +2,7 @@ LOCAL_PATH := $(call my-dir)
 
 include $(CLEAR_VARS)
 
-ifeq ($(TARGET_QCOM_DISPLAY_VARIANT),caf)
+ifeq ($(TARGET_QCOM_DISPLAY_VARIANT),moto)
 DISPLAY := display-caf
 else
 DISPLAY := display
