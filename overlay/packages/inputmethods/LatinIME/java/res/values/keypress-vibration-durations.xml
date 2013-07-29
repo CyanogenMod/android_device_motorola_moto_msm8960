@@ -18,8 +18,8 @@
 */
 -->
 <resources>
+    <!-- Build condition,duration_in_milliseconds -->
     <string-array name="keypress_vibration_durations" translatable="false">
-        <!-- Build.HARDWARE,duration_in_milliseconds -->
-        <item>qcom,5</item>
+        <item>MANUFACTURER=motorola,5</item>
     </string-array>
 </resources>
