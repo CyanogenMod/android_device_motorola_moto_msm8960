@@ -165,5 +165,6 @@ vendor/lib/libWVStreamControlAPI_L1.so
 #lib/libC2D2.so
 #lib/libdivxdrm.so
 #lib/libExtendedExtractor.so
+#lib/libgeofence.so
 #lib/libmmosal.so
 #lib/libmmparser.so
