@@ -3878,14 +3878,14 @@ SectionDevice
     EnableSequence
         'SLIM TX7 MUX':0:DEC3
         'DEC3 MUX':0:ADC4
-        'DEC3 Volume':1:67
+        'DEC3 Volume':1:82
         'ADC4 Volume':1:100
         'SLIM TX8 MUX':0:DEC4
         'DEC4 MUX':0:ADC3
-        'DEC4 Volume':1:67
+        'DEC4 Volume':1:82
         'ADC3 Volume':1:50
-        'MICBIAS1 CAPLESS Switch':1:0
-        'MICBIAS3 CAPLESS Switch':1:0
+        'MICBIAS1 CAPLESS Switch':1:1
+        'MICBIAS3 CAPLESS Switch':1:1
         'SLIM_0_TX Channels':0:Two
     EndSequence
 
