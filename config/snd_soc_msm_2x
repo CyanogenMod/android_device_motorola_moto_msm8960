@@ -3150,6 +3150,7 @@ SectionDevice
                 'SLIM_0_TX Channels':0:One
                 'SLIM TX7 MUX':0:DEC4
                 'DEC4 MUX':0:ADC3
+                'DEC4 Volume':1:67
                 'ADC3 Volume':1:100
                 'MICBIAS1 CAPLESS Switch':1:1
         EndSequence
@@ -3157,6 +3158,7 @@ SectionDevice
         DisableSequence
                 'SLIM TX7 MUX':0:ZERO
                 'DEC4 MUX':0:ZERO
+                'DEC4 Volume':1:0
                 'ADC3 Volume':1:0
                 'MICBIAS1 CAPLESS Switch':1:0
         EndSequence
@@ -3174,6 +3176,7 @@ SectionDevice
                 'SLIM_0_TX Channels':0:One
                 'SLIM TX7 MUX':0:DEC4
                 'DEC4 MUX':0:ADC3
+                'DEC4 Volume':1:67
                 'ADC3 Volume':1:100
                 'MICBIAS1 CAPLESS Switch':1:1
         EndSequence
@@ -3181,6 +3184,7 @@ SectionDevice
         DisableSequence
                 'SLIM TX7 MUX':0:ZERO
                 'DEC4 MUX':0:ZERO
+                'DEC4 Volume':1:0
                 'ADC3 Volume':1:0
                 'MICBIAS1 CAPLESS Switch':1:0
         EndSequence
@@ -3198,6 +3202,7 @@ SectionDevice
 		'SLIM_0_TX Channels':0:One
 		'SLIM TX7 MUX':0:DEC4
 		'DEC4 MUX':0:ADC3
+		'DEC4 Volume':1:67
 		'ADC3 Volume':1:100
 		'MICBIAS1 CAPLESS Switch':1:0
 	EndSequence
@@ -3205,6 +3210,7 @@ SectionDevice
 	DisableSequence
 		'SLIM TX7 MUX':0:ZERO
 		'DEC4 MUX':0:ZERO
+		'DEC4 Volume':1:0
 		'ADC3 Volume':1:0
 		'MICBIAS1 CAPLESS Switch':1:0
 	EndSequence
@@ -3246,6 +3252,7 @@ SectionDevice
                 'SLIM_0_TX Channels':0:One
                 'SLIM TX7 MUX':0:DEC4
                 'DEC4 MUX':0:ADC3
+                'DEC4 Volume':1:67
                 'ADC3 Volume':1:100
                 'MICBIAS1 CAPLESS Switch':1:1
         EndSequence
@@ -3253,6 +3260,7 @@ SectionDevice
         DisableSequence
                 'SLIM TX7 MUX':0:ZERO
                 'DEC4 MUX':0:ZERO
+                'DEC4 Volume':1:0
                 'ADC3 Volume':1:0
                 'MICBIAS1 CAPLESS Switch':1:0
         EndSequence
@@ -3270,6 +3278,7 @@ SectionDevice
                 'SLIM_0_TX Channels':0:One
                 'SLIM TX7 MUX':0:DEC4
                 'DEC4 MUX':0:ADC3
+                'DEC4 Volume':1:67
                 'ADC3 Volume':1:100
                 'MICBIAS1 CAPLESS Switch':1:1
         EndSequence
@@ -3277,6 +3286,7 @@ SectionDevice
         DisableSequence
                 'SLIM TX7 MUX':0:ZERO
                 'DEC4 MUX':0:ZERO
+                'DEC4 Volume':1:0
                 'ADC3 Volume':1:0
                 'MICBIAS1 CAPLESS Switch':1:0
         EndSequence
@@ -3294,6 +3304,7 @@ SectionDevice
                 'SLIM_0_TX Channels':0:One
                 'SLIM TX7 MUX':0:DEC4
                 'DEC4 MUX':0:ADC3
+                'DEC4 Volume':1:67
                 'ADC3 Volume':1:100
                 'MICBIAS1 CAPLESS Switch':1:1
         EndSequence
@@ -3301,6 +3312,7 @@ SectionDevice
         DisableSequence
                 'SLIM TX7 MUX':0:ZERO
                 'DEC4 MUX':0:ZERO
+                'DEC4 Volume':1:0
                 'ADC3 Volume':1:0
                 'MICBIAS1 CAPLESS Switch':1:0
         EndSequence
@@ -3318,6 +3330,7 @@ SectionDevice
 		'SLIM_0_TX Channels':0:One
 		'SLIM TX7 MUX':0:DEC4
 		'DEC4 MUX':0:ADC3
+		'DEC4 Volume':1:67
 		'ADC3 Volume':1:100
 		'MICBIAS1 CAPLESS Switch':1:0
 	EndSequence
@@ -3325,6 +3338,7 @@ SectionDevice
 	DisableSequence
 		'SLIM TX7 MUX':0:ZERO
 		'DEC4 MUX':0:ZERO
+		'DEC4 Volume':1:0
 		'ADC3 Volume':1:0
 		'MICBIAS1 CAPLESS Switch':1:0
 	EndSequence
@@ -3342,6 +3356,7 @@ SectionDevice
 		'SLIM_0_TX Channels':0:One
 		'SLIM TX7 MUX':0:DEC4
 		'DEC4 MUX':0:ADC3
+		'DEC4 Volume':1:67
 		'ADC3 Volume':1:100
 		'MICBIAS1 CAPLESS Switch':1:1
 	EndSequence
@@ -3349,6 +3364,7 @@ SectionDevice
 	DisableSequence
 		'SLIM TX7 MUX':0:ZERO
 		'DEC4 MUX':0:ZERO
+		'DEC4 Volume':1:0
 		'ADC3 Volume':1:0
 		'MICBIAS1 CAPLESS Switch':1:0
 	EndSequence
@@ -3366,6 +3382,7 @@ SectionDevice
 		'SLIM_0_TX Channels':0:One
 		'SLIM TX7 MUX':0:DEC4
 		'DEC4 MUX':0:ADC3
+		'DEC4 Volume':1:67
 		'ADC3 Volume':1:100
 		'MICBIAS1 CAPLESS Switch':1:0
 	EndSequence
@@ -3373,6 +3390,7 @@ SectionDevice
 	DisableSequence
 		'SLIM TX7 MUX':0:ZERO
 		'DEC4 MUX':0:ZERO
+		'DEC4 Volume':1:0
 		'ADC3 Volume':1:0
 		'MICBIAS1 CAPLESS Switch':1:0
 	EndSequence
@@ -3390,6 +3408,7 @@ SectionDevice
 		'SLIM_0_TX Channels':0:One
 		'SLIM TX7 MUX':0:DEC3
 		'DEC3 MUX':0:ADC4
+		'DEC3 Volume':1:67
 		'ADC4 Volume':1:100
 		'MICBIAS3 CAPLESS Switch':1:1
 	EndSequence
@@ -3397,6 +3416,7 @@ SectionDevice
 	DisableSequence
 		'SLIM TX7 MUX':0:ZERO
 		'DEC3 MUX':0:ZERO
+		'DEC3 Volume':1:0
 		'ADC4 Volume':1:0
 		'MICBIAS3 CAPLESS Switch':1:0
 	EndSequence
@@ -3414,6 +3434,7 @@ SectionDevice
 		'SLIM_0_TX Channels':0:One
 		'SLIM TX7 MUX':0:DEC3
 		'DEC3 MUX':0:ADC4
+		'DEC3 Volume':1:67
 		'ADC4 Volume':1:100
 		'MICBIAS3 CAPLESS Switch':1:0
 	EndSequence
@@ -3421,6 +3442,7 @@ SectionDevice
 	DisableSequence
 		'SLIM TX7 MUX':0:ZERO
 		'DEC3 MUX':0:ZERO
+		'DEC3 Volume':1:0
 		'ADC4 Volume':1:0
 		'MICBIAS3 CAPLESS Switch':1:0
 	EndSequence
@@ -3439,6 +3461,7 @@ SectionDevice
                'SLIM_0_TX Channels':0:One
                'SLIM TX7 MUX':0:DEC3
                'DEC3 MUX':0:ADC4
+               'DEC3 Volume':1:67
                'ADC4 Volume':1:100
                'MICBIAS1 CAPLESS Switch':1:1
        EndSequence
@@ -3446,6 +3469,7 @@ SectionDevice
        DisableSequence
                'SLIM TX7 MUX':0:ZERO
                'DEC3 MUX':0:ZERO
+               'DEC3 Volume':1:0
                'ADC4 Volume':1:0
                'MICBIAS1 CAPLESS Switch':1:0
        EndSequence
@@ -3463,6 +3487,7 @@ SectionDevice
                'SLIM_0_TX Channels':0:One
                'SLIM TX7 MUX':0:DEC3
                'DEC3 MUX':0:ADC4
+               'DEC3 Volume':1:67
                'ADC4 Volume':1:100
                'MICBIAS1 CAPLESS Switch':1:0
        EndSequence
@@ -3470,6 +3495,7 @@ SectionDevice
        DisableSequence
                'SLIM TX7 MUX':0:ZERO
                'DEC3 MUX':0:ZERO
+               'DEC3 Volume':1:0
                'ADC4 Volume':1:0
                'MICBIAS1 CAPLESS Switch':1:0
        EndSequence
@@ -3535,6 +3561,7 @@ SectionDevice
 	        'SLIM_0_TX Channels':0:One
                 'SLIM TX7 MUX':0:DEC4
                 'DEC4 MUX':0:ADC3
+                'DEC4 Volume':1:67
                 'ADC3 Volume':1:100
                 'MICBIAS1 CAPLESS Switch':1:1
 	EndSequence
@@ -3542,6 +3569,7 @@ SectionDevice
 	DisableSequence
 		'SLIM TX7 MUX':0:ZERO
                 'DEC4 MUX':0:ZERO
+                'DEC4 Volume':1:0
                 'ADC3 Volume':1:0
                 'MICBIAS1 CAPLESS Switch':1:0
 	EndSequence
@@ -3617,6 +3645,7 @@ SectionDevice
         EnableSequence
                 'SLIM TX7 MUX':0:DEC4
                 'DEC4 MUX':0:ADC3
+                'DEC4 Volume':1:67
                 'ADC3 Volume':1:100
                 'SLIM TX8 MUX':0:DEC6
                 'DEC6 MUX':0:ADC1
@@ -3629,6 +3658,7 @@ SectionDevice
         DisableSequence
                 'SLIM TX7 MUX':0:ZERO
                 'DEC4 MUX':0:ZERO
+                'DEC4 Volume':1:0
                 'SLIM TX8 MUX':0:ZERO
                 'DEC6 MUX':0:ZERO
                 'ADC3 Volume':1:0
@@ -3649,6 +3679,7 @@ SectionDevice
         EnableSequence
                 'SLIM TX7 MUX':0:DEC4
                 'DEC4 MUX':0:ADC3
+                'DEC4 Volume':1:67
                 'ADC3 Volume':1:100
                 'SLIM TX8 MUX':0:DEC6
                 'DEC6 MUX':0:ADC1
@@ -3661,6 +3692,7 @@ SectionDevice
         DisableSequence
                 'SLIM TX7 MUX':0:ZERO
                 'DEC4 MUX':0:ZERO
+                'DEC4 Volume':1:0
                 'SLIM TX8 MUX':0:ZERO
                 'DEC6 MUX':0:ZERO
                 'ADC3 Volume':1:0
@@ -3682,9 +3714,11 @@ SectionDevice
         EnableSequence
                 'SLIM TX7 MUX':0:DEC4
                 'DEC4 MUX':0:ADC3
+                'DEC4 Volume':1:67
                 'ADC3 Volume':1:100
                 'SLIM TX8 MUX':0:DEC3
                 'DEC3 MUX':0:ADC4
+                'DEC3 Volume':1:67
                 'ADC4 Volume':1:100
                 'MICBIAS1 CAPLESS Switch':1:1
                 'MICBIAS3 CAPLESS Switch':1:1
@@ -3694,8 +3728,10 @@ SectionDevice
         DisableSequence
                 'SLIM TX7 MUX':0:ZERO
                 'DEC4 MUX':0:ZERO
+                'DEC4 Volume':1:0
                 'SLIM TX8 MUX':0:ZERO
                 'DEC3 MUX':0:ZERO
+                'DEC3 Volume':1:0
                 'ADC3 Volume':1:0
                 'ADC4 Volume':1:0
                 'MICBIAS1 CAPLESS Switch':1:0
@@ -3714,9 +3750,11 @@ SectionDevice
         EnableSequence
                 'SLIM TX7 MUX':0:DEC4
                 'DEC4 MUX':0:ADC3
+                'DEC4 Volume':1:67
                 'ADC3 Volume':1:100
                 'SLIM TX8 MUX':0:DEC3
                 'DEC3 MUX':0:ADC4
+                'DEC3 Volume':1:67
                 'ADC4 Volume':1:100
                 'MICBIAS1 CAPLESS Switch':1:0
                 'MICBIAS3 CAPLESS Switch':1:0
@@ -3726,8 +3764,10 @@ SectionDevice
         DisableSequence
                 'SLIM TX7 MUX':0:ZERO
                 'DEC4 MUX':0:ZERO
+                'DEC4 Volume':1:0
                 'SLIM TX8 MUX':0:ZERO
                 'DEC3 MUX':0:ZERO
+                'DEC3 Volume':1:0
                 'ADC3 Volume':1:0
                 'ADC4 Volume':1:0
                 'MICBIAS1 CAPLESS Switch':1:0
@@ -3774,9 +3814,11 @@ SectionDevice
         EnableSequence
                 'SLIM TX7 MUX':0:DEC4
                 'DEC4 MUX':0:ADC3
+                'DEC4 Volume':1:67
                 'ADC3 Volume':1:100
                 'SLIM TX8 MUX':0:DEC3
                 'DEC3 MUX':0:ADC4
+                'DEC3 Volume':1:67
                 'ADC4 Volume':1:100
                 'MICBIAS1 CAPLESS Switch':1:1
                 'MICBIAS3 CAPLESS Switch':1:1
@@ -3786,8 +3828,10 @@ SectionDevice
         DisableSequence
                 'SLIM TX7 MUX':0:ZERO
                 'DEC4 MUX':0:ZERO
+                'DEC4 Volume':1:0
                 'SLIM TX8 MUX':0:ZERO
                 'DEC3 MUX':0:ZERO
+                'DEC3 Volume':1:0
                 'ADC3 Volume':1:0
                 'ADC4 Volume':1:0
                 'MICBIAS1 CAPLESS Switch':1:0
@@ -3834,9 +3878,11 @@ SectionDevice
     EnableSequence
         'SLIM TX7 MUX':0:DEC3
         'DEC3 MUX':0:ADC4
+        'DEC3 Volume':1:67
         'ADC4 Volume':1:100
         'SLIM TX8 MUX':0:DEC4
         'DEC4 MUX':0:ADC3
+        'DEC4 Volume':1:67
         'ADC3 Volume':1:50
         'MICBIAS1 CAPLESS Switch':1:0
         'MICBIAS3 CAPLESS Switch':1:0
@@ -3846,8 +3892,10 @@ SectionDevice
     DisableSequence
         'SLIM TX7 MUX':0:ZERO
         'DEC4 MUX':0:ZERO
+        'DEC4 Volume':1:0
         'SLIM TX8 MUX':0:ZERO
         'DEC3 MUX':0:ZERO
+        'DEC3 Volume':1:0
         'ADC3 Volume':1:0
         'ADC4 Volume':1:0
         'MICBIAS1 CAPLESS Switch':1:0
@@ -3866,9 +3914,11 @@ SectionDevice
 	EnableSequence
 		'SLIM TX7 MUX':0:DEC3
 		'DEC3 MUX':0:ADC4
+		'DEC3 Volume':1:67
 		'ADC4 Volume':1:100
 		'SLIM TX8 MUX':0:DEC4
 		'DEC4 MUX':0:ADC3
+		'DEC4 Volume':1:67
 		'ADC3 Volume':1:50
 		'MICBIAS1 CAPLESS Switch':1:1
 		'MICBIAS3 CAPLESS Switch':1:1
@@ -3878,8 +3928,10 @@ SectionDevice
 	DisableSequence
 		'SLIM TX7 MUX':0:ZERO
 		'DEC4 MUX':0:ZERO
+		'DEC4 Volume':1:0
 		'SLIM TX8 MUX':0:ZERO
 		'DEC3 MUX':0:ZERO
+		'DEC3 Volume':1:0
 		'ADC3 Volume':1:0
 		'ADC4 Volume':1:0
 		'MICBIAS1 CAPLESS Switch':1:0
@@ -3898,9 +3950,11 @@ SectionDevice
 	EnableSequence
 		'SLIM TX7 MUX':0:DEC3
 		'DEC3 MUX':0:ADC4
+		'DEC3 Volume':1:67
 		'ADC4 Volume':1:100
 		'SLIM TX8 MUX':0:DEC4
 		'DEC4 MUX':0:ADC3
+		'DEC4 Volume':1:67
 		'ADC3 Volume':1:50
 		'MICBIAS1 CAPLESS Switch':1:0
 		'MICBIAS3 CAPLESS Switch':1:0
@@ -3910,8 +3964,10 @@ SectionDevice
 	DisableSequence
 		'SLIM TX7 MUX':0:ZERO
 		'DEC4 MUX':0:ZERO
+		'DEC4 Volume':1:0
 		'SLIM TX8 MUX':0:ZERO
 		'DEC3 MUX':0:ZERO
+		'DEC3 Volume':1:0
 		'ADC3 Volume':1:0
 		'ADC4 Volume':1:0
 		'MICBIAS1 CAPLESS Switch':1:0
@@ -3930,9 +3986,11 @@ SectionDevice
 	EnableSequence
 		'SLIM TX7 MUX':0:DEC3
 		'DEC3 MUX':0:ADC4
+		'DEC3 Volume':1:67
 		'ADC4 Volume':1:100
 		'SLIM TX8 MUX':0:DEC4
 		'DEC4 MUX':0:ADC3
+		'DEC4 Volume':1:67
 		'ADC3 Volume':1:100
 		'MICBIAS1 CAPLESS Switch':1:0
 		'MICBIAS3 CAPLESS Switch':1:0
@@ -3942,8 +4000,10 @@ SectionDevice
 	DisableSequence
 		'SLIM TX7 MUX':0:ZERO
 		'DEC4 MUX':0:ZERO
+		'DEC4 Volume':1:0
 		'SLIM TX8 MUX':0:ZERO
 		'DEC3 MUX':0:ZERO
+		'DEC3 Volume':1:0
 		'ADC3 Volume':1:0
 		'ADC4 Volume':1:0
 		'MICBIAS1 CAPLESS Switch':1:0
@@ -3965,6 +4025,7 @@ SectionDevice
 		'ADC1 Volume':1:100
 		'SLIM TX8 MUX':0:DEC4
 		'DEC4 MUX':0:ADC3
+		'DEC4 Volume':1:67
 		'ADC3 Volume':1:50
 		'MICBIAS1 CAPLESS Switch':1:1
 		'MICBIAS4 CAPLESS Switch':1:1
@@ -3976,6 +4037,7 @@ SectionDevice
 		'DEC6 MUX':0:ZERO
 		'SLIM TX8 MUX':0:ZERO
 		'DEC4 MUX':0:ZERO
+		'DEC4 Volume':1:0
 		'ADC3 Volume':1:0
 		'ADC1 Volume':1:0
 		'MICBIAS1 CAPLESS Switch':1:0
@@ -3997,6 +4059,7 @@ SectionDevice
 		'ADC1 Volume':1:100
 		'SLIM TX8 MUX':0:DEC4
 		'DEC4 MUX':0:ADC3
+		'DEC4 Volume':1:67
 		'ADC3 Volume':1:50
 		'MICBIAS1 CAPLESS Switch':1:0
 		'MICBIAS4 CAPLESS Switch':1:0
@@ -4008,6 +4071,7 @@ SectionDevice
 		'DEC6 MUX':0:ZERO
 		'SLIM TX8 MUX':0:ZERO
 		'DEC4 MUX':0:ZERO
+		'DEC4 Volume':1:0
 		'ADC3 Volume':1:0
 		'ADC1 Volume':1:0
 		'MICBIAS1 CAPLESS Switch':1:0
@@ -4029,6 +4093,7 @@ SectionDevice
 		'ADC1 Volume':1:100
 		'SLIM TX8 MUX':0:DEC4
 		'DEC4 MUX':0:ADC3
+		'DEC4 Volume':1:67
 		'ADC3 Volume':1:100
 		'MICBIAS1 CAPLESS Switch':1:0
 		'MICBIAS4 CAPLESS Switch':1:0
@@ -4040,6 +4105,7 @@ SectionDevice
 		'DEC6 MUX':0:ZERO
 		'SLIM TX8 MUX':0:ZERO
 		'DEC4 MUX':0:ZERO
+		'DEC4 Volume':1:0
 		'ADC3 Volume':1:0
 		'ADC1 Volume':1:0
 		'MICBIAS1 CAPLESS Switch':1:0
@@ -4061,6 +4127,7 @@ SectionDevice
 		'ADC1 Volume':1:100
 		'SLIM TX8 MUX':0:DEC4
 		'DEC4 MUX':0:ADC3
+		'DEC4 Volume':1:67
 		'ADC3 Volume':1:50
 		'MICBIAS1 CAPLESS Switch':1:1
 		'MICBIAS4 CAPLESS Switch':1:1
@@ -4072,6 +4139,7 @@ SectionDevice
 		'DEC6 MUX':0:ZERO
 		'SLIM TX8 MUX':0:ZERO
 		'DEC4 MUX':0:ZERO
+		'DEC4 Volume':1:0
 		'ADC3 Volume':1:0
 		'ADC1 Volume':1:0
 		'MICBIAS1 CAPLESS Switch':1:0
@@ -4093,6 +4161,7 @@ SectionDevice
 		'ADC1 Volume':1:100
 		'SLIM TX8 MUX':0:DEC4
 		'DEC4 MUX':0:ADC3
+		'DEC4 Volume':1:67
 		'ADC3 Volume':1:50
 		'MICBIAS1 CAPLESS Switch':1:0
 		'MICBIAS4 CAPLESS Switch':1:0
@@ -4104,6 +4173,7 @@ SectionDevice
 		'DEC6 MUX':0:ZERO
 		'SLIM TX8 MUX':0:ZERO
 		'DEC4 MUX':0:ZERO
+		'DEC4 Volume':1:0
 		'ADC3 Volume':1:0
 		'ADC1 Volume':1:0
 		'MICBIAS1 CAPLESS Switch':1:0
@@ -4125,6 +4195,7 @@ SectionDevice
 		'ADC1 Volume':1:100
 		'SLIM TX8 MUX':0:DEC4
 		'DEC4 MUX':0:ADC3
+		'DEC4 Volume':1:67
 		'ADC3 Volume':1:100
 		'MICBIAS1 CAPLESS Switch':1:0
 		'MICBIAS4 CAPLESS Switch':1:0
@@ -4136,6 +4207,7 @@ SectionDevice
 		'DEC6 MUX':0:ZERO
 		'SLIM TX8 MUX':0:ZERO
 		'DEC4 MUX':0:ZERO
+		'DEC4 Volume':1:0
 		'ADC3 Volume':1:0
 		'ADC1 Volume':1:0
 		'MICBIAS1 CAPLESS Switch':1:0
@@ -4154,9 +4226,11 @@ SectionDevice
 	EnableSequence
 	    'SLIM TX7 MUX':0:DEC3
 		'DEC3 MUX':0:ADC4
+		'DEC3 Volume':1:67
 		'ADC4 Volume':1:100
 		'SLIM TX8 MUX':0:DEC4
 		'DEC4 MUX':0:ADC3
+		'DEC4 Volume':1:67
 		'ADC3 Volume':1:50
 		'MICBIAS1 CAPLESS Switch':1:1
 		'MICBIAS3 CAPLESS Switch':1:1
@@ -4166,8 +4240,10 @@ SectionDevice
 	DisableSequence
 		'SLIM TX7 MUX':0:ZERO
 		'DEC3 MUX':0:ZERO
+		'DEC3 Volume':1:0
 		'SLIM TX8 MUX':0:ZERO
 		'DEC4 MUX':0:ZERO
+		'DEC4 Volume':1:0
 		'ADC4 Volume':1:0
 		'ADC3 Volume':1:0
 		'MICBIAS1 CAPLESS Switch':1:0
@@ -4186,9 +4262,11 @@ SectionDevice
 	EnableSequence
 	    'SLIM TX7 MUX':0:DEC3
 		'DEC3 MUX':0:ADC4
+		'DEC3 Volume':1:67
 		'ADC4 Volume':1:100
 		'SLIM TX8 MUX':0:DEC4
 		'DEC4 MUX':0:ADC3
+		'DEC4 Volume':1:67
 		'ADC3 Volume':1:50
 		'MICBIAS1 CAPLESS Switch':1:0
 		'MICBIAS3 CAPLESS Switch':1:0
@@ -4198,8 +4276,10 @@ SectionDevice
 	DisableSequence
 		'SLIM TX7 MUX':0:ZERO
 		'DEC3 MUX':0:ZERO
+		'DEC3 Volume':1:0
 		'SLIM TX8 MUX':0:ZERO
 		'DEC4 MUX':0:ZERO
+		'DEC4 Volume':1:0
 		'ADC4 Volume':1:0
 		'ADC3 Volume':1:0
 		'MICBIAS1 CAPLESS Switch':1:0
@@ -4218,9 +4298,11 @@ SectionDevice
 	EnableSequence
 	    'SLIM TX7 MUX':0:DEC3
 		'DEC3 MUX':0:ADC4
+		'DEC3 Volume':1:67
 		'ADC4 Volume':1:100
 		'SLIM TX8 MUX':0:DEC4
 		'DEC4 MUX':0:ADC3
+		'DEC4 Volume':1:67
 		'ADC3 Volume':1:100
 		'MICBIAS1 CAPLESS Switch':1:0
 		'MICBIAS3 CAPLESS Switch':1:0
@@ -4230,8 +4312,10 @@ SectionDevice
 	DisableSequence
 		'SLIM TX7 MUX':0:ZERO
 		'DEC3 MUX':0:ZERO
+		'DEC3 Volume':1:0
 		'SLIM TX8 MUX':0:ZERO
 		'DEC4 MUX':0:ZERO
+		'DEC4 Volume':1:0
 		'ADC4 Volume':1:0
 		'ADC3 Volume':1:0
 		'MICBIAS1 CAPLESS Switch':1:0
@@ -4250,9 +4334,11 @@ SectionDevice
 	EnableSequence
 	    'SLIM TX7 MUX':0:DEC3
 		'DEC3 MUX':0:ADC4
+		'DEC3 Volume':1:67
 		'ADC4 Volume':1:50
 		'SLIM TX8 MUX':0:DEC4
 		'DEC4 MUX':0:ADC3
+		'DEC4 Volume':1:67
 		'ADC3 Volume':1:25
 		'MICBIAS1 CAPLESS Switch':1:1
 		'MICBIAS3 CAPLESS Switch':1:1
@@ -4262,8 +4348,10 @@ SectionDevice
 	DisableSequence
 		'SLIM TX7 MUX':0:ZERO
 		'DEC3 MUX':0:ZERO
+		'DEC3 Volume':1:0
 		'SLIM TX8 MUX':0:ZERO
 		'DEC4 MUX':0:ZERO
+		'DEC4 Volume':1:0
 		'ADC4 Volume':1:0
 		'ADC3 Volume':1:0
 		'MICBIAS1 CAPLESS Switch':1:0
@@ -4282,9 +4370,11 @@ SectionDevice
 	EnableSequence
 	    'SLIM TX7 MUX':0:DEC3
 		'DEC3 MUX':0:ADC4
+		'DEC3 Volume':1:67
 		'ADC4 Volume':1:50
 		'SLIM TX8 MUX':0:DEC4
 		'DEC4 MUX':0:ADC3
+		'DEC4 Volume':1:67
 		'ADC3 Volume':1:25
 		'MICBIAS1 CAPLESS Switch':1:0
 		'MICBIAS3 CAPLESS Switch':1:0
@@ -4294,8 +4384,10 @@ SectionDevice
 	DisableSequence
 		'SLIM TX7 MUX':0:ZERO
 		'DEC3 MUX':0:ZERO
+		'DEC3 Volume':1:0
 		'SLIM TX8 MUX':0:ZERO
 		'DEC4 MUX':0:ZERO
+		'DEC4 Volume':1:0
 		'ADC4 Volume':1:0
 		'ADC3 Volume':1:0
 		'MICBIAS1 CAPLESS Switch':1:0
@@ -4314,9 +4406,11 @@ SectionDevice
 	EnableSequence
 	        'SLIM TX7 MUX':0:DEC3
 		'DEC3 MUX':0:ADC4
+		'DEC3 Volume':1:67
 		'ADC4 Volume':1:50
 		'SLIM TX8 MUX':0:DEC4
 		'DEC4 MUX':0:ADC3
+		'DEC4 Volume':1:67
 		'ADC3 Volume':1:50
 		'MICBIAS1 CAPLESS Switch':1:0
 		'MICBIAS3 CAPLESS Switch':1:0
@@ -4326,8 +4420,10 @@ SectionDevice
 	DisableSequence
 		'SLIM TX7 MUX':0:ZERO
 		'DEC3 MUX':0:ZERO
+		'DEC3 Volume':1:0
 		'SLIM TX8 MUX':0:ZERO
 		'DEC4 MUX':0:ZERO
+		'DEC4 Volume':1:0
 		'ADC4 Volume':1:0
 		'ADC3 Volume':1:0
 		'MICBIAS1 CAPLESS Switch':1:0
