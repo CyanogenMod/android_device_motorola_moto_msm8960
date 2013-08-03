@@ -127,5 +127,5 @@ fi
 echo "Don't forget to add the adreno blobs from"
 echo "https://developer.qualcomm.com/download/Adreno200-AU_LINUX_ANDROID_JB_VANILLA_04.02.02.060.053.zip"
 echo "blobs from jf, and mako blobs from https://dl.google.com/dl/android/aosp/qcom-mako-jdq39-c89670ca.tgz"
-echo "to vendor/motorola/msm8960-common"
+echo "and https://dl.google.com/dl/android/aosp/qcom-mako-jwr66v-30ef957c.tgz to vendor/motorola/msm8960-common"
 ../msm8960-common/setup-makefiles.sh
