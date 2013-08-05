@@ -3,31 +3,15 @@
 
     <string name="app_name">Advanced Settings</string>
 
-    <string name="keypad_title">Keyboard</string>
-
-    <string name="pref_keypad_multipress_title">Multipress interval</string>
-    <string name="pref_keypad_multipress_summary">Subsequent key presses within this interval can be used to directly enter alternate characters.\nCurrently set to: %s</string>
-    <string name="pref_keypad_mplang_title">Multipress language</string>
-    <string name="pref_keypad_mplang_summary">Language selection for entering alternate characters via multipress feature.\nCurrently set to: %s</string>
-
     <string name="other">Other</string>
 
     <string name="pref_report_gprs_as_edge_title">Report GPRS as EDGE</string>
     <string name="pref_report_gprs_as_edge_summary">Report GPRS as EDGE to significantly improve connection speed if you live in EDGE covered area.</string>
-
-    <string name="pref_external_storage_title">Use External Storage</string>
-    <string name="external_storage_on">Using SD Card for apps and media</string>
-    <string name="external_storage_off">Using internal storage for apps and media</string>
 
     <string name="keyboard_layouts_label">Photon Q keypad</string>
     <string name="keypad_asanti_qwerty_label">Asanti QWERTY</string>
     <string name="keypad_asanti_qwertz_label">Asanti QWERTZ</string>
     <string name="keypad_asanti_czech_qwerty_label">Asanti Czech QWERTY</string>
     <string name="keypad_asanti_czech_qwertz_label">Asanti Czech QWERTZ</string>
-
-    <string name="reboot_prompt_title">Reboot required</string>
-    <string name="reboot_prompt_message">In order to apply the changed configuration, a reboot is required.\n\nDo you want to reboot now?</string>
-    <string name="yes">Yes</string>
-    <string name="no">No</string>
 
 </resources>

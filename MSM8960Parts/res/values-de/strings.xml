@@ -3,10 +3,4 @@
 
     <string name="app_name">Erweitert Einstellungen</string>
 
-    <string name="keypad_title">Tastatur</string>
-
-    <string name="pref_keypad_multipress_title">Intervall für mehrfachen Tastendruck</string>
-    <string name="pref_keypad_multipress_summary">Alternative Zeichen können direkt durch mehrfachen Tastendruck innerhalb dieses Intervalls eingegeben werden.\nMomentan: %s</string>
-    <string name="pref_keypad_mplang_title">Sprache für mehrfachen Tastendruck</string>
-    <string name="pref_keypad_mplang_summary">Auswahl der Sprache, um durch mehrfachen Tastendruck alternative Zeichen einzugeben.\nMomentan: %s</string>
 </resources>

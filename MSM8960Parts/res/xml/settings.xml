@@ -1,32 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <PreferenceCategory android:title="@string/keypad_title"
-        android:key="pref_category_keypad_settings">
-        <ListPreference android:key="pref_keypad_multipress"
-            android:dialogTitle="@string/pref_keypad_multipress_title"
-            android:title="@string/pref_keypad_multipress_title"
-            android:summary="@string/pref_keypad_multipress_summary"
-            android:entries="@array/pref_keypad_multipress_entries"
-            android:entryValues="@array/pref_keypad_multipress_values" />
-        <ListPreference android:key="pref_keypad_mplang"
-            android:dialogTitle="@string/pref_keypad_mplang_title"
-            android:title="@string/pref_keypad_mplang_title"
-            android:summary="@string/pref_keypad_mplang_summary"
-            android:entries="@array/pref_keypad_mplang_entries"
-            android:entryValues="@array/pref_keypad_mplang_values" />
-    </PreferenceCategory>
     <PreferenceCategory android:title="@string/other"
         android:key="pref_category_other">
         <CheckBoxPreference
             android:key="pref_report_gprs_as_edge"
             android:title="@string/pref_report_gprs_as_edge_title"
             android:summary="@string/pref_report_gprs_as_edge_summary" />
-        <CheckBoxPreference
-            android:key="pref_external_storage"
-            android:title="@string/pref_external_storage_title"
-            android:summaryOn="@string/external_storage_on"
-            android:summaryOff="@string/external_storage_off" />
     </PreferenceCategory>
 
 </PreferenceScreen>
