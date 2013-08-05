@@ -42,6 +42,12 @@ public class DeviceSettings extends PreferenceActivity implements
         String reportGprsAsEdgeVal = SystemProperties.get(REPORT_GPRS_AS_EDGE_PROP, REPORT_GPRS_AS_EDGE_DEFAULT);
         mReportGprsAsEdgePref.setChecked(reportGprsAsEdgeVal.equals("1"));
         mReportGprsAsEdgePref.setOnPreferenceChangeListener(this);
+
+        if ((SystemProperties.get("ro.product.device","").equals("xt907")) &&
+            (SystemProperties.get("ro.product.device","").equals("xt926"))) {
+            mReportGprsAsEdgePref.setEnabled(false);
+        }
+
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
