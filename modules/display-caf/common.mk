@@ -26,7 +26,8 @@ endif
 
 #Common C flags
 common_flags := -DDEBUG_CALC_FPS -Wno-missing-field-initializers
-common_flags += -Werror
+# TEMP HACK: removing -Werror here as it floats into other code (namely audio-caf/libalsa-intf) and breaks the build
+#common_flags += -Werror
 
 ifeq ($(ARCH_ARM_HAVE_NEON),true)
     common_flags += -D__ARM_HAVE_NEON
