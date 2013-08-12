@@ -35,15 +35,6 @@ on early-init
     # Create PDS mount point
     mkdir /pds 0755 root root
 
-on init
-    # Configure coredump
-    write /proc/sys/kernel/core_pattern "|/system/bin/coredump %e %p %t"
-    write /proc/self/coredump_filter "0x7f"
-    write /proc/sys/fs/suid_dumpable 0
-
-# Enable soft lockup panic
-    write /proc/sys/kernel/softlockup_panic 1
-
 on early-boot
 # Define Motorola DBVC ATVC Property defaults (failsafe properties)
     setprop ro.sys.atvc_allow_netmon_usb 0
@@ -59,9 +50,6 @@ on early-boot
 
     # Need to launch qseecomd before enc_mgt_tool
     start qseecomd
-
-# Annotate panics with helpful information
-    exec /system/bin/apanic_annotate.sh build
 
 on charger
     trigger early-fs
@@ -153,9 +141,10 @@ on post-fs
     write /sys/devices/system/cpu/cpu1/cpufreq/scaling_max_freq 1512000
 
 on post-fs-data
-    copy /proc/apanic_app_threads /data/dontpanic/apanic_app_threads
-    chown root log /data/dontpanic/apanic_app_threads
-    chmod 0660 /data/dontpanic/apanic_app_threads
+    # Backup ramconsole on abnormal reboot.
+    copy /proc/last_kmsg /data/dontpanic/last_kmsg
+    chown root log /data/dontpanic/last_kmsg
+    chmod 0640 /data/dontpanic/last_kmsg
 
     #load modules
     insmod /system/lib/modules/cfg80211.ko
@@ -163,9 +152,6 @@ on post-fs-data
     #initialize wlan
     write /dev/wcnss_wlan 1
     write /sys/module/wcnss_ssr_8960/parameters/enable_riva_ssr 1
-
-# To remove apanic proc entry
-    write /proc/apanic_console 1
 
 on boot
    write /sys/devices/i2c-3/3-0024/cyttsp_update_fw 1
@@ -311,11 +297,6 @@ on boot
     # Create folder for native & kernel to write to DropBox.  See NativeDropBoxAgent.java for
     # an explanation of why these permissions are chosen.
     mkdir /data/system/dropbox-add 0730 system diag
-
-    # Backup ramconsole on abnormal reboot.
-    copy /proc/last_kmsg /data/dontpanic/last_kmsg
-    chown root log /data/dontpanic/last_kmsg
-    chmod 0640 /data/dontpanic/last_kmsg
 
     # Start services
     exec /system/bin/mot_boot_mode
