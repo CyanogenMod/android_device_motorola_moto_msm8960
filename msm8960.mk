@@ -61,8 +61,7 @@ PRODUCT_PACKAGES += \
     batt_health \
     charge_only_mode \
     graphicsd \
-    mot_boot_mode \
-    libxt_native.so
+    mot_boot_mode
 
 # Misc
 PRODUCT_PACKAGES += \
@@ -213,8 +212,14 @@ PRODUCT_PACKAGES += \
     setup_fs
 
 #wifi
+PRODUCT_PACKAGES += libnetcmdiface
+
+# Symlinks
 PRODUCT_PACKAGES += \
     libnetcmdiface \
+    libxt_native.so \
+    mbhc.bin \
+    wcd9310_anc.bin \
     WCNSS_qcom_wlan_nv.bin
 
 # QC Perf
