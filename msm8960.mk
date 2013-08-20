@@ -70,9 +70,6 @@ PRODUCT_PACKAGES += \
     tcpdump \
     Torch
 
-# Advanced settings
-PRODUCT_PACKAGES += MSM8960Parts
-
 # Lights
 PRODUCT_PACKAGES += lights.msm8960
 
