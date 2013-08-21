@@ -1,4 +1,4 @@
-#bins
+# Bins
 bin/ap_gain.bin
 bin/ap_gain_mmul.bin
 bin/bridgemgrd
@@ -16,39 +16,34 @@ bin/qdumpd
 bin/qmi_motext_hook
 bin/qmiproxy
 bin/qmuxd
-bin/qseecomd
 bin/radish
 bin/rmt_storage
 bin/sensors.qcom
 bin/thermald
 bin/whisperd
 
-#configs
+# Configs
 etc/wifi/hostapd_default.conf
 etc/thermald.conf
 
-#HAL
+# HAL
 lib/hw/vendor-camera.msm8960.so
 lib/hw/sensorhub.msm8960.so
 lib/hw/sensors.msm8960.so
 lib/hw/sensors.oem.so
 
-#libs
+# Libs
 lib/libAKM.so
 lib/libaudcal.so
 lib/libbabysit.so
 lib/libconfigdb.so
 lib/libcsd-client.so
 lib/libdiag.so
-lib/libdrmdiag.so
-lib/libdrmfs.so
-lib/libdrmtime.so
 lib/libdsi_netctrl.so
 lib/libdsprofile.so
 lib/libdss.so
 lib/libdsucsd.so
 lib/libdsutils.so
-lib/libfrsdk.so
 lib/libgemini.so
 lib/libgps.so
 lib/libidl.so
@@ -78,16 +73,14 @@ lib/libqmi_common_so.so
 lib/libqmi_csi.so
 lib/libqmi_csvt_srvc.so
 lib/libqmi_encdec.so
-lib/libQSEEComAPI.so
 lib/libril-qcril-hook-oem.so
 lib/libsarqmictrl.so
 lib/libsensor1.so
 lib/libsensorhub_jni.so
 lib/libsensor_reg.so
-lib/libxml.so
 lib/libxt_v02.so
 
-#camera
+# Camera
 bin/mm-qcamera-daemon
 bin/v4l2-qcamera-app
 lib/libmmcamera_faceproc.so
@@ -116,13 +109,8 @@ lib/libchromatix_s5k3l1yx_preview.so
 lib/libchromatix_s5k3l1yx_video_hd.so
 lib/libchromatix_s5k3l1yx_zsl.so
 
-##drm
-vendor/lib/drm/libdrmwvmplugin.so
-vendor/lib/libwvdrm_L1.so
-vendor/lib/libwvm.so
-vendor/lib/libWVStreamControlAPI_L1.so
+# The following are available on X
 
-# Following libs available on X
 # ION audio support
 lib/libacdbloader.so
 
@@ -159,8 +147,24 @@ etc/firmware/vidc.mdt
 etc/firmware/vidc_1080p.fw
 etc/firmware/vidcfw.elf
 
+# DRM
+vendor/lib/drm/libdrmwvmplugin.so
+vendor/lib/libwvdrm_L1.so
+vendor/lib/libwvm.so
+vendor/lib/libWVStreamControlAPI_L1.so
+
+# Qseecom
+bin/qseecomd
+lib/libQSEEComAPI.so
+lib/libdrmdiag.so
+lib/libdrmfs.so
+lib/libdrmtime.so
+
+# Lib
 lib/libDivxDrm.so
 lib/libExtendedExtractor.so
+lib/libfrsdk.so
 lib/libgeofence.so
 lib/libmmosal.so
 lib/libmmparser.so
+lib/libxml.so
