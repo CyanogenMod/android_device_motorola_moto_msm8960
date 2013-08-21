@@ -87,8 +87,6 @@ PRODUCT_PACKAGES += \
     hciconfig \
     hcitool
 
-PRODUCT_COPY_FILES += $(LOCAL_PATH)/modules/bluetooth/bt_vendor.conf:system/etc/bluetooth/bt_vendor.conf
-
 # HAL
 PRODUCT_PACKAGES += \
     copybit.msm8960 \
