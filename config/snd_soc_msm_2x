@@ -2837,15 +2837,27 @@ SectionDevice
                 'SLIM_0_RX Channels':0:One
                 'RX3 MIX1 INP1':0:RX1
                 'RX4 DSM MUX':0:DSM_INV
-                'LINEOUT1 Volume':1:62
-                'LINEOUT3 Volume':1:62
+                'LINEOUT1 DAC Switch':1:1
+                'LINEOUT3 DAC Switch':1:1
+                'LINEOUT1 Volume':1:80
+                'LINEOUT3 Volume':1:80
+                'RX3 Digital Volume':1:80
+                'RX4 Digital Volume':1:80
+                'SPK AMP EN Switch':1:1
+                'FENS Enable':1:1
         EndSequence
 
         DisableSequence
-                'RX3 MIX1 INP1':0:ZERO
-                'RX4 DSM MUX':0:CIC_OUT
+                'FENS Enable':1:0
+                'SPK AMP EN Switch':1:0
                 'LINEOUT1 Volume':1:0
                 'LINEOUT3 Volume':1:0
+                'RX3 Digital Volume':1:0
+                'RX4 Digital Volume':1:0
+                'LINEOUT1 DAC Switch':1:0
+                'LINEOUT3 DAC Switch':1:0
+                'RX4 DSM MUX':0:CIC_OUT
+                'RX3 MIX1 INP1':0:ZERO
         EndSequence
 
 	ACDBID	14:1
