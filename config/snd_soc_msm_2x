@@ -2704,6 +2704,7 @@ SectionDevice
 		'RX1 MIX1 INP1':0:RX1
 		'EAR PA Gain':0:POS_6_DB
 		'DAC1 Switch':1:1
+		'RX1 Digital Volume':1:66
 	EndSequence
 
 	DisableSequence
@@ -2725,6 +2726,7 @@ SectionDevice
 		'RX1 MIX1 INP1':0:RX1
 		'EAR PA Gain':0:POS_6_DB
 		'DAC1 Switch':1:1
+		'RX1 Digital Volume':1:66
 	EndSequence
 
 	DisableSequence
@@ -2746,6 +2748,7 @@ SectionDevice
 		'RX1 MIX1 INP1':0:RX1
 		'EAR PA Gain':0:POS_6_DB
 		'DAC1 Switch':1:1
+		'RX1 Digital Volume':1:66
 	EndSequence
 
 	DisableSequence
@@ -2767,6 +2770,7 @@ SectionDevice
 		'RX1 MIX1 INP1':0:RX1
 		'EAR PA Gain':0:POS_2_DB
 		'DAC1 Switch':1:1
+		'RX1 Digital Volume':1:66
 	EndSequence
 
 	DisableSequence
@@ -2787,17 +2791,18 @@ SectionDevice
 		'SLIM_0_RX Channels':0:One
 		'RX1 MIX1 INP1':0:RX1
 		'DAC1 Switch':1:1
-                'ANC Slot':1:1
-                'ANC1 MUX':0:DMIC1
-                'MICBIAS1 CAPLESS Switch':1:1
+		'ANC Slot':1:1
+		'ANC1 MUX':0:DMIC1
+		'MICBIAS1 CAPLESS Switch':1:1
+		'RX1 Digital Volume':1:66
 	EndSequence
 
 	DisableSequence
 		'RX1 MIX1 INP1':0:ZERO
 		'DAC1 Switch':1:0
-                'ANC Slot':1:0
-                'ANC1 MUX':0:ZERO
-                'MICBIAS1 CAPLESS Switch':1:0
+		'ANC Slot':1:0
+		'ANC1 MUX':0:ZERO
+		'MICBIAS1 CAPLESS Switch':1:0
 	EndSequence
 
 	ACDBID	30:1
@@ -2824,8 +2829,6 @@ SectionDevice
                 'RX4 DSM MUX':0:CIC_OUT
                 'LINEOUT1 Volume':1:0
                 'LINEOUT3 Volume':1:0
-                'RX3 Digital Volume':1:0
-                'RX4 Digital Volume':1:0
         EndSequence
 
 	ACDBID	14:1
@@ -2856,8 +2859,6 @@ SectionDevice
                 'SPK AMP EN Switch':1:0
                 'LINEOUT1 Volume':1:0
                 'LINEOUT3 Volume':1:0
-                'RX3 Digital Volume':1:0
-                'RX4 Digital Volume':1:0
                 'LINEOUT1 DAC Switch':1:0
                 'LINEOUT3 DAC Switch':1:0
                 'RX4 DSM MUX':0:CIC_OUT
@@ -2905,6 +2906,8 @@ SectionDevice
 		'RX3 MIX1 INP1':0:RX1
 		'RX4 DSM MUX':0:DSM_INV
 		'RX5 MIX1 INP1':0:RX2
+		'RX3 Digital Volume':1:66
+		'RX4 Digital Volume':1:66
 	EndSequence
 
 	DisableSequence
@@ -2957,6 +2960,8 @@ SectionDevice
 		'HPHR DAC Switch':1:1
 		'HPHL Volume':1:80
 		'HPHR Volume':1:80
+		'RX1 Digital Volume':1:66
+		'RX2 Digital Volume':1:66
 	EndSequence
 
 	DisableSequence
@@ -2985,6 +2990,8 @@ SectionDevice
 		'HPHR DAC Switch':1:1
 		'HPHL Volume':1:80
 		'HPHR Volume':1:80
+		'RX1 Digital Volume':1:66
+		'RX2 Digital Volume':1:66
 	EndSequence
 
 	DisableSequence
@@ -3017,6 +3024,10 @@ SectionDevice
                 'HPHR DAC Switch':1:1
                 'HPHL Volume':1:80
                 'HPHR Volume':1:80
+                'RX1 Digital Volume':1:66
+                'RX2 Digital Volume':1:66
+                'RX3 Digital Volume':1:66
+                'RX4 Digital Volume':1:66
         EndSequence
 
         DisableSequence
@@ -3048,10 +3059,10 @@ SectionDevice
 		'RX5 MIX1 INP1':0:RX2
 		'RX4 DSM MUX':0:DSM_INV
 		'RX6 DSM MUX':0:DSM_INV
-                'LINEOUT1 Volume':1:66
-                'LINEOUT2 Volume':1:66
-                'LINEOUT3 Volume':1:66
-                'LINEOUT4 Volume':1:66
+		'LINEOUT1 Volume':1:66
+		'LINEOUT2 Volume':1:66
+		'LINEOUT3 Volume':1:66
+		'LINEOUT4 Volume':1:66
 		'RX1 MIX1 INP1':0:RX1
 		'RX2 MIX1 INP1':0:RX2
 		'HPHL DAC Switch':1:1
@@ -3075,10 +3086,10 @@ SectionDevice
 		'RX5 MIX1 INP1':0:ZERO
 		'RX4 DSM MUX':0:CIC_OUT
 		'RX6 DSM MUX':0:CIC_OUT
-                'LINEOUT1 Volume':1:0
-                'LINEOUT2 Volume':1:0
-                'LINEOUT3 Volume':1:0
-                'LINEOUT4 Volume':1:0
+		'LINEOUT1 Volume':1:0
+		'LINEOUT2 Volume':1:0
+		'LINEOUT3 Volume':1:0
+		'LINEOUT4 Volume':1:0
 		'RX1 MIX1 INP1':0:ZERO
 		'RX2 MIX1 INP1':0:ZERO
 		'HPHL DAC Switch':1:0
@@ -5143,6 +5154,8 @@ SectionDevice
 		'LINEOUT2 Volume':1:66
 		'LINEOUT3 Volume':1:66
 		'LINEOUT4 Volume':1:66
+		'RX3 Digital Volume':1:66
+		'RX4 Digital Volume':1:66
 	EndSequence
 
 	DisableSequence
