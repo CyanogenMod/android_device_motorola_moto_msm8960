@@ -34,3 +34,5 @@ allow init_shell wifi_data_file:file { read getattr open };
 allow shell camera_data_file:dir getattr;
 allow shell pds_file:dir { read search open getattr };
 allow shell pds_file:file getattr;
+allow init_shell pds_file:dir getattr;
+allow init_shell persist_file:dir getattr;
