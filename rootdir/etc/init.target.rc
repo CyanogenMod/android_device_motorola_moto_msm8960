@@ -114,6 +114,7 @@ on fs
     restorecon /persist/drm/widevine/5dsokxEEDXgQhkN50bp-Z2K5InM_/Y4Nj+fDlt0uaX0xnzOj1AjymTvQ_
 
 on post-fs
+    chmod 755 /system/etc/init.crda.sh
     chmod 755 /system/etc/init.qcom.bt.sh
     chmod 755 /system/etc/init.qcom.coex.sh
     chmod 755 /system/etc/init.qcom.efs.sync.sh
