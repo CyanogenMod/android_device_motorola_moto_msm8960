@@ -71,6 +71,16 @@ on start-charging
     chown mot_pwric mot_pwric /sys/module/pm8921_bms/parameters/bms_aged_capacity
     chown mot_pwric mot_pwric /sys/module/pm8921_bms/parameters/timestamp
     chown mot_pwric mot_pwric /sys/devices/platform/msm_ssbi.0/pm8921-core/pm8921-charger/pcb_temp
+    chmod 660 /sys/module/pm8921_bms/parameters/last_real_fcc_batt_temp
+    chmod 660 /sys/module/pm8921_bms/parameters/last_real_fcc_mah
+    chmod 660 /sys/module/pm8921_bms/parameters/last_soc
+    chmod 660 /sys/module/pm8921_bms/parameters/last_ocv_uv
+    chmod 660 /sys/module/pm8921_bms/parameters/last_rbatt
+    chmod 660 /sys/module/pm8921_bms/parameters/last_charge_increase
+    chmod 660 /sys/module/pm8921_bms/parameters/last_chargecycles
+    chmod 660 /sys/module/pm8921_bms/parameters/bms_aged_capacity
+    chmod 660 /sys/module/pm8921_bms/parameters/timestamp
+    chmod 660 /sys/devices/platform/msm_ssbi.0/pm8921-core/pm8921-charger/pcb_temp
 
    # Permissions for Factory Test of Charging Paths
     chown mot_pwric mot_pwric /sys/devices/platform/msm_ssbi.0/pm8921-core/pm8921-charger/force_chg_auto_enable
@@ -198,6 +208,16 @@ on boot
    chown mot_pwric mot_pwric /sys/module/pm8921_bms/parameters/bms_aged_capacity
    chown mot_pwric mot_pwric /sys/module/pm8921_bms/parameters/timestamp
    chown mot_pwric mot_pwric /sys/devices/platform/msm_ssbi.0/pm8921-core/pm8921-charger/pcb_temp
+   chmod 660 /sys/module/pm8921_bms/parameters/last_real_fcc_batt_temp
+   chmod 660 /sys/module/pm8921_bms/parameters/last_real_fcc_mah
+   chmod 660 /sys/module/pm8921_bms/parameters/last_soc
+   chmod 660 /sys/module/pm8921_bms/parameters/last_ocv_uv
+   chmod 660 /sys/module/pm8921_bms/parameters/last_rbatt
+   chmod 660 /sys/module/pm8921_bms/parameters/last_charge_increase
+   chmod 660 /sys/module/pm8921_bms/parameters/last_chargecycles
+   chmod 660 /sys/module/pm8921_bms/parameters/bms_aged_capacity
+   chmod 660 /sys/module/pm8921_bms/parameters/timestamp
+   chmod 660 /sys/devices/platform/msm_ssbi.0/pm8921-core/pm8921-charger/pcb_temp
 
    # Permissions for Factory Test of Charging Paths
    chown mot_pwric mot_pwric /sys/devices/platform/msm_ssbi.0/pm8921-core/pm8921-charger/force_chg_auto_enable
