@@ -2031,6 +2031,22 @@ SectionVerb
 EndSection
 
 SectionVerb
+	Name "HiFi TunnelUSB PROXY Rx"
+
+	EnableSequence
+		'AFE_PCM_RX Audio Mixer MultiMedia4':1:1
+	EndSequence
+
+	DisableSequence
+		'AFE_PCM_RX Audio Mixer MultiMedia4':1:0
+	EndSequence
+
+	# ALSA PCMs
+	PlaybackPCM 9
+
+EndSection
+
+SectionVerb
 	Name "HiFi TunnelUSB PROXY Rx Speaker"
 
 	EnableSequence
