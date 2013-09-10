@@ -109,29 +109,12 @@ lib/libchromatix_s5k3l1yx_preview.so
 lib/libchromatix_s5k3l1yx_video_hd.so
 lib/libchromatix_s5k3l1yx_zsl.so
 
-# Adreno200-AU_LINUX_ANDROID_JB_VANILLA_04.02.02.060.053 Available from QDevNet
-# https://developer.qualcomm.com/download/Adreno200-AU_LINUX_ANDROID_JB_VANILLA_04.02.02.060.053.zip
-lib/egl/eglsubAndroid.so
-lib/egl/libEGL_adreno200.so
-lib/egl/libGLESv1_CM_adreno200.so
-lib/egl/libGLESv2_adreno200.so
-lib/egl/libplayback_adreno200so
-lib/egl/libq3dtools_adreno200.so
-lib/libc2d2_a3xx.so
-lib/libgsl.so
-lib/libllvm-a3xx.so
-lib/libllvm-arm.so
-lib/libOpenCL.so
-lib/libOpenVG.so
-lib/libsc-a2xx.so
-lib/libsc-a3xx.so
-
 # The following are available on X
 
 # ION audio support
 lib/libacdbloader.so
 
-# Adreno GPU
+## Adreno GPU
 etc/firmware/a225p5_pm4.fw
 etc/firmware/a225_pfp.fw
 etc/firmware/a225_pm4.fw
@@ -139,8 +122,21 @@ etc/firmware/a300_pfp.fw
 etc/firmware/a300_pm4.fw
 etc/firmware/leia_pfp_470.fw
 etc/firmware/leia_pm4_470.fw
+lib/egl/eglsubAndroid.so
+lib/egl/libEGL_adreno200.so
+lib/egl/libGLESv1_CM_adreno200.so
+lib/egl/libGLESv2_adreno200.so
+lib/egl/libGLESv2S3D_adreno200.so
+lib/egl/libq3dtools_adreno200.so
+lib/libc2d2_a3xx.so
 lib/libc2d2_z180.so
 lib/libC2D2.so
+lib/libgsl.so
+lib/libllvm-a3xx.so
+lib/libOpenCL.so
+lib/libOpenVG.so
+lib/libsc-a2xx.so
+lib/libsc-a3xx.so
 
 # Graphics/video firmware
 etc/firmware/vidc.b00
