@@ -59,7 +59,6 @@ lib/libmoto_netutil.so
 lib/libmotpostprocinterface.so
 lib/libnative_renderer.so
 lib/libnetmgr.so
-lib/libopenssl-smime.so
 lib/libqcci_legacy.so
 lib/libqc-opt.so
 lib/libqdi.so
