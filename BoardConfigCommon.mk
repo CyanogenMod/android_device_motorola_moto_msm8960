@@ -115,7 +115,6 @@ BOARD_EGL_CFG := $(LOCAL_PATH)/config/egl.cfg
 TARGET_DISPLAY_USE_RETIRE_FENCE := true
 
 # Telephony
-BOARD_PROVIDES_LIBRIL := true
 BOARD_RIL_CLASS := ../../../$(LOCAL_PATH)/modules/ril/MotorolaQualcommRIL.java
 BOARD_RIL_NO_CELLINFOLIST:=true
 
