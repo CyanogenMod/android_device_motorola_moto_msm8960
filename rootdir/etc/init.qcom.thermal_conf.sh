@@ -32,7 +32,7 @@
 PATH=/sbin:/system/sbin:/system/bin:/system/xbin
 export PATH
 
-THERMALD_CONF_SYMLINK=/dev/thermald.conf
+THERMALD_CONF_SYMLINK=/etc/thermald.conf
 
 # Set a default value
 setprop qcom.thermal thermald
@@ -79,7 +79,7 @@ if [ ! -h $THERMALD_CONF_SYMLINK ]; then
      ;;
 
      "138") #ghost
-     ln -s /etc/thermald-ghost.conf $THERMALD_CONF_SYMLINK 2>/dev/null
+     ln -s /etc/thermald-ghost.conf /dev/thermald.conf 2>/dev/null
      ;;
 
      *) #MSM8960, etc
