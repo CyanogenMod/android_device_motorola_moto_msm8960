@@ -5,7 +5,6 @@ bin/bridgemgrd
 bin/btnvtool
 bin/dbvc_atvc_property_set
 bin/ds_fmc_appd
-bin/ftmdaemon
 bin/ftmipcd
 bin/hci_qcomm_init
 bin/mpdecision
@@ -24,7 +23,6 @@ bin/whisperd
 
 # Configs
 etc/wifi/hostapd_default.conf
-etc/thermald.conf
 
 # HAL
 lib/hw/vendor-camera.msm8960.so

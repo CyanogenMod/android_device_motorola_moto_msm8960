@@ -138,7 +138,13 @@ PRODUCT_PACKAGES += \
     init.qcom.post_boot.sh \
     init.qcom.sh \
     init.qcom.syspart_fixup.sh \
+    init.qcom.thermal_conf.sh \
     init.qcom.usb.sh
+
+# Thermal profiles
+PRODUCT_PACKAGES += \
+    thermald-8960.conf \
+    thermald-ghost.conf
 
 # Scripts
 PRODUCT_COPY_FILES += \
