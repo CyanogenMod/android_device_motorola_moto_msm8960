@@ -75,6 +75,7 @@ lib/libsarqmictrl.so
 lib/libsensor1.so
 lib/libsensorhub_jni.so
 lib/libsensor_reg.so
+lib/libtime_genoff.so
 lib/libxt_v02.so
 
 # Camera
