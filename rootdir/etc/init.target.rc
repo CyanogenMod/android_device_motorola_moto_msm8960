@@ -406,13 +406,6 @@ service batt_health /system/bin/batt_health
     class main
     group mot_pwric
 
-service dlnasrv /system/bin/dlnasrv
-    class main
-    user mot_dlna
-    group system net_admin sdcard_rw sdcard_r media_rw new_raw inet mount misc
-    oneshot
-    disabled
-
 # Start kickstart if mdm is detected
 on property:ro.baseband=mdm
     mkdir /data/qcks 0770 system system

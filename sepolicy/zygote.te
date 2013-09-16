@@ -1,4 +1,0 @@
-allow zygote cache_file:file { write lock open setattr };
-allow zygote init:unix_stream_socket connectto;
-allow zygote property_socket:sock_file write;
-allow zygote labeledfs:filesystem remount;
