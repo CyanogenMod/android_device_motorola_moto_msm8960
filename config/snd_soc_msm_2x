@@ -3172,8 +3172,8 @@ SectionDevice
 EndSection
 
 SectionDevice
-	Name "Basic Dock"
-	Comment "Basic Dock device"
+	Name "Dock"
+	Comment "Dock Rx device"
 
 	EnableSequence
 		'SLIM_0_RX Channels':0:Two
@@ -3196,8 +3196,8 @@ SectionDevice
 EndSection
 
 SectionDevice
-	Name "Speaker Basic Dock"
-	Comment "Speaker + Basic Dock combo device"
+	Name "Dock Speaker"
+	Comment "Dock Speaker Rx device"
 
 	EnableSequence
 		'SLIM_0_RX Channels':0:Two
@@ -3221,30 +3221,6 @@ SectionDevice
 	EndSequence
 
 	ACDBID  55:1
-	EffectsMixerCTL "SRS TruMedia"
-
-EndSection
-
-SectionDevice
-	Name "Car Dock"
-	Comment "Car Dock device"
-
-	EnableSequence
-		'SLIM_0_RX Channels':0:Two
-		'RX3 MIX1 INP1':0:RX1
-		'RX5 MIX1 INP1':0:RX2
-		'LINEOUT1 Volume':1:75
-		'LINEOUT2 Volume':1:75
-	EndSequence
-
-	DisableSequence
-		'RX3 MIX1 INP1':0:ZERO
-		'RX5 MIX1 INP1':0:ZERO
-		'LINEOUT1 Volume':1:0
-		'LINEOUT2 Volume':1:0
-	EndSequence
-
-	ACDBID  54:1
 	EffectsMixerCTL "SRS TruMedia"
 
 EndSection
@@ -5729,29 +5705,6 @@ SectionDevice
 
 	ACDBID	26:1
 	EffectsMixerCTL "SRS TruMedia"
-
-EndSection
-
-SectionDevice
-	Name "Dock"
-	Comment "Dock Rx device"
-
-	EnableSequence
-		'SLIMBUS_0_RX Channels':0:Two
-		'RX7 MIX1 INP1':0:RX1
-		'RX3 MIX1 INP1':0:RX2
-		'LINEOUT1 Volume':1:91
-		'LINEOUT5 Volume':1:91
-	EndSequence
-
-	DisableSequence
-		'RX7 MIX1 INP1':0:ZERO
-		'RX3 MIX1 INP1':0:ZERO
-		'LINEOUT1 Volume':1:0
-		'LINEOUT5 Volume':1:0
-	EndSequence
-
-	ACDBID  40:1
 
 EndSection
 
