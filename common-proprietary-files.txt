@@ -34,6 +34,7 @@ lib/libdsucsd.so
 lib/libdsutils.so
 lib/libgemini.so
 lib/libgps.so
+lib/libI420colorconvert.so
 lib/libidl.so
 lib/libimage-jpeg-enc-omx-comp.so
 lib/libimage-omx-common.so

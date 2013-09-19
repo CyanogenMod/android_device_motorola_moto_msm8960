@@ -41,8 +41,7 @@ PRODUCT_PACKAGES += \
 
 # Init scripts
 PRODUCT_PACKAGES += \
-    init.qcom.mdm_links.sh \
-    init.qcom.modem_links.sh \
+    init.qcom.post_boot.sh \
     init.qcom.sh
 
 # Audio configuration
