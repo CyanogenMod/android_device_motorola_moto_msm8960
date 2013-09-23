@@ -23,9 +23,9 @@ import android.os.AsyncResult;
 import android.os.Message;
 import android.os.Parcel;
 import android.os.SystemProperties;
-import android.telephony.SignalStrength;
 import android.text.TextUtils;
-import android.util.Log;
+import android.telephony.Rlog;
+import android.telephony.SignalStrength;
 
 import java.util.ArrayList;
 
@@ -53,7 +53,7 @@ public class MotorolaQualcommRIL extends RIL implements CommandsInterface {
         rr = findAndRemoveRequestFromList(serial);
 
         if (rr == null) {
-            Log.w(LOG_TAG, "Unexpected solicited response! sn: "
+            Rlog.w(RILJ_LOG_TAG, "Unexpected solicited response! sn: "
                             + serial + " error: " + error);
             return;
         }
@@ -191,7 +191,7 @@ public class MotorolaQualcommRIL extends RIL implements CommandsInterface {
             }} catch (Throwable tr) {
                 // Exceptions here usually mean invalid RIL responses
 
-                Log.w(LOG_TAG, rr.serialString() + "< "
+                Rlog.w(RILJ_LOG_TAG, rr.serialString() + "< "
                         + requestToString(rr.mRequest)
                         + " exception, possible invalid RIL response", tr);
 
@@ -317,37 +317,10 @@ public class MotorolaQualcommRIL extends RIL implements CommandsInterface {
         int lteCqi = p.readInt();
         boolean isGsm = (mPhoneType == RILConstants.GSM_PHONE);
 
-        /*
-        Log.d(LOG_TAG, "SignalStrength parcel size: " + parcelSize);
-        Log.d(LOG_TAG, "gsmSignalStrength=" + gsmSignalStrength);
-        Log.d(LOG_TAG, "gsmBitErrorRate=" + gsmBitErrorRate);
-        Log.d(LOG_TAG, "cdmaDbm=" + cdmaDbm);
-        Log.d(LOG_TAG, "cdmaEcio=" + cdmaEcio);
-        Log.d(LOG_TAG, "evdoDbm=" + evdoDbm);
-        Log.d(LOG_TAG, "evdoEcio=" + evdoEcio);
-        Log.d(LOG_TAG, "evdoSnr=" + evdoSnr);
-        Log.d(LOG_TAG, "lteSignalStrength=" + lteSignalStrength);
-        Log.d(LOG_TAG, "lteRsrp=" + lteRsrp);
-        Log.d(LOG_TAG, "lteRsrq=" + lteRsrq);
-        Log.d(LOG_TAG, "lteRssnr=" + lteRssnr);
-        Log.d(LOG_TAG, "lteCqi=" + lteCqi);
-        if (parcelSize >= 52) {
-            Log.d(LOG_TAG, "?[12]=" + p.readInt());
-        }
-        if (parcelSize >= 56) {
-            Log.d(LOG_TAG, "?[13]=" + p.readInt());
-        }
-        if (parcelSize >= 60) {
-            Log.d(LOG_TAG, "?[14]=" + p.readInt());
-        }
-        Log.d(LOG_TAG, "isGSM=" + isGsm);
-        */
-
         SignalStrength signalStrength = new SignalStrength(gsmSignalStrength,
                 gsmBitErrorRate, cdmaDbm, cdmaEcio, evdoDbm, evdoEcio, evdoSnr,
                 lteSignalStrength, lteRsrp, lteRsrq, lteRssnr, lteCqi, isGsm);
 
         return signalStrength;
     }
-
 }
