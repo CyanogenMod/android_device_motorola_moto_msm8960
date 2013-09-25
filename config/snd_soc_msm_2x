@@ -3025,7 +3025,7 @@ SectionDevice
 		'RX1 MIX1 INP1':0:RX1
 		'EAR PA Gain':0:POS_6_DB
 		'DAC1 Switch':1:1
-		'RX1 Digital Volume':1:73
+		'RX1 Digital Volume':1:66
 	EndSequence
 
 	DisableSequence
@@ -3048,7 +3048,7 @@ SectionDevice
 		'RX1 MIX1 INP1':0:RX1
 		'EAR PA Gain':0:POS_6_DB
 		'DAC1 Switch':1:1
-		'RX1 Digital Volume':1:73
+		'RX1 Digital Volume':1:66
 	EndSequence
 
 	DisableSequence
@@ -3119,8 +3119,8 @@ SectionDevice
 		'SLIM_0_RX Channels':0:One
 		'RX3 MIX1 INP1':0:RX1
 		'RX4 DSM MUX':0:DSM_INV
-		'LINEOUT1 Volume':1:70
-		'LINEOUT3 Volume':1:70
+		'LINEOUT1 Volume':1:30
+		'LINEOUT3 Volume':1:30
 		'RX3 Digital Volume':1:66
 		'RX4 Digital Volume':1:66
 	EndSequence
@@ -3145,23 +3145,15 @@ SectionDevice
 		'SLIM_0_RX Channels':0:One
 		'RX3 MIX1 INP1':0:RX1
 		'RX4 DSM MUX':0:DSM_INV
-		'LINEOUT1 DAC Switch':1:1
-		'LINEOUT3 DAC Switch':1:1
-		'LINEOUT1 Volume':1:80
-		'LINEOUT3 Volume':1:80
-		'RX3 Digital Volume':1:68
-		'RX4 Digital Volume':1:68
-		'SPK AMP EN Switch':1:1
-		'FENS Enable':1:1
+		'LINEOUT1 Volume':1:62
+		'LINEOUT3 Volume':1:62
+		'RX3 Digital Volume':1:66
+		'RX4 Digital Volume':1:66
 	EndSequence
 
 	DisableSequence
-		'FENS Enable':1:0
-		'SPK AMP EN Switch':1:0
 		'LINEOUT1 Volume':1:0
 		'LINEOUT3 Volume':1:0
-		'LINEOUT1 DAC Switch':1:0
-		'LINEOUT3 DAC Switch':1:0
 		'RX4 DSM MUX':0:CIC_OUT
 		'RX3 MIX1 INP1':0:ZERO
 	EndSequence
