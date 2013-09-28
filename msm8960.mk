@@ -20,6 +20,7 @@ DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
 # Motorola
 PRODUCT_PACKAGES += \
+    charge_only_mode \
     graphicsd \
     mot_boot_mode
 
