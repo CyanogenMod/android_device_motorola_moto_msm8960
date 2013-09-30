@@ -18,6 +18,10 @@ $(call inherit-product, device/motorola/qcom-common/qcom-common.mk)
 ## overlays
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
+# HAL
+PRODUCT_PACKAGES += \
+    camera.msm8960 \
+
 # Motorola
 PRODUCT_PACKAGES += \
     charge_only_mode \
