@@ -22,6 +22,10 @@ DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 PRODUCT_PACKAGES += \
     camera.msm8960 \
 
+# GPS
+PRODUCT_PACKAGES += \
+    gps.msm8960
+
 # Motorola
 PRODUCT_PACKAGES += \
     charge_only_mode \
@@ -31,6 +35,10 @@ PRODUCT_PACKAGES += \
 # Misc
 PRODUCT_PACKAGES += \
     DevicePerformanceSettingsHelper
+
+# GPS configuration
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/gps/gps.conf:system/etc/gps.conf
 
 # Wifi
 PRODUCT_COPY_FILES += \
