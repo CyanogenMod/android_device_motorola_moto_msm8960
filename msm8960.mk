@@ -28,6 +28,7 @@ PRODUCT_PACKAGES += \
 
 # Motorola
 PRODUCT_PACKAGES += \
+    batt_health \
     charge_only_mode \
     graphicsd \
     mot_boot_mode
