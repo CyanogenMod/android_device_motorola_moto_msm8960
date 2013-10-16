@@ -84,6 +84,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.telephony.ril_class=MotorolaQualcommRIL \
 
+# Misc
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.fuse_sdcard=true
+
 # Wifi
 PRODUCT_PROPERTY_OVERRIDES += \
     wifi.interface=wlan0 \
