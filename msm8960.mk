@@ -37,6 +37,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     DevicePerformanceSettingsHelper
 
+# EGL config
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/config/egl.cfg:system/lib/egl/egl.cfg
+
 # GPS configuration
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/gps/gps.conf:system/etc/gps.conf
@@ -80,9 +84,13 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.usb.ptp_adb=0x2e31 \
     ro.hdmi.enable=true
 
+# Opengles version 2
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.opengles.version=131072
+
 # Radio and Telephony
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.telephony.ril_class=MotorolaQualcommRIL \
+    ro.telephony.ril_class=MotorolaQualcommRIL
 
 # Misc
 PRODUCT_PROPERTY_OVERRIDES += \

@@ -53,6 +53,9 @@ COMMON_GLOBAL_CFLAGS += -DMR0_CAMERA_BLOB -DCAMERA_POWERMODE -DQCOM_BSP_CAMERA_A
 #camera abi compatiblily
 TARGET_DISPLAY_INSECURE_MM_HEAP := true
 
+# Graphics
+BOARD_EGL_CFG := $(LOCAL_PATH)/config/egl.cfg
+
 # assert
 TARGET_OTA_ASSERT_DEVICE := xt925,xt926,xt907,vanquish_u,vanquish,scorpion_mini,mb886,qinara,asanti,asanti_c,xt897,xt897c
 
