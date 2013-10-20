@@ -45,7 +45,10 @@ BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x01600000
 
 # Telephony
 BOARD_RIL_CLASS := ../../../$(LOCAL_PATH)/ril/MotorolaQualcommRIL.java
-BOARD_RIL_NO_CELLINFOLIST:=true
+BOARD_RIL_NO_CELLINFOLIST := true
+
+# Audio
+BOARD_USES_MOTOROLA_EMU_AUDIO := true
 
 # Camera
 TARGET_PROVIDES_CAMERA_HAL := true
