@@ -11,9 +11,6 @@ bin/sensors.qcom
 bin/thermald
 bin/whisperd
 
-# Configs
-etc/wifi/hostapd_default.conf
-
 # HAL
 lib/hw/vendor-camera.msm8960.so
 lib/hw/sensorhub.msm8960.so
