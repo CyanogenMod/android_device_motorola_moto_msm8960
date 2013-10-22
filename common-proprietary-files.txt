@@ -2,6 +2,7 @@
 bin/ap_gain.bin
 bin/ap_gain_mmul.bin
 bin/mpdecision
+bin/netmgrd
 bin/qdumpd
 bin/qmi_motext_hook
 bin/qmiproxy
@@ -46,6 +47,7 @@ lib/libmotext_inf.so
 lib/libmoto_netutil.so
 lib/libmotpostprocinterface.so
 lib/libnative_renderer.so
+lib/libnetmgr.so
 lib/libqcci_legacy.so
 lib/libqdi.so
 lib/libqdp.so
