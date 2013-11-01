@@ -107,6 +107,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     vendor/cm/prebuilt/common/bootanimation/540.zip:system/media/540.zip
 
+# Alternate optional key maps
+PRODUCT_PACKAGES += \
+    AsantiKeypad
+
 # Misc
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.usb.mtp=0x2e32 \
