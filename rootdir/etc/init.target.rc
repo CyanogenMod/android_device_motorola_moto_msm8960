@@ -415,6 +415,11 @@ on property:ro.baseband=mdm
     mkdir /data/qcks 0770 system system
     start kickstart
 
+service time_daemon /system/bin/time_daemon
+   class late_start
+   user root
+   group root
+
 service atvc /system/bin/dbvc_atvc_property_set
     class main
     user system
