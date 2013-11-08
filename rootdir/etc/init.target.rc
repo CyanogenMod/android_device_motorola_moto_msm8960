@@ -133,7 +133,7 @@ on post-fs
     chmod 755 /system/etc/init.qcom.post_boot.sh
     chmod 755 /system/etc/init.qcom.sdio.sh
     chmod 755 /system/bin/qcamerasrvwrapper.sh
- 
+
     mkdir /tombstones/modem 0771 system system
     mkdir /tombstones/lpass 0771 system system
     mkdir /tombstones/wcnss 0771 system system
