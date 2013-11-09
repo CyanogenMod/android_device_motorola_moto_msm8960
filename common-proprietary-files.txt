@@ -31,6 +31,7 @@ lib/libdss.so
 lib/libdsucsd.so
 lib/libdsutils.so
 lib/libgemini.so
+lib/libgeofence.so
 lib/libgps.so
 lib/libI420colorconvert.so
 lib/libidl.so
