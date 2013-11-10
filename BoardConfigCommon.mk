@@ -59,6 +59,7 @@ BOARD_HAVE_NEW_QC_GPS := true
 
 # Graphics
 BOARD_EGL_CFG := $(LOCAL_PATH)/config/egl.cfg
+TARGET_QCOM_DISPLAY_VARIANT =
 
 # assert
 TARGET_OTA_ASSERT_DEVICE := xt925,xt926,xt907,vanquish_u,vanquish,scorpion_mini,mb886,qinara,asanti,asanti_c,xt897,xt897c
