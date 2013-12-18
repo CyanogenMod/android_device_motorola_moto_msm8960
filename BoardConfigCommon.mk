@@ -21,16 +21,19 @@
 # definition file).
 #
 
+BOARD_VENDOR := motorola-qcom
+
+# Platform
+TARGET_BOARD_PLATFORM_GPU := qcom-adreno200
+TARGET_BOARD_PLATFORM := msm8960
+TARGET_BOOTLOADER_BOARD_NAME := MSM8960
+TARGET_CPU_VARIANT := krait
+
 -include device/motorola/qcom-common/BoardConfigCommon.mk
 
 LOCAL_PATH := device/motorola/msm8960-common
 
 TARGET_SPECIFIC_HEADER_PATH += $(LOCAL_PATH)/include
-
-BOARD_VENDOR := motorola-msm8960
-
-# Platform
-TARGET_BOARD_PLATFORM_GPU := qcom-adreno200
 
 # Inline kernel building
 TARGET_KERNEL_SOURCE := kernel/motorola/msm8960-common
@@ -60,13 +63,13 @@ BOARD_HAVE_NEW_QC_GPS := true
 # Graphics
 BOARD_EGL_CFG := $(LOCAL_PATH)/config/egl.cfg
 
-# assert
+# Assert
 TARGET_OTA_ASSERT_DEVICE := xt925,xt926,xt907,vanquish_u,vanquish,scorpion_mini,mb886,qinara,asanti,asanti_c,xt897,xt897c
 
 # Recovery
 TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/rootdir/etc/fstab.qcom
 
-#TWRP
+# TWRP
 TW_EXTERNAL_STORAGE_PATH := "/external_sd"
 TW_EXTERNAL_STORAGE_MOUNT_POINT := "external_sd"
 TARGET_USERIMAGES_USE_EXT4 := true

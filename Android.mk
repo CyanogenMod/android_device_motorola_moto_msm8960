@@ -19,7 +19,7 @@
 # to only building on ARM if they include assembly. Individual makefiles
 # are responsible for having their own logic, for fine-grained control.
 
-ifeq ($(BOARD_VENDOR),motorola-msm8960)
+ifeq ($(BOARD_VENDOR),motorola-qcom)
 ifeq ($(TARGET_BOARD_PLATFORM),msm8960)
 ifneq ($(filter mb886 xt897 xt897c xt901 xt907 xt925 xt926,$(TARGET_DEVICE)),)
 

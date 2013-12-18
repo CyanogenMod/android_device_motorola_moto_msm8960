@@ -13,14 +13,24 @@
 # limitations under the License.
 
 LOCAL_PATH := device/motorola/msm8960-common
-$(call inherit-product, device/motorola/qcom-common/qcom-common.mk)
 
 ## overlays
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
+# Audio
+PRODUCT_PACKAGES += \
+    audio_policy.msm8960 \
+    audio.primary.msm8960
+
 # HAL
 PRODUCT_PACKAGES += \
     camera.msm8960 \
+    copybit.msm8960 \
+    gralloc.msm8960 \
+    hwcomposer.msm8960 \
+    lights.MSM8960 \
+    memtrack.msm8960 \
+    power.msm8960
 
 # GPS
 PRODUCT_PACKAGES += \
@@ -36,6 +46,11 @@ PRODUCT_PACKAGES += \
 # Misc
 PRODUCT_PACKAGES += \
     DevicePerformanceSettingsHelper
+
+# Symlinks
+PRODUCT_PACKAGES += \
+    mbhc.bin \
+    wcd9310_anc.bin
 
 # EGL config
 PRODUCT_COPY_FILES += \
@@ -105,3 +120,5 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     wifi.interface=wlan0 \
     wifi.supplicant_scan_interval=30
+
+$(call inherit-product, device/motorola/qcom-common/qcom-common.mk)
