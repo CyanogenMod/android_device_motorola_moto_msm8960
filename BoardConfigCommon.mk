@@ -51,6 +51,7 @@ BOARD_RIL_CLASS := ../../../$(LOCAL_PATH)/ril/MotorolaQualcommRIL.java
 BOARD_RIL_NO_CELLINFOLIST := true
 
 # Audio
+BOARD_USES_LEGACY_ALSA_AUDIO := true
 BOARD_USES_MOTOROLA_EMU_AUDIO := true
 
 # Camera
