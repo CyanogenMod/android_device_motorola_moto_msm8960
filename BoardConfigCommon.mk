@@ -46,6 +46,10 @@ BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x01600000
 #backwards compat for 4.1 (making recoveries)
 #BOARD_FORCE_RAMDISK_ADDRESS := 0x81600000
 
+# QCOM BSP
+TARGET_USES_QCOM_BSP := true
+COMMON_GLOBAL_CFLAGS += -DQCOM_BSP
+
 # Telephony
 BOARD_RIL_CLASS := ../../../$(LOCAL_PATH)/ril/MotorolaQualcommRIL.java
 BOARD_RIL_NO_CELLINFOLIST := true
