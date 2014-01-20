@@ -132,7 +132,6 @@ on post-fs
     chmod 755 /system/etc/init.qcom.modem_links.sh
     chmod 755 /system/etc/init.qcom.post_boot.sh
     chmod 755 /system/etc/init.qcom.sdio.sh
-    chmod 755 /system/bin/qcamerasrvwrapper.sh
 
     mkdir /tombstones/modem 0771 system system
     mkdir /tombstones/lpass 0771 system system
@@ -372,7 +371,7 @@ on post-fs-data
    mkdir /tombstones/mdm2 0771 system system
 
 #start camera server as daemon
-service qcamerasvr /system/bin/logwrapper /system/bin/qcamerasrvwrapper.sh
+service qcamerasvr /system/bin/mm-qcamera-daemon
     class late_start
     user media
     group system camera inet input graphics
