@@ -115,7 +115,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Misc
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.fuse_sdcard=true \
-    ro.qc.sdk.audio.fluencetype=fluence \
+    ro.qc.sdk.audio.fluencetype=fluence
 
 # Wifi
 PRODUCT_PROPERTY_OVERRIDES += \
