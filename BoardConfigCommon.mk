@@ -75,6 +75,7 @@ TARGET_OTA_ASSERT_DEVICE := xt925,xt926,xt907,vanquish_u,vanquish,scorpion_mini,
 # Recovery
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBA_8888"
 TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/rootdir/etc/fstab.qcom
+BOARD_RECOVERY_SWIPE := true
 
 # TWRP
 TW_EXTERNAL_STORAGE_PATH := "/external_sd"
