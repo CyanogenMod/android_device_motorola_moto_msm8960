@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2013 The CyanogenMod Project
+# Copyright (C) 2014 The CyanogenMod Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -31,9 +31,14 @@ TARGET_CPU_VARIANT := krait
 
 -include device/motorola/qcom-common/BoardConfigCommon.mk
 
-LOCAL_PATH := device/motorola/msm8960-common
+LOCAL_PATH := device/motorola/moto_msm8960
 
 TARGET_SPECIFIC_HEADER_PATH += $(LOCAL_PATH)/include
+
+# Vendor Init
+TARGET_UNIFIED_DEVICE := true
+TARGET_INIT_VENDOR_LIB := libinit_msm
+TARGET_LIBINIT_DEFINES_FILE := device/motorola/moto_msm8960/init/init_moto_msm8960.c
 
 # Inline kernel building
 TARGET_KERNEL_SOURCE := kernel/motorola/msm8960-common
@@ -43,8 +48,7 @@ BOARD_KERNEL_CMDLINE := console=/dev/null androidboot.hardware=qcom user_debug=3
 BOARD_KERNEL_BASE := 0x80200000
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x01600000
-#backwards compat for 4.1 (making recoveries)
-#BOARD_FORCE_RAMDISK_ADDRESS := 0x81600000
+BOARD_USERDATAIMAGE_PARTITION_SIZE := 12884901888
 
 # QCOM BSP
 TARGET_USES_QCOM_BSP := true
@@ -58,6 +62,9 @@ BOARD_RIL_NO_CELLINFOLIST := true
 BOARD_USES_LEGACY_ALSA_AUDIO := true
 BOARD_USES_MOTOROLA_EMU_AUDIO := true
 
+# Bluetooth
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(LOCAL_PATH)/bluetooth
+
 # Camera
 TARGET_PROVIDES_CAMERA_HAL := true
 COMMON_GLOBAL_CFLAGS += -DMR0_CAMERA_BLOB -DQCOM_BSP_CAMERA_ABI_HACK -DDISABLE_HW_ID_MATCH_CHECK -DNEEDS_VECTORIMPL_SYMBOLS
@@ -66,8 +73,11 @@ COMMON_GLOBAL_CFLAGS += -DMR0_CAMERA_BLOB -DQCOM_BSP_CAMERA_ABI_HACK -DDISABLE_H
 TARGET_QCOM_DISPLAY_VARIANT := caf
 BOARD_EGL_CFG := $(LOCAL_PATH)/config/egl.cfg
 
+# Custom relese tools for unified devices
+TARGET_RELEASETOOLS_EXTENSIONS := device/motorola/moto_msm8960
+
 # Assert
-TARGET_OTA_ASSERT_DEVICE := xt925,xt926,xt907,vanquish_u,vanquish,scorpion_mini,mb886,qinara,asanti,asanti_c,xt897,xt897c
+TARGET_OTA_ASSERT_DEVICE := moto_msm8960dt,xt925,xt926,xt907,vanquish_u,vanquish,scorpion_mini,mb886,qinara,asanti,asanti_c,xt897,xt897c
 
 # Recovery
 BOARD_CUSTOM_GRAPHICS := ../../../device/motorola/msm8960-common/graphics.c
@@ -79,3 +89,6 @@ BOARD_RECOVERY_SWIPE := true
 TW_EXTERNAL_STORAGE_PATH := "/external_sd"
 TW_EXTERNAL_STORAGE_MOUNT_POINT := "external_sd"
 TARGET_USERIMAGES_USE_EXT4 := true
+# Needs to be changed for M
+DEVICE_RESOLUTION := 720x1280
+#DEVICE_RESOLUTION := 540x960

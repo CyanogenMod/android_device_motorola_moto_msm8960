@@ -1,5 +1,6 @@
 #!/bin/bash
 
-export FAMILY=msm8960-common
+export VENDOR=motorola
+export DEVICE=moto_msm8960
 
 ../qcom-common/extract-files.sh $@

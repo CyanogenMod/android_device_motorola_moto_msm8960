@@ -12,6 +12,11 @@ bin/sensors.qcom
 bin/thermald
 bin/whisperd
 
+#etc
+etc/firmware/atmxt-r1.tdat
+etc/firmware/atmxt-r2.tdat
+etc/firmware/melfas_45_7_15.fw
+
 # HAL
 lib/hw/vendor-camera.msm8960.so
 lib/hw/sensorhub.msm8960.so
@@ -57,6 +62,8 @@ lib/libqmi_common_so.so
 lib/libqmi_csi.so
 lib/libqmi_csvt_srvc.so
 lib/libqmi_encdec.so
+lib/libqmiservices.so
+lib/libril-qc-qmi-1.so
 lib/libril-qcril-hook-oem.so
 lib/libsarqmictrl.so
 lib/libsensor1.so
@@ -100,6 +107,8 @@ etc/firmware/a300_pfp.fw
 etc/firmware/a300_pm4.fw
 etc/firmware/leia_pfp_470.fw
 etc/firmware/leia_pm4_470.fw
+etc/firmware/atmxt-r1.tdat
+etc/firmware/atmxt-r2.tdat
 lib/egl/eglsubAndroid.so
 lib/egl/libEGL_adreno200.so
 lib/egl/libGLESv1_CM_adreno200.so
@@ -118,3 +127,9 @@ lib/libsc-a3xx.so
 
 # ION audio support from HTC S4
 lib/libacdbloader.so
+
+# Device specific
+xt897/lib/libaudcal.so
+xt897/etc/firmware/atmxt-r2.tdat
+xt901/lib/libqmiservices.so
+xt901/lib/libril-qc-qmi-1.so
