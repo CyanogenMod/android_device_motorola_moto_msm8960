@@ -73,6 +73,7 @@ BOARD_EGL_CFG := $(LOCAL_PATH)/config/egl.cfg
 TARGET_OTA_ASSERT_DEVICE := xt925,xt926,xt907,vanquish_u,vanquish,scorpion_mini,mb886,qinara,asanti,asanti_c,xt897,xt897c
 
 # Recovery
+BOARD_CUSTOM_GRAPHICS := ../../../device/motorola/msm8960-common/graphics.c
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBA_8888"
 TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/rootdir/etc/fstab.qcom
 BOARD_RECOVERY_SWIPE := true
