@@ -26,15 +26,12 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     camera.msm8960 \
     copybit.msm8960 \
+    gps.msm8960 \
     gralloc.msm8960 \
     hwcomposer.msm8960 \
     lights.MSM8960 \
     memtrack.msm8960 \
     power.msm8960
-
-# GPS
-PRODUCT_PACKAGES += \
-    gps.msm8960
 
 # Motorola
 PRODUCT_PACKAGES += \
@@ -55,10 +52,6 @@ PRODUCT_PACKAGES += \
 # EGL config
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/config/egl.cfg:system/lib/egl/egl.cfg
-
-# GPS configuration
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/gps/gps.conf:system/etc/gps.conf
 
 # Wifi
 PRODUCT_COPY_FILES += \
