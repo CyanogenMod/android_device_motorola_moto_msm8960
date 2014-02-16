@@ -14,8 +14,8 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources>
-    <string name="app_name">Asanti Keypad</string>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name">Asanti keypad</string>
     <string name="keyboard_layouts_label">Photon Q keypad</string>
     <string name="keypad_asanti_qwerty_label">Asanti QWERTY</string>
     <string name="keypad_asanti_qwertz_label">Asanti QWERTZ</string>
