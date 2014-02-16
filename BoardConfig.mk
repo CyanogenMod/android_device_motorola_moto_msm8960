@@ -77,7 +77,7 @@ BOARD_EGL_CFG := $(LOCAL_PATH)/config/egl.cfg
 TARGET_RELEASETOOLS_EXTENSIONS := device/motorola/moto_msm8960
 
 # Assert
-TARGET_OTA_ASSERT_DEVICE := moto_msm8960dt,xt925,xt926,xt907,vanquish_u,vanquish,scorpion_mini,mb886,qinara,asanti,asanti_c,xt897,xt897c
+TARGET_OTA_ASSERT_DEVICE := moto_msm8960,xt925,xt926,xt907,vanquish_u,vanquish,scorpion_mini,mb886,qinara,asanti,asanti_c,xt897,xt897c
 
 # Recovery
 BOARD_CUSTOM_GRAPHICS := ../../../$(LOCAL_PATH)/graphics.c
