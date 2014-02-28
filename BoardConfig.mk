@@ -57,6 +57,7 @@ COMMON_GLOBAL_CFLAGS += -DQCOM_BSP
 # Telephony
 BOARD_RIL_CLASS := ../../../$(LOCAL_PATH)/ril/MotorolaQualcommRIL.java
 BOARD_RIL_NO_CELLINFOLIST := true
+BOARD_USES_MOTOROLA_SIM_IO := true
 
 # Audio
 BOARD_USES_LEGACY_ALSA_AUDIO := true
