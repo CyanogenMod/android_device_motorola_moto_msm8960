@@ -67,74 +67,74 @@ on early-boot
     exec /system/bin/sh /init.qcom.syspart_fixup.sh ${ro.board.platform} ${ro.serialno}
 
 on boot
-    chown bluetooth bluetooth /sys/module/bluetooth_power/parameters/power
-    chown bluetooth bluetooth /sys/class/rfkill/rfkill0/type
-    chown bluetooth bluetooth /sys/class/rfkill/rfkill0/state
-    chown bluetooth bluetooth /proc/bluetooth/sleep/proto
-    chown system system /sys/module/sco/parameters/disable_esco
-    chown bluetooth bluetooth /sys/module/hci_smd/parameters/hcismd_set
-    chmod 0660 /sys/module/bluetooth_power/parameters/power
-    chmod 0660 /sys/module/hci_smd/parameters/hcismd_set
-    chmod 0660 /sys/class/rfkill/rfkill0/state
-    chmod 0660 /proc/bluetooth/sleep/proto
-    chown bluetooth bluetooth /dev/ttyHS0
-    chmod 0660 /dev/ttyHS0
-    chown bluetooth bluetooth /sys/devices/platform/msm_serial_hs.0/clock
-    chmod 0660 /sys/devices/platform/msm_serial_hs.0/clock
+    chown -h bluetooth bluetooth /sys/module/bluetooth_power/parameters/power
+    chown -h bluetooth bluetooth /sys/class/rfkill/rfkill0/type
+    chown -h bluetooth bluetooth /sys/class/rfkill/rfkill0/state
+    chown -h bluetooth bluetooth /proc/bluetooth/sleep/proto
+    chown -h system system /sys/module/sco/parameters/disable_esco
+    chown -h bluetooth bluetooth /sys/module/hci_smd/parameters/hcismd_set
+    chmod -h 0660 /sys/module/bluetooth_power/parameters/power
+    chmod -h 0660 /sys/module/hci_smd/parameters/hcismd_set
+    chmod -h 0660 /sys/class/rfkill/rfkill0/state
+    chmod -h 0660 /proc/bluetooth/sleep/proto
+    chown -h bluetooth bluetooth /dev/ttyHS0
+    chmod -h 0660 /dev/ttyHS0
+    chown -h bluetooth bluetooth /sys/devices/platform/msm_serial_hs.0/clock
+    chmod -h 0660 /sys/devices/platform/msm_serial_hs.0/clock
 
-    chmod 0660 /dev/ttyHS2
-    chown bluetooth bluetooth /dev/ttyHS2
+    chmod -h 0660 /dev/ttyHS2
+    chown -h bluetooth bluetooth /dev/ttyHS2
 
     #Create QMUX deamon socket area
     mkdir /dev/socket/qmux_radio 0770 radio radio
-    chmod 2770 /dev/socket/qmux_radio
+    chmod -h 2770 /dev/socket/qmux_radio
     mkdir /dev/socket/qmux_audio 0770 media audio
-    chmod 2770 /dev/socket/qmux_audio
+    chmod -h 2770 /dev/socket/qmux_audio
     mkdir /dev/socket/qmux_bluetooth 0770 bluetooth bluetooth
-    chmod 2770 /dev/socket/qmux_bluetooth
+    chmod -h 2770 /dev/socket/qmux_bluetooth
     mkdir /dev/socket/qmux_gps 0770 gps gps
-    chmod 2770 /dev/socket/qmux_gps
+    chmod -h 2770 /dev/socket/qmux_gps
 
     # Allow QMUX daemon to assign port open wait time
-    chown radio radio /sys/devices/virtual/hsicctl/hsicctl0/modem_wait
+    chown -h radio radio /sys/devices/virtual/hsicctl/hsicctl0/modem_wait
 
     # Prevents permission denied error for telephony
-    chmod 0644 /proc/cmdline
+    chmod -h 0644 /proc/cmdline
 
     setprop wifi.interface wlan0
 
     setprop ro.telephony.call_ring.multiple false
 
     #Set SUID bit for usbhub
-    chmod 4755 /system/bin/usbhub
-    chmod 755 /system/bin/usbhub_init
+    chmod -h 4755 /system/bin/usbhub
+    chmod -h 755 /system/bin/usbhub_init
 
     #Remove SUID bit for iproute2 ip tool
-    chmod 0755 /system/bin/ip
+    chmod -h 0755 /system/bin/ip
 
 
-    chmod 0444 /sys/devices/platform/msm_hsusb/gadget/usb_state
+    chmod -h 0444 /sys/devices/platform/msm_hsusb/gadget/usb_state
 
     # create symlink for fb1 as HDMI
     symlink /dev/graphics/fb1 /dev/graphics/hdmi
 
     # setup permissions for fb1 related nodes
-    chown system graphics /sys/class/graphics/fb1/hpd
-    chmod 0664 /sys/devices/virtual/graphics/fb1/hpd
-    chmod 0664 /sys/devices/virtual/graphics/fb1/video_mode
-    chmod 0664 /sys/devices/virtual/graphics/fb1/format_3d
+    chown -h system graphics /sys/class/graphics/fb1/hpd
+    chmod -h 0664 /sys/devices/virtual/graphics/fb1/hpd
+    chmod -h 0664 /sys/devices/virtual/graphics/fb1/video_mode
+    chmod -h 0664 /sys/devices/virtual/graphics/fb1/format_3d
 
     # Change owner and group for media server and surface flinger
-    chown system system /sys/devices/virtual/graphics/fb1/format_3d
+    chown -h system system /sys/devices/virtual/graphics/fb1/format_3d
 
     #For bridgemgr daemon to inform the USB driver of the correct transport
-    chown radio radio /sys/class/android_usb/f_rmnet_smd_sdio/transport
+    chown -h radio radio /sys/class/android_usb/f_rmnet_smd_sdio/transport
 
     # permissions updates to Camera Flash and torch nodes
-    chown system camera /sys/class/leds/torch-flash/camera_strobe
-    chown system camera /sys/class/leds/torch-flash/flash_light
-    chmod 0660 /sys/class/leds/torch-flash/camera_strobe
-    chmod 0660 /sys/class/leds/torch-flash/flash_light
+    chown -h system camera /sys/class/leds/torch-flash/camera_strobe
+    chown -h system camera /sys/class/leds/torch-flash/flash_light
+    chmod -h 0660 /sys/class/leds/torch-flash/camera_strobe
+    chmod -h 0660 /sys/class/leds/torch-flash/flash_light
 
     #To allow interfaces to get v6 address when tethering is enabled
     write /proc/sys/net/ipv6/conf/rmnet0/accept_ra 2
@@ -173,7 +173,7 @@ on boot
 on post-fs-data
     # we will remap this as /mnt/sdcard with the sdcard fuse tool
     mkdir /data/media 0775 media_rw media_rw
-    chown media_rw media_rw /data/media
+    chown -h media_rw media_rw /data/media
 
     mkdir /data/misc/bluetooth 0770 bluetooth bluetooth
 
@@ -183,25 +183,25 @@ on post-fs-data
     mkdir /data/misc/wifi/wpa_supplicant 0770 wifi wifi
     mkdir /data/misc/wifi/hostapd 0770 wifi wifi
     mkdir /data/misc/dhcp 0770 dhcp dhcp
-    chown dhcp dhcp /data/misc/dhcp
+    chown -h dhcp dhcp /data/misc/dhcp
 
     # Create directory used by audio subsystem
     mkdir /data/misc/audio 0770 audio audio
 
     # Mounting of persist is moved to 'on emmc-fs' and 'on fs' sections
     # We chown/chmod /persist again so because mount is run as root + defaults
-    chown system system /persist
-    chmod 0771 /persist
-    chmod 0664 /sys/devices/platform/msm_sdcc.1/polling
-    chmod 0664 /sys/devices/platform/msm_sdcc.2/polling
-    chmod 0664 /sys/devices/platform/msm_sdcc.3/polling
-    chmod 0664 /sys/devices/platform/msm_sdcc.4/polling
+    chown -h system system /persist
+    chmod -h 0771 /persist
+    chmod -h 0664 /sys/devices/platform/msm_sdcc.1/polling
+    chmod -h 0664 /sys/devices/platform/msm_sdcc.2/polling
+    chmod -h 0664 /sys/devices/platform/msm_sdcc.3/polling
+    chmod -h 0664 /sys/devices/platform/msm_sdcc.4/polling
 
     # Chown polling nodes as needed from UI running on system server
-    chown system system /sys/devices/platform/msm_sdcc.1/polling
-    chown system system /sys/devices/platform/msm_sdcc.2/polling
-    chown system system /sys/devices/platform/msm_sdcc.3/polling
-    chown system system /sys/devices/platform/msm_sdcc.4/polling
+    chown -h system system /sys/devices/platform/msm_sdcc.1/polling
+    chown -h system system /sys/devices/platform/msm_sdcc.2/polling
+    chown -h system system /sys/devices/platform/msm_sdcc.3/polling
+    chown -h system system /sys/devices/platform/msm_sdcc.4/polling
 
     #Create the symlink to qcn wpa_supplicant folder for ar6000 wpa_supplicant
     mkdir /data/system 0775 system system
@@ -219,11 +219,11 @@ on post-fs-data
 
     #Create directory from IMS services
     mkdir /data/shared 0755
-    chown system system /data/shared
+    chown -h system system /data/shared
 
     #Create directory for FOTA
     mkdir /data/fota 0771
-    chown system system /data/fota
+    chown -h system system /data/fota
 
     #Create directory for hostapd
     mkdir /data/hostapd 0770 system wifi
@@ -233,13 +233,13 @@ on post-fs-data
 
     mkdir /data/audio/ 0770 media audio
     # Enable the setgid bit on the directory
-    chmod 2770 /data/audio
+    chmod -h 2770 /data/audio
 
     setprop vold.post_fs_data_done 1
 
     # chown WCNSS_qcom_wlan_nv.bin to wifi
-    chown wifi wifi /persist/WCNSS_qcom_wlan_nv.bin
-    chmod 0660 /persist/WCNSS_qcom_wlan_nv.bin
+    chown -h wifi wifi /persist/WCNSS_qcom_wlan_nv.bin
+    chmod -h 0660 /persist/WCNSS_qcom_wlan_nv.bin
 
 # Export GPIO56 for fusion targets to enable/disable hub
 service usbhub_init /system/bin/usbhub_init
