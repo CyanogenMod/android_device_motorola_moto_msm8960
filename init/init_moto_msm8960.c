@@ -168,8 +168,15 @@ void init_msm_properties(unsigned long msm_id, unsigned long msm_ver, char *boar
         property_set("ro.cdma.home.operator.numeric", "310120");
         property_set("rro.cdma.subscription", "1");
         property_set("DEVICE_PROVISIONED", "1");
-        property_set("persist.sys.report_gprs_as_edge", "1");
         property_set("ro.mot.ignore_csim_appid", "true");
+    } else if ((ISMATCH(carrier, "att")) || (strstr(hardware_variant, "Qinara"))) {
+        property_set("ro.product.device", "qinara");
+        property_set("ro.product.model", "ATRIX HD");
+        property_set("ro.build.description", "MB886_att-user 4.1.1 9.8.0Q-97_MB886_FFW-20 27 release-keys");
+        property_set("ro.build.fingerprint", "motorola/MB886_att/qinara:4.1.1/9.8.0Q-97_MB886_FFW-20/27:user/release-keys");
+        property_set("ro.sf.lcd_density", "320");
+        property_set("ro.mot.build.customerid ", "att");
+        property_set("telephony.lteOnGsmDevice", "1");
     }
 
     property_get("ro.product.device", device);
