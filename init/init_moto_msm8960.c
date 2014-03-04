@@ -136,7 +136,7 @@ void init_msm_properties(unsigned long msm_id, unsigned long msm_ver, char *boar
         property_set("ro.cdma.international.eri", "2,74,124,125,126,157,158,159,193,194,195,196,197,198,228,229,230,231,232,233,234,235");
         property_set("ro.cdma.home.operator.isnan", "1");
         property_set("persist.radio.vrte_logic", "2");
-        property_set("rro.cdma.subscription", "0");
+        property_set("ro.cdma.subscription", "0");
         property_set("ro.config.svdo", "true");
         property_set("persist.radio.skip_data_check", "1");
         property_set("ro.mot.ignore_csim_appid", "true");
@@ -166,7 +166,7 @@ void init_msm_properties(unsigned long msm_id, unsigned long msm_ver, char *boar
         property_set("persist.ril.max.crit.qmi.fails", "4");
         property_set("ro.cdma.home.operator.alpha", "Sprint");
         property_set("ro.cdma.home.operator.numeric", "310120");
-        property_set("rro.cdma.subscription", "1");
+        property_set("ro.cdma.subscription", "1");
         property_set("DEVICE_PROVISIONED", "1");
         property_set("ro.mot.ignore_csim_appid", "true");
     } else if ((ISMATCH(carrier, "att")) || (strstr(hardware_variant, "Qinara"))) {
