@@ -157,18 +157,13 @@ void init_msm_properties(unsigned long msm_id, unsigned long msm_ver, char *boar
         property_set("ro.sf.lcd_density", "240");
         property_set("ro.config.svdo", "true");
         property_set("ro.config.svlte1x", "true");
-        property_set("ro.telephony.gsm-routes-us-smsc", "1");
         property_set("ro.cdma.nbpcd", "0");
-        property_set("ro.cdma.home.operator.isnan", "1");
         property_set("ro.cdma.otaspnumschema", "SELC,1,80,99");
-        property_set("persist.radio.vrte_logic", "2");
-        property_set("persist.radio.skip_data_check", "1");
         property_set("persist.ril.max.crit.qmi.fails", "4");
         property_set("ro.cdma.home.operator.alpha", "Sprint");
         property_set("ro.cdma.home.operator.numeric", "310120");
         property_set("ro.cdma.subscription", "1");
         property_set("DEVICE_PROVISIONED", "1");
-        property_set("ro.mot.ignore_csim_appid", "true");
     } else if ((ISMATCH(carrier, "att")) || (strstr(hardware_variant, "Qinara"))) {
         property_set("ro.product.device", "qinara");
         property_set("ro.product.model", "ATRIX HD");
