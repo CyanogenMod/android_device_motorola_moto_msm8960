@@ -112,8 +112,6 @@ void init_msm_properties(unsigned long msm_id, unsigned long msm_ver, char *boar
         property_set("persist.radio.eons.enabled", "true");
         property_set("ro.cdma.nbpcd", "1");
         property_set("ro.mot.ignore_csim_appid", "true");
-        property_set("telephony.rilV7NeedCDMALTEPhone" , "true");
-        property_set("ro.cdma.subscribe_on_ruim_ready", "true");
         property_set("ro.telephony.gsm-routes-us-smsc", "1");
         property_set("persist.radio.vrte_logic", "2");
         property_set("persist.radio.0x9e_not_callname", "1");
@@ -146,8 +144,6 @@ void init_msm_properties(unsigned long msm_id, unsigned long msm_ver, char *boar
         property_set("ro.cdma.home.operator.alpha", "U.S. Cellular");
         property_set("ro.cdma.home.operator.numeric", "311220");
         property_set("gsm.sim.operator.numeric", "311580");
-        property_set("telephony.rilV7NeedCDMALTEPhone", "true");
-        property_set("ro.cdma.subscribe_on_ruim_ready", "true");
     } else if ((ISMATCH(carrier, "sprint")) || (strstr(hardware_variant, "Asanti"))) {
         /* xt897 */
         property_set("ro.product.device", "asanti_c");
