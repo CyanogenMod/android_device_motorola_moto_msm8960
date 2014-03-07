@@ -365,3 +365,7 @@ case "$target" in
         echo 0 > /sys/module/ct406/parameters/prox_enable
      ;;
 esac
+
+# Enable frequency synchronization on thread migration
+# for tasks belonging to 'apps' cgroup
+echo 1 > /dev/cpuctl/apps/cpu.notify_on_migrate
