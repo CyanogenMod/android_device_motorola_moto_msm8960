@@ -1153,40 +1153,6 @@ SectionVerb
 	PlaybackPCM 4
 
 EndSection
-
-SectionVerb
-	Name "HiFi Low PowerDock"
-
-	EnableSequence
-		'SLIM_0_RX Audio Mixer MultiMedia3':1:1
-	EndSequence
-
-	DisableSequence
-		'SLIM_0_RX Audio Mixer MultiMedia3':1:0
-	EndSequence
-
-	# ALSA PCMs
-	PlaybackPCM 4
-
-EndSection
-
-SectionVerb
-	Name "HiFiDock"
-
-	EnableSequence
-		'SLIM_0_RX Audio Mixer MultiMedia1':1:1
-	EndSequence
-
-	DisableSequence
-		'SLIM_0_RX Audio Mixer MultiMedia1':1:0
-	EndSequence
-
-	# ALSA PCMs
-	CapturePCM 0
-	PlaybackPCM 0
-
-EndSection
-
 }
 SectionUseCase."HiFi Rec" {
 Comment "Recording use case"
