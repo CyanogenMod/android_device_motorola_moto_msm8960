@@ -116,17 +116,17 @@ case "$target" in
          echo "interactive" > /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor
          echo "interactive" > /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor
          echo 1 > /sys/devices/system/cpu/cpufreq/interactive/io_is_busy
-         chown system /sys/devices/system/cpu/cpufreq/interactive/above_hispeed_delay
-         chown system /sys/devices/system/cpu/cpufreq/interactive/boost
-         chown system /sys/devices/system/cpu/cpufreq/interactive/boostpulse
-         chown system /sys/devices/system/cpu/cpufreq/interactive/boostpulse_duration
-         chown system /sys/devices/system/cpu/cpufreq/interactive/go_hispeed_load
-         chown system /sys/devices/system/cpu/cpufreq/interactive/hispeed_freq
-         chown system /sys/devices/system/cpu/cpufreq/interactive/io_is_busy
-         chown system /sys/devices/system/cpu/cpufreq/interactive/min_sample_time
-         chown system /sys/devices/system/cpu/cpufreq/interactive/target_loads
-         chown system /sys/devices/system/cpu/cpufreq/interactive/timer_rate
-         chown system /sys/devices/system/cpu/cpufreq/interactive/timer_slack
+         chown -h system /sys/devices/system/cpu/cpufreq/interactive/above_hispeed_delay
+         chown -h system /sys/devices/system/cpu/cpufreq/interactive/boost
+         chown -h system /sys/devices/system/cpu/cpufreq/interactive/boostpulse
+         chown -h system /sys/devices/system/cpu/cpufreq/interactive/boostpulse_duration
+         chown -h system /sys/devices/system/cpu/cpufreq/interactive/go_hispeed_load
+         chown -h system /sys/devices/system/cpu/cpufreq/interactive/hispeed_freq
+         chown -h system /sys/devices/system/cpu/cpufreq/interactive/io_is_busy
+         chown -h system /sys/devices/system/cpu/cpufreq/interactive/min_sample_time
+         chown -h system /sys/devices/system/cpu/cpufreq/interactive/target_loads
+         chown -h system /sys/devices/system/cpu/cpufreq/interactive/timer_rate
+         chown -h system /sys/devices/system/cpu/cpufreq/interactive/timer_slack
          #echo "ondemand" > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
          #echo "ondemand" > /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor
          #echo "ondemand" > /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor
@@ -141,29 +141,29 @@ case "$target" in
          #echo 918000 > /sys/devices/system/cpu/cpufreq/ondemand/optimal_freq
          #echo 1026000 > /sys/devices/system/cpu/cpufreq/ondemand/sync_freq
          #echo 80 > /sys/devices/system/cpu/cpufreq/ondemand/up_threshold_any_cpu_load
-         #chown system /sys/devices/system/cpu/cpufreq/ondemand/sampling_rate
-         #chown system /sys/devices/system/cpu/cpufreq/ondemand/sampling_down_factor
-         #chown system /sys/devices/system/cpu/cpufreq/ondemand/io_is_busy
+         #chown -h system /sys/devices/system/cpu/cpufreq/ondemand/sampling_rate
+         #chown -h system /sys/devices/system/cpu/cpufreq/ondemand/sampling_down_factor
+         #chown -h system /sys/devices/system/cpu/cpufreq/ondemand/io_is_busy
          echo 384000 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
          echo 384000 > /sys/devices/system/cpu/cpu1/cpufreq/scaling_min_freq
          echo 384000 > /sys/devices/system/cpu/cpu2/cpufreq/scaling_min_freq
          echo 384000 > /sys/devices/system/cpu/cpu3/cpufreq/scaling_min_freq
-         chown system /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
-         chown system /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
-         chown system /sys/devices/system/cpu/cpu1/cpufreq/scaling_max_freq
-         chown system /sys/devices/system/cpu/cpu1/cpufreq/scaling_min_freq
-         chown system /sys/devices/system/cpu/cpu2/cpufreq/scaling_max_freq
-         chown system /sys/devices/system/cpu/cpu2/cpufreq/scaling_min_freq
-         chown system /sys/devices/system/cpu/cpu3/cpufreq/scaling_max_freq
-         chown system /sys/devices/system/cpu/cpu3/cpufreq/scaling_min_freq
-         chown root.system /sys/devices/system/cpu/mfreq
-         chmod 220 /sys/devices/system/cpu/mfreq
-         chown root.system /sys/devices/system/cpu/cpu1/online
-         chown root.system /sys/devices/system/cpu/cpu2/online
-         chown root.system /sys/devices/system/cpu/cpu3/online
-         chmod 664 /sys/devices/system/cpu/cpu1/online
-         chmod 664 /sys/devices/system/cpu/cpu2/online
-         chmod 664 /sys/devices/system/cpu/cpu3/online
+         chown -h system /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
+         chown -h system /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
+         chown -h system /sys/devices/system/cpu/cpu1/cpufreq/scaling_max_freq
+         chown -h system /sys/devices/system/cpu/cpu1/cpufreq/scaling_min_freq
+         chown -h system /sys/devices/system/cpu/cpu2/cpufreq/scaling_max_freq
+         chown -h system /sys/devices/system/cpu/cpu2/cpufreq/scaling_min_freq
+         chown -h system /sys/devices/system/cpu/cpu3/cpufreq/scaling_max_freq
+         chown -h system /sys/devices/system/cpu/cpu3/cpufreq/scaling_min_freq
+         chown -h root.system /sys/devices/system/cpu/mfreq
+         chmod -h 220 /sys/devices/system/cpu/mfreq
+         chown -h root.system /sys/devices/system/cpu/cpu1/online
+         chown -h root.system /sys/devices/system/cpu/cpu2/online
+         chown -h root.system /sys/devices/system/cpu/cpu3/online
+         chmod -h 664 /sys/devices/system/cpu/cpu1/online
+         chmod -h 664 /sys/devices/system/cpu/cpu2/online
+         chmod -h 664 /sys/devices/system/cpu/cpu3/online
          soc_id=`cat /sys/devices/system/soc/soc0/id`
          case "$soc_id" in
              "130")
