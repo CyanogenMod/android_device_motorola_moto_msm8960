@@ -16,12 +16,12 @@
      limitations under the License.
 -->
 <resources>
-  <string name="app_name">Teclado Asanti</string>
-  <string name="keyboard_layouts_label">Teclado Photon Q</string>
+  <string name="app_name">Asanti sleutelbord</string>
+  <string name="keyboard_layouts_label">Photon Q sleutelbord</string>
   <string name="keypad_asanti_qwerty_label">Asanti QWERTY</string>
   <string name="keypad_asanti_qwertz_label">Asanti QWERTZ</string>
-  <string name="keypad_asanti_czech_qwerty_label">Asanti QWERTY checo</string>
-  <string name="keypad_asanti_czech_qwertz_label">Asanti QWERTZ checo</string>
-  <string name="keypad_asanti_cro_qwerty_label">Asanti QWERTY croata</string>
-  <string name="keypad_asanti_cro_qwertz_label">Asanti QWERTZ croata</string>
+  <string name="keypad_asanti_czech_qwerty_label">Asanti Tsjeggiese QWERTY</string>
+  <string name="keypad_asanti_czech_qwertz_label">Asanti Tsjeggiese QWERTZ</string>
+  <string name="keypad_asanti_cro_qwerty_label">Asanti Kroaties QWERTY</string>
+  <string name="keypad_asanti_cro_qwertz_label">Asanti Kroaties QWERTZ</string>
 </resources>
