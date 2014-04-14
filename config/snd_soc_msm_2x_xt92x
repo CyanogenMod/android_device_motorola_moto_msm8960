@@ -3548,8 +3548,8 @@ SectionDevice
 		'DEC4 MUX':0:ADC3
 		'DEC4 Volume':1:85
 		'ADC3 Volume':1:50
-		'MICBIAS1 CAPLESS Switch':1:0
-		'MICBIAS3 CAPLESS Switch':1:0
+		'MICBIAS1 CAPLESS Switch':1:1
+		'MICBIAS3 CAPLESS Switch':1:1
 		'SLIM_0_TX Channels':0:Two
 	EndSequence
 
@@ -3564,32 +3564,6 @@ SectionDevice
 		'ADC4 Volume':1:0
 		'MICBIAS1 CAPLESS Switch':1:0
 		'MICBIAS3 CAPLESS Switch':1:0
-	EndSequence
-
-	ACDBID	4:2
-	EffectsMixerCTL "SRS TruMedia"
-
-EndSection
-
-SectionDevice
-	Name "Handset CAP"
-	Comment "Handset Tx device"
-
-	EnableSequence
-		'SLIM_0_TX Channels':0:One
-		'SLIM TX7 MUX':0:DEC4
-		'DEC4 MUX':0:ADC3
-		'DEC4 Volume':1:67
-		'ADC3 Volume':1:100
-		'MICBIAS1 CAPLESS Switch':1:0
-	EndSequence
-
-	DisableSequence
-		'SLIM TX7 MUX':0:ZERO
-		'DEC4 MUX':0:ZERO
-		'DEC4 Volume':1:0
-		'ADC3 Volume':1:0
-		'MICBIAS1 CAPLESS Switch':1:0
 	EndSequence
 
 	ACDBID	4:2
@@ -3700,32 +3674,6 @@ SectionDevice
 EndSection
 
 SectionDevice
-	Name "Line CAP"
-	Comment "Speaker Tx device"
-
-	EnableSequence
-		'SLIM_0_TX Channels':0:One
-		'SLIM TX7 MUX':0:DEC4
-		'DEC4 MUX':0:ADC3
-		'DEC4 Volume':1:67
-		'ADC3 Volume':1:100
-		'MICBIAS1 CAPLESS Switch':1:0
-	EndSequence
-
-	DisableSequence
-		'SLIM TX7 MUX':0:ZERO
-		'DEC4 MUX':0:ZERO
-		'DEC4 Volume':1:0
-		'ADC3 Volume':1:0
-		'MICBIAS1 CAPLESS Switch':1:0
-	EndSequence
-
-	ACDBID	11:2
-	EffectsMixerCTL "SRS TruMedia"
-	
-EndSection
-
-SectionDevice
 	Name "Spkrphone PriMic Tx"
 	Comment "Speaker Tx device Primary Mic"
 
@@ -3736,32 +3684,6 @@ SectionDevice
 		'DEC4 Volume':1:67
 		'ADC3 Volume':1:100
 		'MICBIAS1 CAPLESS Switch':1:1
-	EndSequence
-
-	DisableSequence
-		'SLIM TX7 MUX':0:ZERO
-		'DEC4 MUX':0:ZERO
-		'DEC4 Volume':1:0
-		'ADC3 Volume':1:0
-		'MICBIAS1 CAPLESS Switch':1:0
-	EndSequence
-
-	ACDBID	48:2
-	EffectsMixerCTL "SRS TruMedia"
-
-EndSection
-
-SectionDevice
-	Name "Spkrphone PriMic Tx CAP"
-	Comment "Speaker Tx device Primary Mic"
-
-	EnableSequence
-		'SLIM_0_TX Channels':0:One
-		'SLIM TX7 MUX':0:DEC4
-		'DEC4 MUX':0:ADC3
-		'DEC4 Volume':1:67
-		'ADC3 Volume':1:100
-		'MICBIAS1 CAPLESS Switch':1:0
 	EndSequence
 
 	DisableSequence
@@ -3803,32 +3725,6 @@ SectionDevice
 	
 EndSection
 
-SectionDevice
-	Name "Spkrphone SecMic Tx CAP"
-	Comment "Speaker Tx device Secondary Mic"
-
-	EnableSequence
-		'SLIM_0_TX Channels':0:One
-		'SLIM TX7 MUX':0:DEC3
-		'DEC3 MUX':0:ADC4
-		'DEC3 Volume':1:67
-		'ADC4 Volume':1:100
-		'MICBIAS3 CAPLESS Switch':1:0
-	EndSequence
-
-	DisableSequence
-		'SLIM TX7 MUX':0:ZERO
-		'DEC3 MUX':0:ZERO
-		'DEC3 Volume':1:0
-		'ADC4 Volume':1:0
-		'MICBIAS3 CAPLESS Switch':1:0
-	EndSequence
-
-	ACDBID	49:2
-	EffectsMixerCTL "SRS TruMedia"
-
-EndSection
-
 # Device for back mic for camera recording
 SectionDevice
 	Name "Sec Mic Tx"
@@ -3857,32 +3753,6 @@ SectionDevice
 EndSection
 
 SectionDevice
-	Name "Sec Mic Tx CAP"
-	Comment "Speaker Mic2 Tx device"
-
-	EnableSequence
-		'SLIM_0_TX Channels':0:One
-		'SLIM TX7 MUX':0:DEC3
-		'DEC3 MUX':0:ADC4
-		'DEC3 Volume':1:67
-		'ADC4 Volume':1:100
-		'MICBIAS1 CAPLESS Switch':1:0
-	EndSequence
-
-	DisableSequence
-		'SLIM TX7 MUX':0:ZERO
-		'DEC3 MUX':0:ZERO
-		'DEC3 Volume':1:0
-		'ADC4 Volume':1:0
-		'MICBIAS1 CAPLESS Switch':1:0
-	EndSequence
-
-	ACDBID  4:2
-	EffectsMixerCTL "SRS TruMedia"
-
-EndSection
-
-SectionDevice
 	Name "Ter Mic Tx"
 	Comment "Speaker Mic3 Tx device"
 
@@ -3892,30 +3762,6 @@ SectionDevice
 		'DEC6 MUX':0:ADC1
 		'ADC1 Volume':1:100
 		'MICBIAS4 CAPLESS Switch':1:1
-	EndSequence
-
-	DisableSequence
-		'SLIM TX7 MUX':0:ZERO
-		'DEC6 MUX':0:ZERO
-		'ADC1 Volume':1:0
-		'MICBIAS4 CAPLESS Switch':1:0
-	EndSequence
-
-	ACDBID  4:2
-	EffectsMixerCTL "SRS TruMedia"
-
-EndSection
-
-SectionDevice
-	Name "Ter Mic Tx CAP"
-	Comment "Speaker Mic3 Tx device"
-
-	EnableSequence
-		'SLIM_0_TX Channels':0:One
-		'SLIM TX7 MUX':0:DEC6
-		'DEC6 MUX':0:ADC1
-		'ADC1 Volume':1:100
-		'MICBIAS4 CAPLESS Switch':1:0
 	EndSequence
 
 	DisableSequence
@@ -4050,40 +3896,6 @@ SectionDevice
 EndSection
 
 SectionDevice
-	Name "DMIC Broadside CAP"
-	Comment "Dual MIC Broadside Tx device"
-
-	EnableSequence
-		'SLIM TX7 MUX':0:DEC4
-		'DEC4 MUX':0:ADC3
-		'DEC4 Volume':1:67
-		'ADC3 Volume':1:100
-		'SLIM TX8 MUX':0:DEC6
-		'DEC6 MUX':0:ADC1
-		'ADC1 Volume':1:100
-		'MICBIAS1 CAPLESS Switch':1:0
-		'MICBIAS4 CAPLESS Switch':1:0
-		'SLIM_0_TX Channels':0:Two
-	EndSequence
-
-	DisableSequence
-		'SLIM TX7 MUX':0:ZERO
-		'DEC4 MUX':0:ZERO
-		'DEC4 Volume':1:0
-		'SLIM TX8 MUX':0:ZERO
-		'DEC6 MUX':0:ZERO
-		'ADC3 Volume':1:0
-		'ADC1 Volume':1:0
-		'MICBIAS1 CAPLESS Switch':1:0
-		'MICBIAS4 CAPLESS Switch':1:0
-	EndSequence
-
-		ACDBID  5:2
-		EffectsMixerCTL "SRS TruMedia"
-
-EndSection
-
-SectionDevice
 	Name "DMIC Endfire"
 	Comment "Dual MIC Endfire Tx device"
 
@@ -4096,8 +3908,8 @@ SectionDevice
 		'DEC3 MUX':0:ADC4
 		'DEC3 Volume':1:67
 		'ADC4 Volume':1:100
-		'MICBIAS1 CAPLESS Switch':1:0
-		'MICBIAS3 CAPLESS Switch':1:0
+		'MICBIAS1 CAPLESS Switch':1:1
+		'MICBIAS3 CAPLESS Switch':1:1
 		'SLIM_0_TX Channels':0:Two
 	EndSequence
 
@@ -4115,42 +3927,6 @@ SectionDevice
 	EndSequence
 
 	ACDBID	6:2
-	EffectsMixerCTL "SRS TruMedia"
-
-EndSection
-
-SectionDevice
-	Name "DMIC Endfire CAP"
-	Comment "Dual MIC Endfire Tx device"
-
-	EnableSequence
-		'SLIM TX7 MUX':0:DEC4
-		'DEC4 MUX':0:ADC3
-		'DEC4 Volume':1:67
-		'ADC3 Volume':1:100
-		'SLIM TX8 MUX':0:DEC3
-		'DEC3 MUX':0:ADC4
-		'DEC3 Volume':1:67
-		'ADC4 Volume':1:100
-		'MICBIAS1 CAPLESS Switch':1:0
-		'MICBIAS3 CAPLESS Switch':1:0
-		'SLIM_0_TX Channels':0:Two
-	EndSequence
-
-	DisableSequence
-		'SLIM TX7 MUX':0:ZERO
-		'DEC4 MUX':0:ZERO
-		'DEC4 Volume':1:0
-		'SLIM TX8 MUX':0:ZERO
-		'DEC3 MUX':0:ZERO
-		'DEC3 Volume':1:0
-		'ADC3 Volume':1:0
-		'ADC4 Volume':1:0
-		'MICBIAS1 CAPLESS Switch':1:0
-		'MICBIAS3 CAPLESS Switch':1:0
-	EndSequence
-
-	ACDBID  6:2
 	EffectsMixerCTL "SRS TruMedia"
 
 EndSection
@@ -4176,7 +3952,6 @@ SectionDevice
 		'MICBIAS1 CAPLESS Switch':1:0
 	EndSequence
 
-
 	ACDBID	12:2
 	EffectsMixerCTL "SRS TruMedia"
 
@@ -4195,8 +3970,8 @@ SectionDevice
 		'DEC3 MUX':0:ADC4
 		'DEC3 Volume':1:67
 		'ADC4 Volume':1:100
-		'MICBIAS1 CAPLESS Switch':1:0
-		'MICBIAS3 CAPLESS Switch':1:0
+		'MICBIAS1 CAPLESS Switch':1:1
+		'MICBIAS3 CAPLESS Switch':1:1
 		'SLIM_0_TX Channels':0:Two
 	EndSequence
 
@@ -4278,534 +4053,6 @@ SectionDevice
 	EndSequence
 
 	ACDBID  35:2
-	EffectsMixerCTL "SRS TruMedia"
-
-EndSection
-
-SectionDevice
-	Name "Camcorder Full"
-	Comment "Full mode Tx device"
-
-	EnableSequence
-		'SLIM TX7 MUX':0:DEC3
-		'DEC3 MUX':0:ADC4
-		'DEC3 Volume':1:67
-		'ADC4 Volume':1:100
-		'SLIM TX8 MUX':0:DEC4
-		'DEC4 MUX':0:ADC3
-		'DEC4 Volume':1:67
-		'ADC3 Volume':1:50
-		'MICBIAS1 CAPLESS Switch':1:1
-		'MICBIAS3 CAPLESS Switch':1:1
-		'SLIM_0_TX Channels':0:Two
-	EndSequence
-
-	DisableSequence
-		'SLIM TX7 MUX':0:ZERO
-		'DEC4 MUX':0:ZERO
-		'DEC4 Volume':1:0
-		'SLIM TX8 MUX':0:ZERO
-		'DEC3 MUX':0:ZERO
-		'DEC3 Volume':1:0
-		'ADC3 Volume':1:0
-		'ADC4 Volume':1:0
-		'MICBIAS1 CAPLESS Switch':1:0
-		'MICBIAS3 CAPLESS Switch':1:0
-	EndSequence
-
-	ACDBID	50:2
-	EffectsMixerCTL "SRS TruMedia"
-
-EndSection
-
-SectionDevice
-	Name "Camcorder Full CAP"
-	Comment "Full mode Tx device"
-
-	EnableSequence
-		'SLIM TX7 MUX':0:DEC3
-		'DEC3 MUX':0:ADC4
-		'DEC3 Volume':1:67
-		'ADC4 Volume':1:100
-		'SLIM TX8 MUX':0:DEC4
-		'DEC4 MUX':0:ADC3
-		'DEC4 Volume':1:67
-		'ADC3 Volume':1:50
-		'MICBIAS1 CAPLESS Switch':1:0
-		'MICBIAS3 CAPLESS Switch':1:0
-		'SLIM_0_TX Channels':0:Two
-	EndSequence
-
-	DisableSequence
-		'SLIM TX7 MUX':0:ZERO
-		'DEC4 MUX':0:ZERO
-		'DEC4 Volume':1:0
-		'SLIM TX8 MUX':0:ZERO
-		'DEC3 MUX':0:ZERO
-		'DEC3 Volume':1:0
-		'ADC3 Volume':1:0
-		'ADC4 Volume':1:0
-		'MICBIAS1 CAPLESS Switch':1:0
-		'MICBIAS3 CAPLESS Switch':1:0
-	EndSequence
-
-	ACDBID	50:2
-	EffectsMixerCTL "SRS TruMedia"
-
-EndSection
-
-SectionDevice
-	Name "Camcorder Full SM CAP"
-	Comment "Full mode Tx device"
-
-	EnableSequence
-		'SLIM TX7 MUX':0:DEC3
-		'DEC3 MUX':0:ADC4
-		'DEC3 Volume':1:67
-		'ADC4 Volume':1:100
-		'SLIM TX8 MUX':0:DEC4
-		'DEC4 MUX':0:ADC3
-		'DEC4 Volume':1:67
-		'ADC3 Volume':1:100
-		'MICBIAS1 CAPLESS Switch':1:0
-		'MICBIAS3 CAPLESS Switch':1:0
-		'SLIM_0_TX Channels':0:Two
-	EndSequence
-
-	DisableSequence
-		'SLIM TX7 MUX':0:ZERO
-		'DEC4 MUX':0:ZERO
-		'DEC4 Volume':1:0
-		'SLIM TX8 MUX':0:ZERO
-		'DEC3 MUX':0:ZERO
-		'DEC3 Volume':1:0
-		'ADC3 Volume':1:0
-		'ADC4 Volume':1:0
-		'MICBIAS1 CAPLESS Switch':1:0
-		'MICBIAS3 CAPLESS Switch':1:0
-	EndSequence
-
-	ACDBID	50:2
-	EffectsMixerCTL "SRS TruMedia"
-
-EndSection
-
-SectionDevice
-	Name "Camcorder Front"
-	Comment "Front mode Tx device"
-
-	EnableSequence
-		'SLIM TX7 MUX':0:DEC6
-		'DEC6 MUX':0:ADC1
-		'ADC1 Volume':1:100
-		'SLIM TX8 MUX':0:DEC4
-		'DEC4 MUX':0:ADC3
-		'DEC4 Volume':1:67
-		'ADC3 Volume':1:50
-		'MICBIAS1 CAPLESS Switch':1:1
-		'MICBIAS4 CAPLESS Switch':1:1
-		'SLIM_0_TX Channels':0:Two
-	EndSequence
-
-	DisableSequence
-		'SLIM TX7 MUX':0:ZERO
-		'DEC6 MUX':0:ZERO
-		'SLIM TX8 MUX':0:ZERO
-		'DEC4 MUX':0:ZERO
-		'DEC4 Volume':1:0
-		'ADC3 Volume':1:0
-		'ADC1 Volume':1:0
-		'MICBIAS1 CAPLESS Switch':1:0
-		'MICBIAS4 CAPLESS Switch':1:0
-	EndSequence
-
-	ACDBID	50:2
-	EffectsMixerCTL "SRS TruMedia"
-
-EndSection
-
-SectionDevice
-	Name "Camcorder Front CAP"
-	Comment "Front mode Tx device"
-
-	EnableSequence
-			'SLIM TX7 MUX':0:DEC6
-		'DEC6 MUX':0:ADC1
-		'ADC1 Volume':1:100
-		'SLIM TX8 MUX':0:DEC4
-		'DEC4 MUX':0:ADC3
-		'DEC4 Volume':1:67
-		'ADC3 Volume':1:50
-		'MICBIAS1 CAPLESS Switch':1:0
-		'MICBIAS4 CAPLESS Switch':1:0
-		'SLIM_0_TX Channels':0:Two
-	EndSequence
-
-	DisableSequence
-		'SLIM TX7 MUX':0:ZERO
-		'DEC6 MUX':0:ZERO
-		'SLIM TX8 MUX':0:ZERO
-		'DEC4 MUX':0:ZERO
-		'DEC4 Volume':1:0
-		'ADC3 Volume':1:0
-		'ADC1 Volume':1:0
-		'MICBIAS1 CAPLESS Switch':1:0
-		'MICBIAS4 CAPLESS Switch':1:0
-	EndSequence
-
-	ACDBID	50:2
-	EffectsMixerCTL "SRS TruMedia"
-
-EndSection
-
-SectionDevice
-	Name "Camcorder Front SM CAP"
-	Comment "Front mode Tx device"
-
-	EnableSequence
-		'SLIM TX7 MUX':0:DEC6
-		'DEC6 MUX':0:ADC1
-		'ADC1 Volume':1:100
-		'SLIM TX8 MUX':0:DEC4
-		'DEC4 MUX':0:ADC3
-		'DEC4 Volume':1:67
-		'ADC3 Volume':1:100
-		'MICBIAS1 CAPLESS Switch':1:0
-		'MICBIAS4 CAPLESS Switch':1:0
-		'SLIM_0_TX Channels':0:Two
-	EndSequence
-
-	DisableSequence
-		'SLIM TX7 MUX':0:ZERO
-		'DEC6 MUX':0:ZERO
-		'SLIM TX8 MUX':0:ZERO
-		'DEC4 MUX':0:ZERO
-		'DEC4 Volume':1:0
-		'ADC3 Volume':1:0
-		'ADC1 Volume':1:0
-		'MICBIAS1 CAPLESS Switch':1:0
-		'MICBIAS4 CAPLESS Switch':1:0
-	EndSequence
-
-	ACDBID	50:2
-	EffectsMixerCTL "SRS TruMedia"
-
-EndSection
-
-SectionDevice
-	Name "Camcorder Narrative"
-	Comment "Narrative mode Tx device"
-
-	EnableSequence
-		'SLIM TX7 MUX':0:DEC6
-		'DEC6 MUX':0:ADC1
-		'ADC1 Volume':1:100
-		'SLIM TX8 MUX':0:DEC4
-		'DEC4 MUX':0:ADC3
-		'DEC4 Volume':1:67
-		'ADC3 Volume':1:50
-		'MICBIAS1 CAPLESS Switch':1:1
-		'MICBIAS4 CAPLESS Switch':1:1
-		'SLIM_0_TX Channels':0:Two
-	EndSequence
-
-	DisableSequence
-		'SLIM TX7 MUX':0:ZERO
-		'DEC6 MUX':0:ZERO
-		'SLIM TX8 MUX':0:ZERO
-		'DEC4 MUX':0:ZERO
-		'DEC4 Volume':1:0
-		'ADC3 Volume':1:0
-		'ADC1 Volume':1:0
-		'MICBIAS1 CAPLESS Switch':1:0
-		'MICBIAS4 CAPLESS Switch':1:0
-	EndSequence
-
-	ACDBID	50:2
-	EffectsMixerCTL "SRS TruMedia"
-
-EndSection
-
-SectionDevice
-	Name "Camcorder Narrative CAP"
-	Comment "Narrative mode Tx device"
-
-	EnableSequence
-			'SLIM TX7 MUX':0:DEC6
-		'DEC6 MUX':0:ADC1
-		'ADC1 Volume':1:100
-		'SLIM TX8 MUX':0:DEC4
-		'DEC4 MUX':0:ADC3
-		'DEC4 Volume':1:67
-		'ADC3 Volume':1:50
-		'MICBIAS1 CAPLESS Switch':1:0
-		'MICBIAS4 CAPLESS Switch':1:0
-		'SLIM_0_TX Channels':0:Two
-	EndSequence
-
-	DisableSequence
-		'SLIM TX7 MUX':0:ZERO
-		'DEC6 MUX':0:ZERO
-		'SLIM TX8 MUX':0:ZERO
-		'DEC4 MUX':0:ZERO
-		'DEC4 Volume':1:0
-		'ADC3 Volume':1:0
-		'ADC1 Volume':1:0
-		'MICBIAS1 CAPLESS Switch':1:0
-		'MICBIAS4 CAPLESS Switch':1:0
-	EndSequence
-
-	ACDBID	50:2
-	EffectsMixerCTL "SRS TruMedia"
-
-EndSection
-
-SectionDevice
-	Name "Camcorder Narrative SM CAP"
-	Comment "Narrative mode Tx device"
-
-	EnableSequence
-		'SLIM TX7 MUX':0:DEC6
-		'DEC6 MUX':0:ADC1
-		'ADC1 Volume':1:100
-		'SLIM TX8 MUX':0:DEC4
-		'DEC4 MUX':0:ADC3
-		'DEC4 Volume':1:67
-		'ADC3 Volume':1:100
-		'MICBIAS1 CAPLESS Switch':1:0
-		'MICBIAS4 CAPLESS Switch':1:0
-		'SLIM_0_TX Channels':0:Two
-	EndSequence
-
-	DisableSequence
-		'SLIM TX7 MUX':0:ZERO
-		'DEC6 MUX':0:ZERO
-		'SLIM TX8 MUX':0:ZERO
-		'DEC4 MUX':0:ZERO
-		'DEC4 Volume':1:0
-		'ADC3 Volume':1:0
-		'ADC1 Volume':1:0
-		'MICBIAS1 CAPLESS Switch':1:0
-		'MICBIAS4 CAPLESS Switch':1:0
-	EndSequence
-
-	ACDBID	50:2
-	EffectsMixerCTL "SRS TruMedia"
-
-EndSection
-
-SectionDevice
-	Name "Camcorder Outdoor"
-	Comment "Outdoor mode Tx device"
-
-	EnableSequence
-		'SLIM TX7 MUX':0:DEC3
-		'DEC3 MUX':0:ADC4
-		'DEC3 Volume':1:67
-		'ADC4 Volume':1:100
-		'SLIM TX8 MUX':0:DEC4
-		'DEC4 MUX':0:ADC3
-		'DEC4 Volume':1:67
-		'ADC3 Volume':1:50
-		'MICBIAS1 CAPLESS Switch':1:1
-		'MICBIAS3 CAPLESS Switch':1:1
-		'SLIM_0_TX Channels':0:Two
-	EndSequence
-
-	DisableSequence
-		'SLIM TX7 MUX':0:ZERO
-		'DEC3 MUX':0:ZERO
-		'DEC3 Volume':1:0
-		'SLIM TX8 MUX':0:ZERO
-		'DEC4 MUX':0:ZERO
-		'DEC4 Volume':1:0
-		'ADC4 Volume':1:0
-		'ADC3 Volume':1:0
-		'MICBIAS1 CAPLESS Switch':1:0
-		'MICBIAS3 CAPLESS Switch':1:0
-	EndSequence
-
-	ACDBID	50:2
-	EffectsMixerCTL "SRS TruMedia"
-
-EndSection
-
-SectionDevice
-	Name "Camcorder Outdoor CAP"
-	Comment "Outdoor mode Tx device"
-
-	EnableSequence
-		'SLIM TX7 MUX':0:DEC3
-		'DEC3 MUX':0:ADC4
-		'DEC3 Volume':1:67
-		'ADC4 Volume':1:100
-		'SLIM TX8 MUX':0:DEC4
-		'DEC4 MUX':0:ADC3
-		'DEC4 Volume':1:67
-		'ADC3 Volume':1:50
-		'MICBIAS1 CAPLESS Switch':1:0
-		'MICBIAS3 CAPLESS Switch':1:0
-		'SLIM_0_TX Channels':0:Two
-	EndSequence
-
-	DisableSequence
-		'SLIM TX7 MUX':0:ZERO
-		'DEC3 MUX':0:ZERO
-		'DEC3 Volume':1:0
-		'SLIM TX8 MUX':0:ZERO
-		'DEC4 MUX':0:ZERO
-		'DEC4 Volume':1:0
-		'ADC4 Volume':1:0
-		'ADC3 Volume':1:0
-		'MICBIAS1 CAPLESS Switch':1:0
-		'MICBIAS3 CAPLESS Switch':1:0
-	EndSequence
-
-	ACDBID	50:2
-	EffectsMixerCTL "SRS TruMedia"
-
-EndSection
-
-SectionDevice
-	Name "Camcorder Outdoor SM CAP"
-	Comment "Outdoor mode Tx device"
-
-	EnableSequence
-		'SLIM TX7 MUX':0:DEC3
-		'DEC3 MUX':0:ADC4
-		'DEC3 Volume':1:67
-		'ADC4 Volume':1:100
-		'SLIM TX8 MUX':0:DEC4
-		'DEC4 MUX':0:ADC3
-		'DEC4 Volume':1:67
-		'ADC3 Volume':1:100
-		'MICBIAS1 CAPLESS Switch':1:0
-		'MICBIAS3 CAPLESS Switch':1:0
-		'SLIM_0_TX Channels':0:Two
-	EndSequence
-
-	DisableSequence
-		'SLIM TX7 MUX':0:ZERO
-		'DEC3 MUX':0:ZERO
-		'DEC3 Volume':1:0
-		'SLIM TX8 MUX':0:ZERO
-		'DEC4 MUX':0:ZERO
-		'DEC4 Volume':1:0
-		'ADC4 Volume':1:0
-		'ADC3 Volume':1:0
-		'MICBIAS1 CAPLESS Switch':1:0
-		'MICBIAS3 CAPLESS Switch':1:0
-	EndSequence
-
-	ACDBID	50:2
-	EffectsMixerCTL "SRS TruMedia"
-
-EndSection
-
-SectionDevice
-	Name "Camcorder Concert"
-	Comment "Concert mode Tx device"
-
-	EnableSequence
-		'SLIM TX7 MUX':0:DEC3
-		'DEC3 MUX':0:ADC4
-		'DEC3 Volume':1:67
-		'ADC4 Volume':1:50
-		'SLIM TX8 MUX':0:DEC4
-		'DEC4 MUX':0:ADC3
-		'DEC4 Volume':1:67
-		'ADC3 Volume':1:25
-		'MICBIAS1 CAPLESS Switch':1:1
-		'MICBIAS3 CAPLESS Switch':1:1
-		'SLIM_0_TX Channels':0:Two
-	EndSequence
-
-	DisableSequence
-		'SLIM TX7 MUX':0:ZERO
-		'DEC3 MUX':0:ZERO
-		'DEC3 Volume':1:0
-		'SLIM TX8 MUX':0:ZERO
-		'DEC4 MUX':0:ZERO
-		'DEC4 Volume':1:0
-		'ADC4 Volume':1:0
-		'ADC3 Volume':1:0
-		'MICBIAS1 CAPLESS Switch':1:0
-		'MICBIAS3 CAPLESS Switch':1:0
-	EndSequence
-
-	ACDBID	50:2
-	EffectsMixerCTL "SRS TruMedia"
-
-EndSection
-
-SectionDevice
-	Name "Camcorder Concert CAP"
-	Comment "Concert mode Tx device"
-
-	EnableSequence
-		'SLIM TX7 MUX':0:DEC3
-		'DEC3 MUX':0:ADC4
-		'DEC3 Volume':1:67
-		'ADC4 Volume':1:50
-		'SLIM TX8 MUX':0:DEC4
-		'DEC4 MUX':0:ADC3
-		'DEC4 Volume':1:67
-		'ADC3 Volume':1:25
-		'MICBIAS1 CAPLESS Switch':1:0
-		'MICBIAS3 CAPLESS Switch':1:0
-		'SLIM_0_TX Channels':0:Two
-	EndSequence
-
-	DisableSequence
-		'SLIM TX7 MUX':0:ZERO
-		'DEC3 MUX':0:ZERO
-		'DEC3 Volume':1:0
-		'SLIM TX8 MUX':0:ZERO
-		'DEC4 MUX':0:ZERO
-		'DEC4 Volume':1:0
-		'ADC4 Volume':1:0
-		'ADC3 Volume':1:0
-		'MICBIAS1 CAPLESS Switch':1:0
-		'MICBIAS3 CAPLESS Switch':1:0
-	EndSequence
-
-	ACDBID	50:2
-	EffectsMixerCTL "SRS TruMedia"
-
-EndSection
-
-SectionDevice
-	Name "Camcorder Concert SM CAP"
-	Comment "Concert mode Tx device"
-
-	EnableSequence
-			'SLIM TX7 MUX':0:DEC3
-		'DEC3 MUX':0:ADC4
-		'DEC3 Volume':1:67
-		'ADC4 Volume':1:50
-		'SLIM TX8 MUX':0:DEC4
-		'DEC4 MUX':0:ADC3
-		'DEC4 Volume':1:67
-		'ADC3 Volume':1:50
-		'MICBIAS1 CAPLESS Switch':1:0
-		'MICBIAS3 CAPLESS Switch':1:0
-		'SLIM_0_TX Channels':0:Two
-	EndSequence
-
-	DisableSequence
-		'SLIM TX7 MUX':0:ZERO
-		'DEC3 MUX':0:ZERO
-		'DEC3 Volume':1:0
-		'SLIM TX8 MUX':0:ZERO
-		'DEC4 MUX':0:ZERO
-		'DEC4 Volume':1:0
-		'ADC4 Volume':1:0
-		'ADC3 Volume':1:0
-		'MICBIAS1 CAPLESS Switch':1:0
-		'MICBIAS3 CAPLESS Switch':1:0
-	EndSequence
-
-	ACDBID	50:2
 	EffectsMixerCTL "SRS TruMedia"
 
 EndSection
