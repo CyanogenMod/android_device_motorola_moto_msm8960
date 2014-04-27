@@ -20,8 +20,8 @@
   <string name="keyboard_layouts_label">Teclado Photon Q</string>
   <string name="keypad_asanti_qwerty_label">Asanti QWERTY</string>
   <string name="keypad_asanti_qwertz_label">Asanti QWERTZ</string>
-  <string name="keypad_asanti_czech_qwerty_label">Asanti QWERTY checo</string>
-  <string name="keypad_asanti_czech_qwertz_label">Asanti QWERTZ checo</string>
-  <string name="keypad_asanti_cro_qwerty_label">Asanti QWERTY croata</string>
-  <string name="keypad_asanti_cro_qwertz_label">Asanti QWERTZ croata</string>
+  <string name="keypad_asanti_czech_qwerty_label">Asanti Checa QWERTY</string>
+  <string name="keypad_asanti_czech_qwertz_label">Asanti Checa QWERTZ</string>
+  <string name="keypad_asanti_cro_qwerty_label">Asanti Croata QWERTY</string>
+  <string name="keypad_asanti_cro_qwertz_label">Asanti Croata QWERTZ</string>
 </resources>
