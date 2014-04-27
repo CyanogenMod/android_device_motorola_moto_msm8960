@@ -25,6 +25,10 @@ PRODUCT_LOCALES := en_US
 PRODUCT_LOCALES += hdpi xhdpi
 PRODUCT_AAPT_CONFIG := normal hdpi xhdpi
 
+# Permissions
+PRODUCT_COPY_FILES += \
+    frameworks/native/data/etc/android.hardware.sensor.barometer.xml:system/etc/permissions/android.hardware.sensor.barometer.xml
+
 # Audio
 PRODUCT_PACKAGES += \
     audio_policy.msm8960 \
