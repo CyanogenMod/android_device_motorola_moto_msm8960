@@ -383,6 +383,7 @@ service thermald /system/bin/thermald
 
 service mpdecision /system/bin/mpdecision --no_sleep --avg_comp
    user root
+   group root system
    disabled
 
 service whisperd /system/bin/whisperd /dev/ttyHS1
