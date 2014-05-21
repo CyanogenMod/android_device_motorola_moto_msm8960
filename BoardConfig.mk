@@ -77,7 +77,7 @@ BOARD_EGL_CFG := $(LOCAL_PATH)/config/egl.cfg
 TARGET_RELEASETOOLS_EXTENSIONS := device/motorola/moto_msm8960
 
 # Assert
-TARGET_OTA_ASSERT_DEVICE := moto_msm8960,xt901,solstice,xt905,smq_u,xt907,scorpion_mini,xt925,vanquish_u,xt926,vanquish,mb886,qinara,xt897,asanti,xt897c,asanti_c
+TARGET_OTA_ASSERT_DEVICE := moto_msm8960,xt901,solstice,xt905,smq_u,scorpion_mini_u,xt907,scorpion_mini,xt925,vanquish_u,xt926,vanquish,mb886,qinara,xt897,asanti,xt897c,asanti_c
 
 # Recovery
 TARGET_RECOVERY_NO_MSM_BSP := true
