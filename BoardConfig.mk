@@ -31,14 +31,14 @@ TARGET_CPU_VARIANT := krait
 
 -include device/motorola/qcom-common/BoardConfigCommon.mk
 
-LOCAL_PATH := device/motorola/moto_msm8960
+LOCAL_PATH := device/motorola_moto/msm8960
 
 TARGET_SPECIFIC_HEADER_PATH += $(LOCAL_PATH)/include
 
 # Vendor Init
 TARGET_UNIFIED_DEVICE := true
 TARGET_INIT_VENDOR_LIB := libinit_msm
-TARGET_LIBINIT_DEFINES_FILE := device/motorola/moto_msm8960/init/init_moto_msm8960.c
+TARGET_LIBINIT_DEFINES_FILE := device/motorola_moto/msm8960/init/init_moto_msm8960.c
 
 # Inline kernel building
 TARGET_KERNEL_SOURCE := kernel/motorola/msm8960-common
@@ -74,7 +74,7 @@ TARGET_QCOM_DISPLAY_VARIANT := caf
 BOARD_EGL_CFG := $(LOCAL_PATH)/config/egl.cfg
 
 # Custom relese tools for unified devices
-TARGET_RELEASETOOLS_EXTENSIONS := device/motorola/moto_msm8960
+TARGET_RELEASETOOLS_EXTENSIONS := device/motorola_moto/msm8960
 
 # Assert
 TARGET_OTA_ASSERT_DEVICE := moto_msm8960,xt901,solstice,xt905,smq_u,scorpion_mini_u,xt907,scorpion_mini,xt925,vanquish_u,xt926,vanquish,mb886,qinara,xt897,asanti,xt897c,asanti_c
