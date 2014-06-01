@@ -25,6 +25,10 @@ PRODUCT_LOCALES := en_US
 PRODUCT_LOCALES += hdpi xhdpi
 PRODUCT_AAPT_CONFIG := normal hdpi xhdpi
 
+# Permissions
+PRODUCT_COPY_FILES += \
+    frameworks/native/data/etc/android.hardware.sensor.barometer.xml:system/etc/permissions/android.hardware.sensor.barometer.xml
+
 # Audio
 PRODUCT_PACKAGES += \
     audio_policy.msm8960 \
@@ -79,6 +83,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     init.qcom.post_boot.sh \
     init.qcom.sh
+
+# Ramdisk overrides
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/rootdir/etc/init.qcom.usb.rc:root/init.qcom.usb.rc
 
 # TWRP
 PRODUCT_COPY_FILES += \
