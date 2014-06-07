@@ -44,6 +44,7 @@ void init_msm_properties(unsigned long msm_id, unsigned long msm_ver, char *boar
     char device[PROP_VALUE_MAX];
     char devicename[PROP_VALUE_MAX];
     char modelno[PROP_VALUE_MAX];
+    char bootdevice[PROP_VALUE_MAX];
     char hardware_variant[92];
     FILE *fp;
     int rc;
@@ -58,10 +59,11 @@ void init_msm_properties(unsigned long msm_id, unsigned long msm_ver, char *boar
 
     property_get("ro.boot.modelno", modelno);
     property_get("ro.boot.carrier", carrier);
+    property_get("ro.boot.device", bootdevice);
     fp = popen("/system/xbin/sed -n '/Hardware/,/Revision/p' /proc/cpuinfo | /system/xbin/cut -d ':' -f2 | /system/xbin/head -1", "r");
     fgets(hardware_variant, sizeof(hardware_variant), fp);
     pclose(fp);
-    if ((strstr(hardware_variant, "Vanquish")) && (ISMATCH(carrier, "vzw"))) {
+    if ((strstr(hardware_variant, "Vanquish")) && (ISMATCH(carrier, "vzw")) || (ISMATCH(bootdevice, "vanquish"))) {
         /* xt926 */
         property_set("ro.product.device", "vanquish");
         property_set("ro.product.model", "DROID RAZR HD");

@@ -127,34 +127,21 @@ case "$target" in
          chown -h system /sys/devices/system/cpu/cpufreq/interactive/target_loads
          chown -h system /sys/devices/system/cpu/cpufreq/interactive/timer_rate
          chown -h system /sys/devices/system/cpu/cpufreq/interactive/timer_slack
-         #echo "ondemand" > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
-         #echo "ondemand" > /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor
-         #echo "ondemand" > /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor
-         #echo "ondemand" > /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor
-         #echo 50000 > /sys/devices/system/cpu/cpufreq/ondemand/sampling_rate
-         #echo 90 > /sys/devices/system/cpu/cpufreq/ondemand/up_threshold
-         #echo 1 > /sys/devices/system/cpu/cpufreq/ondemand/io_is_busy
-         #echo 4 > /sys/devices/system/cpu/cpufreq/ondemand/sampling_down_factor
-         #echo 10 > /sys/devices/system/cpu/cpufreq/ondemand/down_differential
-         #echo 70 > /sys/devices/system/cpu/cpufreq/ondemand/up_threshold_multi_core
-         #echo 3 > /sys/devices/system/cpu/cpufreq/ondemand/down_differential_multi_core
-         #echo 918000 > /sys/devices/system/cpu/cpufreq/ondemand/optimal_freq
-         #echo 1026000 > /sys/devices/system/cpu/cpufreq/ondemand/sync_freq
-         #echo 80 > /sys/devices/system/cpu/cpufreq/ondemand/up_threshold_any_cpu_load
-         #chown -h system /sys/devices/system/cpu/cpufreq/ondemand/sampling_rate
-         #chown -h system /sys/devices/system/cpu/cpufreq/ondemand/sampling_down_factor
-         #chown -h system /sys/devices/system/cpu/cpufreq/ondemand/io_is_busy
          echo 384000 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
          echo 384000 > /sys/devices/system/cpu/cpu1/cpufreq/scaling_min_freq
          echo 384000 > /sys/devices/system/cpu/cpu2/cpufreq/scaling_min_freq
          echo 384000 > /sys/devices/system/cpu/cpu3/cpufreq/scaling_min_freq
          chown -h system /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
+         chmod -h 664 /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
          chown -h system /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
          chown -h system /sys/devices/system/cpu/cpu1/cpufreq/scaling_max_freq
+         chmod -h 664 /sys/devices/system/cpu/cpu1/cpufreq/scaling_max_freq
          chown -h system /sys/devices/system/cpu/cpu1/cpufreq/scaling_min_freq
          chown -h system /sys/devices/system/cpu/cpu2/cpufreq/scaling_max_freq
+         chmod -h 664 /sys/devices/system/cpu/cpu2/cpufreq/scaling_max_freq
          chown -h system /sys/devices/system/cpu/cpu2/cpufreq/scaling_min_freq
          chown -h system /sys/devices/system/cpu/cpu3/cpufreq/scaling_max_freq
+         chmod -h 664 /sys/devices/system/cpu/cpu3/cpufreq/scaling_max_freq
          chown -h system /sys/devices/system/cpu/cpu3/cpufreq/scaling_min_freq
          chown -h root.system /sys/devices/system/cpu/mfreq
          chmod -h 220 /sys/devices/system/cpu/mfreq
