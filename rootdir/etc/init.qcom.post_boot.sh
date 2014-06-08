@@ -94,6 +94,10 @@ case "$target" in
          echo 1 > /sys/module/rpm_resources/enable_low_power/pxo
          echo 1 > /sys/module/rpm_resources/enable_low_power/vdd_dig
          echo 1 > /sys/module/rpm_resources/enable_low_power/vdd_mem
+         echo 1 > /sys/module/pm_8x60/modes/cpu0/retention/idle_enabled
+         echo 1 > /sys/module/pm_8x60/modes/cpu1/retention/idle_enabled
+         echo 1 > /sys/module/pm_8x60/modes/cpu2/retention/idle_enabled
+         echo 1 > /sys/module/pm_8x60/modes/cpu3/retention/idle_enabled
          echo 1 > /sys/module/pm_8x60/modes/cpu0/power_collapse/suspend_enabled
          echo 1 > /sys/module/pm_8x60/modes/cpu1/power_collapse/suspend_enabled
          echo 1 > /sys/module/pm_8x60/modes/cpu2/power_collapse/suspend_enabled
@@ -108,13 +112,18 @@ case "$target" in
          echo 1 > /sys/module/pm_8x60/modes/cpu3/standalone_power_collapse/idle_enabled
          echo 1 > /sys/module/pm_8x60/modes/cpu0/power_collapse/idle_enabled
          echo 1 > /sys/module/msm_show_resume_irq/parameters/debug_mask
-         echo 1 > /sys/devices/system/cpu/cpu1/online
-         echo 1 > /sys/devices/system/cpu/cpu2/online
-         echo 1 > /sys/devices/system/cpu/cpu3/online
+	 echo 0 > /sys/module/msm_thermal/core_control/enabled
          echo "interactive" > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
          echo "interactive" > /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor
          echo "interactive" > /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor
          echo "interactive" > /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor
+         echo 1 > /sys/devices/system/cpu/cpu1/online
+         echo 1 > /sys/devices/system/cpu/cpu2/online
+         echo 1 > /sys/devices/system/cpu/cpu3/online
+         echo 384000 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
+         echo 384000 > /sys/devices/system/cpu/cpu1/cpufreq/scaling_min_freq
+         echo 384000 > /sys/devices/system/cpu/cpu2/cpufreq/scaling_min_freq
+         echo 384000 > /sys/devices/system/cpu/cpu3/cpufreq/scaling_min_freq
          echo 1 > /sys/devices/system/cpu/cpufreq/interactive/io_is_busy
          chown -h system /sys/devices/system/cpu/cpufreq/interactive/above_hispeed_delay
          chown -h system /sys/devices/system/cpu/cpufreq/interactive/boost
@@ -127,10 +136,6 @@ case "$target" in
          chown -h system /sys/devices/system/cpu/cpufreq/interactive/target_loads
          chown -h system /sys/devices/system/cpu/cpufreq/interactive/timer_rate
          chown -h system /sys/devices/system/cpu/cpufreq/interactive/timer_slack
-         echo 384000 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
-         echo 384000 > /sys/devices/system/cpu/cpu1/cpufreq/scaling_min_freq
-         echo 384000 > /sys/devices/system/cpu/cpu2/cpufreq/scaling_min_freq
-         echo 384000 > /sys/devices/system/cpu/cpu3/cpufreq/scaling_min_freq
          chown -h system /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
          chmod -h 664 /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
          chown -h system /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
@@ -143,6 +148,7 @@ case "$target" in
          chown -h system /sys/devices/system/cpu/cpu3/cpufreq/scaling_max_freq
          chmod -h 664 /sys/devices/system/cpu/cpu3/cpufreq/scaling_max_freq
          chown -h system /sys/devices/system/cpu/cpu3/cpufreq/scaling_min_freq
+	 echo 1 > /sys/module/msm_thermal/core_control/enabled
          chown -h root.system /sys/devices/system/cpu/mfreq
          chmod -h 220 /sys/devices/system/cpu/mfreq
          chown -h root.system /sys/devices/system/cpu/cpu1/online
@@ -151,6 +157,56 @@ case "$target" in
          chmod -h 664 /sys/devices/system/cpu/cpu1/online
          chmod -h 664 /sys/devices/system/cpu/cpu2/online
          chmod -h 664 /sys/devices/system/cpu/cpu3/online
+         # set DCVS parameters for CPU
+         echo 40000 > /sys/module/msm_dcvs/cores/cpu0/slack_time_max_us
+         echo 40000 > /sys/module/msm_dcvs/cores/cpu0/slack_time_min_us
+         echo 100000 > /sys/module/msm_dcvs/cores/cpu0/em_win_size_min_us
+         echo 500000 > /sys/module/msm_dcvs/cores/cpu0/em_win_size_max_us
+         echo 0 > /sys/module/msm_dcvs/cores/cpu0/slack_mode_dynamic
+         echo 1000000 > /sys/module/msm_dcvs/cores/cpu0/disable_pc_threshold
+         echo 25000 > /sys/module/msm_dcvs/cores/cpu1/slack_time_max_us
+         echo 25000 > /sys/module/msm_dcvs/cores/cpu1/slack_time_min_us
+         echo 100000 > /sys/module/msm_dcvs/cores/cpu1/em_win_size_min_us
+         echo 500000 > /sys/module/msm_dcvs/cores/cpu1/em_win_size_max_us
+         echo 0 > /sys/module/msm_dcvs/cores/cpu1/slack_mode_dynamic
+         echo 1000000 > /sys/module/msm_dcvs/cores/cpu1/disable_pc_threshold
+         echo 25000 > /sys/module/msm_dcvs/cores/cpu2/slack_time_max_us
+         echo 25000 > /sys/module/msm_dcvs/cores/cpu2/slack_time_min_us
+         echo 100000 > /sys/module/msm_dcvs/cores/cpu2/em_win_size_min_us
+         echo 500000 > /sys/module/msm_dcvs/cores/cpu2/em_win_size_max_us
+         echo 0 > /sys/module/msm_dcvs/cores/cpu2/slack_mode_dynamic
+         echo 1000000 > /sys/module/msm_dcvs/cores/cpu2/disable_pc_threshold
+         echo 25000 > /sys/module/msm_dcvs/cores/cpu3/slack_time_max_us
+         echo 25000 > /sys/module/msm_dcvs/cores/cpu3/slack_time_min_us
+         echo 100000 > /sys/module/msm_dcvs/cores/cpu3/em_win_size_min_us
+         echo 500000 > /sys/module/msm_dcvs/cores/cpu3/em_win_size_max_us
+         echo 0 > /sys/module/msm_dcvs/cores/cpu3/slack_mode_dynamic
+         echo 1000000 > /sys/module/msm_dcvs/cores/cpu3/disable_pc_threshold
+         # set DCVS parameters for GPU
+         echo 20000 > /sys/module/msm_dcvs/cores/gpu0/slack_time_max_us
+         echo 20000 > /sys/module/msm_dcvs/cores/gpu0/slack_time_min_us
+         echo 0 > /sys/module/msm_dcvs/cores/gpu0/slack_mode_dynamic
+         # set msm_mpdecision parameters
+         echo 45000 > /sys/module/msm_mpdecision/slack_time_max_us
+         echo 15000 > /sys/module/msm_mpdecision/slack_time_min_us
+         echo 100000 > /sys/module/msm_mpdecision/em_win_size_min_us
+         echo 1000000 > /sys/module/msm_mpdecision/em_win_size_max_us
+         echo 3 > /sys/module/msm_mpdecision/online_util_pct_min
+         echo 25 > /sys/module/msm_mpdecision/online_util_pct_max
+         echo 97 > /sys/module/msm_mpdecision/em_max_util_pct
+         echo 2 > /sys/module/msm_mpdecision/rq_avg_poll_ms
+         echo 10 > /sys/module/msm_mpdecision/mp_em_rounding_point_min
+         echo 85 > /sys/module/msm_mpdecision/mp_em_rounding_point_max
+         echo 50 > /sys/module/msm_mpdecision/iowait_threshold_pct
+         #set permissions for the nodes needed by display on/off hook
+         chown -h system /sys/module/msm_dcvs/cores/cpu0/slack_time_max_us
+         chown -h system /sys/module/msm_dcvs/cores/cpu0/slack_time_min_us
+         chown -h system /sys/module/msm_mpdecision/slack_time_max_us
+         chown -h system /sys/module/msm_mpdecision/slack_time_min_us
+         chmod -h 664 /sys/module/msm_dcvs/cores/cpu0/slack_time_max_us
+         chmod -h 664 /sys/module/msm_dcvs/cores/cpu0/slack_time_min_us
+         chmod -h 664 /sys/module/msm_mpdecision/slack_time_max_us
+         chmod -h 664 /sys/module/msm_mpdecision/slack_time_min_us
          soc_id=`cat /sys/devices/system/soc/soc0/id`
          case "$soc_id" in
              "130")
@@ -252,10 +308,6 @@ case "$target" in
         mount -t debugfs none /sys/kernel/debug
     ;;
 esac
-
-chown -h system /sys/devices/system/cpu/cpufreq/ondemand/sampling_rate
-chown -h system /sys/devices/system/cpu/cpufreq/ondemand/sampling_down_factor
-chown -h system /sys/devices/system/cpu/cpufreq/ondemand/io_is_busy
 
 emmc_boot=`getprop ro.boot.emmc`
 case "$emmc_boot"
