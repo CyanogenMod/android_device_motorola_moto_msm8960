@@ -192,8 +192,8 @@ etc/DxHDCP.cfg
 etc/hdcp_8960.dat.enc
 
 # Framework
-#framework/qcnvitems.jar
-#framework/qcrilhook.jar
+-framework/qcnvitems.jar
+-framework/qcrilhook.jar
 
 # Keystore
 vendor/firmware/keymaster/keymaster.b00
