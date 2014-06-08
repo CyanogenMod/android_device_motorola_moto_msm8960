@@ -100,9 +100,9 @@ void init_msm_properties(unsigned long msm_id, unsigned long msm_ver, char *boar
         property_set("ro.build.fingerprint", "motorola/XT905_RTAU/smq_u:4.1.2/9.8.2Q_SMUIRD-7/1357751068:user/release-keys");
         property_set("ro.sf.lcd_density", "240");
         property_set("telephony.lteOnGsmDevice", "1");
-    } else if (((strstr(hardware_variant, "msm8960dt")) && (ISMATCH(carrier, "vzw")))) {
+    } else if (((strstr(hardware_variant, "msm8960dt")) && (ISMATCH(carrier, "vzw"))) || (ISMATCH(bootdevice, "smq"))) {
         /* xt907 */
-        property_set("ro.product.device", "scorpion_mini");
+        property_set("ro.product.device", "smq");
         property_set("ro.product.model", "DROID RAZR M");
         property_set("ro.build.description", "smq_vzw-user 4.4.2 KDA20.62-10.1 10 release-keys");
         property_set("ro.build.fingerprint", "motorola/smq_vzw/smq:4.4.2/KDA20.62-10.1/10:user/release-keys");
