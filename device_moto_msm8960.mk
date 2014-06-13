@@ -138,10 +138,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     vendor/cm/prebuilt/common/bootanimation/540.zip:system/media/540.zip
 
-# Alternate optional key maps
-PRODUCT_PACKAGES += \
-    AsantiKeypad
-
 # QCOM Display
 PRODUCT_PROPERTY_OVERRIDES += \
     hw.trueMirrorSupported=1

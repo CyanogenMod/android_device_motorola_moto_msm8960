@@ -203,7 +203,5 @@ vendor/firmware/keymaster/keymaster.b03
 vendor/firmware/keymaster/keymaster.mdt
 
 # Device specific
-#xt897/lib/libaudcal.so
-#xt897/etc/firmware/atmxt-r2.tdat
 #xt901/lib/libqmiservices.so
 #xt901/lib/libril-qc-qmi-1.so
