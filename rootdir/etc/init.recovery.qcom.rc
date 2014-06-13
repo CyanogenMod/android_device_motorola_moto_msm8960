@@ -1,4 +1,6 @@
 on init
+    chmod 755 /f2fscheck.sh
+    exec /f2fscheck.sh
     # Brightness
     write /sys/class/backlight/lcd-backlight/brightness 126
 

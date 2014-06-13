@@ -92,6 +92,9 @@ PRODUCT_COPY_FILES += \
 
 # Ramdisk
 PRODUCT_PACKAGES += \
+    bbx \
+    f2fscheck.sh \
+    f2fs-fstab.qcom \
     fstab.qcom \
     init.qcom.rc \
     init.recovery.qcom.rc \
