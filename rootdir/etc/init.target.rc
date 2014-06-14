@@ -449,6 +449,17 @@ service qcamerasvr /system/bin/mm-qcamera-daemon
         user camera
         group camera system inet input graphics net_bt_stack
 
+service gpsone_daemon /system/bin/gpsone_daemon
+    class late_start
+    user gps
+    group gps inet net_raw qcom_diag
+
+#start GNSS/Sensor interface daemon
+service gsiff_daemon /system/bin/gsiff_daemon
+    class late_start
+    user system
+    group gps qcom_oncrpc net_raw
+
 service thermald /system/bin/thermald
    class main
    user root
