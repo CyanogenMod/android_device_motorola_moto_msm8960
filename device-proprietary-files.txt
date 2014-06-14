@@ -64,9 +64,25 @@ bin/qseecomd
 lib/libQSEEComAPI.so
 vendor/lib/mediadrm/libwvdrmengine.so
 
-# Gps
-vendor/lib/libquipc_os_api.so
+# GPS - from N1
+-app/com.qualcomm.location.apk
+bin/gpsone_daemon
+bin/gsiff_daemon
+etc/permissions/com.qualcomm.location.xml
+lib/libgps.utils.so
+lib/libloc_core.so
+lib/libloc_api_v02.so
+lib/libloc_ds_api.so
+lib/libloc_eng.so
+lib/libloc_xtra.so
+lib/hw/gps.msm8960.so
+vendor/lib/libgeofence.so
+vendor/lib/libizat_core.so
+vendor/lib/liblbs_core.so
+vendor/lib/liblocationservice.so
 vendor/lib/libulp2.so
+vendor/lib/libquipc_os_api.so
+vendor/lib/libquipc_ulp_adapter.so
 
 # Graphics
 vendor/lib/egl/eglsubAndroid.so
