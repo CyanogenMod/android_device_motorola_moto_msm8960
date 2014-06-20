@@ -63,6 +63,10 @@ PRODUCT_PACKAGES += \
     mbhc.bin \
     wcd9310_anc.bin
 
+# GPS configuration
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/gps/gps.conf:system/etc/gps.conf
+
 # EGL config
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/config/egl.cfg:system/lib/egl/egl.cfg
