@@ -4529,7 +4529,6 @@ SectionDevice
 	EndSequence
 
 	ACDBID	14:1
-	EffectsMixerCTL "SRS TruMedia"
 
 EndSection
 
@@ -5038,7 +5037,7 @@ SectionDevice
 		'DEC4 MUX':0:ZERO
 		'DEC4 Volume':1:68
 		'ADC3 Volume':1:0
-		'MICBIAS1 CAPLESS Switch':1:0
+		'MICBIAS1 CAPLESS Switch':1:1
 	EndSequence
 
 	ACDBID	62:2
@@ -5265,7 +5264,7 @@ SectionDevice
 		'SLIM TX7 MUX':0:DEC4
 		'DEC4 MUX':0:ADC3
 		'ADC3 Volume':1:100
-		'MICBIAS1 CAPLESS Switch':1:1
+		'MICBIAS1 CAPLESS Switch':1:0
 	EndSequence
 
 	DisableSequence
@@ -5536,8 +5535,8 @@ SectionDevice
 		'DEC7 MUX':0:DMIC1
 		'SLIM TX8 MUX':0:DEC10
 		'DEC10 MUX':0:DMIC3
-		'MICBIAS1 CAPLESS Switch':1:0
-		'MICBIAS3 CAPLESS Switch':1:0
+		'MICBIAS1 CAPLESS Switch':1:1
+		'MICBIAS3 CAPLESS Switch':1:1
 		'SLIM_0_TX Channels':0:Two
 	EndSequence
 
