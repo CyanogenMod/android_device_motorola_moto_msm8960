@@ -149,7 +149,7 @@ set_light_backlight(struct light_device_t* dev,
 	if (g_lcd_brightness < 0 ||
 	    (g_lcd_brightness != lcd_brightness))
 	{
-		err = write_int(LCD_FILE, lcd_brightness);
+		err = write_int(LCD_FILE, lcd_brightness >> 1);
 		if (!err && g_kbd_on)
 			err = write_int(KEYBOARD_FILE, lcd_brightness);
 	}
