@@ -214,6 +214,9 @@ on post-fs-data
     mkdir /data/misc/location/quipc 0770 gps system
     mkdir /data/misc/location/gsiff 0770 gps gps
 
+    #Create directories for gpsone_daemon services
+    mkdir /data/misc/gpsone_d 0770 system gps
+
     #Create directory from IMS services
     mkdir /data/shared 0755
     chown system system /data/shared
