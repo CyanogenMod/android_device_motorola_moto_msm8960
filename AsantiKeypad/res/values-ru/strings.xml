@@ -20,8 +20,8 @@
   <string name="keyboard_layouts_label">Аппаратная клавиатура Photon Q</string>
   <string name="keypad_asanti_qwerty_label">Asanti QWERTY</string>
   <string name="keypad_asanti_qwertz_label">Asanti QWERTZ</string>
-  <string name="keypad_asanti_czech_qwerty_label">Чешский — Asanti QWERTY</string>
-  <string name="keypad_asanti_czech_qwertz_label">Чешский — Asanti QWERTZ</string>
-  <string name="keypad_asanti_cro_qwerty_label">Хорватский — Asanti QWERTY</string>
-  <string name="keypad_asanti_cro_qwertz_label">Хорватский — Asanti QWERTZ</string>
+  <string name="keypad_asanti_czech_qwerty_label">Asanti QWERTY - Чешский</string>
+  <string name="keypad_asanti_czech_qwertz_label">Asanti QWERTZ - Чешский</string>
+  <string name="keypad_asanti_cro_qwerty_label">Asanti QWERTY - Хорватский</string>
+  <string name="keypad_asanti_cro_qwertz_label">Asanti QWERTZ - Хорватский</string>
 </resources>

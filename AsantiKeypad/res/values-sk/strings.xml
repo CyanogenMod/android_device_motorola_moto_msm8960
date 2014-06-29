@@ -20,8 +20,8 @@
   <string name="keyboard_layouts_label">Klávesnica Photon Q</string>
   <string name="keypad_asanti_qwerty_label">Asanti QWERTY</string>
   <string name="keypad_asanti_qwertz_label">Asanti QWERTZ</string>
-  <string name="keypad_asanti_czech_qwerty_label">Česká Asanti QWERTY</string>
-  <string name="keypad_asanti_czech_qwertz_label">Česká Asanti QWERTZ</string>
-  <string name="keypad_asanti_cro_qwerty_label">Chorvátska Asanti QWERTY</string>
-  <string name="keypad_asanti_cro_qwertz_label">Chorvátska Asanti QWERTZ</string>
+  <string name="keypad_asanti_czech_qwerty_label">Asanti QWERTY - Česká</string>
+  <string name="keypad_asanti_czech_qwertz_label">Asanti QWERTZ - Česká</string>
+  <string name="keypad_asanti_cro_qwerty_label">Asanti QWERTY - Chorvátska</string>
+  <string name="keypad_asanti_cro_qwertz_label">Asanti QWERTZ - Chorvátska</string>
 </resources>
