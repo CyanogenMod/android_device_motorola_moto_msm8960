@@ -19,9 +19,9 @@
   <string name="app_name">لوحة مفاتيح Asanti</string>
   <string name="keyboard_layouts_label">لوحة مفاتيح Photon Q</string>
   <string name="keypad_asanti_qwerty_label">Asanti QWERTY</string>
-  <string name="keypad_asanti_qwertz_label">Asanti QWERTY</string>
-  <string name="keypad_asanti_czech_qwerty_label">التشيكية Asanti QWERTY</string>
-  <string name="keypad_asanti_czech_qwertz_label">التشيكية Asanti QWERTY</string>
-  <string name="keypad_asanti_cro_qwerty_label">الكرواتية Asanti QWERTY</string>
-  <string name="keypad_asanti_cro_qwertz_label">الكرواتية Asanti QWERTY</string>
+  <string name="keypad_asanti_qwertz_label">Asanti QWERTZ</string>
+  <string name="keypad_asanti_czech_qwerty_label">Asanti QWERTY - التشيكية</string>
+  <string name="keypad_asanti_czech_qwertz_label">Asanti QWERTZ - التشيكية</string>
+  <string name="keypad_asanti_cro_qwerty_label">Asanti QWERTY - الكرواتية</string>
+  <string name="keypad_asanti_cro_qwertz_label">Asanti QWERTZ - الكرواتية</string>
 </resources>

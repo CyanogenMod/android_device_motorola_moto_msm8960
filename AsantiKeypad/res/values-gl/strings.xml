@@ -18,10 +18,10 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="app_name">Teclado Asanti</string>
   <string name="keyboard_layouts_label">Teclado Photon Q</string>
-  <string name="keypad_asanti_qwerty_label">QWERTY Asanti</string>
-  <string name="keypad_asanti_qwertz_label">QWERTZ Asanti</string>
-  <string name="keypad_asanti_czech_qwerty_label">QWERTY checo Asanti</string>
-  <string name="keypad_asanti_czech_qwertz_label">QWERTZ checo Asanti</string>
-  <string name="keypad_asanti_cro_qwerty_label">QWERTY croata Asanti</string>
-  <string name="keypad_asanti_cro_qwertz_label">QWERTZ croata Asanti</string>
+  <string name="keypad_asanti_qwerty_label">Asanti QWERTY</string>
+  <string name="keypad_asanti_qwertz_label">Asanti QWERTZ</string>
+  <string name="keypad_asanti_czech_qwerty_label">Asanti QWERTY checo</string>
+  <string name="keypad_asanti_czech_qwertz_label">Asanti QWERTZ checo</string>
+  <string name="keypad_asanti_cro_qwerty_label">Asanti QWERTY croata</string>
+  <string name="keypad_asanti_cro_qwertz_label">Asanti QWERTZ croata</string>
 </resources>

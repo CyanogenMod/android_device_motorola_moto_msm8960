@@ -17,6 +17,10 @@ etc/firmware/atmxt-r1.tdat
 etc/firmware/atmxt-r2.tdat
 etc/firmware/melfas_45_7_15.fw
 
+# GPS
+lib/libgeofence.so
+lib/libloc_api_v02.so
+
 # HAL
 lib/hw/vendor-camera.msm8960.so
 lib/hw/sensorhub.msm8960.so

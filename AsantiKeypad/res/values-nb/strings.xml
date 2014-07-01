@@ -17,10 +17,10 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="app_name">Asanti tastatur</string>
-  <string name="keyboard_layouts_label">Foton Q tastatur</string>
+  <string name="keyboard_layouts_label">Photon Q tastatur</string>
   <string name="keypad_asanti_qwerty_label">Asanti QWERTY</string>
   <string name="keypad_asanti_qwertz_label">Asanti QWERTZ</string>
-  <string name="keypad_asanti_czech_qwerty_label">Asanti tsjekkisk-QWERTY</string>
+  <string name="keypad_asanti_czech_qwerty_label">Asanti tsjekkisk QWERTY</string>
   <string name="keypad_asanti_czech_qwertz_label">Asanti tsjekkisk QWERTZ</string>
   <string name="keypad_asanti_cro_qwerty_label">Asanti kroatisk QWERTY</string>
   <string name="keypad_asanti_cro_qwertz_label">Asanti kroatisk QWERTZ</string>
