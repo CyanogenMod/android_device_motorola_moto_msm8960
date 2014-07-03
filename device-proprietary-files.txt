@@ -148,6 +148,9 @@ etc/firmware/vidcfw.elf
 bin/whisperd
 lib/libmoto_netutil.so
 
+# NFC
+lib/hw/nfc.MSM8960.so
+
 # Postprocessing
 bin/mm-pp-daemon
 
