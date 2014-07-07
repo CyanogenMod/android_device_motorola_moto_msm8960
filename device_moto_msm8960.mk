@@ -106,7 +106,8 @@ PRODUCT_PACKAGES += \
     init.mmi.boot.sh \
     init.mmi.touch.sh \
     init.qcom.post_boot.sh \
-    init.qcom.sh
+    init.qcom.sh \
+    init.qcom.wifi.sh
 
 # Ramdisk overrides
 PRODUCT_COPY_FILES += \
