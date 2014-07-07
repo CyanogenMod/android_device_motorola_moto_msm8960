@@ -69,11 +69,6 @@ PRODUCT_PACKAGES += \
     DevicePerformanceSettingsHelper \
     sqlite3
 
-# Symlinks
-PRODUCT_PACKAGES += \
-    mbhc.bin \
-    wcd9310_anc.bin
-
 # EGL config
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/config/egl.cfg:system/lib/egl/egl.cfg
