@@ -283,6 +283,8 @@ set_speaker_light_locked(struct light_device_t* dev,
 		char blink[32];
 		snprintf(blink, sizeof(blink)-1, "%d %d", onMS, offMS);
 		write_str(RED_LED_BLINK, blink);
+	} else {
+		write_str(RED_LED_BLINK, "0");
 	}
 
 	return 0;
@@ -292,10 +294,10 @@ set_speaker_light_locked(struct light_device_t* dev,
 static void
 handle_speaker_battery_locked(struct light_device_t* dev)
 {
-	if (is_lit(&g_battery))
-		set_speaker_light_locked(dev, &g_battery);
-	else
+	if (is_lit(&g_notification))
 		set_speaker_light_locked(dev, &g_notification);
+	else
+		set_speaker_light_locked(dev, &g_battery);
 }
 
 static int
