@@ -396,9 +396,12 @@ if grep ctrl_interface=wlan0 /data/misc/wifi/p2p_supplicant.conf > /dev/null; th
     rm -f /data/misc/wifi/p2p_supplicant.conf
 fi
 
-# Proximity Sensor Workaround
+# moto_msm8960 specific settings
 case "$target" in
      "msm8960")
+        # Eliminate speaker pop after lineout PA enable - set delay to 32ms
+        echo 32000 > /sys/module/snd_soc_wcd9310/parameters/enable_lineout_us
+        # Proximity sensor workaround
         echo 1 > /sys/module/ct406/parameters/prox_enable
         sleep 10
         echo 0 > /sys/module/ct406/parameters/prox_enable
