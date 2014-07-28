@@ -44,6 +44,7 @@ void init_msm_properties(unsigned long msm_id, unsigned long msm_ver, char *boar
     char device[PROP_VALUE_MAX];
     char devicename[PROP_VALUE_MAX];
     char modelno[PROP_VALUE_MAX];
+    char bootdevice[PROP_VALUE_MAX];
     char hardware_variant[92];
     FILE *fp;
     int rc;
@@ -58,15 +59,16 @@ void init_msm_properties(unsigned long msm_id, unsigned long msm_ver, char *boar
 
     property_get("ro.boot.modelno", modelno);
     property_get("ro.boot.carrier", carrier);
+    property_get("ro.boot.device", bootdevice);
     fp = popen("/system/xbin/sed -n '/Hardware/,/Revision/p' /proc/cpuinfo | /system/xbin/cut -d ':' -f2 | /system/xbin/head -1", "r");
     fgets(hardware_variant, sizeof(hardware_variant), fp);
     pclose(fp);
-    if ((strstr(hardware_variant, "Vanquish")) && (ISMATCH(carrier, "vzw"))) {
+    if ((strstr(hardware_variant, "Vanquish")) && (ISMATCH(carrier, "vzw")) || (ISMATCH(bootdevice, "vanquish"))) {
         /* xt926 */
         property_set("ro.product.device", "vanquish");
         property_set("ro.product.model", "DROID RAZR HD");
-        property_set("ro.build.description", "vanquish_vzw-user 4.1.2 9.8.1Q-62_VQW_MR-2 6 release-keys");
-        property_set("ro.build.fingerprint", "motorola/XT926_verizon/vanquish:4.1.2/9.8.1Q-62_VQW_MR-2/6:user/release-keys");
+        property_set("ro.build.description", "vanquish_vzw-user 4.4.2 KDA20.62-10.1 10 release-keys");
+        property_set("ro.build.fingerprint", "motorola/vanquish_vzw/vanquish:4.4.2/KDA20.62-10.1/10:user/release-keys");
         property_set("ro.sf.lcd_density", "320");
     } else if ((strstr(hardware_variant, "Vanquish")) && (!ISMATCH(carrier, "vzw"))) {
         /* xt925 */
@@ -98,12 +100,12 @@ void init_msm_properties(unsigned long msm_id, unsigned long msm_ver, char *boar
         property_set("ro.build.fingerprint", "motorola/XT905_RTAU/smq_u:4.1.2/9.8.2Q_SMUIRD-7/1357751068:user/release-keys");
         property_set("ro.sf.lcd_density", "240");
         property_set("telephony.lteOnGsmDevice", "1");
-    } else if (((strstr(hardware_variant, "msm8960dt")) && (ISMATCH(carrier, "vzw")))) {
+    } else if (((strstr(hardware_variant, "msm8960dt")) && (ISMATCH(carrier, "vzw"))) || (ISMATCH(bootdevice, "smq"))) {
         /* xt907 */
-        property_set("ro.product.device", "scorpion_mini");
+        property_set("ro.product.device", "smq");
         property_set("ro.product.model", "DROID RAZR M");
-        property_set("ro.build.description", "smq_vzw-user 4.1.2 9.8.1Q-94-1 77 release-keys");
-        property_set("ro.build.fingerprint", "motorola/XT907_verizon/scorpion_mini:4.1.2/9.8.1Q-94-1/77:user/release-keys");
+        property_set("ro.build.description", "smq_vzw-user 4.4.2 KDA20.62-10.1 10 release-keys");
+        property_set("ro.build.fingerprint", "motorola/smq_vzw/smq:4.4.2/KDA20.62-10.1/10:user/release-keys");
         property_set("ro.sf.lcd_density", "240");
     }
 
@@ -145,38 +147,7 @@ void init_msm_properties(unsigned long msm_id, unsigned long msm_ver, char *boar
         property_set("ro.cdma.home.operator.alpha", "U.S. Cellular");
         property_set("ro.cdma.home.operator.numeric", "311220");
         property_set("gsm.sim.operator.numeric", "311580");
-    } else if (ISMATCH(modelno, "XT897")) {
-        /* xt897 CSpire */
-        property_set("ro.product.device", "asanti_c");
-        property_set("ro.product.model", "PHOTON Q");
-        property_set("ro.build.description", "asanti_c_cspire-user 4.1.2 9.8.2Q-122_XT897_FFW-7 8 release-keys");
-        property_set("ro.build.fingerprint", "motorola/XT897_us_csp/asanti_c:4.1.2/9.8.2Q-122_XT897_FFW-7/8:user/release-keys");
-        property_set("ro.sf.lcd_density", "240");
-        property_set("ro.config.svdo", "true");
-        property_set("ro.config.svlte1x", "true");
-        property_set("ro.cdma.nbpcd", "0");
-        property_set("ro.cdma.home.operator.alpha", "Cspire");
-        property_set("ro.cdma.home.operator.numeric", "311230");
-        property_set("ro.cdma.subscription", "1");
-        property_set("DEVICE_PROVISIONED", "1");
-    } else if (ISMATCH(carrier, "sprint")) {
-        /* xt897 Sprint */
-        property_set("ro.product.device", "asanti_c");
-        property_set("ro.product.model", "PHOTON Q");
-        property_set("ro.build.description", "XT897_us_spr-user 4.1.2 9.8.2Q-122_XT897_FFW-5 6 release-keys");
-        property_set("ro.build.fingerprint", "motorola/XT897_us_spr/asanti_c:4.1.2/9.8.2Q-122_XT897_FFW-5/6:user/release-keys");
-        property_set("ro.sf.lcd_density", "240");
-        property_set("ro.config.svdo", "true");
-        property_set("ro.config.svlte1x", "true");
-        property_set("ro.cdma.nbpcd", "0");
-        property_set("ro.cdma.international.eri", "2,74,124,125,126,157,158,159,193,194,195,196,197,198,228,229,230,231,232,233,234,235");
-        property_set("ro.cdma.home.operator.alpha", "Sprint");
-        property_set("ro.cdma.home.operator.numeric", "310120");
-        property_set("ro.cdma.subscription", "1");
-        property_set("DEVICE_PROVISIONED", "1");
-        property_set("ro.com.google.clientidbase.ms", "android-sprint-us");
-        property_set("ro.com.google.clientidbase.am", "android-sprint-us");
-        property_set("ro.com.google.clientidbase.yt", "android-sprint-us");
+
     } else if ((ISMATCH(carrier, "att")) || (strstr(hardware_variant, "Qinara"))) {
         property_set("ro.product.device", "qinara");
         property_set("ro.product.model", "ATRIX HD");

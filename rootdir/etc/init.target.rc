@@ -35,6 +35,18 @@ on early-init
     # Create PDS mount point
     mkdir /pds 0755 root root
 
+    # Create modem FSG mount point
+    mkdir /fsg 755 root root
+
+on init
+    chmod 755 /f2fscheck.sh
+    exec /f2fscheck.sh
+    # CM: We use our own ril-daemon service definition, see mmi-ril-daemon
+    stop ril-daemon
+
+# Mount point for Digital Personalization partition
+    mkdir /customize 0500 root root
+
 on early-boot
 # Define Motorola DBVC ATVC Property defaults (failsafe properties)
     setprop ro.sys.atvc_allow_netmon_usb 0
@@ -47,9 +59,6 @@ on early-boot
     setprop ro.sys.atvc_allow_bp_log 0
     setprop ro.sys.atvc_allow_ap_mot_log 0
     setprop ro.sys.atvc_allow_simswap 0
-
-    # Need to launch qseecomd before enc_mgt_tool
-    start qseecomd
 
 on charger
     trigger early-fs
@@ -69,18 +78,12 @@ on start-charging
     chown mot_pwric mot_pwric /sys/module/pm8921_bms/parameters/last_charge_increase
     chown mot_pwric mot_pwric /sys/module/pm8921_bms/parameters/last_chargecycles
     chown mot_pwric mot_pwric /sys/module/pm8921_bms/parameters/bms_aged_capacity
+    chown mot_pwric mot_pwric /sys/module/pm8921_bms/parameters/bms_aged_capacity_temp
+    chown mot_pwric mot_pwric /sys/module/pm8921_bms/parameters/bms_chrg_capacity
+    chown mot_pwric mot_pwric /sys/module/pm8921_bms/parameters/bms_chrg_capacity_temp
+    chown mot_pwric mot_pwric /sys/module/pm8921_bms/parameters/chrg_timestamp
     chown mot_pwric mot_pwric /sys/module/pm8921_bms/parameters/timestamp
     chown mot_pwric mot_pwric /sys/devices/platform/msm_ssbi.0/pm8921-core/pm8921-charger/pcb_temp
-    chmod 660 /sys/module/pm8921_bms/parameters/last_real_fcc_batt_temp
-    chmod 660 /sys/module/pm8921_bms/parameters/last_real_fcc_mah
-    chmod 660 /sys/module/pm8921_bms/parameters/last_soc
-    chmod 660 /sys/module/pm8921_bms/parameters/last_ocv_uv
-    chmod 660 /sys/module/pm8921_bms/parameters/last_rbatt
-    chmod 660 /sys/module/pm8921_bms/parameters/last_charge_increase
-    chmod 660 /sys/module/pm8921_bms/parameters/last_chargecycles
-    chmod 660 /sys/module/pm8921_bms/parameters/bms_aged_capacity
-    chmod 660 /sys/module/pm8921_bms/parameters/timestamp
-    chmod 660 /sys/devices/platform/msm_ssbi.0/pm8921-core/pm8921-charger/pcb_temp
 
    # Permissions for Factory Test of Charging Paths
     chown mot_pwric mot_pwric /sys/devices/platform/msm_ssbi.0/pm8921-core/pm8921-charger/force_chg_auto_enable
@@ -92,29 +95,59 @@ on start-charging
     start batt_health
     start whisperd
     start qcom-post-boot
-    # Prepare for charge-only mode
+    # Prepare for charger mode
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor ondemand
     write /sys/devices/system/cpu/cpu1/online 0
-    exec /system/bin/charge_only_mode
-
-on property:sys.chargeonly.mode=1
-    class_stop core
-    class_stop main
-    class_stop late_start
-    start batt_health
-    start whisperd
-    start qcom-post-boot
-    # Prepare for charge-only mode
-    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor ondemand
-    write /sys/devices/system/cpu/cpu1/online 0
-    write /data/chargeonlymode charging
-    exec /system/bin/charge_only_mode
 
 on property:ro.modem.no_wdog_chk=1
    write /sys/module/modem_8960/parameters/no_wdog_chk 1
 
+    # Create PDS mount point
+    mkdir /pds 0755 root root
+
 on fs
-    mount_all /fstab.qcom
+    # Mount modem FSG partition
+    wait /dev/block/platform/msm_sdcc.1/by-name/fsg
+    mount ext4 /dev/block/platform/msm_sdcc.1/by-name/fsg /fsg ro nosuid nodev barrier=0
+
+    #Mount customize partion
+    wait /dev/block/platform/msm_sdcc.1/by-name/customize
+    mount ext4 /dev/block/platform/msm_sdcc.1/by-name/customize /customize ro discard nosuid nodev noatime nodiratime noexec
+
+    chown radio radio /dev/mot_hob_ram
+    chmod 0660 /dev/mot_hob_ram
+
+    # Mount userdata -- userdata must in fstab.<ro.hardware> in order to
+    # have functional encryption
+    mount_all fstab.qcom
+
+    # Set correct permissions for HOB, DHOB, CID Partitions and CLOGO Partitions
+    exec /system/bin/chmod -L 660 /dev/block/platform/msm_sdcc.1/by-name/hob
+    exec /system/bin/chmod -L 660 /dev/block/platform/msm_sdcc.1/by-name/dhob
+    exec /system/bin/chmod -L 660 /dev/block/platform/msm_sdcc.1/by-name/cid
+    exec /system/bin/chmod -L 660 /dev/block/platform/msm_sdcc.1/by-name/clogo
+    exec /system/bin/chown -L root:radio /dev/block/platform/msm_sdcc.1/by-name/hob
+    exec /system/bin/chown -L root:radio /dev/block/platform/msm_sdcc.1/by-name/dhob
+    exec /system/bin/chown -L root:mot_dbvc /dev/block/platform/msm_sdcc.1/by-name/cid
+    exec /system/bin/chown -L root:mot_tcmd /dev/block/platform/msm_sdcc.1/by-name/clogo
+
+    # Mount modem immediately after system and trigger modem boot
+    # to speed up modem initialization
+    wait /dev/block/platform/msm_sdcc.1/by-name/modem
+    exec /system/bin/resize2fs /dev/block/platform/msm_sdcc.1/by-name/modem
+    mount ext4 /dev/block/platform/msm_sdcc.1/by-name/modem /firmware ro nosuid nodev barrier=0
+    start bootmodem
+
+    # Keeping following partitions outside fstab file. As user may not have
+    # these partition flashed on the device. Failure to mount any partition in fstab file
+    # results in failure to launch late-start class.
+    wait /dev/block/platform/msm_sdcc.1/by-name/cache
+    exec /system/bin/e2fsck -y /dev/block/platform/msm_sdcc.1/by-name/cache
+    exec /system/bin/logwrapper /system/bin/mount_ext4.sh cache /dev/block/platform/msm_sdcc.1/by-name/cache /cache
+
+    wait /dev/block/platform/msm_sdcc.1/by-name/persist
+    mount ext4 /dev/block/platform/msm_sdcc.1/by-name/persist /persist nosuid nodev barrier=1
+
     restorecon /persist
     restorecon /persist/.bt_nv.bin
     restorecon /persist/WCNSS_qcom_wlan_nv.bin
@@ -124,6 +157,12 @@ on fs
     restorecon /persist/drm/widevine/5dsokxEEDXgQhkN50bp-Z2K5InM_/Y4Nj+fDlt0uaX0xnzOj1AjymTvQ_
 
 on post-fs
+# Enable Cifs module
+    insmod /system/lib/modules/cifs.ko
+    restorecon /data/media /data/media/0 /data/media/legacy /data/media/obb
+    exec /system/bin/restorecon -R /data/misc/wifi
+    exec /system/bin/restorecon -R /data/hostapd
+
     chmod 755 /system/etc/init.crda.sh
     chmod 755 /system/etc/init.qcom.bt.sh
     chmod 755 /system/etc/init.qcom.coex.sh
@@ -132,38 +171,34 @@ on post-fs
     chmod 755 /system/etc/init.qcom.modem_links.sh
     chmod 755 /system/etc/init.qcom.post_boot.sh
     chmod 755 /system/etc/init.qcom.sdio.sh
+    chmod 755 /system/bin/moto_com.sh
 
-    mkdir /tombstones/modem 0771 system system
-    mkdir /tombstones/lpass 0771 system system
-    mkdir /tombstones/wcnss 0771 system system
-    mkdir /tombstones/dsps 0771 system system
-
+    # Mount PDS
     wait /dev/block/platform/msm_sdcc.1/by-name/pds
     exec /system/bin/mount_pds.sh
 
     mount ext4 /dev/block/platform/msm_sdcc.1/by-name/system /system ro remount
 
-    # Load FIPS kernel module
-    exec /system/bin/fips_loader /system/lib/modules
-
 # Set default maximum of 1.5 GHz (peformance settings will change this if set by user)
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq 1512000
     write /sys/devices/system/cpu/cpu1/cpufreq/scaling_max_freq 1512000
 
-on post-fs-data
-    # Backup ramconsole on abnormal reboot.
-    copy /proc/last_kmsg /data/dontpanic/last_kmsg
-    chown root log /data/dontpanic/last_kmsg
-    chmod 0640 /data/dontpanic/last_kmsg
-
-    #load modules
-    insmod /system/lib/modules/cfg80211.ko
-    insmod /system/lib/modules/tcp_westwood.ko
-    #initialize wlan
-    write /dev/wcnss_wlan 1
-    write /sys/module/wcnss_ssr_8960/parameters/enable_riva_ssr 1
-
 on boot
+   # setup trace dir
+   mkdir /cache/trace 0777 root shell
+   chown root shell /cache/trace
+   chmod 0777 /cache/trace
+
+   chown system system /sys/kernel/debug
+   chmod 0770 /sys/kernel/debug
+
+   # initialize kernel dynamic debugging settings
+   copy /system/etc/debug_control.conf /sys/kernel/debug/dynamic_debug/control
+
+   # Backup ramconsole on abnormal reboot.
+   copy /proc/last_kmsg /data/dontpanic/last_kmsg
+   chown root log /data/dontpanic/last_kmsg
+   chmod 0640 /data/dontpanic/last_kmsg
    write /sys/devices/i2c-3/3-0024/cyttsp_update_fw 1
    write /sys/devices/i2c-3/3-005b/update_fw 1
    start qcamerasvr
@@ -178,6 +213,7 @@ on boot
    chown system system /sys/class/leds/blue/brightness
    chown system system /sys/class/leds/red/blink
    chown system system /sys/class/leds/charging/brightness
+   chown system system /sys/class/leds/button-backlight/brightness
 
    # Torch
    chown system system /sys/class/leds/torch-flash/flash_light
@@ -193,6 +229,7 @@ on boot
    chmod 0664 /sys/class/leds/green/brightness
    chmod 0664 /sys/class/leds/red/blink
    chmod 0664 /sys/class/leds/charging/brightness
+   chmod 0664 /sys/class/leds/button-backlight/brightness
 
    # Change permission and ownership of hdcp
    chown system system /sys/devices/virtual/graphics/fb1/hdcp_en
@@ -200,35 +237,17 @@ on boot
    chown system system /sys/devices/virtual/graphics/fb1/hdcp
    chmod 0664 /sys/devices/virtual/graphics/fb1/hdcp
 
-   # Permissions for battery health daemon
-   chown mot_pwric mot_pwric /sys/module/pm8921_bms/parameters/last_real_fcc_batt_temp
-   chown mot_pwric mot_pwric /sys/module/pm8921_bms/parameters/last_real_fcc_mah
-   chown mot_pwric mot_pwric /sys/module/pm8921_bms/parameters/last_soc
-   chown mot_pwric mot_pwric /sys/module/pm8921_bms/parameters/last_ocv_uv
-   chown mot_pwric mot_pwric /sys/module/pm8921_bms/parameters/last_rbatt
-   chown mot_pwric mot_pwric /sys/module/pm8921_bms/parameters/last_charge_increase
-   chown mot_pwric mot_pwric /sys/module/pm8921_bms/parameters/last_chargecycles
-   chown mot_pwric mot_pwric /sys/module/pm8921_bms/parameters/bms_aged_capacity
-   chown mot_pwric mot_pwric /sys/module/pm8921_bms/parameters/timestamp
-   chown mot_pwric mot_pwric /sys/devices/platform/msm_ssbi.0/pm8921-core/pm8921-charger/pcb_temp
-   chmod 660 /sys/module/pm8921_bms/parameters/last_real_fcc_batt_temp
-   chmod 660 /sys/module/pm8921_bms/parameters/last_real_fcc_mah
-   chmod 660 /sys/module/pm8921_bms/parameters/last_soc
-   chmod 660 /sys/module/pm8921_bms/parameters/last_ocv_uv
-   chmod 660 /sys/module/pm8921_bms/parameters/last_rbatt
-   chmod 660 /sys/module/pm8921_bms/parameters/last_charge_increase
-   chmod 660 /sys/module/pm8921_bms/parameters/last_chargecycles
-   chmod 660 /sys/module/pm8921_bms/parameters/bms_aged_capacity
-   chmod 660 /sys/module/pm8921_bms/parameters/timestamp
-   chmod 660 /sys/devices/platform/msm_ssbi.0/pm8921-core/pm8921-charger/pcb_temp
+   # Change permission and ownership of hpd
+   chown system graphics /sys/class/graphics/fb1/hpd
+   chmod 0664 /sys/devices/virtual/graphics/fb1/hpd
 
-   # Permissions for Factory Test of Charging Paths
-   chown mot_pwric mot_pwric /sys/devices/platform/msm_ssbi.0/pm8921-core/pm8921-charger/force_chg_auto_enable
-   chown mot_pwric mot_pwric /sys/devices/platform/msm_ssbi.0/pm8921-core/pm8921-charger/force_chg_ibatt
-   chown mot_pwric mot_pwric /sys/devices/platform/msm_ssbi.0/pm8921-core/pm8921-charger/force_chg_itrick
-   chown mot_pwric mot_pwric /sys/devices/platform/msm_ssbi.0/pm8921-core/pm8921-charger/force_chg_iusb
-   chown mot_pwric mot_pwric /sys/devices/platform/msm_ssbi.0/pm8921-core/pm8921-charger/force_chg_usb_suspend
-   chown mot_pwric mot_pwric /sys/devices/platform/msm_ssbi.0/pm8921-core/pm8921-charger/force_chg_fail_clear
+   # AP<->MSP IPC
+   chown system system /sys/class/gpio/gpio161/value
+   chown system system /sys/class/gpio/gpio162/value
+   chown system system /sys/class/gpio/gpio163/value
+   chmod 0664 /sys/class/gpio/gpio161/value
+   chmod 0664 /sys/class/gpio/gpio162/value
+   chmod 0664 /sys/class/gpio/gpio163/value
 
    # PWM Control for screen backlight
    chmod 0664 /sys/class/backlight/lcd-backlight/device/pwm
@@ -239,6 +258,9 @@ on boot
    chown root input /sys/bus/i2c/drivers/melfas-ts/3-0048/hw_irqstat
    chown root system /sys/bus/i2c/drivers/cyttsp3-i2c/3-003b/drv_irq
    chown root system /sys/bus/i2c/drivers/atmxt-i2c/3-004a/drv_irq
+   chown root system /sys/bus/i2c/drivers/synaptics_dsx_i2c/3-0020/drv_irq
+   chown root system /sys/bus/i2c/drivers/synaptics_dsx_i2c/3-0020/hw_irqstat
+   chown root system /sys/bus/i2c/drivers/synaptics_dsx_i2c/3-0020/reset
 
    # Change whisper permissions
    chmod 0660  /sys/devices/platform/emu_det/WHISPER_UART_TX_GPIO/value
@@ -279,12 +301,22 @@ on boot
    chmod 0660   /sys/class/graphics/fb0/elvss_tth_status
    chown system system  /sys/class/graphics/fb0/elvss_tth_status
 
+   chmod 0220   /sys/class/graphics/fb0/te_enable
+   chown system system /sys/class/graphics/fb0/te_enable
+
+   chmod 0440   /sys/class/graphics/fb0/frame_counter
+   chown system system /sys/class/graphics/fb0/frame_counter
+
    # Change pn544_control_dev permission
    chown nfc nfc /sys/devices/virtual/misc/pn544/pn544_control_dev
    chmod 0660 /sys/devices/virtual/misc/pn544/pn544_control_dev
 
    # Create 12m directory that TCMD can write to
     mkdir /data/local/12m 0755 system shell
+
+
+   # Create moodle directory that MOT_MOODLE can write to
+    mkdir /data/local/moodle 0770 graphics system
 
 # create the necessary data dirs for tpapi with proper permission
     mkdir /dev/tpapi 02770 mot_tpapi mot_tpapi
@@ -301,29 +333,27 @@ on boot
    chown system system /sys/module/ct406/parameters/als_delay
    chmod 0660 /sys/module/ct406/parameters/als_delay
 
-   # Set correct permissions for HOB shared RAM and Partitions
-   chown radio radio /dev/mot_hob_ram
-   chown root radio /dev/block/platform/msm_sdcc.1/by-name/hob
-   chown root radio /dev/block/platform/msm_sdcc.1/by-name/dhob
-   chmod 0660 /dev/mot_hob_ram
-   chmod 0660 /dev/block/platform/msm_sdcc.1/by-name/hob
-   chmod 0660 /dev/block/platform/msm_sdcc.1/by-name/dhob
-
    # Create directory used by power_supply logger
-   mkdir /data/power_supply_logger 0755 mot_pwric mot_pwric
+   mkdir /data/power_supply_logger 0750 mot_pwric log
 
     # Setup folder for aplogd
-    mkdir /data/logger 0750 log log
+    mkdir /data/aplogd 0750 log log
 
-    # Setup folder for diag_mdlog
+    # Setup folders for diag_mdlog
     mkdir /data/diag_mdlog 0750 system log
+    mkdir /data/diag_mdlog/logs 0750 log log
 
     # Create folder for native & kernel to write to DropBox.  See NativeDropBoxAgent.java for
     # an explanation of why these permissions are chosen.
     mkdir /data/system/dropbox-add 0730 system diag
 
-    # Start services
-    exec /system/bin/mot_boot_mode
+   # MSP430 driver parameter permissions
+   chown mot_tcmd mot_tcmd /sys/module/msp430/parameters/irq_disable
+   chmod 0660 /sys/module/msp430/parameters/irq_disable
+
+   # dropbox driver interface permissions
+   chown root diag /sys/kernel/dropbox/event
+   chown root diag /sys/kernel/dropbox/data
 
 # Define TCP buffer sizes for ethernet
 #   ReadMin, ReadInitial, ReadMax, WriteMin, WriteInitial, WriteMax,
@@ -345,20 +375,23 @@ on boot
     setprop net.tcp.buffersize.evdo    131072,262144,524288,4096,16384,262144
     setprop net.tcp.buffersize.evdo_b  131072,262144,704512,4096,16384,262144
 
-# Assign TCP buffer thresholds to be ceiling value of technology maximums
-# Increased technology maximums should be reflected here.
-    write /proc/sys/net/core/rmem_max  4194304
-    write /proc/sys/net/core/wmem_max  4194304
-# NFC settings
-    setprop ro.nfc.port "I2C"
-
 on post-fs-data
+   setprop installd.post_fs_data_ready 1
+
    mkdir /data/misc/ril 0750 radio radio
    mkdir /data/misc/ril/bp-dumps 0750 radio log
 
+   # Subsystem RAM-dumps
+   mkdir /data/ss-ram-dumps 0750 log log
+   mkdir /data/ss-ram-dumps/bp-dumps 0750 radio log
+   mkdir /data/ss-ram-dumps/riva-dumps 0750 radio log
+
+   # ad@m
+   mkdir /data/adam 0750 radio diag
+
    # Setup correct permissions for /pds/public
-    mkdir /pds/public/atvc 0775 system shell
-    chmod 0775 /pds/public/atvc
+    mkdir /pds/public/atvc 0770 mot_atvc shell
+    chmod 0770 /pds/public/atvc
     mkdir /data/local/dbvc 0750 system shell
     mkdir /data/local/atvc 0775 system shell
 
@@ -370,16 +403,71 @@ on post-fs-data
    mkdir /tombstones/mdm 0771 system system
    mkdir /tombstones/mdm2 0771 system system
 
+   # Set correct permissions for UTAGS
+   exec /system/bin/chown -L mot_tcmd:system /dev/block/platform/msm_sdcc.1/by-name/utags
+   exec /system/bin/chmod -L 0660 /dev/block/platform/msm_sdcc.1/by-name/utags
+
+# backup directory for omadm
+    mkdir /pds/public/omadm 0700 radio radio
+    chmod 0700 /pds/public/omadm
+
+# directory for encryption management tool, enc_mgt_tool
+    mkdir /data/emt
+    chown root system /data/emt
+    chmod 0770 /data/emt
+   # Permissions for battery health daemon
+    chown mot_pwric mot_pwric /sys/module/pm8921_bms/parameters/last_real_fcc_batt_temp
+    chown mot_pwric mot_pwric /sys/module/pm8921_bms/parameters/last_real_fcc_mah
+    chown mot_pwric mot_pwric /sys/module/pm8921_bms/parameters/last_soc
+    chown mot_pwric mot_pwric /sys/module/pm8921_bms/parameters/last_ocv_uv
+    chown mot_pwric mot_pwric /sys/module/pm8921_bms/parameters/last_rbatt
+    chown mot_pwric mot_pwric /sys/module/pm8921_bms/parameters/last_charge_increase
+    chown mot_pwric mot_pwric /sys/module/pm8921_bms/parameters/last_chargecycles
+    chown mot_pwric mot_pwric /sys/module/pm8921_bms/parameters/bms_aged_capacity
+    chown mot_pwric mot_pwric /sys/module/pm8921_bms/parameters/bms_aged_capacity_temp
+    chown mot_pwric mot_pwric /sys/module/pm8921_bms/parameters/bms_chrg_capacity
+    chown mot_pwric mot_pwric /sys/module/pm8921_bms/parameters/bms_chrg_capacity_temp
+    chown mot_pwric mot_pwric /sys/module/pm8921_bms/parameters/chrg_timestamp
+    chown mot_pwric mot_pwric /sys/module/pm8921_bms/parameters/timestamp
+    chown mot_pwric mot_pwric /sys/devices/platform/msm_ssbi.0/pm8921-core/pm8921-charger/pcb_temp
+
+   # Permissions for Factory Test of Charging Paths
+    chown mot_pwric mot_pwric /sys/devices/platform/msm_ssbi.0/pm8921-core/pm8921-charger/force_chg_auto_enable
+    chown mot_pwric mot_pwric /sys/devices/platform/msm_ssbi.0/pm8921-core/pm8921-charger/force_chg_ibatt
+    chown mot_pwric mot_pwric /sys/devices/platform/msm_ssbi.0/pm8921-core/pm8921-charger/force_chg_itrick
+    chown mot_pwric mot_pwric /sys/devices/platform/msm_ssbi.0/pm8921-core/pm8921-charger/force_chg_iusb
+    chown mot_pwric mot_pwric /sys/devices/platform/msm_ssbi.0/pm8921-core/pm8921-charger/force_chg_usb_suspend
+    chown mot_pwric mot_pwric /sys/devices/platform/msm_ssbi.0/pm8921-core/pm8921-charger/force_chg_fail_clear
+    chown mot_pwric mot_pwric /sys/devices/platform/msm_ssbi.0/pm8921-core/pm8921-charger/force_chg_vinmin
+
+    start batt_health
+    exec /system/bin/sh /system/bin/moto_com.sh
+
 #start camera server as daemon
 service qcamerasvr /system/bin/mm-qcamera-daemon
+        class core
+        user camera
+        group camera system inet input graphics net_bt_stack
+
+service gpsone_daemon /system/bin/gpsone_daemon
     class late_start
-    user media
-    group system camera inet input graphics
+    user gps
+    group gps inet net_raw qcom_diag
+
+#start GNSS/Sensor interface daemon
+service gsiff_daemon /system/bin/gsiff_daemon
+    class late_start
+    user system
+    group gps qcom_oncrpc net_raw
 
 service thermald /system/bin/thermald
    class main
    user root
    group root
+   disabled
+
+on property:qcom.thermal=thermald
+    start thermald
 
 service mpdecision /system/bin/mpdecision --no_sleep --avg_comp
    user root
@@ -391,10 +479,6 @@ service whisperd /system/bin/whisperd /dev/ttyHS1
     user mot_whisper
     group mot_whisper mot_pwric
     oneshot
-
-service kickstart /system/bin/qcks -i /firmware/image/
-    oneshot
-    disabled
 
 service qrngd /system/bin/qrngd -f
     class main
@@ -415,27 +499,36 @@ on property:ro.baseband=mdm
     mkdir /data/qcks 0770 system system
     start kickstart
 
-service time_daemon /system/bin/time_daemon
-   class late_start
-   user root
-   group root
+service atvc_core /system/bin/dbvc_atvc_property_set
+    class core
+    user mot_atvc
+    group mot_tpapi
+    oneshot
 
 service atvc /system/bin/dbvc_atvc_property_set
-    class main
-    user system
-    group system
+    class late_start
+    user mot_atvc
+    group mot_tpapi
     oneshot
+
+on property:sys.boot_completed=1
+    start mmi-touch-sh
 
 service qdumpd /system/bin/qdumpd
     class main
     user radio
-    group log sdcard_rw sdcard_r
+    group log sdcard_rw sdcard_r diag
 
 on property:persist.sys.qc.sub.rdump.on=*
     write /sys/module/subsystem_restart/parameters/enable_ramdumps ${persist.sys.qc.sub.rdump.on}
 
 on property:persist.sys.qc.sub.rstrtlvl=*
     write /sys/module/subsystem_restart/parameters/restart_level ${persist.sys.qc.sub.rstrtlvl}
+
+service time_daemon /system/bin/time_daemon
+   class late_start
+   user root
+   group root
 
 # aplogd on at boot in emulator
 on property:ro.kernel.qemu=1
@@ -463,23 +556,23 @@ on property:persist.sys.diag_mdlog.on=1
 on property:persist.sys.diag_mdlog.on=0
     stop diag_mdlog
 
-service diag_mdlog /system/bin/logwrapper /system/bin/diag_mdlog-wrap
+service diag_mdlog /system/bin/diag_mdlog-wrap
     class main
-    # We are having permissions issues on JB so far with this, so must run as root.
-    #user system
-    user root
-    group log system sdcard_rw sdcard_r media_rw qcom_diag
+    socket mdlog_cmd stream 0660 system diag
+    user log
+    group log sdcard_rw sdcard_r media_rw qcom_diag
     disabled
 
-service modemlog /system/bin/modemlog
-   class core
-   user system
-   group system log
-   oneshot
-
 on property:ro.debuggable=1
+   chmod 0775 /sys/kernel/debug
+    # Allow others to read ftrace.
+    chmod 0771 /sys/kernel/debug/tracing
+    chmod 0664 /sys/kernel/debug/tracing/trace
     # Allow unprivileged users to read the kernel log
     write /proc/sys/kernel/dmesg_restrict 0
+    # Enable memkill event trace
+    write /sys/kernel/debug/tracing/tracing_on 1
+    write /sys/kernel/debug/tracing/events/memkill/enable 1
     # Enable GPU mmu pagefault debug logging
     write /sys/kernel/debug/kgsl/kgsl-3d0/ib_dump_on_pagefault 1
 
@@ -495,11 +588,6 @@ service ftmipcd /system/bin/ftmipcd
 
 on property:ro.bootmode=factory
     start ftmipcd
-
-service graphicsd /system/bin/logwrapper /system/bin/graphicsd
-    class main
-    user system
-    group system log
 
 # Define the trigger to Start FastDormancy service
 service start_fd  /system/bin/sh /system/bin/am startservice -a com.motorola.fastdormancy.start
@@ -560,8 +648,72 @@ on property:gsm.network.type="eHRPD"
 on property:gsm.network.type="LTE"
     start stop_fd
 
+# DHCP service for Ethernet
+service dhcpcd_eth0 /system/bin/dhcpcd -ABLKG
+    class late_start
+    disabled
+    oneshot
+
+service iprenew_eth0 /system/bin/dhcpcd -nBK
+    class late_start
+    disabled
+    oneshot
+
+service bootmodem /system/bin/bootmodem
+    class main
+    user shell
+    group log
+    disabled
+    oneshot
+
+service wcnss-service /system/bin/wcnss_service
+    class late_start
+    user system
+    group system wifi
+    oneshot
+
+service mmi-boot-sh /system/bin/logwrapper /system/bin/sh /init.mmi.boot.sh
+    class core
+    user root
+    oneshot
+
+# Touch firmware upgrade
+service mmi-touch-sh /system/bin/logwrapper /system/bin/sh /init.mmi.touch.sh
+    user root
+    oneshot
+    disabled
+
+on boot
+    start thermald
+
+on property:installd.post_fs_data_ready=1
+    # Migration script for sdcard emulation in the kernel
+    exec /system/bin/refuse
+
+# Disable BAM Adaptive Timer when Tethering is on.
+on property:net.tethering.on=1
+   write /sys/module/bam_dmux/parameters/adaptive_timer_enabled 0
+
+# Enable BAM Adaptive Timer when Tethering is off.
+on property:net.tethering.on=0
+   write /sys/module/bam_dmux/parameters/adaptive_timer_enabled 1
+
+service hw_revs /system/bin/logwrapper /system/bin/hardware_revisions.sh
+   class main
+   user system
+   group system
+   oneshot
+
 # Restart adbd so it can run as root
 on property:service.adb.root=1
     write /sys/class/android_usb/android0/enable 0
     restart adbd
     write /sys/class/android_usb/android0/enable 1
+
+service mmi-ril-daemon /system/bin/rild
+    class main
+    socket rild stream 660 root radio
+    socket rild-debug stream 660 radio system
+    socket cutback stream 660 media radio
+    user root
+    group radio cache inet misc audio sdcard_rw qcom_oncrpc qcom_diag log net_raw diag

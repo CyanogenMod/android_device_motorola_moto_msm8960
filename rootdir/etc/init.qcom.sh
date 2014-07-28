@@ -27,28 +27,31 @@
 #
 
 target=`getprop ro.board.platform`
-
+platformid=`cat /sys/devices/system/soc/soc0/id`
 #
 # Function to start sensors for DSPS enabled platforms
 #
 start_sensors()
 {
-    mkdir -p /data/system/sensors
-    touch /data/system/sensors/settings
-    chmod -h 775 /data/system/sensors
-    restorecon /data/system/sensors/settings
-    chmod -h 664 /data/system/sensors/settings
+    if [ -c /dev/msm_dsps -o -c /dev/sensors ]; then
+        mkdir -p /data/system/sensors
+        touch /data/system/sensors/settings
+        chmod -h 775 /data/system/sensors
+        restorecon /data/system/sensors/settings
+        chmod -h 664 /data/system/sensors/settings
+        chown -h system /data/system/sensors/settings
 
-    mkdir -p /data/misc/sensors
-    restorecon /data/misc/sensors
-    chmod -h 775 /data/misc/sensors
+        mkdir -p /data/misc/sensors
+        restorecon /data/misc/sensors
+        chmod -h 775 /data/misc/sensors
 
-    if [ ! -s /data/system/sensors/settings ]; then
-        # If the settings file is empty, enable sensors HAL
-        # Otherwise leave the file with it's current contents
-        echo 1 > /data/system/sensors/settings
+        if [ ! -s /data/system/sensors/settings ]; then
+            # If the settings file is empty, enable sensors HAL
+            # Otherwise leave the file with it's current contents
+            echo 1 > /data/system/sensors/settings
+        fi
+        start sensors
     fi
-    start sensors
 }
 
 start_battery_monitor()
@@ -62,15 +65,17 @@ start_battery_monitor()
 }
 
 baseband=`getprop ro.baseband`
+izat_premium_enablement=`getprop ro.qc.sdk.izat.premium_enabled`
 
 #
 # Suppress default route installation during RA for IPV6; user space will take
 # care of this
-#
+# exception default ifc
 for file in /proc/sys/net/ipv6/conf/*
 do
   echo 0 > $file/accept_ra_defrtr
 done
+echo 1 > /proc/sys/net/ipv6/conf/default/accept_ra_defrtr
 
 #
 # Start gpsone_daemon for SVLTE Type I & II devices
@@ -83,7 +88,31 @@ case "$baseband" in
         "svlte2a")
         start gpsone_daemon
         start bridgemgrd
+        ;;
+        "sglte" | "sglte2")
+        start gpsone_daemon
+        ;;
 esac
+case "$target" in
+        "msm7630_surf" | "msm8660" | "msm8960" | "msm8974")
+        start quipc_igsn
+esac
+case "$target" in
+        "msm7630_surf" | "msm8660" | "msm8960" | "msm8974")
+        start quipc_main
+esac
+
+case "$target" in
+        "msm8960" | "msm8974")
+        start location_mq
+        start lowi-server
+        if [ "$izat_premium_enablement" -eq 1 ]; then
+            start xtwifi_inet
+            start xtwifi_client
+        fi
+esac
+
+start_sensors
 
 case "$target" in
     "msm7630_surf" | "msm7630_1x" | "msm7630_fusion")
@@ -97,13 +126,11 @@ case "$target" in
         platformvalue=`cat /sys/devices/system/soc/soc0/hw_platform`
         case "$platformvalue" in
             "Fluid")
-                start_sensors
                 start profiler_daemon;;
         esac
         ;;
     "msm8960")
         start_sensors
-        esac
 
         platformvalue=`cat /sys/devices/system/soc/soc0/hw_platform`
         case "$platformvalue" in
