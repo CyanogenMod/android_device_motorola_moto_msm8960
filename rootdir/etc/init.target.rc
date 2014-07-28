@@ -717,3 +717,10 @@ service mmi-ril-daemon /system/bin/rild
     socket cutback stream 660 media radio
     user root
     group radio cache inet misc audio sdcard_rw qcom_oncrpc qcom_diag log net_raw diag
+
+# bugreport
+service bugreport /system/bin/dumpstate -d -p -B \
+        -o /data/data/com.android.shell/files/bugreports/bugreport
+    class main
+    disabled
+    oneshot
