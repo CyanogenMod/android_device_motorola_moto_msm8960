@@ -145,6 +145,7 @@ etc/firmware/vidc_1080p.fw
 etc/firmware/vidcfw.elf
 
 # Moto
+bin/batt_health
 bin/whisperd
 lib/libmoto_netutil.so
 
