@@ -39,6 +39,7 @@ PRODUCT_PACKAGES += \
 
 # HAL
 PRODUCT_PACKAGES += \
+    camera.msm8960 \
     copybit.msm8960 \
     gps.msm8960 \
     gralloc.msm8960 \
