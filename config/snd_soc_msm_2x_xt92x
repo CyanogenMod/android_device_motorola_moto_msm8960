@@ -4514,9 +4514,9 @@ SectionDevice
 		'SLIM_0_RX Channels':0:One
 		'RX3 MIX1 INP1':0:RX1
 		'RX4 DSM MUX':0:DSM_INV
-		'RX3 Digital Volume':1:68
-		'LINEOUT1 Volume':1:62
-		'LINEOUT3 Volume':1:62
+		'RX3 Digital Volume':1:70
+		'LINEOUT1 Volume':1:100
+		'LINEOUT3 Volume':1:100
 	EndSequence
 
 	DisableSequence
