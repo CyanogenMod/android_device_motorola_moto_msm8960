@@ -47,6 +47,7 @@ PRODUCT_PACKAGES += \
     keystore.msm8960 \
     lights.MSM8960 \
     memtrack.msm8960 \
+    nfc.msm8960 \
     power.msm8960
 
 # WIFI
