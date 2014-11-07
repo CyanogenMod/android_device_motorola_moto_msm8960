@@ -63,12 +63,12 @@ void init_msm_properties(unsigned long msm_id, unsigned long msm_ver, char *boar
     fp = popen("/system/xbin/sed -n '/Hardware/,/Revision/p' /proc/cpuinfo | /system/xbin/cut -d ':' -f2 | /system/xbin/head -1", "r");
     fgets(hardware_variant, sizeof(hardware_variant), fp);
     pclose(fp);
-    if ((strstr(hardware_variant, "Vanquish")) && (ISMATCH(carrier, "vzw")) || (ISMATCH(bootdevice, "vanquish"))) {
+    if (((strstr(hardware_variant, "Vanquish")) && (ISMATCH(carrier, "vzw"))) || (ISMATCH(bootdevice, "vanquish"))) {
         /* xt926 */
         property_set("ro.product.device", "vanquish");
         property_set("ro.product.model", "DROID RAZR HD");
-        property_set("ro.build.description", "vanquish_vzw-user 4.4.2 KDA20.62-10.1 10 release-keys");
-        property_set("ro.build.fingerprint", "motorola/vanquish_vzw/vanquish:4.4.2/KDA20.62-10.1/10:user/release-keys");
+        property_set("ro.build.description", "vanquish_vzw-user 4.4.2 KDA20.62-15.1 15 release-keys");
+        property_set("ro.build.fingerprint", "motorola/XT926_verizon/vanquish:4.4.2/KDA20.62-15.1/15:user/release-keys");
         property_set("ro.sf.lcd_density", "320");
     } else if ((strstr(hardware_variant, "Vanquish")) && (!ISMATCH(carrier, "vzw"))) {
         /* xt925 */
@@ -104,8 +104,8 @@ void init_msm_properties(unsigned long msm_id, unsigned long msm_ver, char *boar
         /* xt907 */
         property_set("ro.product.device", "smq");
         property_set("ro.product.model", "DROID RAZR M");
-        property_set("ro.build.description", "smq_vzw-user 4.4.2 KDA20.62-10.1 10 release-keys");
-        property_set("ro.build.fingerprint", "motorola/smq_vzw/smq:4.4.2/KDA20.62-10.1/10:user/release-keys");
+        property_set("ro.build.description", "smq_vzw-user 4.4.2 KDA20.62-15.1 15 release-keys");
+        property_set("ro.build.fingerprint", "motorola/XT907_verizon/scorpion_mini:4.4.2/KDA20.62-15.1/15:user/release-keys");
         property_set("ro.sf.lcd_density", "240");
     }
 
