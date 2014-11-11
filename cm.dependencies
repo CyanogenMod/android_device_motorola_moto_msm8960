@@ -10,5 +10,20 @@
   {
     "repository": "android_kernel_motorola_msm8960dt-common",
     "target_path": "kernel/motorola/msm8960dt-common"
+  },
+  {
+    "repository": "android_hardware_qcom_audio",
+    "target_path": "hardware/qcom/audio-caf/legacy",
+    "branch": "cm-12.0-caf-8960"
+  },
+  {
+    "repository": "android_hardware_qcom_display",
+    "target_path": "hardware/qcom/display-caf/msm8960",
+    "branch": "cm-12.0-caf-8960"
+  },
+  {
+    "repository": "android_hardware_qcom_media",
+    "target_path": "hardware/qcom/media-caf/msm8960",
+    "branch": "cm-12.0-caf-8960"
   }
 ]
