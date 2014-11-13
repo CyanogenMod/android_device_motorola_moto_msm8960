@@ -64,7 +64,8 @@ PRODUCT_PACKAGES += \
     charge_only_mode \
     mkfs.f2fs \
     fsck.f2fs \
-    fibmap.f2fs
+    make_f2fs \
+    mkf2fsuserimg.sh
 
 # Misc
 PRODUCT_PACKAGES += \
@@ -94,9 +95,6 @@ PRODUCT_COPY_FILES += \
 
 # Ramdisk
 PRODUCT_PACKAGES += \
-    bbx \
-    f2fscheck.sh \
-    f2fs-fstab.qcom \
     fstab.qcom \
     init.qcom.rc \
     init.recovery.qcom.rc \
@@ -110,6 +108,15 @@ PRODUCT_PACKAGES += \
     init.qcom.post_boot.sh \
     init.qcom.sh \
     init.qcom.wifi.sh
+
+BOARD_USERDATAIMAGE_FILE_SYSTEM_TYPE := f2fs
+$(warning "USING F2FS for userdata")
+
+# This ensures the needed build tools are available.
+# TODO: make non-linux builds happy with external/f2fs-tool; system/extras/f2fs_utils
+ifeq ($(HOST_OS),linux)
+TARGET_USERIMAGES_USE_F2FS := true
+endif
 
 # TWRP
 PRODUCT_COPY_FILES += \

@@ -39,8 +39,6 @@ on early-init
     mkdir /fsg 755 root root
 
 on init
-    chmod 755 /f2fscheck.sh
-    exec /f2fscheck.sh
     # CM: We use our own ril-daemon service definition, see mmi-ril-daemon
     stop ril-daemon
 
