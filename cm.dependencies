@@ -4,6 +4,10 @@
     "target_path": "device/qcom/common"
   },
   {
+    "repository": "android_device_qcom_sepolicy",
+    "target_path": "device/qcom/sepolicy"
+  },
+  {
     "repository": "android_device_motorola_qcom-common",
     "target_path": "device/motorola/qcom-common"
   },
