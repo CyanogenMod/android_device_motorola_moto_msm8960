@@ -62,6 +62,9 @@ lib/pp_proc_plugin.so
 # DRM
 bin/qseecomd
 lib/libQSEEComAPI.so
+lib/libdrmdecrypt.so
+lib/libprdrmdecrypt.so
+lib/libtzplayready.so
 vendor/lib/mediadrm/libwvdrmengine.so
 
 # GPS - from N1
