@@ -62,13 +62,9 @@ lib/pp_proc_plugin.so
 # DRM
 bin/qseecomd
 lib/libQSEEComAPI.so
-lib/libdrmdecrypt.so
-lib/libprdrmdecrypt.so
-lib/libtzplayready.so
-vendor/lib/mediadrm/libwvdrmengine.so
 
 # GPS - from N1
--app/com.qualcomm.location.apk
+-app/com.qualcomm.location/com.qualcomm.location.apk
 bin/gpsone_daemon
 bin/gsiff_daemon
 etc/permissions/com.qualcomm.location.xml
