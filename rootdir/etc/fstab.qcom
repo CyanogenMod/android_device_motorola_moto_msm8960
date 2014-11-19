@@ -13,5 +13,5 @@
 /dev/block/platform/msm_sdcc.1/by-name/boot         /boot            emmc    defaults                                                                             recoveryonly
 /dev/block/platform/msm_sdcc.1/by-name/recovery     /recovery        emmc    defaults                                                                             recoveryonly
 /dev/block/platform/msm_sdcc.1/by-name/modem        /modem           ext4    defaults                                                                             recoveryonly
-/devices/platform/msm_sdcc.3/mmc_host/mmc1/         auto             vfat    defaults                                                                             voldmanaged=sdcard1:auto
+/devices/platform/msm_sdcc.3/mmc_host/mmc1/*        auto             vfat    defaults                                                                             voldmanaged=sdcard1:auto
 /devices/platform/msm_hsusb_host                    auto             vfat    defaults                                                                             voldmanaged=usbdisk:auto
