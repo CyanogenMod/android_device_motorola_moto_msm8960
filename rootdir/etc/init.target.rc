@@ -133,21 +133,8 @@ on post-fs
     restorecon_recursive  /data/misc/wifi
     restorecon_recursive  /data/hostapd
 
-    chmod 755 /system/etc/init.crda.sh
-    chmod 755 /system/etc/init.qcom.bt.sh
-    chmod 755 /system/etc/init.qcom.coex.sh
-    chmod 755 /system/etc/init.qcom.efs.sync.sh
-    chmod 755 /system/etc/init.qcom.mdm_links.sh
-    chmod 755 /system/etc/init.qcom.modem_links.sh
-    chmod 755 /system/etc/init.qcom.post_boot.sh
-    chmod 755 /system/etc/init.qcom.sdio.sh
-    chmod 755 /system/bin/moto_com.sh
-
-    mount ext4 /dev/block/platform/msm_sdcc.1/by-name/system /system ro remount
-
-# Set default maximum of 1.5 GHz (peformance settings will change this if set by user)
-    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq 1512000
-    write /sys/devices/system/cpu/cpu1/cpufreq/scaling_max_freq 1512000
+    # Link thermald
+    symlink /etc/thermald-8960.conf /dev/thermald.conf
 
 on boot
    # setup trace dir
@@ -430,10 +417,6 @@ service thermald /system/bin/thermald
    class main
    user root
    group root
-   disabled
-
-on property:qcom.thermal=thermald
-    start thermald
 
 service mpdecision /system/bin/mpdecision --no_sleep --avg_comp
    user root
