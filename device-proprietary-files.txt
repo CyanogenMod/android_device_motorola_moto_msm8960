@@ -64,7 +64,7 @@ bin/qseecomd
 lib/libQSEEComAPI.so
 
 # GPS - from N1
--app/com.qualcomm.location/com.qualcomm.location.apk
+-priv-app/com.qualcomm.location/com.qualcomm.location.apk
 bin/gpsone_daemon
 bin/gsiff_daemon
 etc/permissions/com.qualcomm.location.xml

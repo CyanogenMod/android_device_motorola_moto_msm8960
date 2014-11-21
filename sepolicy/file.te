@@ -1,0 +1,7 @@
+# PDS partition
+type pds_file, file_type;
+
+# utags partitoin
+type utags_block_device, dev_type;
+type hob_block_device, dev_type;
+type cid_block_device, dev_type;

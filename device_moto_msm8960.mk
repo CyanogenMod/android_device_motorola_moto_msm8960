@@ -110,6 +110,10 @@ PRODUCT_PACKAGES += \
     init.qcom.sh \
     init.qcom.wifi.sh
 
+# Scripts
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/rootdir/etc/mount_pds.sh:system/bin/mount_pds.sh
+
 BOARD_USERDATAIMAGE_FILE_SYSTEM_TYPE := f2fs
 $(warning "USING F2FS for userdata")
 
