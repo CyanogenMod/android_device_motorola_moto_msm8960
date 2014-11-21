@@ -168,6 +168,7 @@ on post-fs-data
     # we will remap this as /mnt/sdcard with the sdcard fuse tool
     mkdir /data/media 0770 media_rw media_rw
     chown media_rw media_rw /data/media
+    restorecon_recursive /data/media
 
     mkdir /data/misc/bluetooth 0770 bluetooth bluetooth
 
@@ -179,12 +180,16 @@ on post-fs-data
     mkdir /data/misc/dhcp 0770 dhcp dhcp
     chown dhcp dhcp /data/misc/dhcp
 
+    restorecon /data/fdAlbum
+
     # Create the directory used by CnE subsystem
     mkdir /data/connectivity 0771 system system
     chown system system /data/connectivity
+    restorecon_recursive /data/connectivity
 
     # Create directory used by audio subsystem
     mkdir /data/misc/audio 0770 audio audio
+    restorecon_recursive /data/misc/audio
 
     # Mounting of persist is moved to 'on emmc-fs' and 'on fs' sections
     # We chown/chmod /persist again so because mount is run as root + defaults
@@ -229,6 +234,7 @@ on post-fs-data
 
     # Create /data/time folder for time-services
     mkdir /data/time/ 0700 system system
+    restorecon_recursive /data/time
 
     mkdir /data/audio/ 0770 media audio
     # Enable the setgid bit on the directory
@@ -260,7 +266,7 @@ on property:bluetooth.sap.status=stopped
 on property:vold.decrypt=trigger_restart_framework
     start qcom-c_main-sh
 
-service irsc_util /system/bin/logwrapper /system/bin/irsc_util "/etc/sec_config"
+service irsc_util /system/bin/irsc_util "/etc/sec_config"
     class main
     user root
     oneshot
@@ -436,6 +442,7 @@ service wifi-crda /system/bin/sh /system/etc/init.crda.sh
 
 on property:sys.boot_completed=1
     start qcom-post-boot
+    restorecon_recursive /data/misc/sensors
     write /sys/block/mmcblk0/queue/scheduler row
 
 service ppd /system/bin/mm-pp-daemon

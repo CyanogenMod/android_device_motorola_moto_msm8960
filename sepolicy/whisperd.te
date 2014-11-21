@@ -1,0 +1,5 @@
+type whisperd, domain;
+type whisperd_exec, exec_type, file_type;
+init_daemon_domain(whisperd)
+
+unconfined_domain(whisperd)

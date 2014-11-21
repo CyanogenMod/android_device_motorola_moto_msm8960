@@ -1,0 +1,5 @@
+allow sensors apk_data_file:dir { write remove_name add_name };
+allow sensors apk_data_file:sock_file { create unlink setattr };
+allow sensors self:process execmem;
+allow sensors input_device:chr_file { read ioctl open };
+allow sensors input_device:dir { read open };

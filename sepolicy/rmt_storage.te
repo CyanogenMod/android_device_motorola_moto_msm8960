@@ -1,0 +1,2 @@
+allow rmt_storage firmware_file:file { read open };
+allow rmt_storage ssd_device:blk_file { read write open };

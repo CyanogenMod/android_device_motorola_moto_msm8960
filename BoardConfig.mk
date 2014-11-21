@@ -100,3 +100,34 @@ TW_EXTERNAL_STORAGE_MOUNT_POINT := "external_sd"
 # Needs to be changed for M
 DEVICE_RESOLUTION := 720x1280
 #DEVICE_RESOLUTION := 540x960
+
+# SELinux
+BOARD_SEPOLICY_DIRS += \
+	device/motorola/moto_msm8960/sepolicy
+
+BOARD_SEPOLICY_UNION += \
+    atvc_core.te \
+    batt_health.te \
+    bootmodem.te \
+    file.te \
+    file_contexts \
+    hw_revs.te \
+    keystore.te \
+    location.te \
+    mmi-boot-sh.te \
+    mmi-touch-sh.te \
+    mm-pp-daemon.te \
+    mm-qcamerad.te \
+    mpdecision.te \
+    qdumpd.te \
+    qrngd.te \
+    rmt_storage.te \
+    sensors.te \
+    shell.te \
+    su_daemon.te \
+    surfaceflinger.te \
+    sysinit.te \
+    thermald.te \
+    time_daemon.te \
+    ueventd.te \
+    whisperd.te
