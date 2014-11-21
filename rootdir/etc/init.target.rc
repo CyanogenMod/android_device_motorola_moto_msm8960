@@ -129,9 +129,6 @@ on fs
 on post-fs
 # Enable Cifs module
     insmod /system/lib/modules/cifs.ko
-    restorecon /data/media /data/media/0 /data/media/legacy /data/media/obb
-    restorecon_recursive  /data/misc/wifi
-    restorecon_recursive  /data/hostapd
 
     # Link thermald
     symlink /etc/thermald-8960.conf /dev/thermald.conf
@@ -394,7 +391,7 @@ on post-fs-data
     chown mot_pwric mot_pwric /sys/devices/platform/msm_ssbi.0/pm8921-core/pm8921-charger/force_chg_vinmin
 
     start batt_health
-    exec /system/bin/sh /system/bin/moto_com.sh
+    exec /system/bin/moto_com.sh
 
 #start camera server as daemon
 service qcamerasvr /system/bin/mm-qcamera-daemon
@@ -428,11 +425,6 @@ service whisperd /system/bin/whisperd /dev/ttyHS1
     user mot_whisper
     group mot_whisper mot_pwric
     oneshot
-
-service qrngd /system/bin/qrngd -f
-    class main
-    user root
-    group root
 
 service qseecomd /system/bin/qseecomd
     class late_start
@@ -621,13 +613,13 @@ service wcnss-service /system/bin/wcnss_service
     group system wifi
     oneshot
 
-service mmi-boot-sh /system/bin/logwrapper /system/bin/sh /init.mmi.boot.sh
+service mmi-boot-sh /system/bin/init.mmi.boot.sh
     class core
     user root
     oneshot
 
 # Touch firmware upgrade
-service mmi-touch-sh /system/bin/logwrapper /system/bin/sh /init.mmi.touch.sh
+service mmi-touch-sh /system/bin/init.mmi.touch.sh
     user root
     oneshot
     disabled
@@ -647,7 +639,7 @@ on property:net.tethering.on=1
 on property:net.tethering.on=0
    write /sys/module/bam_dmux/parameters/adaptive_timer_enabled 1
 
-service hw_revs /system/bin/logwrapper /system/bin/hardware_revisions.sh
+service hw_revs /system/bin/hardware_revisions.sh
    class main
    user system
    group system
