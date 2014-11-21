@@ -1,0 +1,1 @@
+allow init utags_block_device:blk_file setattr;
