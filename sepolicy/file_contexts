@@ -1,0 +1,62 @@
+# Init Services
+/system/bin/dbvc_atvc_property_set u:object_r:atvc_core_exec:s0
+/system/bin/batt_health            u:object_r:batt_health_exec:s0
+/system/bin/bootmodem              u:object_r:bootmodem_exec:s0
+/system/bin/hardware_revisions.sh  u:object_r:hw_revs_exec:s0
+/system/bin/init.mmi.boot.sh       u:object_r:mmi-boot-sh_exec:s0
+/system/bin/init.mmi.touch.sh      u:object_r:mmi-touch-sh_exec:s0
+/system/bin/qdumpd                 u:object_r:qdumpd_exec:s0
+/system/bin/thermald               u:object_r:thermald_exec:s0
+/system/bin/whisperd               u:object_r:whisperd_exec:s0
+
+# gps
+/data/misc/gpsone_d(/.*)?          u:object_r:location_data_file:s0
+/data/misc/gsiff_ctrl_q            u:object_r:location_data_file:s0
+
+# GPU device (world r/w)
+/dev/kgsl-.*                       u:object_r:gpu_device:s0
+
+# Image Rotator Driver
+/dev/msm_rotator                   u:object_r:video_device:s0
+
+# Jpeg Engine support
+/dev/gemini.*                      u:object_r:camera_device:s0
+
+# mpdecision
+/data/system/default_values        u:object_r:mpctl_data_file:s0
+
+# MSM camera related
+/data/cam_socket([0-9])+           u:object_r:camera_socket:s0
+/dev/motcamera0                    u:object_r:camera_device:s0
+
+# MSM Sensors
+/data/app/sensor_ctl_socket        u:object_r:sensors_socket:s0
+
+# qdumpd
+/dev/coredump_modem                u:object_r:qdumpd_device:s0
+
+# time_daemon
+/data/time(/.*)?                   u:object_r:time_data_file:s0
+
+# atvc_core
+/dev/sec                           u:object_r:atvc_core_device:s0
+
+# batt_health
+/data/power_supply_logger/power_supply_info.bin u:object_r:batt_health_data_file:s0
+/sys/module/pm8921_bms(/.*)?       u:object_r:batt_health_sysfs:s0
+
+# hw_revs
+/data/hardware_revisions(/.*)?     u:object_r:hw_revs_data_file:s0
+
+# Motorola partitions
+/dev/block/mmcblk0p8               u:object_r:utags_block_device:s0
+/dev/block/mmcblk0p20              u:object_r:hob_block_device:s0
+/dev/block/mmcblk0p21              u:object_r:hob_block_device:s0
+/dev/block/mmcblk0p28              u:object_r:cid_block_device:s0
+
+# PDS
+/pds(/.*)?                         u:object_r:pds_file:s0
+/pds/camera(/.*)?                  u:object_r:camera_data_file:s0
+
+# whisperd
+/dev/emu_det                       u:object_r:whisperd_device:s0
