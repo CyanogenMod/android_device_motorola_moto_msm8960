@@ -21,6 +21,9 @@
 # definition file).
 #
 
+# QCOM SELinux policy
+include device/qcom/sepolicy/sepolicy.mk
+
 # inherit from the proprietary version
 -include vendor/motorola/moto_msm8960/BoardConfigVendor.mk
 
@@ -103,3 +106,34 @@ TW_EXTERNAL_STORAGE_MOUNT_POINT := "external_sd"
 # Needs to be changed for M
 DEVICE_RESOLUTION := 720x1280
 #DEVICE_RESOLUTION := 540x960
+
+# SELinux
+BOARD_SEPOLICY_DIRS += \
+    device/motorola/moto_msm8960/sepolicy
+
+BOARD_SEPOLICY_UNION += \
+    atvc.te \
+    atvc_core.te \
+    batt_health.te \
+    bootmodem.te \
+    device.te \
+    file.te \
+    file_contexts \
+    hw_revs.te \
+    keystore.te \
+    location.te \
+    mmi-boot-sh.te \
+    mmi-touch-sh.te \
+    mm-pp-daemon.te \
+    mm-qcamerad.te \
+    mpdecision.te \
+    platform_app.te \
+    property_contexts \
+    property.te \
+    qdumpd.te \
+    rmt_storage.te \
+    sensors.te \
+    surfaceflinger.te \
+    thermald.te \
+    ueventd.te \
+    whisperd.te
