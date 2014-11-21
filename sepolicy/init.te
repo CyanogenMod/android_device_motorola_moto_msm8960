@@ -1,0 +1,3 @@
+allow init utags_block_device:blk_file setattr;
+allow init hob_block_device:blk_file setattr;
+allow init cid_block_device:blk_file setattr;
