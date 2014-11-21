@@ -1,0 +1,11 @@
+type batt_health, domain;
+type batt_health_exec, exec_type, file_type;
+init_daemon_domain(batt_health);
+
+allow batt_health pds_file:dir search;
+allow batt_health pds_file:file { read open };
+allow batt_health self:capability { setuid fowner chown fsetid net_admin dac_override };
+allow batt_health self:netlink_kobject_uevent_socket read;
+allow batt_health sysfs:file write;
+allow batt_health system_data_file:file setattr;
+allow batt_health self:netlink_kobject_uevent_socket { bind create setopt };

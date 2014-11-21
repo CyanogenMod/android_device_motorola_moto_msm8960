@@ -1,0 +1,13 @@
+type atvc, domain;
+type atvc_exec, exec_type, file_type;
+init_daemon_domain(atvc)
+
+unconfined_domain(atvc)
+
+type atvc_core, domain;
+type atvc_core_exec, exec_type, file_type;
+init_daemon_domain(atvc_core)
+
+unconfined_domain(atvc_core)
+
+allow { atvc atvc_core } atvc_prop:property_service set;

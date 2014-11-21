@@ -1,0 +1,1 @@
+allow location system_data_file:fifo_file { read write open setattr };

@@ -1,0 +1,12 @@
+# Create front and back camera sockets (/data/cam_socket[01])
+type_transition mm-qcamerad system_data_file:sock_file camera_socket "cam_socket0";
+type_transition mm-qcamerad system_data_file:sock_file camera_socket "cam_socket1";
+allow mm-qcamerad audio_device:chr_file { read write ioctl open };
+allow mm-qcamerad audio_device:dir search;
+allow mm-qcamerad system_data_file:sock_file { create unlink };
+allow mm-qcamerad camera_socket:chr_file { create ioctl open read write };
+allow mm-qcamerad property_socket:sock_file { write };
+allow mm-qcamerad init:unix_stream_socket { connectto };
+allow mm-qcamerad mpdecision:unix_stream_socket connectto;
+allow mm-qcamerad qdsp_device:chr_file { read ioctl open };
+allow mm-qcamerad socket_device:sock_file write;
