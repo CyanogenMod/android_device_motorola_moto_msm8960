@@ -1,0 +1,1 @@
+allow shell camera_device:chr_file x_file_perms;

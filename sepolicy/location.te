@@ -1,0 +1,1 @@
+allow location location_data_file:fifo_file rw_file_perms;

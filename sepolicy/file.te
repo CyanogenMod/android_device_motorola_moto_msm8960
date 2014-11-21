@@ -1,0 +1,23 @@
+# atvc_core
+type atvc_core_device, dev_type;
+
+# batt_health
+type batt_health_data_file, file_type;
+type batt_health_sysfs, sysfs_type, fs_type;
+
+# hw_revs
+type hw_revs_data_file, file_type;
+
+# Motorola partitions
+type utags_block_device, dev_type;
+type hob_block_device, dev_type;
+type cid_block_device, dev_type;
+
+# PDS partition
+type pds_file, file_type;
+
+# qdumpd
+type qdumpd_device, dev_type;
+
+# whisperd
+type whisperd_device, dev_type;

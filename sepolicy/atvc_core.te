@@ -1,0 +1,12 @@
+type atvc, domain;
+type atvc_exec, exec_type, file_type;
+init_daemon_domain(atvc)
+
+type atvc_core, domain;
+type atvc_core_exec, exec_type, file_type;
+init_daemon_domain(atvc_core)
+
+allow { atvc atvc_core } atvc_prop:property_service set;
+allow atvc_core init:unix_stream_socket connectto;
+allow atvc_core property_socket:sock_file w_file_perms;
+allow atvc_core atvc_core_device:chr_file rw_file_perms;
