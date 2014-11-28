@@ -119,6 +119,7 @@ BOARD_SEPOLICY_UNION += \
     device.te \
     file.te \
     file_contexts \
+    hostapd.te \
     hw_revs.te \
     keystore.te \
     location.te \
@@ -127,6 +128,7 @@ BOARD_SEPOLICY_UNION += \
     mm-pp-daemon.te \
     mm-qcamerad.te \
     mpdecision.te \
+    netd.te \
     platform_app.te \
     property_contexts \
     property.te \

@@ -1,0 +1,4 @@
+allow netd self:capability fsetid;
+allow netd wpa_socket:dir create_dir_perms;
+allow netd wpa_socket:sock_file create_file_perms;
+unix_socket_send(netd, wpa, hostapd)
