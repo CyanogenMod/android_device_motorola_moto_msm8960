@@ -135,5 +135,6 @@ BOARD_SEPOLICY_UNION += \
     qdumpd.te \
     sensors.te \
     surfaceflinger.te \
+    thermal-engine.te \
     ueventd.te \
     whisperd.te
