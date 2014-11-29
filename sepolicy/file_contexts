@@ -6,7 +6,6 @@
 /system/bin/init.mmi.boot.sh       u:object_r:mmi-boot-sh_exec:s0
 /system/bin/init.mmi.touch.sh      u:object_r:mmi-touch-sh_exec:s0
 /system/bin/qdumpd                 u:object_r:qdumpd_exec:s0
-/system/bin/thermald               u:object_r:thermald_exec:s0
 /system/bin/whisperd               u:object_r:whisperd_exec:s0
 
 # gps
@@ -15,9 +14,6 @@
 
 # GPU device (world r/w)
 /dev/kgsl-.*                       u:object_r:gpu_device:s0
-
-# Image Rotator Driver
-/dev/msm_rotator                   u:object_r:video_device:s0
 
 # Jpeg Engine support
 /dev/gemini.*                      u:object_r:camera_device:s0
