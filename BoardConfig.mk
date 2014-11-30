@@ -119,7 +119,6 @@ BOARD_SEPOLICY_UNION += \
     device.te \
     file.te \
     file_contexts \
-    hostapd.te \
     hw_revs.te \
     keystore.te \
     location.te \
