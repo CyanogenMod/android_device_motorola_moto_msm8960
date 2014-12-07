@@ -141,16 +141,12 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/config/media_profiles.xml:system/etc/media_profiles.xml \
     $(LOCAL_PATH)/config/media_profiles_xt90x.xml:system/etc/media_profiles_xt90x.xml \
-    $(LOCAL_PATH)/config/media_codecs.xml:system/etc/media_codecs.xml
+    $(LOCAL_PATH)/config/media_codecs_aosp.xml:system/etc/media_codecs.xml
 
 # XT90x recovery
 PRODUCT_COPY_FILES += \
     device/motorola/qcom-common/idc/atmxt-i2c.idc:recovery/root/vendor/firmware/atmxt-i2c.idc \
     vendor/motorola/moto_msm8960/proprietary/etc/firmware/atmxt-r2.tdat:recovery/root/vendor/firmware/atmxt-r2.tdat
-
-# Include 960x540 boot animation in the zip
-PRODUCT_COPY_FILES += \
-    vendor/cm/prebuilt/common/bootanimation/540.zip:system/media/540.zip
 
 # QCOM Display
 PRODUCT_PROPERTY_OVERRIDES += \
