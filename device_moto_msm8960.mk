@@ -160,7 +160,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     media.stagefright.enable-qcp=true \
     media.stagefright.enable-fma2dp=true \
     media.stagefright.enable-scan=true \
-    media.stagefright.use-awesome=true \
     mmp.enable.3g2=true \
     media.aac_51_output_enabled=true \
     ro.mot.vr_source_dsp=1
