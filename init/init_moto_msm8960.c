@@ -126,8 +126,9 @@ void init_msm_properties(unsigned long msm_id, unsigned long msm_ver, char *boar
         property_set("ro.gsm.data_retry_config", "default_randomization=2000,max_retries=infinite,1000,1000,80000,125000,485000,905000");
         property_set("ro.gsm.2nd_data_retry_config", "max_retries=1,15000");
         property_set("ro.cdma.homesystem", "64,65,76,77,78,79,80,81,82,83");
-        property_set("ro.cdma.home.operator.alpha", "Verizon");
+        property_set("ro.cdma.home.operator.alpha", "Verizon Wireless");
         property_set("ro.cdma.home.operator.numeric", "310004");
+        property_set("ro.telephony.get_imsi_from_sim", "true");
         property_set("ro.com.google.clientidbase.ms", "android-verizon");
         property_set("ro.com.google.clientidbase.am", "android-verizon");
         property_set("ro.com.google.clientidbase.yt", "android-verizon");
