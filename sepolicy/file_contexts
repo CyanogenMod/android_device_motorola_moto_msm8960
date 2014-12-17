@@ -30,6 +30,8 @@
 
 # qdumpd
 /dev/coredump_modem                u:object_r:qdumpd_device:s0
+/data/misc/ril/bp-dumps(/.*)?      u:object_r:qdump_data_file:s0
+/data/ss-ram-dumps/bp-dumps(/.*)?  u:object_r:qdump_data_file:s0
 
 # atvc_core
 /dev/sec                           u:object_r:atvc_core_device:s0

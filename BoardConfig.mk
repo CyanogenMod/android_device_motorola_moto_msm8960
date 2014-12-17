@@ -132,6 +132,7 @@ BOARD_SEPOLICY_UNION += \
     property_contexts \
     property.te \
     qdumpd.te \
+    rmt_storage.te \
     sensors.te \
     surfaceflinger.te \
     thermal-engine.te \

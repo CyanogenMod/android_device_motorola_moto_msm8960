@@ -2,5 +2,7 @@ type qdumpd, domain;
 type qdumpd_exec, exec_type, file_type;
 init_daemon_domain(qdumpd)
 
+allow qdumpd qdump_data_file:dir create_dir_perms;
+allow qdumpd qdump_data_file:file create_file_perms;
 allow qdumpd qdumpd_device:chr_file rw_file_perms;
 allow qdumpd ramdump_device:chr_file rw_file_perms;
