@@ -5703,10 +5703,14 @@ SectionDevice
 	EnableSequence
 		'AIF1_CAP Mixer SLIM TX7':1:1
 		'AIF1_CAP Mixer SLIM TX8':1:1
-		'SLIM TX7 MUX':0:DEC7
-		'DEC7 MUX':0:DMIC1
-		'SLIM TX8 MUX':0:DEC10
-		'DEC10 MUX':0:DMIC3
+		'SLIM TX7 MUX':0:DEC4
+		'DEC4 MUX':0:ADC3
+		'DEC4 Volume':1:82
+		'ADC3 Volume':1:100
+		'SLIM TX8 MUX':0:DEC3
+		'DEC3 MUX':0:ADC4
+		'DEC3 Volume':1:82
+		'ADC4 Volume':1:100
 		'MICBIAS1 CAPLESS Switch':1:0
 		'MICBIAS3 CAPLESS Switch':1:0
 		'SLIM_0_TX Channels':0:Two
@@ -5716,9 +5720,13 @@ SectionDevice
 		'AIF1_CAP Mixer SLIM TX7':1:0
 		'AIF1_CAP Mixer SLIM TX8':1:0
 		'SLIM TX7 MUX':0:ZERO
-		'DEC7 MUX':0:ZERO
+		'DEC4 MUX':0:ZERO
+		'DEC4 Volume':1:68
 		'SLIM TX8 MUX':0:ZERO
-		'DEC10 MUX':0:ZERO
+		'DEC3 MUX':0:ZERO
+		'DEC3 Volume':1:68
+		'ADC3 Volume':1:0
+		'ADC4 Volume':1:0
 		'MICBIAS1 CAPLESS Switch':1:0
 		'MICBIAS3 CAPLESS Switch':1:0
 	EndSequence
