@@ -29,6 +29,8 @@ import init.qcom.usb.rc
 import init.target.rc
 
 on early-init
+    # Switch to NOOP and performance mode while booting
+    setprop sys.perf.profile 2
     write /sys/block/mmcblk0/queue/scheduler noop
 
 on init
@@ -436,6 +438,8 @@ service wifi-crda /system/bin/sh /system/etc/init.crda.sh
 
 on property:sys.boot_completed=1
     start qcom-post-boot
+    # Switch back to row and balanced mode after boot
+    setprop sys.perf.profile 1
     write /sys/block/mmcblk0/queue/scheduler row
 
 service ppd /system/bin/mm-pp-daemon
