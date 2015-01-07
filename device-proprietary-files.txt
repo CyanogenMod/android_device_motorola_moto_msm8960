@@ -4,6 +4,7 @@ lib/libadsprpc.so
 # Audio
 bin/ap_gain.bin
 bin/ap_gain_mmul.bin
+lib/libacdbloader.so
 lib/libaudcal.so
 
 # Camera
@@ -103,6 +104,9 @@ vendor/lib/libOpenVG.so
 vendor/lib/libsc-a2xx.so
 vendor/lib/libsc-a3xx.so
 
+# Graphics Firmware
+etc/firmware/a300_pm4.fw
+
 # IMS - currently unused but have dependencies to qmi
 bin/imsdatadaemon
 bin/imsqmidaemon
@@ -124,8 +128,11 @@ vendor/lib/lib-rtpdaemoninterface.so
 vendor/lib/lib-rtpsl.so
 
 # Media
+lib/libI420colorconvert.so
+lib/libgemini.so
 lib/libOmxVenc.so
 lib/libmmparser.so
+lib/libmm-color-convertor.so
 
 #  Media firmware
 etc/firmware/vidc.b00
@@ -141,14 +148,19 @@ bin/batt_health
 bin/whisperd
 lib/libmoto_netutil.so
 
+# Perf
+bin/mpdecision
+
 # Postprocessing
 bin/mm-pp-daemon
 
 # Qualcomm framework
+lib/libconfigdb.so
 lib/libdsi_netctrl.so
 lib/libdsprofile.so
 lib/libdss.so
 lib/libdsucsd.so
+lib/libdsutils.so
 lib/libidl.so
 lib/libqcci_legacy.so
 lib/libqdi.so
@@ -157,24 +169,30 @@ lib/libqmi.so
 lib/libqmi_client_qmux.so
 lib/libqmi_csvt_srvc.so
 lib/libqmiservices.so
+vendor/lib/libdiag.so
 vendor/lib/libqmi_cci.so
 vendor/lib/libqmi_common_so.so
+vendor/lib/libqmi_csi.so
+vendor/lib/libqmi_encdec.so
 
 # Radio
 bin/sapd
 bin/netmgrd
 bin/rild
 bin/rmt_storage
+bin/qdumpd
 bin/qmi_motext_hook
 bin/qmiproxy
 bin/qmuxd
 -framework/qcnvitems.jar
 -framework/qcrilhook.jar
+lib/libbabysit.so
 lib/libmdmcutback.so
 lib/libmotext_inf.so
 lib/libnetmgr.so
 lib/libril.so
 lib/libril-qc-qmi-1.so
+lib/libril-qcril-hook-oem.so
 
 # Sensors
 bin/sensors.qcom
