@@ -86,7 +86,7 @@ $(FIRMWARE_MODEM_F1_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 	@rm -rf $@
 	$(hide) ln -sf /firmware/image/$(notdir $@) $@
 
-ALL_DEFAULT_INSTALLED_MODULES += $(FIRMWARE_MODEM_FW_SYMLINKS)
+ALL_DEFAULT_INSTALLED_MODULES += $(FIRMWARE_MODEM_F1_SYMLINKS)
 
 FIRMWARE_MODEM_FW_IMAGES := \
     modem_fw.b00 modem_fw.b01 modem_fw.b02 modem_fw.b03 modem_fw.b04 modem_fw.b05 \
