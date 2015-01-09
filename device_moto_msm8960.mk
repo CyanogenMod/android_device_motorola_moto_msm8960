@@ -34,7 +34,6 @@ PRODUCT_COPY_FILES += \
 
 # Audio
 PRODUCT_PACKAGES += \
-    audio_policy.msm8960 \
     audio.primary.msm8960
 
 # HAL
