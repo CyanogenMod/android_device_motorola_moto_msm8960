@@ -85,7 +85,7 @@ BOARD_EGL_CFG := $(LOCAL_PATH)/config/egl.cfg
 TARGET_RELEASETOOLS_EXTENSIONS := device/motorola/moto_msm8960
 
 # Assert
-TARGET_OTA_ASSERT_DEVICE := moto_msm8960,xt907,scorpion_mini,smq,xt926,vanquish
+TARGET_OTA_ASSERT_DEVICE := moto_msm8960,xt907,scorpion_mini,smq,xt926,vanquish,xt925
 
 # Recovery
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBA_8888"
