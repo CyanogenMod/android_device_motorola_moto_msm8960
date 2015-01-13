@@ -22,9 +22,10 @@ LOCAL_PATH := device/motorola/moto_msm8960
 
 # moto_msm8960 specific overlay
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
+
+PRODUCT_LOCALES := en_US
+PRODUCT_LOCALES += hdpi xhdpi
 PRODUCT_AAPT_CONFIG := normal hdpi xhdpi
-# To build cm recovery this must be set to get proper recovery resources
-#PRODUCT_AAPT_PREF_CONFIG := xhdpi
 
 # Permissions
 PRODUCT_COPY_FILES += \
@@ -119,7 +120,7 @@ endif
 
 # TWRP
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/rootdir/etc/twrp.fstab:root/etc/twrp.fstab
+    $(LOCAL_PATH)/rootdir/etc/twrp.fstab:recovery/root/etc/twrp.fstab
 
 # Audio configuration
 PRODUCT_COPY_FILES += \
@@ -139,8 +140,8 @@ PRODUCT_COPY_FILES += \
 
 # XT90x recovery
 PRODUCT_COPY_FILES += \
-    device/motorola/qcom-common/idc/atmxt-i2c.idc:root/vendor/firmware/atmxt-i2c.idc \
-    vendor/motorola/moto_msm8960/proprietary/etc/firmware/atmxt-r2.tdat:root/vendor/firmware/atmxt-r2.tdat
+    device/motorola/qcom-common/idc/atmxt-i2c.idc:recovery/root/vendor/firmware/atmxt-i2c.idc \
+    vendor/motorola/moto_msm8960/proprietary/etc/firmware/atmxt-r2.tdat:recovery/root/vendor/firmware/atmxt-r2.tdat
 
 # QCOM Display
 PRODUCT_PROPERTY_OVERRIDES += \
