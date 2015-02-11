@@ -1,0 +1,7 @@
+[
+  },
+  {
+    "repository": "android_device_motorola_qcom-common",
+    "target_path": "device/motorola/qcom-common"
+  }
+]
